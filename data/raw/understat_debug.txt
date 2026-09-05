@@ -1,0 +1,71 @@
+url: https://understat.com/league/EPL/2014
+status: 200
+bytes: 18698
+has 'datesData': False
+has 'Cloudflare'/'captcha': True
+--- first 3000 chars ---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<base href="https://understat.com/">
+		<title>EPL xG Table and Scorers for the 2014/2015 season | Understat.com</title>
+        <meta charset="UTF-8" />
+		<meta name="description" content="xG table of EPL standings and top scorers for the 2014/2015 season, also tables from past seasons and other European football leagues.">
+		<meta name="Keywords" content="EPL, xg table,scorers, expected goals table, season 2014/2015">
+		<meta name="viewport" user-scalable="no" content="width=device-width, maximum-scale=1, initial-scale=1">
+		<script src="https://sdk.adlook.tech/inventory/core.js" async type="text/javascript"></script>
+			<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="apple-mobile-web-app-title" content="understat">
+	<meta name="application-name" content="understat">
+	<meta name="theme-color" content="#ffffff">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<link href="css/main.min.css?t=1765221332" rel="stylesheet" media="screen">
+    </head>
+    <body class="theme-dark">
+		<script>
+			var THEME = localStorage.getItem("theme") || 'DARK';
+			document.body.className = "theme-" + THEME.toLowerCase();
+		</script>
+        	<div class="wrapper">
+				<header id="header" class="clearfix">
+			<div class="header-wrapper">
+				<select name="league" data-search="true" data-height="400">
+			<option value="EPL"  selected >EPL</option>
+			<option value="La liga" >La liga</option>
+			<option value="Bundesliga" >Bundesliga</option>
+			<option value="Serie A" >Serie A</option>
+			<option value="Ligue 1" >Ligue 1</option>
+			<option value="RFPL" >RFPL</option>
+	</select>
+<select name="season" data-redirect="league" data-height="400">
+			<option value="2026" >2026/2027</option>
+			<option value="2025" >2025/2026</option>
+			<option value="2024" >2024/2025</option>
+			<option value="2023" >2023/2024</option>
+			<option value="2022" >2022/2023</option>
+			<option value="2021" >2021/2022</option>
+			<option value="2020" >2020/2021</option>
+			<option value="2019" >2019/2020</option>
+			<option value="2018" >2018/2019</option>
+			<option value="2017" >2017/2018</option>
+			<option value="2016" >2016/2017</option>
+			<option value="2015" >2015/2016</option>
+			<option value="2014"  selected >2014/2015</option>
+	</select>
+				<nav class="m-navigation-main">
+					<input class="toggle" id="toggle" type="checkbox">
+					<label class="toggle" for="toggle">
+						<div class="line-wrap">
+							<div class="line top"></div>
+							<div class="line center"></div>
+							<div class="line bottom"></div>
+						</div>
+					</label>
+					<ul class="h-inner">
+						<li class="player-search">
+		

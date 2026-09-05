@@ -1,0 +1,13 @@
+probe run 2026-09-05T08:51:31+00:00
+what this GitHub Actions runner can reach
+
+  football-data.co.uk      HTTP 200  text/csv
+  understat league page    HTTP 200  text/html; charset=UTF-8
+  understat root           HTTP 200  text/html; charset=UTF-8
+  fbref                    HTTP 403  text/html; charset=UTF-8  <- bot challenge page
+  fbref robots             HTTP 403  text/html; charset=UTF-8  <- bot challenge page
+  clubelo api              FAILED  ConnectTimeout: HTTPSConnectionPool(host='api.clubelo.com', port=443): Max retries exc
+  the-odds-api             HTTP 401  application/json; charset=utf-
+  sofascore api            HTTP 403  application/json
+  worldfootball            HTTP 403  text/html; charset=UTF-8  <- bot challenge page
+  raw.githubusercontent    HTTP 200  text/plain; charset=utf-8

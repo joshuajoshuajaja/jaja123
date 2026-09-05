@@ -1,16 +1,14 @@
-last_run_utc: 2026-09-05T08:15:41+00:00
+last_run_utc: 2026-09-05T08:46:39+00:00
 matches_rows: 148031
 divisions: 40
 date_range: 2012-03-02 .. 2026-09-03
 clubelo: no
 xg_matches: 0
 odds: no
-warnings: 5
-  - https://api.clubelo.com/2026-09-05: HTTPSConnectionPool(host='api.clubelo.com', port=443): Max retries exceeded with url: /2026-09-05 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.clubelo.com', port=443) at 0x7fca9ff5d820>, 'Connection to api.clubelo.com timed out. (connect timeout=45)'))
-  - https://api.clubelo.com/2026-09-04: HTTPSConnectionPool(host='api.clubelo.com', port=443): Max retries exceeded with url: /2026-09-04 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.clubelo.com', port=443) at 0x7fca9ff5c080>, 'Connection to api.clubelo.com timed out. (connect timeout=45)'))
-  - https://api.clubelo.com/2026-09-03: HTTPSConnectionPool(host='api.clubelo.com', port=443): Max retries exceeded with url: /2026-09-03 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.clubelo.com', port=443) at 0x7fca9ff5c830>, 'Connection to api.clubelo.com timed out. (connect timeout=45)'))
-  - clubelo unavailable
-  - understat returned nothing - xG unavailable this run
+warnings: 3
+  - clubelo unreachable from this runner
+  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
+  - understat returned nothing - status counts {200: 78}
 
 rows per division:
   USA: MLS                     6145
