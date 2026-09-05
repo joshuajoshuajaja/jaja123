@@ -856,3 +856,57 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-05T11:35:39+00:00,2026-09-06T13:00:00+00:00,Serie A,Parma,Monza,Correct Score,1-1,0.14108,,,
 2026-09-05T11:35:39+00:00,2026-09-06T16:30:00+00:00,La Liga,Alavés,CA Osasuna,Correct Score,1-0,0.13757,,,
 2026-09-05T11:35:39+00:00,2026-09-06T19:00:00+00:00,La Liga,Espanyol,Sevilla,Correct Score,1-0,0.13463,,,
+2026-09-05T11:47:56+00:00,2026-09-05T19:00:00+00:00,La Liga,Villarreal,Deportivo La Coruña,1X2/Totals,Villarreal,0.6458,1.56,onexbet,0.00745
+2026-09-05T11:47:56+00:00,2026-09-05T15:15:00+00:00,Ligue 1,RC Lens,Lorient,1X2/Totals,RC Lens,0.63655,1.57,betfair_ex_eu,-0.00061
+2026-09-05T11:47:56+00:00,2026-09-05T16:00:00+00:00,Serie A,Inter Milan,Napoli,1X2/Totals,Inter Milan,0.58189,1.72,betfair_ex_eu,0.00085
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Bristol Rovers,Rotherham United,1X2/Totals,Bristol Rovers,0.57075,1.71,unibet_nl,-0.02402
+2026-09-05T11:47:56+00:00,2026-09-05T18:45:00+00:00,Serie A,AS Roma,Atalanta BC,1X2/Totals,AS Roma,0.57034,1.75,matchbook,-0.0019
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Premier League,Brentford,Sunderland,1X2/Totals,Brentford,0.56023,1.78,betfair_ex_eu,-0.00279
+2026-09-05T11:47:56+00:00,2026-09-05T13:30:00+00:00,Bundesliga,Werder Bremen,RB Leipzig,1X2/Totals,RB Leipzig,0.55028,1.81,betfair_ex_eu,-0.004
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Northampton Town,Newport County,1X2/Totals,Northampton Town,0.54676,1.79,betfair_ex_eu,-0.0213
+2026-09-05T11:47:56+00:00,2026-09-05T18:45:00+00:00,Ligue 1,Nice,Le Mans FC,1X2/Totals,Nice,0.53203,1.88,coolbet,0.00022
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Championship,West Bromwich Albion,Watford,1X2/Totals,West Bromwich Albion,0.52176,1.92,leovegas_se,0.00179
+2026-09-05T11:47:56+00:00,2026-09-05T16:30:00+00:00,Premier League,Hull City,Aston Villa,1X2/Totals,Aston Villa,0.50836,1.96,betfair_ex_eu,-0.00362
+2026-09-05T11:47:56+00:00,2026-09-05T13:30:00+00:00,Bundesliga,Borussia Monchengladbach,Elversberg,1X2/Totals,Over 2.5,0.61362,1.57,leovegas_se,-0.03661
+2026-09-05T11:47:56+00:00,2026-09-05T11:30:00+00:00,Premier League,Newcastle United,Bournemouth,1X2/Totals,Over 2.5,0.59901,1.62,leovegas_se,-0.0296
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Championship,West Ham United,Derby County,1X2/Totals,Over 2.5,0.58934,1.65,leovegas_se,-0.02758
+2026-09-05T11:47:56+00:00,2026-09-05T16:30:00+00:00,Bundesliga,FC Schalke 04,Bayern Munich,1X2/Totals,Under 4.5,0.5878,1.71,onexbet,0.00513
+2026-09-05T11:47:56+00:00,2026-09-05T12:00:00+00:00,La Liga 2,Real Sociedad B,Tenerife,1X2/Totals,Under 2.5,0.57608,1.75,matchbook,0.00815
+2026-09-05T11:47:56+00:00,2026-09-05T13:30:00+00:00,Bundesliga,SC Paderborn,SC Freiburg,1X2/Totals,Over 2.5,0.57367,1.73,onexbet,-0.00755
+2026-09-05T11:47:56+00:00,2026-09-05T11:30:00+00:00,Championship,Stoke City,Charlton Athletic,1X2/Totals,Under 2.5,0.56883,1.72,matchbook,-0.02162
+2026-09-05T11:47:56+00:00,2026-09-05T11:30:00+00:00,Championship,Lincoln City,Southampton,1X2/Totals,Over 2.5,0.56865,1.72,gtbets,-0.02192
+2026-09-05T11:47:56+00:00,2026-09-05T13:30:00+00:00,Bundesliga,TSG Hoffenheim,Borussia Dortmund,1X2/Totals,Over 3,0.56198,1.71,betonlineag,-0.03901
+2026-09-05T11:47:56+00:00,2026-09-05T16:30:00+00:00,La Liga,Rayo Vallecano,Real Racing Club de Santander,1X2/Totals,Over 2.5,0.55544,1.78,coolbet,-0.01132
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Championship,Portsmouth,Cardiff City,1X2/Totals,Over 2.5,0.5543,1.74,leovegas_se,-0.03551
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Accrington Stanley,Crawley Town,1X2/Totals,Over 2.5,0.55373,1.78,unibet_nl,-0.01436
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Rochdale,Gillingham,1X2/Totals,Over 2.25,0.55257,1.7,betonlineag,-0.06063
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Championship,Queens Park Rangers,Middlesbrough,1X2/Totals,Over 2.5,0.55131,1.76,coolbet,-0.02969
+2026-09-05T11:47:56+00:00,2026-09-05T13:30:00+00:00,Bundesliga,Bayer Leverkusen,Union Berlin,1X2/Totals,Under 3.5,0.54048,1.89,matchbook,0.0215
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Championship,Sheffield United,Norwich City,1X2/Totals,Over 2.5,0.54007,1.84,matchbook,-0.00628
+2026-09-05T11:47:56+00:00,2026-09-05T16:30:00+00:00,La Liga 2,AD Ceuta FC,Celta Fortuna,1X2/Totals,Over 2.5,0.53924,1.76,coolbet,-0.05093
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Cheltenham Town,Grimsby Town,1X2/Totals,Over 2.5,0.53859,1.83,matchbook,-0.01438
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Tranmere Rovers,Oldham Athletic,1X2/Totals,Over 2.25,0.53696,1.75,betonlineag,-0.06032
+2026-09-05T11:47:56+00:00,2026-09-05T19:00:00+00:00,La Liga 2,CD Eldense,Mallorca,1X2/Totals,Under 2.75,0.53657,1.76,betanysports,-0.05564
+2026-09-05T11:47:56+00:00,2026-09-05T11:30:00+00:00,League Two,Salford City,Port Vale,1X2/Totals,Under 2.75,0.53533,1.76,betonlineag,-0.05781
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Chesterfield FC,Barnet,1X2/Totals,Over 2.5,0.53392,1.82,matchbook,-0.02827
+2026-09-05T11:47:56+00:00,2026-09-05T18:45:00+00:00,Ligue 1,Le Havre,Brest,1X2/Totals,Under 2.5,0.53261,1.88,onexbet,0.0013
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Premier League,Brighton and Hove Albion,Leeds United,1X2/Totals,Over 2.5,0.53201,1.85,coolbet,-0.01579
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Crewe Alexandra,York City,1X2/Totals,Under 2.75,0.53123,1.77,betonlineag,-0.05972
+2026-09-05T11:47:56+00:00,2026-09-05T16:30:00+00:00,La Liga 2,Real Valladolid CF,Andorra CF,1X2/Totals,Under 2.5,0.53089,1.87,matchbook,-0.00724
+2026-09-05T11:47:56+00:00,2026-09-05T11:30:00+00:00,League Two,Fleetwood Town,Shrewsbury Town,1X2/Totals,Under 2.5,0.5293,1.84,matchbook,-0.02608
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Swindon Town,Colchester United,1X2/Totals,Over 2.5,0.52837,1.85,coolbet,-0.02251
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Exeter City,Walsall,1X2/Totals,Under 2.75,0.52767,1.83,pinnacle,-0.03436
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Premier League,Nottingham Forest,Tottenham Hotspur,1X2/Totals,Over 2.5,0.52749,1.88,leovegas_se,-0.00832
+2026-09-05T11:47:56+00:00,2026-09-05T11:30:00+00:00,Championship,Preston North End,Blackburn Rovers,1X2/Totals,Under 2.5,0.52089,1.91,matchbook,-0.00509
+2026-09-05T11:47:56+00:00,2026-09-05T19:00:00+00:00,Championship,Swansea City,Wrexham AFC,1X2/Totals,Under 2.5,0.51871,1.9,matchbook,-0.01445
+2026-09-05T11:47:56+00:00,2026-09-05T14:15:00+00:00,La Liga 2,Sporting Gijón,Girona FC,1X2/Totals,Under 2.5,0.51549,1.93,onexbet,-0.0051
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Premier League,Fulham,Crystal Palace,1X2/Totals,Under 2.5,0.51386,1.94,matchbook,-0.00311
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Championship,Burnley,Bristol City,1X2/Totals,Over 2.5,0.5112,1.93,matchbook,-0.01338
+2026-09-05T11:47:56+00:00,2026-09-05T13:00:00+00:00,Serie A,Fiorentina,Torino,1X2/Totals,Under 2.5,0.51095,1.96,matchbook,0.00147
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Premier League,Manchester City,Coventry City,1X2/Totals,Over 3.5,0.50823,1.97,matchbook,0.0012
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,Championship,Millwall,Bolton Wanderers,1X2/Totals,Under 2.5,0.50148,2.0,matchbook,0.00297
+2026-09-05T11:47:56+00:00,2026-09-05T14:15:00+00:00,La Liga,Athletic Bilbao,Atlético Madrid,1X2/Totals,Over 2.5,0.5,1.97,coolbet,-0.015
+2026-09-05T11:47:56+00:00,2026-09-05T18:45:00+00:00,Ligue 1,Le Havre,Brest,Correct Score,1-1,0.13157,,,
+2026-09-05T11:47:56+00:00,2026-09-05T12:00:00+00:00,La Liga 2,Real Sociedad B,Tenerife,Correct Score,1-1,0.13083,,,
+2026-09-05T11:47:56+00:00,2026-09-05T11:30:00+00:00,Championship,Stoke City,Charlton Athletic,Correct Score,1-1,0.12986,,,
+2026-09-05T11:47:56+00:00,2026-09-05T14:00:00+00:00,League Two,Tranmere Rovers,Oldham Athletic,Correct Score,1-1,0.12849,,,

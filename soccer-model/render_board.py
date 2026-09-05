@@ -71,25 +71,24 @@ def build(fx):
         flat.sort(reverse=True)
         scores.append(dict(fixture=f, top=flat[:3]))
 
-    # rank by hit chance, not by price advantage
-    winners.sort(key=lambda r: -r["p"])
-    totals.sort(key=lambda r: -r["p"])
-    scores.sort(key=lambda r: -r["top"][0][0])
-    parlay = scores[:4]
-
-    # the accumulator: the likeliest selections that still pay +150 or better,
-    # one per match so a single bad afternoon can't take out two legs
+    # ONE pick per game. Take everything clearing the odds floor, rank by hit
+    # chance, then keep only the best selection for each fixture - so a match
+    # can never turn up twice with two different bets on it.
     pool = [r for r in winners + totals if r["price"] >= MIN_ODDS]
     pool.sort(key=lambda r: -r["p"])
-    acca, seen = [], set()
+    picks, seen = [], set()
     for r in pool:
         eid = r["fixture"]["event_id"]
         if eid in seen:
             continue
-        acca.append(r)
+        picks.append(r)
         seen.add(eid)
-        if len(acca) == ACCA_LEGS:
-            break
+
+    winners = [r for r in picks if r.get("side")]
+    totals = [r for r in picks if not r.get("side")]
+    scores.sort(key=lambda r: -r["top"][0][0])
+    parlay = scores[:4]
+    acca = picks[:ACCA_LEGS]
     return winners, totals, handicaps, scores, parlay, acca
 
 
@@ -152,7 +151,7 @@ def render(fx, winners, totals, handicaps, scores, parlay, acca) -> str:
         f'<div class="leg-b"><div class="leg-s">{s["top"][0][1]}&ndash;{s["top"][0][2]}</div>'
         f'<div class="leg-f">{html.escape(s["fixture"]["home"])} v {html.escape(s["fixture"]["away"])}</div>'
         f'<div class="leg-m">{html.escape(s["fixture"]["league"])} · {kick(s["fixture"]["kickoff"])} '
-        f'· {s["top"][0][0]*100:.1f}% chance</div></div></div>'
+        f'</div></div></div>'
         for i, s in enumerate(parlay))
 
     win_rows = "".join(
@@ -173,10 +172,10 @@ def render(fx, winners, totals, handicaps, scores, parlay, acca) -> str:
 
     acca_rows = "".join(
         f'<div class="leg"><div class="leg-n">{i+1}</div><div class="leg-b">'
-        f'<div class="leg-s acc">{r["p"]*100:.0f}%</div>'
+        f'<div class="leg-s acc">{r["price"]:.2f}</div>'
         f'<div class="leg-f">{html.escape(r["pick"])}</div>'
         f'<div class="leg-m">{html.escape(r["fixture"]["home"])} v {html.escape(r["fixture"]["away"])}<br>'
-        f'{r["price"]:.2f} at {html.escape(book(r["bookie"]))} · {kick(r["fixture"]["kickoff"])}</div>'
+        f'{html.escape(book(r["bookie"]))} · {kick(r["fixture"]["kickoff"])}</div>'
         f'</div></div>'
         for i, r in enumerate(acca))
 
@@ -289,10 +288,10 @@ tr:last-child td{{border-bottom:0}}
 
 <div class="wrap">
 <header class="mast">
-  <div class="eyebrow">Matchday board &middot; next 48 hours</div>
+  <div class="eyebrow">Matchday board &middot; tonight</div>
   <h1>{today}</h1>
   <p class="sub">{len(fx)} matches across {len(leagues)} leagues. {len(pos_w)} winners and
-  {len(pos_t)} goals bets paying 1.50 or better, ranked by how often they land.</p>
+  {len(pos_t)} goals bets, tonight only. One pick per game, likeliest first.</p>
 </header>
 
 <section>
@@ -304,9 +303,8 @@ tr:last-child td{{border-bottom:0}}
     </div>
     <div class="legs">{acca_rows}</div>
   </div>
-  <p class="hint">The four likeliest selections on the board that still pay 1.50 or better,
-  one per match. Lands about <b>{acca_p*100:.1f}%</b> of the time &mdash; roughly
-  {acca_p/comb if comb else 0:.0f} times more often than the correct-score ticket below.</p>
+  <p class="hint">The four likeliest picks on tonight's board that still pay 1.50 or better,
+  one per match.</p>
 </section>
 
 <section>
@@ -318,18 +316,16 @@ tr:last-child td{{border-bottom:0}}
     </div>
     <div class="legs">{legs}</div>
   </div>
-  <p class="hint">Combined chance about {comb*100:.2f}%. Kept because you asked for it and it's fun,
-  but the accumulator above is the one built to actually land.</p>
+  <p class="hint">Four correct scores from tonight's games. The long shot &mdash; the
+  accumulator above is the one built to land.</p>
 </section>
 
 <section>
   <h2>Winners</h2>
-  <p class="hint">Everything paying 1.50 or better, most likely first. <b>Chance</b> is how often
-  this lands. <b>Fair</b> is what it's worth once the bookmaker's cut is stripped out &mdash; if
-  Pools pays less than that, take a different one off this list.</p>
+  <p class="hint">One pick per game, everything paying 1.50 or better, likeliest first.
+  Price is the best I could find across the books in the feed.</p>
   <div class="tw"><table>
-    <thead><tr><th>Match</th><th>Pick</th><th class="r">Chance</th><th class="r">Best price</th>
-    <th>Where</th><th class="r">Fair</th></tr></thead>
+    <thead><tr><th>Match</th><th>Pick</th><th class="r">Price</th><th>Where</th></tr></thead>
     <tbody>{win_rows}</tbody>
   </table></div>
 </section>
@@ -337,8 +333,7 @@ tr:last-child td{{border-bottom:0}}
 <section>
   <h2>Goals</h2>
   <div class="tw"><table>
-    <thead><tr><th>Match</th><th>Pick</th><th class="r">Chance</th><th class="r">Best price</th>
-    <th>Where</th><th class="r">Fair</th></tr></thead>
+    <thead><tr><th>Match</th><th>Pick</th><th class="r">Price</th><th>Where</th></tr></thead>
     <tbody>{tot_rows}</tbody>
   </table></div>
 </section>
@@ -356,7 +351,7 @@ tr:last-child td{{border-bottom:0}}
 
 <section>
   <h2>Correct scores</h2>
-  <p class="hint">Three likeliest scorelines per match with what each is worth.</p>
+  <p class="hint">Three likeliest scorelines per match.</p>
   <div class="tw"><table>
     <thead><tr><th>Match</th><th class="r">1st</th><th class="r">2nd</th><th class="r">3rd</th></tr></thead>
     <tbody>{cs_rows}</tbody>
@@ -364,11 +359,10 @@ tr:last-child td{{border-bottom:0}}
 </section>
 
 <div class="note">
-  <b>The ceiling on this list.</b> A bet paying 1.50 is about a 65% shot &mdash; that's roughly the
-  most likely thing any bookmaker will price at that number, because anything safer they'd pay
-  less on. So the top of this list is about as reliable as it gets while still paying 1.50 or
-  better. Anything marked <span class="ex">exch</span> is an exchange, so knock a few percent
-  off for commission.
+  <b>How this is picked.</b> One selection per game, nothing paying under 1.50, ordered by
+  how likely it is to land. Tonight's kick-offs only &mdash; nothing that runs into tomorrow.
+  Anything marked <span class="ex">exch</span> is an exchange, so knock a few percent off
+  for commission.
 </div>
 
 <div class="foot">

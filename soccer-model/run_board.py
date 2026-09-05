@@ -20,6 +20,22 @@ SGT = timezone(timedelta(hours=8))
 TG = "https://api.telegram.org"
 
 
+def odds_credits() -> str | None:
+    """How much of the odds allowance is left. The /sports call is free."""
+    key = os.environ.get("ODDS_API_KEY", "").strip()
+    if not key:
+        return None
+    try:
+        r = requests.get(f"https://api.the-odds-api.com/v4/sports/?apiKey={key}", timeout=20)
+        left = r.headers.get("x-requests-remaining")
+        used = r.headers.get("x-requests-used")
+        if left is None:
+            return None
+        return f"{int(float(left)):,} left" + (f" · {int(float(used)):,} used" if used else "")
+    except Exception:
+        return None
+
+
 def preflight(token: str) -> tuple[bool, str | None, str]:
     """
     Work out exactly what state Telegram is in, and say so in plain words.
@@ -107,47 +123,47 @@ def summary(fx, winners, totals, parlay, acca, board_url: str | None) -> str:
     day = datetime.now(SGT).strftime("%a %-d %b")
     comb = float(np.prod([s["top"][0][0] for s in parlay])) if parlay else 0.0
     L = [f"<b>Matchday board - {day}</b>",
-         f"{len(fx)} matches, next 48h", ""]
+         f"{len(fx)} matches, next 16h", ""]
 
     if acca:
-        ap = float(np.prod([r["p"] for r in acca]))
         apr = float(np.prod([r["price"] for r in acca]))
-        L.append(f"<b>ACCUMULATOR</b>  {apr:.0f} to 1  ·  lands {ap*100:.1f}% of the time")
+        L.append(f"<b>ACCUMULATOR</b>  {apr:.1f} to 1")
         for r in acca:
             f = r["fixture"]
-            L.append(f"  <b>{r['p']*100:.0f}%</b>  {e(r['pick'])}  <i>@{r['price']:.2f}</i>")
-            L.append(f"       {e(f['home'])} v {e(f['away'])}")
+            L.append(f"  {e(r['pick'])}  <b>{r['price']:.2f}</b>")
+            L.append(f"     <i>{e(f['home'])} v {e(f['away'])}</i>")
         L.append("")
 
     from render_board import MIN_ODDS
     pw = [w for w in winners if w["price"] >= MIN_ODDS][:6]
     if pw:
-        L.append("<b>WINNERS</b>  <i>most likely first, all 1.50 or better</i>")
+        L.append("<b>WINNERS</b>")
         for w in pw:
             f = w["fixture"]
-            L.append(f"  <b>{w['p']*100:.0f}%</b>  {e(w['pick'])}  <i>@{w['price']:.2f}</i>"
-                     f"  <i>(fair {1/w['p']:.2f})</i>")
-            L.append(f"       {e(f['home'])} v {e(f['away'])}")
+            L.append(f"  {e(w['pick'])}  <b>{w['price']:.2f}</b>")
+            L.append(f"     <i>{e(f['home'])} v {e(f['away'])}</i>")
         L.append("")
 
-    pt = [t for t in totals if t["price"] >= MIN_ODDS][:4]
+    pt = [t for t in totals if t["price"] >= MIN_ODDS][:6]
     if pt:
         L.append("<b>GOALS</b>")
         for t in pt:
             f = t["fixture"]
-            L.append(f"  <b>{t['p']*100:.0f}%</b>  {e(t['pick'])}  <i>@{t['price']:.2f}</i>"
-                     f"  <i>(fair {1/t['p']:.2f})</i>")
-            L.append(f"       {e(f['home'])} v {e(f['away'])}")
+            L.append(f"  {e(t['pick'])}  <b>{t['price']:.2f}</b>")
+            L.append(f"     <i>{e(f['home'])} v {e(f['away'])}</i>")
         L.append("")
 
     if parlay:
-        L.append(f"<b>LOTTERY TICKET</b>  ~{1/comb:,.0f} to 1  ·  {comb*100:.2f}%")
-        L.append("  " + "  ".join(f"{s['top'][0][1]}-{s['top'][0][2]}" for s in parlay))
+        L.append(f"<b>LOTTERY TICKET</b>  ~{1/comb:,.0f} to 1")
+        for s in parlay:
+            f = s["fixture"]; _p, i, j = s["top"][0]
+            L.append(f"  <b>{i}-{j}</b>  {e(f['home'])} v {e(f['away'])}")
         L.append("")
 
-    L.append("<i>Everything here pays 1.50 or better, likeliest first. Fair = what it's worth "
-             "with the bookmaker's cut removed; if Pools pays under that, take a different one "
-             "off the list.</i>")
+    L.append("<i>One pick per game, nothing under 1.50, tonight's kick-offs only.</i>")
+    credits = odds_credits()
+    if credits:
+        L.append(f"<i>Odds allowance: {credits}</i>")
     if board_url:
         L.append(f'\n<a href="{board_url}">Full board</a>')
     text = "\n".join(L)

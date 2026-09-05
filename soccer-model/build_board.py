@@ -16,7 +16,7 @@ from model.live import (SPORT_TO_DIV, map_teams, consensus_1x2,     # noqa: E402
                         consensus_totals, implied_matrix)
 
 HALF_LIFE, RIDGE = 330.0, 0.25
-HOURS_AHEAD = 48
+HOURS_AHEAD = 16   # tonight's games only - no multiday parlays
 K = np.arange(11)
 GD = np.subtract.outer(K, K)
 TOT = np.add.outer(K, K)
