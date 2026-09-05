@@ -1,0 +1,30 @@
+board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,best_book,fair_prob,model_prob,n_books,edge_pct,parlay,closing_price,clv_pct,result,selection_id
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823419,ATL @ PHI,Kyle Schwarber,PHI,Martín Pérez,3.75,betparx,0.2372,0.2174,6,-11.04,Parlay 1,,,,656941
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824145,ARI @ HOU,Yordan Alvarez,HOU,Brandon Pfaadt,3.85,betparx,0.2372,0.1955,6,-8.67,Parlay 1,,,,670541
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824310,STL @ COL,Hunter Goodman,COL,Matthew Liberatore,4.25,hardrockbet,0.2235,0.2785,6,-5.01,Parlay 1,,,,696100
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823577,SF @ NYM,Juan Soto,NYM,Anthony Molina,4.25,ballybet,0.2222,0.1889,6,-5.56,Parlay 2,,,,665742
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823094,ATH @ SEA,Cal Raleigh,SEA,Jeffrey Springs,4.25,hardrockbet,0.2168,0.2074,6,-7.85,Parlay 2,,,,663728
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823823,CHC @ MIA,Pete Crow-Armstrong,CHC,Ryan Gusto,4.50,hardrockbet,0.2083,0.1817,6,-6.25,Parlay 2,,,,691718
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823419,ATL @ PHI,Matt Olson,ATL,Zack Wheeler,5.10,betparx,0.1976,0.2345,6,0.80,Parlay 3,,,,621566
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824468,MIL @ CIN,Jackson Chourio,MIL,Andrew Abbott,4.50,hardrockbet,0.1976,0.1804,6,-11.06,Parlay 3,,,,694192
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824553,MIN @ CWS,Munetaka Murakami,CWS,Taj Bradley,4.50,hardrockbet,0.1924,0.2207,6,-13.41,Parlay 3,,,,808959
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,822850,TB @ TEX,Junior Caminero,TB,Jacob deGrom,4.60,ballybet,0.1894,0.2080,6,-12.85,Parlay 3,,,,691406
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824310,STL @ COL,Alec Burleson,STL,Mason Adams,4.75,hardrockbet,0.1885,0.1551,6,-10.45,Parlay 4,,,,676475
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823577,SF @ NYM,Francisco Lindor,NYM,Anthony Molina,4.75,hardrockbet,0.1874,0.1519,6,-10.99,Parlay 4,,,,596019
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824553,MIN @ CWS,Royce Lewis,MIN,Anthony Kay,4.60,betrivers,0.1874,0.1389,6,-13.80,Parlay 4,,,,668904
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824145,ARI @ HOU,Ketel Marte,ARI,Ethan Pecko,6.10,betparx,0.1829,0.1620,6,11.55,Parlay 4,,,,606466
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823094,ATH @ SEA,Seattle Mariners,SEA,Jeffrey Springs / George Kirby,1.43,betonlineag,0.6916,,15,-1.10,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823904,WSH @ LAD,Los Angeles Dodgers,LAD,Cade Cavalli / Tyler Glasnow,1.46,betonlineag,0.6754,,15,-1.39,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823335,LAA @ PIT,Pittsburgh Pirates,PIT,Yusei Kikuchi / Braxton Ashcraft,1.56,mybookieag,0.6286,,15,-1.94,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823577,SF @ NYM,New York Mets,NYM,Anthony Molina / Zac Thornton,1.56,lowvig,0.6282,,15,-2.00,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824468,MIL @ CIN,Milwaukee Brewers,MIL,Dustin May / Andrew Abbott,1.64,betonlineag,0.5974,,15,-2.02,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823419,ATL @ PHI,Philadelphia Phillies,PHI,Martín Pérez / Zack Wheeler,1.65,lowvig,0.5947,,15,-1.88,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824389,DET @ CLE,Cleveland Guardians,CLE,Framber Valdez / Parker Messick,1.67,betonlineag,0.5931,,15,-0.96,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824795,BOS @ BAL,Boston Red Sox,BOS,Sonny Gray / Chris Bassitt,1.71,betonlineag,0.5716,,15,-2.25,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823823,CHC @ MIA,Chicago Cubs,CHC,Javier Assad / Ryan Gusto,1.75,fanduel,0.5592,,14,-2.14,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824310,STL @ COL,St. Louis Cardinals,STL,Matthew Liberatore / Mason Adams,1.83,fanduel,0.5339,,15,-2.30,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824553,MIN @ CWS,Chicago White Sox,CWS,Taj Bradley / Anthony Kay,1.87,mybookieag,0.5266,,14,-1.52,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824066,TOR @ KC,Kansas City Royals,KC,Max Scherzer / Seth Lugo,1.93,fanduel,0.5092,,15,-1.73,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823257,NYY @ SD,San Diego Padres,SD,Carlos Rodón / Robbie Ray,1.95,betonlineag,0.5082,,15,-0.90,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824145,ARI @ HOU,Houston Astros,HOU,Brandon Pfaadt / Ethan Pecko,1.95,espnbet,0.5027,,15,-1.97,,,,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,822850,TB @ TEX,Texas Rangers,TEX,Drew Rasmussen / Jacob deGrom,1.95,betonlineag,0.5000,,15,-2.50,,,,,
