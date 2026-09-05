@@ -1,0 +1,167 @@
+<title>Matchday Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600;700&display=swap">
+<style>
+:root{
+  --paper:#F3F4F1;--surface:#FBFBF9;--sunk:#E9EBE6;
+  --ink:#15191B;--ink-2:#4A5457;--ink-3:#7C8688;
+  --rule:#D5D9D2;--rule-2:#C2C8BF;
+  --pitch:#1E6B55;--pitch-soft:#DCE9E3;
+  --amber:#9A6612;--amber-soft:#F0E6D2;
+  --claret:#8E3247;
+  --shadow:0 1px 2px rgba(21,25,27,.06),0 10px 30px -20px rgba(21,25,27,.5);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101416;--surface:#171C1F;--sunk:#1D2326;
+  --ink:#E4E7E3;--ink-2:#A2ACAD;--ink-3:#727C7E;
+  --rule:#2A3134;--rule-2:#3A4347;
+  --pitch:#4FA88C;--pitch-soft:#16302A;
+  --amber:#D9A03C;--amber-soft:#332715;--claret:#C4677F;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -20px rgba(0,0,0,.9);
+}}
+:root[data-theme="dark"]{
+  --paper:#101416;--surface:#171C1F;--sunk:#1D2326;
+  --ink:#E4E7E3;--ink-2:#A2ACAD;--ink-3:#727C7E;
+  --rule:#2A3134;--rule-2:#3A4347;
+  --pitch:#4FA88C;--pitch-soft:#16302A;
+  --amber:#D9A03C;--amber-soft:#332715;--claret:#C4677F;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -20px rgba(0,0,0,.9);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 80px}
+h1,h2,h3,th,.pick,.fx-t,.leg-s,.leg-f,.bk,.eyebrow,.lbl{font-family:Archivo,Helvetica,Arial,sans-serif}
+.n,.mono,.cs{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+.mast{padding:56px 0 26px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--pitch)}
+h1{font-size:clamp(38px,6.5vw,64px);font-weight:700;letter-spacing:-.035em;line-height:.96;margin:16px 0 0}
+.sub{color:var(--ink-2);margin:14px 0 0;font-size:17px}
+
+section{padding:44px 0 0}
+h2{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);
+  margin:0 0 4px;padding-bottom:9px;border-bottom:1px solid var(--rule)}
+.hint{font-size:14.5px;color:var(--ink-2);margin:14px 0 0;max-width:600px}
+
+.parlay{margin:26px 0 0;background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow)}
+.parlay-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+  padding:20px 24px;border-bottom:1px solid var(--rule)}
+.parlay-t{font-family:Archivo,sans-serif;font-weight:600;font-size:15px}
+.parlay-p{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:26px;color:var(--pitch);letter-spacing:-.02em}
+.legs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--rule)}
+.leg{background:var(--surface);padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.leg-n{width:22px;height:22px;flex:none;border-radius:50%;border:1px solid var(--rule-2);
+  display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;
+  font-size:10px;color:var(--ink-3);margin-top:3px}
+.leg-s{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:22px;letter-spacing:-.02em;line-height:1}
+.leg-f{font-size:14px;font-weight:600;margin-top:6px;line-height:1.3}
+.leg-m{font-size:12px;color:var(--ink-3);margin-top:4px;line-height:1.35}
+
+.tw{overflow-x:auto;margin:22px 0 0;border:1px solid var(--rule);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+  text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule-2);white-space:nowrap}
+th.r,td.n{text-align:right}
+td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+.fx-t{font-weight:600;font-size:14px;display:block;white-space:nowrap}
+.v{color:var(--ink-3);font-weight:400;margin:0 7px;font-size:12px}
+.fx-m{font-size:11.5px;color:var(--ink-3);display:block;margin-top:2px;white-space:nowrap}
+.pick{font-weight:600;font-size:13.5px;white-space:nowrap}
+.n.big{font-weight:600;font-size:15px}
+.n.dim{color:var(--ink-3);font-size:12.5px}
+.bk{font-size:12px;color:var(--ink-2);white-space:nowrap}
+.ex{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);
+  background:var(--amber-soft);padding:1px 4px;border-radius:2px;margin-left:3px}
+.up{color:var(--pitch);font-weight:700}
+.mid{color:var(--ink-2)}
+.flat{color:var(--ink-3)}
+.cs{text-align:center;white-space:nowrap;padding:8px 10px}
+.cs b{display:block;font-size:15px;font-weight:700}
+.cs span{display:block;font-size:11px;color:var(--ink-3);margin-top:1px}
+
+.note{margin:26px 0 0;padding:18px 22px;background:var(--surface);border-left:3px solid var(--amber);
+  max-width:640px;font-size:15px;color:var(--ink-2)}
+.note b{color:var(--ink)}
+.foot{margin-top:52px;padding-top:20px;border-top:2px solid var(--ink);font-size:13.5px;color:var(--ink-3);max-width:640px}
+</style>
+
+<div class="wrap">
+<header class="mast">
+  <div class="eyebrow">Matchday board &middot; next 48 hours</div>
+  <h1>Saturday 5 September</h1>
+  <p class="sub">70 matches across 8 leagues. 78 winners and
+  43 totals where somebody is paying above the going rate.</p>
+</header>
+
+<section>
+  <h2>The parlay</h2>
+  <div class="parlay">
+    <div class="parlay-h">
+      <span class="parlay-t">Four correct scores, four different matches</span>
+      <span class="parlay-p">2,374 to 1</span>
+    </div>
+    <div class="legs"><div class="leg"><div class="leg-n">1</div><div class="leg-b"><div class="leg-s">1&ndash;0</div><div class="leg-f">Oviedo v Burgos CF</div><div class="leg-m">La Liga 2 · Sun 6 Sep, 10:15PM · 16.1% chance</div></div></div><div class="leg"><div class="leg-n">2</div><div class="leg-b"><div class="leg-s">1&ndash;1</div><div class="leg-f">Parma v Monza</div><div class="leg-m">Serie A · Sun 6 Sep, 9:00PM · 14.1% chance</div></div></div><div class="leg"><div class="leg-n">3</div><div class="leg-b"><div class="leg-s">1&ndash;0</div><div class="leg-f">Alavés v CA Osasuna</div><div class="leg-m">La Liga · Mon 7 Sep, 12:30AM · 13.8% chance</div></div></div><div class="leg"><div class="leg-n">4</div><div class="leg-b"><div class="leg-s">1&ndash;0</div><div class="leg-f">Espanyol v Sevilla</div><div class="leg-m">La Liga · Mon 7 Sep, 3:00AM · 13.5% chance</div></div></div></div>
+  </div>
+  <p class="hint">The four scorelines most likely to land across the next two days, one per match.
+  Combined chance is about 0.04%. The price shown is what it's genuinely worth &mdash;
+  if Pools is paying less than that, you're being charged for the privilege.</p>
+</section>
+
+<section>
+  <h2>Winners</h2>
+  <p class="hint">Sorted by how much the best available price beats what everyone else is paying.
+  <b>Fair</b> is the price the market as a whole implies once the bookmaker's cut is stripped out.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Match</th><th>Pick</th><th class="r">Best price</th><th>Where</th>
+    <th class="r">Fair</th><th class="r">Extra</th></tr></thead>
+    <tbody><tr><td><div class="fx"><span class="fx-t">Oviedo<span class="v">v</span>Burgos CF</span><span class="fx-m">La Liga 2 · Sun 6 Sep, 10:15PM</span></div></td><td class="pick">Burgos CF</td><td class="n big">4.90</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">4.64</td><td class="n up">+5.6%</td></tr><tr><td><div class="fx"><span class="fx-t">Borussia Monchengladbach<span class="v">v</span>Elversberg</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">Elversberg</td><td class="n big">4.20</td><td class="bk">Unibet Se</td><td class="n dim">3.99</td><td class="n up">+5.2%</td></tr><tr><td><div class="fx"><span class="fx-t">Millwall<span class="v">v</span>Bolton Wanderers</span><span class="fx-m">Championship · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Bolton Wanderers</td><td class="n big">4.40</td><td class="bk">LeoVegas</td><td class="n dim">4.22</td><td class="n up">+4.2%</td></tr><tr><td><div class="fx"><span class="fx-t">RC Lens<span class="v">v</span>Lorient</span><span class="fx-m">Ligue 1 · Sat 5 Sep, 11:15PM</span></div></td><td class="pick">Lorient</td><td class="n big">6.75</td><td class="bk">LeoVegas</td><td class="n dim">6.48</td><td class="n up">+4.1%</td></tr><tr><td><div class="fx"><span class="fx-t">FC Schalke 04<span class="v">v</span>Bayern Munich</span><span class="fx-m">Bundesliga · Sun 6 Sep, 12:30AM</span></div></td><td class="pick">FC Schalke 04</td><td class="n big">18.00</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">17.32</td><td class="n up">+3.9%</td></tr><tr><td><div class="fx"><span class="fx-t">Hull City<span class="v">v</span>Aston Villa</span><span class="fx-m">Premier League · Sun 6 Sep, 12:30AM</span></div></td><td class="pick">Hull City</td><td class="n big">4.50</td><td class="bk">Unibet Nl</td><td class="n dim">4.33</td><td class="n up">+3.8%</td></tr><tr><td><div class="fx"><span class="fx-t">SD Eibar<span class="v">v</span>Granada CF</span><span class="fx-m">La Liga 2 · Sun 6 Sep, 8:00PM</span></div></td><td class="pick">SD Eibar</td><td class="n big">2.22</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">2.14</td><td class="n up">+3.7%</td></tr><tr><td><div class="fx"><span class="fx-t">Valencia<span class="v">v</span>Barcelona</span><span class="fx-m">La Liga · Sun 6 Sep, 10:15PM</span></div></td><td class="pick">Valencia</td><td class="n big">11.00</td><td class="bk">Unibet Nl</td><td class="n dim">10.62</td><td class="n up">+3.6%</td></tr><tr><td><div class="fx"><span class="fx-t">Bristol Rovers<span class="v">v</span>Rotherham United</span><span class="fx-m">League Two · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Draw</td><td class="n big">4.40</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">4.25</td><td class="n up">+3.6%</td></tr><tr><td><div class="fx"><span class="fx-t">Fulham<span class="v">v</span>Crystal Palace</span><span class="fx-m">Premier League · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Crystal Palace</td><td class="n big">3.85</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">3.72</td><td class="n up">+3.5%</td></tr><tr><td><div class="fx"><span class="fx-t">Arsenal<span class="v">v</span>Chelsea</span><span class="fx-m">Premier League · Sun 6 Sep, 11:30PM</span></div></td><td class="pick">Chelsea</td><td class="n big">5.25</td><td class="bk">Unibet Nl</td><td class="n dim">5.08</td><td class="n up">+3.3%</td></tr><tr><td><div class="fx"><span class="fx-t">AS Roma<span class="v">v</span>Atalanta BC</span><span class="fx-m">Serie A · Sun 6 Sep, 2:45AM</span></div></td><td class="pick">Atalanta BC</td><td class="n big">5.40</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">5.24</td><td class="n up">+3.1%</td></tr><tr><td><div class="fx"><span class="fx-t">Bayer Leverkusen<span class="v">v</span>Union Berlin</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">Union Berlin</td><td class="n big">7.20</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">6.99</td><td class="n up">+3.0%</td></tr><tr><td><div class="fx"><span class="fx-t">Lincoln City<span class="v">v</span>Southampton</span><span class="fx-m">Championship · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Lincoln City</td><td class="n big">4.50</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">4.37</td><td class="n up">+2.9%</td></tr><tr><td><div class="fx"><span class="fx-t">Villarreal<span class="v">v</span>Deportivo La Coruña</span><span class="fx-m">La Liga · Sun 6 Sep, 3:00AM</span></div></td><td class="pick">Deportivo La Coruña</td><td class="n big">7.00</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">6.81</td><td class="n up">+2.8%</td></tr><tr><td><div class="fx"><span class="fx-t">Brentford<span class="v">v</span>Sunderland</span><span class="fx-m">Premier League · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Sunderland</td><td class="n big">5.30</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">5.18</td><td class="n up">+2.3%</td></tr><tr><td><div class="fx"><span class="fx-t">Real Valladolid CF<span class="v">v</span>Andorra CF</span><span class="fx-m">La Liga 2 · Sun 6 Sep, 12:30AM</span></div></td><td class="pick">Real Valladolid CF</td><td class="n big">2.43</td><td class="bk">Unibet Nl</td><td class="n dim">2.38</td><td class="n up">+2.2%</td></tr><tr><td><div class="fx"><span class="fx-t">Parma<span class="v">v</span>Monza</span><span class="fx-m">Serie A · Sun 6 Sep, 9:00PM</span></div></td><td class="pick">Parma</td><td class="n big">2.72</td><td class="bk">Betfair Exchange <span class="ex">exch</span></td><td class="n dim">2.66</td><td class="n up">+2.2%</td></tr></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Goals</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Match</th><th>Pick</th><th class="r">Best price</th><th>Where</th>
+    <th class="r">Fair</th><th class="r">Extra</th></tr></thead>
+    <tbody><tr><td><div class="fx"><span class="fx-t">Borussia Monchengladbach<span class="v">v</span>Elversberg</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">Under 2.5</td><td class="n big">2.68</td><td class="bk">Betsson</td><td class="n dim">2.59</td><td class="n up">+3.5%</td></tr><tr><td><div class="fx"><span class="fx-t">Villarreal<span class="v">v</span>Deportivo La Coruña</span><span class="fx-m">La Liga · Sun 6 Sep, 3:00AM</span></div></td><td class="pick">Under 2.5</td><td class="n big">2.40</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">2.33</td><td class="n up">+3.0%</td></tr><tr><td><div class="fx"><span class="fx-t">Crewe Alexandra<span class="v">v</span>York City</span><span class="fx-m">League Two · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Under 2.5</td><td class="n big">2.12</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">2.06</td><td class="n up">+3.0%</td></tr><tr><td><div class="fx"><span class="fx-t">Bayer Leverkusen<span class="v">v</span>Union Berlin</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">Under 3.5</td><td class="n big">1.89</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">1.85</td><td class="n up">+2.2%</td></tr><tr><td><div class="fx"><span class="fx-t">Swindon Town<span class="v">v</span>Colchester United</span><span class="fx-m">League Two · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Under 2.5</td><td class="n big">2.16</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">2.12</td><td class="n mid">+1.9%</td></tr><tr><td><div class="fx"><span class="fx-t">Oviedo<span class="v">v</span>Burgos CF</span><span class="fx-m">La Liga 2 · Sun 6 Sep, 10:15PM</span></div></td><td class="pick">Under 2.5</td><td class="n big">1.57</td><td class="bk">1xBet</td><td class="n dim">1.55</td><td class="n mid">+1.6%</td></tr><tr><td><div class="fx"><span class="fx-t">Salford City<span class="v">v</span>Port Vale</span><span class="fx-m">League Two · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Under 2.5</td><td class="n big">2.06</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">2.03</td><td class="n mid">+1.5%</td></tr><tr><td><div class="fx"><span class="fx-t">Bristol Rovers<span class="v">v</span>Rotherham United</span><span class="fx-m">League Two · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Under 2.5</td><td class="n big">2.34</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">2.31</td><td class="n mid">+1.3%</td></tr><tr><td><div class="fx"><span class="fx-t">AS Roma<span class="v">v</span>Atalanta BC</span><span class="fx-m">Serie A · Sun 6 Sep, 2:45AM</span></div></td><td class="pick">Under 2.5</td><td class="n big">2.28</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">2.25</td><td class="n mid">+1.2%</td></tr><tr><td><div class="fx"><span class="fx-t">Marseille<span class="v">v</span>Paris FC</span><span class="fx-m">Ligue 1 · Mon 7 Sep, 2:45AM</span></div></td><td class="pick">Over 2.5</td><td class="n big">1.72</td><td class="bk">1xBet</td><td class="n dim">1.70</td><td class="n mid">+1.0%</td></tr><tr><td><div class="fx"><span class="fx-t">Stoke City<span class="v">v</span>Charlton Athletic</span><span class="fx-m">Championship · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Over 2.5</td><td class="n big">2.34</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">2.32</td><td class="n mid">+0.9%</td></tr><tr><td><div class="fx"><span class="fx-t">Juventus<span class="v">v</span>AC Milan</span><span class="fx-m">Serie A · Mon 7 Sep, 2:45AM</span></div></td><td class="pick">Under 2.5</td><td class="n big">1.83</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">1.82</td><td class="n mid">+0.8%</td></tr><tr><td><div class="fx"><span class="fx-t">Real Sociedad B<span class="v">v</span>Tenerife</span><span class="fx-m">La Liga 2 · Sat 5 Sep, 8:00PM</span></div></td><td class="pick">Under 2.5</td><td class="n big">1.75</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">1.74</td><td class="n mid">+0.8%</td></tr><tr><td><div class="fx"><span class="fx-t">Eintracht Frankfurt<span class="v">v</span>Augsburg</span><span class="fx-m">Bundesliga · Sun 6 Sep, 11:30PM</span></div></td><td class="pick">Over 3.5</td><td class="n big">2.28</td><td class="bk">Matchbook <span class="ex">exch</span></td><td class="n dim">2.26</td><td class="n mid">+0.8%</td></tr></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Handicaps</h2>
+  <p class="hint">The line that makes each match closest to a coin flip, and what each side is
+  worth at it. No bookmaker prices in the feed for these yet &mdash; compare against Pools yourself.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Match</th><th>Home</th><th class="r">Worth</th><th>Away</th>
+    <th class="r">Worth</th><th class="r">Push</th></tr></thead>
+    <tbody><tr><td><div class="fx"><span class="fx-t">Lincoln City<span class="v">v</span>Southampton</span><span class="fx-m">Championship · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Lincoln City +0.75</td><td class="n big">1.90</td><td class="pick">Southampton -0.75</td><td class="n big">2.11</td><td class="n dim">12%</td></tr><tr><td><div class="fx"><span class="fx-t">Stoke City<span class="v">v</span>Charlton Athletic</span><span class="fx-m">Championship · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Stoke City -0.25</td><td class="n big">1.88</td><td class="pick">Charlton Athletic +0.25</td><td class="n big">2.14</td><td class="n dim">14%</td></tr><tr><td><div class="fx"><span class="fx-t">Preston North End<span class="v">v</span>Blackburn Rovers</span><span class="fx-m">Championship · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Preston North End -0.25</td><td class="n big">2.17</td><td class="pick">Blackburn Rovers +0.25</td><td class="n big">1.85</td><td class="n dim">13%</td></tr><tr><td><div class="fx"><span class="fx-t">Salford City<span class="v">v</span>Port Vale</span><span class="fx-m">League Two · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Salford City -0.5</td><td class="n big">1.89</td><td class="pick">Port Vale +0.5</td><td class="n big">2.12</td><td class="n dim">0%</td></tr><tr><td><div class="fx"><span class="fx-t">Fleetwood Town<span class="v">v</span>Shrewsbury Town</span><span class="fx-m">League Two · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Fleetwood Town -0.5</td><td class="n big">1.97</td><td class="pick">Shrewsbury Town +0.5</td><td class="n big">2.03</td><td class="n dim">0%</td></tr><tr><td><div class="fx"><span class="fx-t">Newcastle United<span class="v">v</span>Bournemouth</span><span class="fx-m">Premier League · Sat 5 Sep, 7:30PM</span></div></td><td class="pick">Newcastle United -0.5</td><td class="n big">2.12</td><td class="pick">Bournemouth +0.5</td><td class="n big">1.90</td><td class="n dim">0%</td></tr><tr><td><div class="fx"><span class="fx-t">Real Sociedad B<span class="v">v</span>Tenerife</span><span class="fx-m">La Liga 2 · Sat 5 Sep, 8:00PM</span></div></td><td class="pick">Real Sociedad B +0</td><td class="n big">1.88</td><td class="pick">Tenerife -0</td><td class="n big">2.13</td><td class="n dim">28%</td></tr><tr><td><div class="fx"><span class="fx-t">Fiorentina<span class="v">v</span>Torino</span><span class="fx-m">Serie A · Sat 5 Sep, 9:00PM</span></div></td><td class="pick">Fiorentina -0.5</td><td class="n big">1.96</td><td class="pick">Torino +0.5</td><td class="n big">2.04</td><td class="n dim">0%</td></tr><tr><td><div class="fx"><span class="fx-t">Bayer Leverkusen<span class="v">v</span>Union Berlin</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">Bayer Leverkusen -1.25</td><td class="n big">1.96</td><td class="pick">Union Berlin +1.25</td><td class="n big">2.04</td><td class="n dim">11%</td></tr><tr><td><div class="fx"><span class="fx-t">Werder Bremen<span class="v">v</span>RB Leipzig</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">Werder Bremen +0.75</td><td class="n big">2.01</td><td class="pick">RB Leipzig -0.75</td><td class="n big">1.99</td><td class="n dim">11%</td></tr><tr><td><div class="fx"><span class="fx-t">SC Paderborn<span class="v">v</span>SC Freiburg</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">SC Paderborn +0.5</td><td class="n big">1.96</td><td class="pick">SC Freiburg -0.5</td><td class="n big">2.04</td><td class="n dim">0%</td></tr><tr><td><div class="fx"><span class="fx-t">Borussia Monchengladbach<span class="v">v</span>Elversberg</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">Borussia Monchengladbach -0.5</td><td class="n big">1.96</td><td class="pick">Elversberg +0.5</td><td class="n big">2.05</td><td class="n dim">0%</td></tr><tr><td><div class="fx"><span class="fx-t">TSG Hoffenheim<span class="v">v</span>Borussia Dortmund</span><span class="fx-m">Bundesliga · Sat 5 Sep, 9:30PM</span></div></td><td class="pick">TSG Hoffenheim +0</td><td class="n big">2.09</td><td class="pick">Borussia Dortmund -0</td><td class="n big">1.92</td><td class="n dim">24%</td></tr><tr><td><div class="fx"><span class="fx-t">West Bromwich Albion<span class="v">v</span>Watford</span><span class="fx-m">Championship · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">West Bromwich Albion -0.5</td><td class="n big">1.89</td><td class="pick">Watford +0.5</td><td class="n big">2.12</td><td class="n dim">0%</td></tr><tr><td><div class="fx"><span class="fx-t">Millwall<span class="v">v</span>Bolton Wanderers</span><span class="fx-m">Championship · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Millwall -0.5</td><td class="n big">1.99</td><td class="pick">Bolton Wanderers +0.5</td><td class="n big">2.01</td><td class="n dim">0%</td></tr><tr><td><div class="fx"><span class="fx-t">Sheffield United<span class="v">v</span>Norwich City</span><span class="fx-m">Championship · Sat 5 Sep, 10:00PM</span></div></td><td class="pick">Sheffield United +0</td><td class="n big">2.02</td><td class="pick">Norwich City -0</td><td class="n big">1.98</td><td class="n dim">26%</td></tr></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Correct scores</h2>
+  <p class="hint">Three likeliest scorelines per match with what each is worth.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Match</th><th class="r">1st</th><th class="r">2nd</th><th class="r">3rd</th></tr></thead>
+    <tbody><tr><td><div class="fx"><span class="fx-t">Oviedo<span class="v">v</span>Burgos CF</span><span class="fx-m">La Liga 2 · Sun 6 Sep, 10:15PM</span></div></td><td class="cs"><b>1&ndash;0</b><span>6.2</span></td><td class="cs"><b>1&ndash;1</b><span>7.9</span></td><td class="cs"><b>0&ndash;0</b><span>8.2</span></td></tr><tr><td><div class="fx"><span class="fx-t">Parma<span class="v">v</span>Monza</span><span class="fx-m">Serie A · Sun 6 Sep, 9:00PM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.1</span></td><td class="cs"><b>1&ndash;0</b><span>8.8</span></td><td class="cs"><b>0&ndash;0</b><span>9.1</span></td></tr><tr><td><div class="fx"><span class="fx-t">Alavés<span class="v">v</span>CA Osasuna</span><span class="fx-m">La Liga · Mon 7 Sep, 12:30AM</span></div></td><td class="cs"><b>1&ndash;0</b><span>7.3</span></td><td class="cs"><b>1&ndash;1</b><span>7.6</span></td><td class="cs"><b>0&ndash;0</b><span>9.2</span></td></tr><tr><td><div class="fx"><span class="fx-t">Espanyol<span class="v">v</span>Sevilla</span><span class="fx-m">La Liga · Mon 7 Sep, 3:00AM</span></div></td><td class="cs"><b>1&ndash;0</b><span>7.4</span></td><td class="cs"><b>1&ndash;1</b><span>7.6</span></td><td class="cs"><b>0&ndash;0</b><span>9.4</span></td></tr><tr><td><div class="fx"><span class="fx-t">Juventus<span class="v">v</span>AC Milan</span><span class="fx-m">Serie A · Mon 7 Sep, 2:45AM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.5</span></td><td class="cs"><b>1&ndash;0</b><span>8.7</span></td><td class="cs"><b>0&ndash;0</b><span>10.8</span></td></tr><tr><td><div class="fx"><span class="fx-t">SD Eibar<span class="v">v</span>Granada CF</span><span class="fx-m">La Liga 2 · Sun 6 Sep, 8:00PM</span></div></td><td class="cs"><b>1&ndash;0</b><span>7.5</span></td><td class="cs"><b>1&ndash;1</b><span>7.9</span></td><td class="cs"><b>0&ndash;0</b><span>10.6</span></td></tr><tr><td><div class="fx"><span class="fx-t">Le Havre<span class="v">v</span>Brest</span><span class="fx-m">Ligue 1 · Sun 6 Sep, 2:45AM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.6</span></td><td class="cs"><b>1&ndash;0</b><span>10.4</span></td><td class="cs"><b>0&ndash;1</b><span>10.6</span></td></tr><tr><td><div class="fx"><span class="fx-t">Bologna<span class="v">v</span>Sassuolo</span><span class="fx-m">Serie A · Mon 7 Sep, 12:00AM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.6</span></td><td class="cs"><b>1&ndash;0</b><span>8.9</span></td><td class="cs"><b>2&ndash;1</b><span>10.8</span></td></tr><tr><td><div class="fx"><span class="fx-t">Real Sociedad B<span class="v">v</span>Tenerife</span><span class="fx-m">La Liga 2 · Sat 5 Sep, 8:00PM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.6</span></td><td class="cs"><b>1&ndash;0</b><span>8.7</span></td><td class="cs"><b>0&ndash;1</b><span>9.4</span></td></tr><tr><td><div class="fx"><span class="fx-t">Birmingham City<span class="v">v</span>Wolverhampton Wanderers</span><span class="fx-m">Championship · Sun 6 Sep, 7:00PM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.6</span></td><td class="cs"><b>0&ndash;1</b><span>9.6</span></td><td class="cs"><b>1&ndash;0</b><span>10.6</span></td></tr><tr><td><div class="fx"><span class="fx-t">Stoke City<span class="v">v</span>Charlton Athletic</span><span class="fx-m">Championship · Sat 5 Sep, 7:30PM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.7</span></td><td class="cs"><b>1&ndash;0</b><span>8.1</span></td><td class="cs"><b>0&ndash;0</b><span>10.7</span></td></tr><tr><td><div class="fx"><span class="fx-t">Tranmere Rovers<span class="v">v</span>Oldham Athletic</span><span class="fx-m">League Two · Sat 5 Sep, 10:00PM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.8</span></td><td class="cs"><b>0&ndash;1</b><span>9.7</span></td><td class="cs"><b>1&ndash;0</b><span>11.4</span></td></tr><tr><td><div class="fx"><span class="fx-t">Preston North End<span class="v">v</span>Blackburn Rovers</span><span class="fx-m">Championship · Sat 5 Sep, 7:30PM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.8</span></td><td class="cs"><b>1&ndash;0</b><span>10.0</span></td><td class="cs"><b>0&ndash;1</b><span>11.2</span></td></tr><tr><td><div class="fx"><span class="fx-t">Frosinone<span class="v">v</span>Venezia</span><span class="fx-m">Serie A · Sun 6 Sep, 9:00PM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.8</span></td><td class="cs"><b>1&ndash;2</b><span>11.8</span></td><td class="cs"><b>2&ndash;1</b><span>12.3</span></td></tr><tr><td><div class="fx"><span class="fx-t">Swansea City<span class="v">v</span>Wrexham AFC</span><span class="fx-m">Championship · Sun 6 Sep, 3:00AM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.8</span></td><td class="cs"><b>1&ndash;0</b><span>9.8</span></td><td class="cs"><b>2&ndash;1</b><span>11.3</span></td></tr><tr><td><div class="fx"><span class="fx-t">Troyes<span class="v">v</span>Strasbourg</span><span class="fx-m">Ligue 1 · Sun 6 Sep, 9:00PM</span></div></td><td class="cs"><b>1&ndash;1</b><span>7.9</span></td><td class="cs"><b>0&ndash;1</b><span>10.7</span></td><td class="cs"><b>1&ndash;2</b><span>11.3</span></td></tr></tbody>
+  </table></div>
+</section>
+
+<div class="note">
+  <b>What "extra" means.</b> Every bookmaker builds in a cut. Strip it out across all
+  21 or so books pricing each match and you get a fair price.
+  Where one book is paying meaningfully above that, the extra column shows by how much.
+  Same chance of landing, bigger payout. Anything marked <span class="ex">exch</span> is an
+  exchange, so knock a few percent off for commission.
+</div>
+
+<div class="foot">
+  Built 5 Sep 2026, 5:28PM Singapore time from
+  1507 bookmaker price sets. Every pick above is logged with the price
+  and the time, so in a few months there'll be a real record of how this went rather than
+  a memory of the good ones.
+</div>
+</div>
