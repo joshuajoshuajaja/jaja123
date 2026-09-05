@@ -1,0 +1,54 @@
+last_run_utc: 2026-09-05T07:22:42+00:00
+matches_rows: 148031
+divisions: 44
+date_range: 2012-03-02 .. 2026-09-03
+clubelo: no
+odds: no
+warnings: 1
+  - clubelo unavailable
+
+rows per division:
+  Superliga                    6175
+  MLS                          6145
+  E1                           6120
+  E3                           6008
+  E2                           5967
+  EC                           5910
+  Super League                 5711
+  Serie A                      5565
+  SP2                          5115
+  Liga MX                      4709
+  I2                           4408
+  SP1                          4211
+  I1                           4200
+  E0                           4200
+  Ekstraklasa                  4131
+  F2                           3966
+  F1                           3876
+  T1                           3727
+  Allsvenskan                  3528
+  Eliteserien                  3526
+  Premier League               3416
+  P1                           3399
+  D2                           3393
+  D1                           3375
+  N1                           3325
+  Liga Profesional             3306
+  B1                           3081
+  Veikkausliiga                2671
+  Bundesliga                   2668
+  G1                           2641
+  SC0                          2484
+   J1 League                   2358
+  J1 League                    2215
+  Liga Profesional             2114
+  SC1                          1912
+  SC2                          1893
+  SC3                          1892
+  Premier Division             1594
+  Premier Division             1112
+  Superliga                    1050
+  Copa De La Liga Profesional  920
+  Allsvenskan                  7
+  Veikkausliiga                5
+  Challenge League             2
