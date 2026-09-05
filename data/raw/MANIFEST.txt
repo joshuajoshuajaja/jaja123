@@ -1,54 +1,55 @@
-last_run_utc: 2026-09-05T07:22:42+00:00
+last_run_utc: 2026-09-05T08:15:41+00:00
 matches_rows: 148031
-divisions: 44
+divisions: 40
 date_range: 2012-03-02 .. 2026-09-03
 clubelo: no
+xg_matches: 0
 odds: no
-warnings: 1
+warnings: 5
+  - https://api.clubelo.com/2026-09-05: HTTPSConnectionPool(host='api.clubelo.com', port=443): Max retries exceeded with url: /2026-09-05 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.clubelo.com', port=443) at 0x7fca9ff5d820>, 'Connection to api.clubelo.com timed out. (connect timeout=45)'))
+  - https://api.clubelo.com/2026-09-04: HTTPSConnectionPool(host='api.clubelo.com', port=443): Max retries exceeded with url: /2026-09-04 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.clubelo.com', port=443) at 0x7fca9ff5c080>, 'Connection to api.clubelo.com timed out. (connect timeout=45)'))
+  - https://api.clubelo.com/2026-09-03: HTTPSConnectionPool(host='api.clubelo.com', port=443): Max retries exceeded with url: /2026-09-03 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.clubelo.com', port=443) at 0x7fca9ff5c830>, 'Connection to api.clubelo.com timed out. (connect timeout=45)'))
   - clubelo unavailable
+  - understat returned nothing - xG unavailable this run
 
 rows per division:
-  Superliga                    6175
-  MLS                          6145
+  USA: MLS                     6145
   E1                           6120
   E3                           6008
   E2                           5967
   EC                           5910
-  Super League                 5711
-  Serie A                      5565
+  BRA: Serie A                 5565
+  ARG: Liga Profesional        5420
   SP2                          5115
-  Liga MX                      4709
+  MEX: Liga MX                 4709
+  JAP: J1 League               4573
   I2                           4408
+  ROM: Superliga               4237
   SP1                          4211
-  I1                           4200
   E0                           4200
-  Ekstraklasa                  4131
+  I1                           4200
+  POL: Ekstraklasa             4131
   F2                           3966
   F1                           3876
   T1                           3727
-  Allsvenskan                  3528
-  Eliteserien                  3526
-  Premier League               3416
+  SWE: Allsvenskan             3535
+  NOR: Eliteserien             3526
+  RUS: Premier League          3416
   P1                           3399
   D2                           3393
   D1                           3375
   N1                           3325
-  Liga Profesional             3306
   B1                           3081
-  Veikkausliiga                2671
-  Bundesliga                   2668
+  CHI: Super League            3005
+  DEN: Superliga               2988
+  IRE: Premier Division        2706
+  SWI: Super League            2706
+  FIN: Veikkausliiga           2676
+  AUS: Bundesliga              2668
   G1                           2641
   SC0                          2484
-   J1 League                   2358
-  J1 League                    2215
-  Liga Profesional             2114
   SC1                          1912
   SC2                          1893
   SC3                          1892
-  Premier Division             1594
-  Premier Division             1112
-  Superliga                    1050
-  Copa De La Liga Profesional  920
-  Allsvenskan                  7
-  Veikkausliiga                5
-  Challenge League             2
+  ARG: Copa De La Liga Profesional 920
+  SWI: Challenge League        2
