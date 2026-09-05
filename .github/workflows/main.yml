@@ -54,6 +54,7 @@ jobs:
           import datetime as dt
           from pathlib import Path
 
+          import numpy as np
           import pandas as pd
           import requests
 
@@ -261,6 +262,10 @@ jobs:
               ("the-odds-api", "https://api.the-odds-api.com/v4/sports/?apiKey=probe"),
               ("sofascore api", "https://api.sofascore.com/api/v1/sport/football/events/live"),
               ("worldfootball", "https://www.worldfootball.net/"),
+              ("sgodds", "https://sgodds.com/"),
+              ("sgodds odds page", "https://sgodds.com/odds"),
+              ("singaporepools", "https://online.singaporepools.com/en/sports"),
+              ("oddsportal", "https://www.oddsportal.com/"),
               ("raw.githubusercontent", "https://raw.githubusercontent.com/openfootball/football.json/master/README.md"),
           ]
 
@@ -397,30 +402,93 @@ jobs:
               return df.sort_values("date").reset_index(drop=True)
 
 
+          # Priority order. The free tier is 500 credits a month and an /odds call costs
+          # markets x regions, so the budget decides how far down this list we get today.
           ODDS_SPORTS = [
-              "soccer_epl", "soccer_efl_champ", "soccer_england_league1",
-              "soccer_england_league2", "soccer_spain_la_liga", "soccer_spain_segunda_division",
-              "soccer_italy_serie_a", "soccer_italy_serie_b", "soccer_germany_bundesliga",
-              "soccer_germany_bundesliga2", "soccer_france_ligue_one", "soccer_france_ligue_two",
-              "soccer_netherlands_eredivisie", "soccer_belgium_first_div",
-              "soccer_portugal_primeira_liga", "soccer_turkey_super_league",
-              "soccer_greece_super_league", "soccer_brazil_campeonato",
-              "soccer_argentina_primera_division", "soccer_japan_j_league",
-              "soccer_usa_mls", "soccer_mexico_ligamx",
+              "soccer_epl", "soccer_spain_la_liga", "soccer_italy_serie_a",
+              "soccer_germany_bundesliga", "soccer_france_ligue_one", "soccer_efl_champ",
+              "soccer_netherlands_eredivisie", "soccer_portugal_primeira_liga",
+              "soccer_belgium_first_div", "soccer_turkey_super_league",
+              "soccer_brazil_campeonato", "soccer_argentina_primera_division",
+              "soccer_usa_mls", "soccer_mexico_ligamx", "soccer_japan_j_league",
+              "soccer_england_league1", "soccer_england_league2",
+              "soccer_spain_segunda_division", "soccer_italy_serie_b",
+              "soccer_germany_bundesliga2", "soccer_france_ligue_two",
+              "soccer_greece_super_league",
               "soccer_uefa_champs_league", "soccer_uefa_europa_league",
           ]
+
+          # h2h + totals is exactly what the correct-score consistency check needs:
+          # a supremacy and a total, from the same book, at the same moment.
+          ODDS_MARKETS = "h2h,totals"
+          ODDS_REGIONS = "eu"
+          CREDITS_PER_CALL = len(ODDS_MARKETS.split(",")) * len(ODDS_REGIONS.split(","))
+          MONTHLY_FREE = 500
+          EVENT_HORIZON_H = 60          # only pay for a league with a game this soon
+
+
+          def _odds_remaining(key: str) -> int | None:
+              """/sports is free, and its headers report the quota. Ask before spending."""
+              try:
+                  r = requests.get(f"https://api.the-odds-api.com/v4/sports/?apiKey={key}",
+                                   timeout=TIMEOUT)
+                  if r.status_code == 401:
+                      warn("odds API rejected the key")
+                      return -1
+                  v = r.headers.get("x-requests-remaining")
+                  return int(float(v)) if v is not None else None
+              except (requests.RequestException, ValueError):
+                  return None
+
+
+          def _has_upcoming(key: str, sport: str) -> bool:
+              """/events is free too, so we never pay to discover an empty league."""
+              try:
+                  r = requests.get(f"https://api.the-odds-api.com/v4/sports/{sport}/events/"
+                                   f"?apiKey={key}&dateFormat=iso", timeout=TIMEOUT)
+                  if r.status_code != 200:
+                      return False
+                  cutoff = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=EVENT_HORIZON_H)
+                  for ev in r.json():
+                      t = pd.to_datetime(ev.get("commence_time"), errors="coerce", utc=True)
+                      if pd.notna(t) and t <= cutoff:
+                          return True
+              except requests.RequestException:
+                  pass
+              return False
 
 
           def fetch_odds() -> pd.DataFrame | None:
               key = os.environ.get("ODDS_API_KEY", "").strip()
               if not key:
-                  print("ODDS_API_KEY not set - skipping live odds (expected for now)", flush=True)
+                  print("ODDS_API_KEY not set - skipping live odds", flush=True)
                   return None
 
-              rows, used, snap = [], "?", dt.datetime.now(dt.timezone.utc).isoformat()
-              for sport in ODDS_SPORTS:
+              remaining = _odds_remaining(key)
+              if remaining == -1:
+                  return None
+              if remaining is None:
+                  remaining = MONTHLY_FREE
+              # Spread whatever is left over the rest of the month rather than spending it
+              # all on the first slate. Self-correcting: as the quota drops, so does the cap.
+              budget = int(np.clip(remaining // 30, CREDITS_PER_CALL, 8 * CREDITS_PER_CALL))
+              print(f"odds: {remaining} credits remaining, spending up to {budget} today "
+                    f"({CREDITS_PER_CALL}/league)", flush=True)
+
+              # rotate the tail so lower-priority leagues still get sampled
+              day = dt.date.today().toordinal()
+              head, tail = ODDS_SPORTS[:6], ODDS_SPORTS[6:]
+              order = head + tail[day % len(tail):] + tail[:day % len(tail)]
+
+              rows, spent, used = [], 0, "?"
+              snap = dt.datetime.now(dt.timezone.utc).isoformat()
+              for sport in order:
+                  if spent + CREDITS_PER_CALL > budget:
+                      break
+                  if not _has_upcoming(key, sport):
+                      continue
                   url = (f"https://api.the-odds-api.com/v4/sports/{sport}/odds/"
-                         f"?apiKey={key}&regions=eu,uk&markets=h2h,totals,spreads"
+                         f"?apiKey={key}&regions={ODDS_REGIONS}&markets={ODDS_MARKETS}"
                          f"&oddsFormat=decimal&dateFormat=iso")
                   try:
                       r = requests.get(url, timeout=TIMEOUT)
@@ -428,11 +496,14 @@ jobs:
                       warn(f"odds {sport}: {e}")
                       continue
                   if r.status_code == 401:
-                      warn("odds API rejected the key - stopping")
+                      warn("odds API rejected the key mid-run - stopping")
                       break
                   if r.status_code != 200:
+                      warn(f"odds {sport}: HTTP {r.status_code}")
                       continue
+                  spent += int(float(r.headers.get("x-requests-last", CREDITS_PER_CALL)))
                   used = r.headers.get("x-requests-used", used)
+                  n0 = len(rows)
                   for ev in r.json():
                       for bk in ev.get("bookmakers", []):
                           for mk in bk.get("markets", []):
@@ -450,7 +521,10 @@ jobs:
                                       "point": oc.get("point"),
                                       "price": oc.get("price"),
                                   })
-              print(f"odds rows: {len(rows)}   credits used this month: {used}", flush=True)
+                  print(f"  {sport:<38} +{len(rows)-n0:>5} rows  (spent {spent}/{budget})", flush=True)
+
+              print(f"odds rows: {len(rows)}  credits spent today: {spent}  "
+                    f"used this period: {used}", flush=True)
               return pd.DataFrame(rows) if rows else None
 
 
