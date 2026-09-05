@@ -675,7 +675,7 @@ jobs:
 
           import json
           import sys
-          from datetime import timedelta
+          from datetime import timedelta, timezone
 
           import numpy as np
           import pandas as pd
@@ -687,7 +687,26 @@ jobs:
                                   consensus_totals, implied_matrix)
 
           HALF_LIFE, RIDGE = 330.0, 0.25
-          HOURS_AHEAD = 16   # tonight's games only - no multiday parlays
+
+          # "Tonight" is anchored to a fixed end-of-slate, not a rolling window, so a
+          # re-run later in the evening covers the same night rather than creeping into
+          # tomorrow. 10am Singapore sits after the last European night kick-off.
+          SGT_TZ = timezone(timedelta(hours=8))
+          SLATE_END_HOUR = 10
+          LEAD_MINUTES = 10      # need time to actually place the bet
+          MAX_HOURS = 20         # safety cap
+
+
+          def slate_window(now=None):
+              """(start, end) in UTC: games not yet kicked off, up to end of tonight."""
+              now = pd.Timestamp.now(tz="UTC") if now is None else pd.Timestamp(now).tz_convert("UTC")
+              local = now.tz_convert(SGT_TZ)
+              end_local = local.normalize() + pd.Timedelta(hours=SLATE_END_HOUR)
+              if end_local <= local:
+                  end_local += pd.Timedelta(days=1)
+              start = now + pd.Timedelta(minutes=LEAD_MINUTES)
+              end = min(end_local.tz_convert("UTC"), now + pd.Timedelta(hours=MAX_HOURS))
+              return start, end
           K = np.arange(11)
           GD = np.subtract.outer(K, K)
           TOT = np.add.outer(K, K)
@@ -738,9 +757,13 @@ jobs:
                           .drop_duplicates(subset=["event_id", "book", "market", "outcome", "point"],
                                            keep="last"))
               now = pd.Timestamp.now(tz="UTC")
-              live = odds[(odds.ct >= now - timedelta(hours=3)) &
-                          (odds.ct <= now + timedelta(hours=HOURS_AHEAD))]
-              print(f"{live.event_id.nunique()} fixtures in the next {HOURS_AHEAD}h")
+              start, end = slate_window(now)
+              started = odds[odds.ct < start].event_id.nunique()
+              live = odds[(odds.ct >= start) & (odds.ct <= end)]
+              print(f"slate window {start.tz_convert(SGT_TZ):%a %d %b %H:%M} -> "
+                    f"{end.tz_convert(SGT_TZ):%a %d %b %H:%M} SGT")
+              print(f"{live.event_id.nunique()} fixtures still to kick off "
+                    f"({started} already started or finished, skipped)")
 
               recent = matches[matches["date"] >= matches["date"].max() - pd.Timedelta(days=450)]
               fitted: dict[str, tuple] = {}
@@ -1110,27 +1133,28 @@ jobs:
             <div class="eyebrow">Matchday board &middot; tonight</div>
             <h1>{today}</h1>
             <p class="sub">{len(fx)} matches across {len(leagues)} leagues. {len(pos_w)} winners and
-            {len(pos_t)} goals bets, tonight only. One pick per game, likeliest first.</p>
+            {len(pos_t)} goals bets. One pick per game, kick-offs still to come only.</p>
           </header>
 
           <section>
             <h2>The accumulator</h2>
             <div class="parlay">
               <div class="parlay-h">
-                <span class="parlay-t">Four legs, every one paying 1.50 or better</span>
+                <span class="parlay-t">{len(acca)} legs, every one paying 1.50 or better</span>
                 <span class="parlay-p">{acca_pr:.0f} to 1</span>
               </div>
               <div class="legs">{acca_rows}</div>
             </div>
-            <p class="hint">The four likeliest picks on tonight's board that still pay 1.50 or better,
-            one per match.</p>
+            <p class="hint">The likeliest picks left on tonight's board that still pay 1.50 or better,
+            one per match. Games that have already kicked off are gone, so this is safe to re-run
+            at any point in the evening.</p>
           </section>
 
           <section>
             <h2>The lottery ticket</h2>
             <div class="parlay">
               <div class="parlay-h">
-                <span class="parlay-t">Four correct scores, four different matches</span>
+                <span class="parlay-t">{len(parlay)} correct scores, {len(parlay)} different matches</span>
                 <span class="parlay-p">{1/comb:,.0f} to 1</span>
               </div>
               <div class="legs">{legs}</div>
@@ -1331,11 +1355,11 @@ jobs:
               day = datetime.now(SGT).strftime("%a %-d %b")
               comb = float(np.prod([s["top"][0][0] for s in parlay])) if parlay else 0.0
               L = [f"<b>Matchday board - {day}</b>",
-                   f"{len(fx)} matches, next 16h", ""]
+                   f"{len(fx)} games still to kick off", ""]
 
               if acca:
                   apr = float(np.prod([r["price"] for r in acca]))
-                  L.append(f"<b>ACCUMULATOR</b>  {apr:.1f} to 1")
+                  L.append(f"<b>{len(acca)}-LEG ACCUMULATOR</b>  {apr:.1f} to 1")
                   for r in acca:
                       f = r["fixture"]
                       L.append(f"  {e(r['pick'])}  <b>{r['price']:.2f}</b>")
@@ -1362,13 +1386,13 @@ jobs:
                   L.append("")
 
               if parlay:
-                  L.append(f"<b>LOTTERY TICKET</b>  ~{1/comb:,.0f} to 1")
+                  L.append(f"<b>LOTTERY TICKET</b> ({len(parlay)} legs)  ~{1/comb:,.0f} to 1")
                   for s in parlay:
                       f = s["fixture"]; _p, i, j = s["top"][0]
                       L.append(f"  <b>{i}-{j}</b>  {e(f['home'])} v {e(f['away'])}")
                   L.append("")
 
-              L.append("<i>One pick per game, nothing under 1.50, tonight's kick-offs only.</i>")
+              L.append("<i>One pick per game, nothing under 1.50. Games already kicked off are excluded, so re-run this any time tonight.</i>")
               credits = odds_credits()
               if credits:
                   L.append(f"<i>Odds allowance: {credits}</i>")
@@ -1385,7 +1409,8 @@ jobs:
 
               fx = price_fixtures()
               if not fx:
-                  send("<b>Matchday board</b>\nNo fixtures priced today - the odds feed came back empty.")
+                  send("<b>Matchday board</b>\n\nNothing left to bet tonight - every game in the "
+                       "window has already kicked off. Next board at 6pm.")
                   return 0
 
               winners, totals, handicaps, scores, parlay, acca = build(fx)
