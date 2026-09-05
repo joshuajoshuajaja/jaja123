@@ -19,7 +19,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
 
     steps:
       - uses: actions/checkout@v5
@@ -134,12 +134,16 @@ jobs:
 
 
           def _read_csv(blob: bytes) -> pd.DataFrame | None:
-              for enc in ("latin-1", "utf-8"):
+              # utf-8-sig FIRST: these files carry a UTF-8 BOM, and decoding them as
+              # latin-1 turns the first column name into "ï»¿Country",
+              # which silently loses the Country column on the extra-league files.
+              for enc in ("utf-8-sig", "utf-8", "latin-1"):
                   try:
                       df = pd.read_csv(io.BytesIO(blob), encoding=enc,
                                        on_bad_lines="skip", low_memory=False)
                   except Exception:
                       continue
+                  df.columns = [str(c).replace("﻿", "").strip() for c in df.columns]
                   df = df.dropna(how="all", axis=0).dropna(how="all", axis=1)
                   if "Date" in df.columns:
                       df = df[df["Date"].notna()]
@@ -185,8 +189,12 @@ jobs:
                       continue
                   df = df.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam",
                                           "HG": "FTHG", "AG": "FTAG", "Res": "FTR"})
-                  if "League" in df.columns:
-                      df["Div"] = df["League"].astype(str)
+                  # League names collide across countries ("Super League" is both China
+                  # and Switzerland; "Superliga" is Denmark and Romania) and arrive with
+                  # stray whitespace, so key on country + league, always.
+                  league = df["League"].astype(str).str.strip() if "League" in df.columns else ctry
+                  country = df["Country"].astype(str).str.strip() if "Country" in df.columns else ctry
+                  df["Div"] = country.str.upper().str.slice(0, 3) + ": " + league
                   df = _trim(df)
                   df["Source"] = "extra"
                   frames.append(df)
@@ -222,17 +230,94 @@ jobs:
 
 
           def fetch_clubelo() -> pd.DataFrame | None:
-              for days_back in (0, 1, 2):
-                  day = (dt.date.today() - dt.timedelta(days=days_back)).isoformat()
-                  blob = _get(f"http://api.clubelo.com/{day}", tries=2)
-                  if not blob:
-                      continue
-                  try:
-                      return pd.read_csv(io.BytesIO(blob))
-                  except Exception as e:
-                      warn(f"clubelo parse: {e}")
+              for scheme in ("https", "http"):
+                  for days_back in (0, 1, 2):
+                      day = (dt.date.today() - dt.timedelta(days=days_back)).isoformat()
+                      blob = _get(f"{scheme}://api.clubelo.com/{day}", tries=2)
+                      if not blob:
+                          continue
+                      try:
+                          df = pd.read_csv(io.BytesIO(blob))
+                          if len(df) > 100:
+                              return df
+                      except Exception as e:
+                          warn(f"clubelo parse ({scheme}): {e}")
               warn("clubelo unavailable")
               return None
+
+
+          # ---------------------------------------------------------------------------
+          # Understat - match-level expected goals for the top five leagues
+          # ---------------------------------------------------------------------------
+          # Understat embeds its data as a hex-escaped JSON string inside a <script> tag
+          # rather than serving an API, so we pull the page and unescape it. No scraping
+          # library needed, and nothing to break when a package version moves.
+
+          UNDERSTAT_LEAGUES = ["EPL", "La_liga", "Bundesliga", "Serie_A", "Ligue_1", "RFPL"]
+          UNDERSTAT_FIRST_SEASON = 2014
+
+          _US_RE = re.compile(r"var\s+datesData\s*=\s*JSON\.parse\('(.*?)'\)\s*;", re.S)
+
+
+          def _understat_season_years() -> list[int]:
+              today = dt.date.today()
+              latest = today.year if today.month >= 7 else today.year - 1
+              return list(range(UNDERSTAT_FIRST_SEASON, latest + 1))
+
+
+          def fetch_xg() -> pd.DataFrame | None:
+              import json
+
+              rows = []
+              for league in UNDERSTAT_LEAGUES:
+                  got = 0
+                  for year in _understat_season_years():
+                      blob = _get(f"https://understat.com/league/{league}/{year}", tries=2)
+                      if not blob:
+                          continue
+                      m = _US_RE.search(blob.decode("utf-8", errors="replace"))
+                      if not m:
+                          continue
+                      try:
+                          # \xHH escapes are UTF-8 *bytes*, so unicode_escape alone turns
+                          # "Munchen" with an umlaut into mojibake - round-trip through
+                          # latin-1 to recover the real characters.
+                          s = m.group(1).encode("utf-8").decode("unicode_escape")
+                          s = s.encode("latin-1", "replace").decode("utf-8", "replace")
+                          data = json.loads(s)
+                      except Exception as e:
+                          warn(f"understat {league} {year}: parse failed ({e})")
+                          continue
+                      for g in data:
+                          if not g.get("isResult"):
+                              continue          # fixture not played yet
+                          try:
+                              rows.append({
+                                  "league": league,
+                                  "season": year,
+                                  "datetime": g.get("datetime"),
+                                  "home": g["h"]["title"],
+                                  "away": g["a"]["title"],
+                                  "hg": int(g["goals"]["h"]),
+                                  "ag": int(g["goals"]["a"]),
+                                  "hxg": float(g["xG"]["h"]),
+                                  "axg": float(g["xG"]["a"]),
+                              })
+                          except (KeyError, TypeError, ValueError):
+                              continue
+                      got += 1
+                      time.sleep(0.8)           # be polite; the site is a free resource
+                  print(f"  xG {league:<12} {got}/{len(_understat_season_years())} seasons", flush=True)
+
+              if not rows:
+                  warn("understat returned nothing - xG unavailable this run")
+                  return None
+
+              df = pd.DataFrame(rows)
+              df["date"] = pd.to_datetime(df["datetime"], errors="coerce").dt.normalize()
+              df = df.dropna(subset=["date"]).drop_duplicates(
+                  subset=["league", "date", "home", "away"], keep="last")
+              return df.sort_values("date").reset_index(drop=True)
 
 
           ODDS_SPORTS = [
@@ -328,6 +413,24 @@ jobs:
               except Exception as e:
                   warn(f"clubelo step: {e}")
 
+              xg = None
+              try:
+                  print("\nunderstat xG:", flush=True)
+                  xg = fetch_xg()
+                  if xg is not None:
+                      xg.to_csv(RAW / "xg.csv.gz", index=False, compression="gzip")
+                      # distinct team names, so the modelling side can build the mapping
+                      # onto football-data's names without another round trip
+                      names = (pd.concat([xg[["league", "home"]].rename(columns={"home": "team"}),
+                                          xg[["league", "away"]].rename(columns={"away": "team"})])
+                               .drop_duplicates().sort_values(["league", "team"]))
+                      names.to_csv(RAW / "xg_teams.csv", index=False)
+                      print(f"wrote xg.csv.gz ({len(xg):,} matches, "
+                            f"{xg['date'].min():%Y-%m-%d}..{xg['date'].max():%Y-%m-%d}, "
+                            f"{len(names)} team-league pairs)", flush=True)
+              except Exception as e:
+                  warn(f"xg step: {e}")
+
               odds = None
               try:
                   odds = fetch_odds()
@@ -351,6 +454,7 @@ jobs:
                   f"divisions: {matches['Div'].nunique()}\n"
                   f"date_range: {matches['date'].min():%Y-%m-%d} .. {matches['date'].max():%Y-%m-%d}\n"
                   f"clubelo: {'yes' if elo is not None else 'no'}\n"
+                  f"xg_matches: {0 if xg is None else len(xg)}\n"
                   f"odds: {'yes' if odds is not None else 'no'}\n"
                   f"warnings: {len(WARNINGS)}\n"
                   + "".join(f"  - {w}\n" for w in WARNINGS)
