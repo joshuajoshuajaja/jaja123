@@ -1,0 +1,6 @@
+pandas>=2.2
+numpy>=1.26
+requests>=2.31
+pyarrow>=15.0
+scipy>=1.11
+soccerdata>=1.8
