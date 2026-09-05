@@ -1185,46 +1185,79 @@ jobs:
           TG = "https://api.telegram.org"
 
 
-          def chat_id(token: str) -> str | None:
-              """Use the configured chat, or find it from whoever messaged the bot last."""
+          def preflight(token: str) -> tuple[bool, str | None, str]:
+              """
+              Work out exactly what state Telegram is in, and say so in plain words.
+              Returns (ok, chat_id, message).
+              """
+              if not token:
+                  return False, None, (
+                      "TELEGRAM_TOKEN is missing or empty.\n"
+                      "  Fix: repo Settings -> Secrets and variables -> Actions -> New repository\n"
+                      "  secret, named exactly TELEGRAM_TOKEN, value = the token BotFather gave you.")
+
+              try:
+                  me = requests.get(f"{TG}/bot{token}/getMe", timeout=30)
+              except Exception as e:
+                  return False, None, (
+                      f"Could not reach Telegram at all ({type(e).__name__}).\n"
+                      "  GitHub's servers may be blocked from api.telegram.org. Tell Claude and\n"
+                      "  we will send the summary another way.")
+
+              if me.status_code == 401:
+                  return False, None, (
+                      "Telegram rejected the token (401).\n"
+                      "  Fix: the value is wrong or truncated. Copy the whole thing from BotFather,\n"
+                      "  it looks like 1234567890:AAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+              if me.status_code != 200:
+                  return False, None, f"Telegram getMe returned {me.status_code}: {me.text[:200]}"
+
+              uname = me.json().get("result", {}).get("username", "?")
+
               cid = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
               if cid:
-                  return cid
+                  return True, cid, f"bot @{uname} ok, using configured chat {cid}"
+
               try:
                   r = requests.get(f"{TG}/bot{token}/getUpdates", timeout=30)
                   for u in reversed(r.json().get("result", [])):
                       c = (u.get("message") or u.get("channel_post") or {}).get("chat", {})
                       if c.get("id"):
-                          print(f"discovered chat id {c['id']} - add it as TELEGRAM_CHAT_ID "
-                                f"so it keeps working once old messages expire")
-                          return str(c["id"])
+                          return True, str(c["id"]), (
+                              f"bot @{uname} ok, found chat {c['id']}.\n"
+                              f"  Add {c['id']} as a secret named TELEGRAM_CHAT_ID so this keeps\n"
+                              "  working after old messages expire.")
               except Exception as e:
-                  print(f"could not discover chat id: {e}", file=sys.stderr)
-              return None
+                  return False, None, f"bot @{uname} ok but getUpdates failed: {e}"
+
+              return False, None, (
+                  f"The bot @{uname} is alive, but nobody has ever messaged it, so it has\n"
+                  "  nowhere to send to.\n"
+                  f"  Fix: open Telegram, search @{uname}, open the chat and press Start\n"
+                  "  (or just send it 'hi'), then run this workflow again.")
 
 
           def send(text: str) -> bool:
               token = os.environ.get("TELEGRAM_TOKEN", "").strip()
-              if not token:
-                  print("TELEGRAM_TOKEN not set - printing instead of sending\n")
+              ok, cid, note = preflight(token)
+              print(f"telegram: {note}", flush=True)
+              if not ok:
+                  print("\n--- the summary that would have been sent ---\n")
                   print(text)
-                  return False
-              cid = chat_id(token)
-              if not cid:
-                  print("no chat id - message the bot once, then rerun", file=sys.stderr)
                   return False
               try:
                   r = requests.post(f"{TG}/bot{token}/sendMessage", timeout=30, json={
                       "chat_id": cid, "text": text, "parse_mode": "HTML",
                       "disable_web_page_preview": True})
-                  if r.status_code != 200:
-                      print(f"telegram said {r.status_code}: {r.text[:300]}", file=sys.stderr)
-                      return False
-                  print("sent to telegram")
-                  return True
               except Exception as e:
-                  print(f"telegram failed: {e}", file=sys.stderr)
+                  print(f"telegram send failed: {e}", file=sys.stderr)
                   return False
+              if r.status_code != 200:
+                  print(f"telegram refused the message ({r.status_code}): {r.text[:400]}",
+                        file=sys.stderr)
+                  return False
+              print("sent to telegram", flush=True)
+              return True
 
 
           def summary(fx, winners, totals, parlay, board_url: str | None) -> str:
@@ -1286,8 +1319,12 @@ jobs:
                   pickle.dump(fx, fh)
 
               url = os.environ.get("BOARD_URL", "").strip() or None
-              send(summary(fx, winners, totals, parlay, url))
+              delivered = send(summary(fx, winners, totals, parlay, url))
               print(f"board built: {len(fx)} fixtures, {n} picks logged")
+              if not delivered:
+                  print("\nBOARD BUILT BUT NOT DELIVERED - see the telegram line above.",
+                        file=sys.stderr)
+                  return 1
               return 0
 
 
