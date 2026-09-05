@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import timedelta
+from datetime import timedelta, timezone
 
 import numpy as np
 import pandas as pd
@@ -16,7 +16,26 @@ from model.live import (SPORT_TO_DIV, map_teams, consensus_1x2,     # noqa: E402
                         consensus_totals, implied_matrix)
 
 HALF_LIFE, RIDGE = 330.0, 0.25
-HOURS_AHEAD = 16   # tonight's games only - no multiday parlays
+
+# "Tonight" is anchored to a fixed end-of-slate, not a rolling window, so a
+# re-run later in the evening covers the same night rather than creeping into
+# tomorrow. 10am Singapore sits after the last European night kick-off.
+SGT_TZ = timezone(timedelta(hours=8))
+SLATE_END_HOUR = 10
+LEAD_MINUTES = 10      # need time to actually place the bet
+MAX_HOURS = 20         # safety cap
+
+
+def slate_window(now=None):
+    """(start, end) in UTC: games not yet kicked off, up to end of tonight."""
+    now = pd.Timestamp.now(tz="UTC") if now is None else pd.Timestamp(now).tz_convert("UTC")
+    local = now.tz_convert(SGT_TZ)
+    end_local = local.normalize() + pd.Timedelta(hours=SLATE_END_HOUR)
+    if end_local <= local:
+        end_local += pd.Timedelta(days=1)
+    start = now + pd.Timedelta(minutes=LEAD_MINUTES)
+    end = min(end_local.tz_convert("UTC"), now + pd.Timedelta(hours=MAX_HOURS))
+    return start, end
 K = np.arange(11)
 GD = np.subtract.outer(K, K)
 TOT = np.add.outer(K, K)
@@ -67,9 +86,13 @@ def main() -> None:
                 .drop_duplicates(subset=["event_id", "book", "market", "outcome", "point"],
                                  keep="last"))
     now = pd.Timestamp.now(tz="UTC")
-    live = odds[(odds.ct >= now - timedelta(hours=3)) &
-                (odds.ct <= now + timedelta(hours=HOURS_AHEAD))]
-    print(f"{live.event_id.nunique()} fixtures in the next {HOURS_AHEAD}h")
+    start, end = slate_window(now)
+    started = odds[odds.ct < start].event_id.nunique()
+    live = odds[(odds.ct >= start) & (odds.ct <= end)]
+    print(f"slate window {start.tz_convert(SGT_TZ):%a %d %b %H:%M} -> "
+          f"{end.tz_convert(SGT_TZ):%a %d %b %H:%M} SGT")
+    print(f"{live.event_id.nunique()} fixtures still to kick off "
+          f"({started} already started or finished, skipped)")
 
     recent = matches[matches["date"] >= matches["date"].max() - pd.Timedelta(days=450)]
     fitted: dict[str, tuple] = {}

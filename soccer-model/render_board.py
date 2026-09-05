@@ -291,27 +291,28 @@ tr:last-child td{{border-bottom:0}}
   <div class="eyebrow">Matchday board &middot; tonight</div>
   <h1>{today}</h1>
   <p class="sub">{len(fx)} matches across {len(leagues)} leagues. {len(pos_w)} winners and
-  {len(pos_t)} goals bets, tonight only. One pick per game, likeliest first.</p>
+  {len(pos_t)} goals bets. One pick per game, kick-offs still to come only.</p>
 </header>
 
 <section>
   <h2>The accumulator</h2>
   <div class="parlay">
     <div class="parlay-h">
-      <span class="parlay-t">Four legs, every one paying 1.50 or better</span>
+      <span class="parlay-t">{len(acca)} legs, every one paying 1.50 or better</span>
       <span class="parlay-p">{acca_pr:.0f} to 1</span>
     </div>
     <div class="legs">{acca_rows}</div>
   </div>
-  <p class="hint">The four likeliest picks on tonight's board that still pay 1.50 or better,
-  one per match.</p>
+  <p class="hint">The likeliest picks left on tonight's board that still pay 1.50 or better,
+  one per match. Games that have already kicked off are gone, so this is safe to re-run
+  at any point in the evening.</p>
 </section>
 
 <section>
   <h2>The lottery ticket</h2>
   <div class="parlay">
     <div class="parlay-h">
-      <span class="parlay-t">Four correct scores, four different matches</span>
+      <span class="parlay-t">{len(parlay)} correct scores, {len(parlay)} different matches</span>
       <span class="parlay-p">{1/comb:,.0f} to 1</span>
     </div>
     <div class="legs">{legs}</div>

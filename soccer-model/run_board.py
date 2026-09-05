@@ -123,11 +123,11 @@ def summary(fx, winners, totals, parlay, acca, board_url: str | None) -> str:
     day = datetime.now(SGT).strftime("%a %-d %b")
     comb = float(np.prod([s["top"][0][0] for s in parlay])) if parlay else 0.0
     L = [f"<b>Matchday board - {day}</b>",
-         f"{len(fx)} matches, next 16h", ""]
+         f"{len(fx)} games still to kick off", ""]
 
     if acca:
         apr = float(np.prod([r["price"] for r in acca]))
-        L.append(f"<b>ACCUMULATOR</b>  {apr:.1f} to 1")
+        L.append(f"<b>{len(acca)}-LEG ACCUMULATOR</b>  {apr:.1f} to 1")
         for r in acca:
             f = r["fixture"]
             L.append(f"  {e(r['pick'])}  <b>{r['price']:.2f}</b>")
@@ -154,13 +154,13 @@ def summary(fx, winners, totals, parlay, acca, board_url: str | None) -> str:
         L.append("")
 
     if parlay:
-        L.append(f"<b>LOTTERY TICKET</b>  ~{1/comb:,.0f} to 1")
+        L.append(f"<b>LOTTERY TICKET</b> ({len(parlay)} legs)  ~{1/comb:,.0f} to 1")
         for s in parlay:
             f = s["fixture"]; _p, i, j = s["top"][0]
             L.append(f"  <b>{i}-{j}</b>  {e(f['home'])} v {e(f['away'])}")
         L.append("")
 
-    L.append("<i>One pick per game, nothing under 1.50, tonight's kick-offs only.</i>")
+    L.append("<i>One pick per game, nothing under 1.50. Games already kicked off are excluded, so re-run this any time tonight.</i>")
     credits = odds_credits()
     if credits:
         L.append(f"<i>Odds allowance: {credits}</i>")
@@ -177,7 +177,8 @@ def main() -> int:
 
     fx = price_fixtures()
     if not fx:
-        send("<b>Matchday board</b>\nNo fixtures priced today - the odds feed came back empty.")
+        send("<b>Matchday board</b>\n\nNothing left to bet tonight - every game in the "
+             "window has already kicked off. Next board at 6pm.")
         return 0
 
     winners, totals, handicaps, scores, parlay, acca = build(fx)
