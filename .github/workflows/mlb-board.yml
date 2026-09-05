@@ -781,6 +781,7 @@ jobs:
                   if bp <= 1.0:
                       continue
                   dog = away if sel == home else home
+                  dog_id = g["away_id"] if sel == home else g["home_id"]
                   dog_fp, dog_bp = 1.0 - fp, best.get(dog, 0)
                   picks.append({
                       "matchup": f"{C.TEAMS.get(g['away_id'],('?',))[0]} @ "
@@ -792,10 +793,12 @@ jobs:
                       "best_book": best.get(sel + "|book", "?"),
                       "n_books": len(per_book),
                       "edge": bp * fp - 1.0,
-                      "dog": dog, "dog_edge": (dog_bp * dog_fp - 1.0) if dog_bp else -1,
+                      "dog": dog, "dog_abbr": C.TEAMS.get(dog_id, ("?",))[0],
+                      "dog_edge": (dog_bp * dog_fp - 1.0) if dog_bp else -1,
                       "dog_price": dog_bp, "dog_book": best.get(dog + "|book", "?"),
                       "sp": f"{g['away_sp_name'] or 'TBD'} / {g['home_sp_name'] or 'TBD'}",
                       "start": ev.get("commence_time"),
+                      "start_dt": F.event_start(ev) if ev.get("commence_time") else None,
                   })
               picks.sort(key=lambda p: -p["fair"])
               return picks
@@ -825,6 +828,17 @@ jobs:
               return "COIN FLIP"
 
 
+          SGT = timezone(timedelta(hours=8))
+          TIER_ORDER = ["STRONG", "LEAN", "COIN FLIP"]
+
+
+          def sgt_time(dt):
+              """Start time in the user's own clock, since the slate runs overnight."""
+              if not dt:
+                  return "?"
+              return dt.astimezone(SGT).strftime("%-I:%M%p").lower()
+
+
           def render(board_date, parlays, mls, sels, credits, graded):
               A, B = [], []
               thr = edge_threshold(sels)
@@ -838,40 +852,42 @@ jobs:
                   A.append(f"<b>━━ {name} · {len(legs)} legs ━━</b>")
                   for s in legs:
                       star = " ⚡" if s["best_price"] * s["fair"] - 1 > thr else ""
-                      est = "~" if s["fair_estimated"] else ""
-                      A.append(f"• <b>{s['player']}</b> ({s['team']}) — {s['matchup']}")
-                      A.append(f"  {s['best_price']:.2f} ({C.american(s['best_price'])}) "
-                               f"{s['best_book']} · fair {est}{s['fair']*100:.1f}% · "
-                               f"model {s['model']*100:.1f}%{star}")
-                      A.append(f"  vs {s['opp_sp']} · park {s['park']}")
+                      A.append(f"• <b>{s['player']}</b> ({s['team']}) — {s['matchup']} — "
+                               f"{s['best_price']:.2f} ({C.american(s['best_price'])})"
+                               f"{star}")
                   A.append(f"  <b>Combined {price:.2f} ({C.american(price)})</b> · "
                            f"hit chance {prob*100:.2f}%")
                   A.append("")
-              A.append(f"<i>Legs ranked by consensus hit probability, never two from "
-                       f"the same game. ⚡ = best price beats consensus fair value by "
-                       f"more than {thr*100:.0f}% — the widest prices on the slate. "
-                       f"~ = fair value estimated from one-sided books.</i>")
+              A.append(f"<i>Legs ranked by how likely they are to land, never two from "
+                       f"the same game. ⚡ = the best price out there is unusually far "
+                       f"above what the rest of the market is offering.</i>")
 
               B.append(f"<b>MONEYLINE — every game, {board_date:%a %d %b}</b>")
-              B.append("")
-              for m in mls:
-                  star = " ⚡" if m["edge"] > 0.02 else ""
-                  B.append(f"<b>{m['sel_abbr']}</b>  {m['matchup']}  "
-                           f"{m['best_price']:.2f} ({C.american(m['best_price'])}) "
-                           f"{m['best_book']}{star}")
-                  B.append(f"   fair {m['fair']*100:.1f}% · {tier(m['fair'])} · "
-                           f"{m['sp']}")
-                  if m["dog_edge"] > 0.02:
-                      B.append(f"   ↳ price edge on the dog: {m['dog']} "
-                               f"{m['dog_price']:.2f} ({m['dog_book']}) "
-                               f"{m['dog_edge']*100:+.1f}%")
+              for label in TIER_ORDER:
+                  group = [m for m in mls if tier(m["fair"]) == label]
+                  if not group:
+                      continue
+                  group.sort(key=lambda m: (m["start_dt"] is None, m["start_dt"]))
+                  B.append("")
+                  B.append(f"<b>━━ {label} ━━</b>")
+                  for m in group:
+                      star = " ⚡" if m["edge"] > 0.02 else ""
+                      B.append(f"<b>{m['sel_abbr']}</b> {m['matchup']} · "
+                               f"{m['best_price']:.2f} ({C.american(m['best_price'])}) · "
+                               f"fair {m['fair']*100:.0f}% · "
+                               f"{sgt_time(m['start_dt'])}{star}")
+                      if m["dog_edge"] > 0.02:
+                          B.append(f"   ↳ value on the underdog: {m['dog_abbr']} "
+                                   f"{m['dog_price']:.2f} ({m['dog_edge']*100:+.1f}%)")
               B.append("")
               if graded:
                   B.append(f"<b>Yesterday:</b> {graded}")
-              B.append(f"<i>Consensus of {max((m['n_books'] for m in mls), default=0)} "
-                       f"books, Shin de-vigged, best available price shown. "
-                       f"⚡ = best price beats fair value — the only edge the football "
-                       f"backtest ever found. Credits left: {credits}.</i>")
+              B.append(f"<i>Sorted strongest first, then by start time (Singapore). "
+                       f"Prices are the best available across "
+                       f"{max((m['n_books'] for m in mls), default=0)} books. "
+                       f"⚡ = that price beats where the market has the game — the one "
+                       f"edge the football backtest ever found. "
+                       f"Credits left: {credits}.</i>")
               return "\n".join(A), "\n".join(B)
 
 
