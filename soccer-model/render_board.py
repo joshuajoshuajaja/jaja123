@@ -17,6 +17,11 @@ from build_board import ah_split, book, GD, TOT, K   # noqa: E402
 SGT = timezone(timedelta(hours=8))
 EXCHANGES = {"betfair_ex_eu", "matchbook", "betfair_ex_uk"}
 
+# J's rule: nothing below 1.50 decimal, and among what clears that bar, rank by
+# the chance of it actually landing rather than by how good the price is.
+MIN_ODDS = 1.50
+ACCA_LEGS = 4
+
 
 def kick(iso: str) -> str:
     return datetime.fromisoformat(iso).astimezone(SGT).strftime("%a %-d %b, %-I:%M%p")
@@ -66,18 +71,33 @@ def build(fx):
         flat.sort(reverse=True)
         scores.append(dict(fixture=f, top=flat[:3]))
 
-    winners.sort(key=lambda r: -r["edge"])
-    totals.sort(key=lambda r: -r["edge"])
+    # rank by hit chance, not by price advantage
+    winners.sort(key=lambda r: -r["p"])
+    totals.sort(key=lambda r: -r["p"])
     scores.sort(key=lambda r: -r["top"][0][0])
     parlay = scores[:4]
-    return winners, totals, handicaps, scores, parlay
+
+    # the accumulator: the likeliest selections that still pay +150 or better,
+    # one per match so a single bad afternoon can't take out two legs
+    pool = [r for r in winners + totals if r["price"] >= MIN_ODDS]
+    pool.sort(key=lambda r: -r["p"])
+    acca, seen = [], set()
+    for r in pool:
+        eid = r["fixture"]["event_id"]
+        if eid in seen:
+            continue
+        acca.append(r)
+        seen.add(eid)
+        if len(acca) == ACCA_LEGS:
+            break
+    return winners, totals, handicaps, scores, parlay, acca
 
 
-def write_log(winners, totals, parlay, path="picks_log.csv"):
+def write_log(winners, totals, parlay, acca=(), path="picks_log.csv"):
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     rows = []
     for r in winners + totals:
-        if r["edge"] <= 0:
+        if r["price"] < MIN_ODDS:
             continue
         f = r["fixture"]
         rows.append(dict(logged_utc=now, kickoff=f["kickoff"], league=f["league"],
@@ -109,11 +129,13 @@ def row_fixture(f):
             f'<span class="fx-m">{html.escape(f["league"])} · {kick(f["kickoff"])}</span></div>')
 
 
-def render(fx, winners, totals, handicaps, scores, parlay) -> str:
+def render(fx, winners, totals, handicaps, scores, parlay, acca) -> str:
     today = datetime.now(SGT).strftime("%A %-d %B")
     leagues = sorted({f["league"] for f in fx})
-    pos_w = [w for w in winners if w["edge"] > 0]
-    pos_t = [t for t in totals if t["edge"] > 0]
+    pos_w = [w for w in winners if w["price"] >= MIN_ODDS]
+    pos_t = [t for t in totals if t["price"] >= MIN_ODDS]
+    acca_p = float(np.prod([r["p"] for r in acca])) if acca else 0.0
+    acca_pr = float(np.prod([r["price"] for r in acca])) if acca else 0.0
     comb = float(np.prod([s["top"][0][0] for s in parlay])) if parlay else 0.0
 
     def edge_cell(e):
@@ -136,16 +158,27 @@ def render(fx, winners, totals, handicaps, scores, parlay) -> str:
     win_rows = "".join(
         f'<tr><td>{row_fixture(w["fixture"])}</td>'
         f'<td class="pick">{html.escape(w["pick"])}</td>'
+        f'<td class="n chance">{w["p"]*100:.0f}%</td>'
         f'{price_cell(w["price"], w["bookie"])}'
-        f'<td class="n dim">{1/w["p"]:.2f}</td>{edge_cell(w["edge"])}</tr>'
+        f'<td class="n dim">{1/w["p"]:.2f}</td></tr>'
         for w in pos_w[:18])
 
     tot_rows = "".join(
         f'<tr><td>{row_fixture(t["fixture"])}</td>'
         f'<td class="pick">{html.escape(t["pick"])}</td>'
+        f'<td class="n chance">{t["p"]*100:.0f}%</td>'
         f'{price_cell(t["price"], t["bookie"])}'
-        f'<td class="n dim">{1/t["p"]:.2f}</td>{edge_cell(t["edge"])}</tr>'
+        f'<td class="n dim">{1/t["p"]:.2f}</td></tr>'
         for t in pos_t[:14])
+
+    acca_rows = "".join(
+        f'<div class="leg"><div class="leg-n">{i+1}</div><div class="leg-b">'
+        f'<div class="leg-s acc">{r["p"]*100:.0f}%</div>'
+        f'<div class="leg-f">{html.escape(r["pick"])}</div>'
+        f'<div class="leg-m">{html.escape(r["fixture"]["home"])} v {html.escape(r["fixture"]["away"])}<br>'
+        f'{r["price"]:.2f} at {html.escape(book(r["bookie"]))} · {kick(r["fixture"]["kickoff"])}</div>'
+        f'</div></div>'
+        for i, r in enumerate(acca))
 
     hcp_rows = "".join(
         f'<tr><td>{row_fixture(h["fixture"])}</td>'
@@ -242,6 +275,8 @@ tr:last-child td{{border-bottom:0}}
 .up{{color:var(--pitch);font-weight:700}}
 .mid{{color:var(--ink-2)}}
 .flat{{color:var(--ink-3)}}
+.n.chance{{font-weight:700;font-size:15px;color:var(--pitch)}}
+.leg-s.acc{{color:var(--pitch)}}
 .cs{{text-align:center;white-space:nowrap;padding:8px 10px}}
 .cs b{{display:block;font-size:15px;font-weight:700}}
 .cs span{{display:block;font-size:11px;color:var(--ink-3);margin-top:1px}}
@@ -257,11 +292,25 @@ tr:last-child td{{border-bottom:0}}
   <div class="eyebrow">Matchday board &middot; next 48 hours</div>
   <h1>{today}</h1>
   <p class="sub">{len(fx)} matches across {len(leagues)} leagues. {len(pos_w)} winners and
-  {len(pos_t)} totals where somebody is paying above the going rate.</p>
+  {len(pos_t)} goals bets paying 1.50 or better, ranked by how often they land.</p>
 </header>
 
 <section>
-  <h2>The parlay</h2>
+  <h2>The accumulator</h2>
+  <div class="parlay">
+    <div class="parlay-h">
+      <span class="parlay-t">Four legs, every one paying 1.50 or better</span>
+      <span class="parlay-p">{acca_pr:.0f} to 1</span>
+    </div>
+    <div class="legs">{acca_rows}</div>
+  </div>
+  <p class="hint">The four likeliest selections on the board that still pay 1.50 or better,
+  one per match. Lands about <b>{acca_p*100:.1f}%</b> of the time &mdash; roughly
+  {acca_p/comb if comb else 0:.0f} times more often than the correct-score ticket below.</p>
+</section>
+
+<section>
+  <h2>The lottery ticket</h2>
   <div class="parlay">
     <div class="parlay-h">
       <span class="parlay-t">Four correct scores, four different matches</span>
@@ -269,18 +318,18 @@ tr:last-child td{{border-bottom:0}}
     </div>
     <div class="legs">{legs}</div>
   </div>
-  <p class="hint">The four scorelines most likely to land across the next two days, one per match.
-  Combined chance is about {comb*100:.2f}%. The price shown is what it's genuinely worth &mdash;
-  if Pools is paying less than that, you're being charged for the privilege.</p>
+  <p class="hint">Combined chance about {comb*100:.2f}%. Kept because you asked for it and it's fun,
+  but the accumulator above is the one built to actually land.</p>
 </section>
 
 <section>
   <h2>Winners</h2>
-  <p class="hint">Sorted by how much the best available price beats what everyone else is paying.
-  <b>Fair</b> is the price the market as a whole implies once the bookmaker's cut is stripped out.</p>
+  <p class="hint">Everything paying 1.50 or better, most likely first. <b>Chance</b> is how often
+  this lands. <b>Fair</b> is what it's worth once the bookmaker's cut is stripped out &mdash; if
+  Pools pays less than that, take a different one off this list.</p>
   <div class="tw"><table>
-    <thead><tr><th>Match</th><th>Pick</th><th class="r">Best price</th><th>Where</th>
-    <th class="r">Fair</th><th class="r">Extra</th></tr></thead>
+    <thead><tr><th>Match</th><th>Pick</th><th class="r">Chance</th><th class="r">Best price</th>
+    <th>Where</th><th class="r">Fair</th></tr></thead>
     <tbody>{win_rows}</tbody>
   </table></div>
 </section>
@@ -288,8 +337,8 @@ tr:last-child td{{border-bottom:0}}
 <section>
   <h2>Goals</h2>
   <div class="tw"><table>
-    <thead><tr><th>Match</th><th>Pick</th><th class="r">Best price</th><th>Where</th>
-    <th class="r">Fair</th><th class="r">Extra</th></tr></thead>
+    <thead><tr><th>Match</th><th>Pick</th><th class="r">Chance</th><th class="r">Best price</th>
+    <th>Where</th><th class="r">Fair</th></tr></thead>
     <tbody>{tot_rows}</tbody>
   </table></div>
 </section>
@@ -315,11 +364,11 @@ tr:last-child td{{border-bottom:0}}
 </section>
 
 <div class="note">
-  <b>What "extra" means.</b> Every bookmaker builds in a cut. Strip it out across all
-  {sum(f["nbooks"] for f in fx) // max(len(fx),1)} or so books pricing each match and you get a fair price.
-  Where one book is paying meaningfully above that, the extra column shows by how much.
-  Same chance of landing, bigger payout. Anything marked <span class="ex">exch</span> is an
-  exchange, so knock a few percent off for commission.
+  <b>The ceiling on this list.</b> A bet paying 1.50 is about a 65% shot &mdash; that's roughly the
+  most likely thing any bookmaker will price at that number, because anything safer they'd pay
+  less on. So the top of this list is about as reliable as it gets while still paying 1.50 or
+  better. Anything marked <span class="ex">exch</span> is an exchange, so knock a few percent
+  off for commission.
 </div>
 
 <div class="foot">
@@ -334,11 +383,11 @@ tr:last-child td{{border-bottom:0}}
 
 if __name__ == "__main__":
     fx = pickle.load(open("fixtures.pkl", "rb"))
-    w, t, h, s, p = build(fx)
-    n = write_log(w, t, p)
+    w, t, h, s, p, acca = build(fx)
+    n = write_log(w, t, p, acca)
     out = "matchday_board.html"
     with open(out, "w") as fh:
-        fh.write(render(fx, w, t, h, s, p))
+        fh.write(render(fx, w, t, h, s, p, acca))
     print(f"wrote {out} | {len(w)} winner lines, {len(t)} totals, "
           f"{len(h)} handicaps, {len(s)} score sets | logged {n} picks")
 

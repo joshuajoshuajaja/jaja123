@@ -75,11 +75,18 @@ def preflight(token: str) -> tuple[bool, str | None, str]:
 def send(text: str) -> bool:
     token = os.environ.get("TELEGRAM_TOKEN", "").strip()
     ok, cid, note = preflight(token)
-    print(f"telegram: {note}", flush=True)
     if not ok:
+        # diagnosis LAST, so it is the final thing in the log rather than
+        # buried above the summary dump
         print("\n--- the summary that would have been sent ---\n")
         print(text)
+        print("\n" + "=" * 66)
+        print("TELEGRAM DID NOT SEND")
+        print("=" * 66)
+        print(note)
+        print("=" * 66, flush=True)
         return False
+    print(f"telegram: {note}", flush=True)
     try:
         r = requests.post(f"{TG}/bot{token}/sendMessage", timeout=30, json={
             "chat_id": cid, "text": text, "parse_mode": "HTML",
@@ -95,40 +102,52 @@ def send(text: str) -> bool:
     return True
 
 
-def summary(fx, winners, totals, parlay, board_url: str | None) -> str:
+def summary(fx, winners, totals, parlay, acca, board_url: str | None) -> str:
     e = _html.escape
     day = datetime.now(SGT).strftime("%a %-d %b")
     comb = float(np.prod([s["top"][0][0] for s in parlay])) if parlay else 0.0
     L = [f"<b>Matchday board - {day}</b>",
          f"{len(fx)} matches, next 48h", ""]
 
-    if parlay:
-        L.append(f"<b>PARLAY</b>  ~{1/comb:,.0f} to 1 if priced fairly")
-        for s in parlay:
-            f = s["fixture"]; p, i, j = s["top"][0]
-            L.append(f"  <b>{i}-{j}</b>  {e(f['home'])} v {e(f['away'])}  <i>{p*100:.0f}%</i>")
+    if acca:
+        ap = float(np.prod([r["p"] for r in acca]))
+        apr = float(np.prod([r["price"] for r in acca]))
+        L.append(f"<b>ACCUMULATOR</b>  {apr:.0f} to 1  ·  lands {ap*100:.1f}% of the time")
+        for r in acca:
+            f = r["fixture"]
+            L.append(f"  <b>{r['p']*100:.0f}%</b>  {e(r['pick'])}  <i>@{r['price']:.2f}</i>")
+            L.append(f"       {e(f['home'])} v {e(f['away'])}")
         L.append("")
 
-    pw = [w for w in winners if w["edge"] > 0][:6]
+    from render_board import MIN_ODDS
+    pw = [w for w in winners if w["price"] >= MIN_ODDS][:6]
     if pw:
-        L.append("<b>WINNERS</b>  <i>pick / fair price / how good the best price is</i>")
+        L.append("<b>WINNERS</b>  <i>most likely first, all 1.50 or better</i>")
         for w in pw:
             f = w["fixture"]
-            L.append(f"  {e(w['pick'])} <i>({e(f['home'])} v {e(f['away'])})</i>")
-            L.append(f"     fair {1/w['p']:.2f} · best {w['price']:.2f} · +{w['edge']*100:.1f}%")
+            L.append(f"  <b>{w['p']*100:.0f}%</b>  {e(w['pick'])}  <i>@{w['price']:.2f}</i>"
+                     f"  <i>(fair {1/w['p']:.2f})</i>")
+            L.append(f"       {e(f['home'])} v {e(f['away'])}")
         L.append("")
 
-    pt = [t for t in totals if t["edge"] > 0][:4]
+    pt = [t for t in totals if t["price"] >= MIN_ODDS][:4]
     if pt:
         L.append("<b>GOALS</b>")
         for t in pt:
             f = t["fixture"]
-            L.append(f"  {e(t['pick'])} <i>({e(f['home'])} v {e(f['away'])})</i>")
-            L.append(f"     fair {1/t['p']:.2f} · best {t['price']:.2f} · +{t['edge']*100:.1f}%")
+            L.append(f"  <b>{t['p']*100:.0f}%</b>  {e(t['pick'])}  <i>@{t['price']:.2f}</i>"
+                     f"  <i>(fair {1/t['p']:.2f})</i>")
+            L.append(f"       {e(f['home'])} v {e(f['away'])}")
         L.append("")
 
-    L.append("<i>Fair = what the bet is worth with the bookmaker's cut removed. "
-             "If Pools pays less than that, it's a bad price - not a bad bet.</i>")
+    if parlay:
+        L.append(f"<b>LOTTERY TICKET</b>  ~{1/comb:,.0f} to 1  ·  {comb*100:.2f}%")
+        L.append("  " + "  ".join(f"{s['top'][0][1]}-{s['top'][0][2]}" for s in parlay))
+        L.append("")
+
+    L.append("<i>Everything here pays 1.50 or better, likeliest first. Fair = what it's worth "
+             "with the bookmaker's cut removed; if Pools pays under that, take a different one "
+             "off the list.</i>")
     if board_url:
         L.append(f'\n<a href="{board_url}">Full board</a>')
     text = "\n".join(L)
@@ -145,16 +164,16 @@ def main() -> int:
         send("<b>Matchday board</b>\nNo fixtures priced today - the odds feed came back empty.")
         return 0
 
-    winners, totals, handicaps, scores, parlay = build(fx)
-    n = write_log(winners, totals, parlay, path="data/picks_log.csv")
+    winners, totals, handicaps, scores, parlay, acca = build(fx)
+    n = write_log(winners, totals, parlay, acca, path="data/picks_log.csv")
 
     with open("board.html", "w") as fh:
-        fh.write(render(fx, winners, totals, handicaps, scores, parlay))
+        fh.write(render(fx, winners, totals, handicaps, scores, parlay, acca))
     with open("fixtures.pkl", "wb") as fh:
         pickle.dump(fx, fh)
 
     url = os.environ.get("BOARD_URL", "").strip() or None
-    delivered = send(summary(fx, winners, totals, parlay, url))
+    delivered = send(summary(fx, winners, totals, parlay, acca, url))
     print(f"board built: {len(fx)} fixtures, {n} picks logged")
     if not delivered:
         print("\nBOARD BUILT BUT NOT DELIVERED - see the telegram line above.",
