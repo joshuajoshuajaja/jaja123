@@ -1,7 +1,7 @@
 name: daily-fetch
 
-# Pulls football results, closing odds, ClubElo ratings and xG every day,
-# then commits them into this repo. Everything lives in this one file.
+# Pulls football results, bookmaker closing odds and ClubElo ratings every day
+# and commits them into this repo. Everything lives in this one file.
 
 on:
   schedule:
@@ -22,14 +22,14 @@ jobs:
     timeout-minutes: 40
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install pandas numpy requests pyarrow scipy soccerdata
+        run: pip install --quiet pandas numpy requests pyarrow
 
       - name: Write the fetch script
         run: |
@@ -37,21 +37,20 @@ jobs:
           cat > fetch/fetch_all.py <<'PYTHON_EOF'
           #!/usr/bin/env python3
           """
-          Daily data pull for the soccer model.
+          Daily data pull for the soccer model.  v2 - hardened.
 
-          Runs on GitHub Actions (open internet), writes raw files into data/raw/,
-          and the workflow commits them. The modelling session then reads them over
-          raw.githubusercontent.com.
-
-          Nothing here is clever. It just gets bytes onto disk, reliably, and fails
-          loudly on the sources that matter.
+          Design rule: football-data.co.uk is the only source allowed to fail the run.
+          Everything else is best-effort and reports itself in the log. Whatever landed
+          gets committed either way.
           """
           from __future__ import annotations
 
           import io
           import os
+          import re
           import sys
           import time
+          import traceback
           import datetime as dt
           from pathlib import Path
 
@@ -62,49 +61,61 @@ jobs:
           RAW = ROOT / "data" / "raw"
           RAW.mkdir(parents=True, exist_ok=True)
 
-          UA = {"User-Agent": "Mozilla/5.0 (compatible; soccer-model/1.0)"}
-          TIMEOUT = 60
+          UA = {"User-Agent": "Mozilla/5.0 (compatible; soccer-model/2.0)"}
+          TIMEOUT = 45
+          WARNINGS: list[str] = []
+
+
+          def warn(msg: str) -> None:
+              WARNINGS.append(msg)
+              print(f"  !! {msg}", file=sys.stderr, flush=True)
+
 
           # ---------------------------------------------------------------------------
-          # football-data.co.uk  --  results + closing odds, the backbone of the project
+          # Sources
           # ---------------------------------------------------------------------------
 
-          # Main-file divisions. Key = football-data division code.
           MAIN_DIVS = [
-              "E0", "E1", "E2", "E3", "EC",          # England: PL -> National League
-              "SC0", "SC1", "SC2", "SC3",            # Scotland
-              "D1", "D2",                            # Germany
-              "I1", "I2",                            # Italy
-              "SP1", "SP2",                          # Spain
-              "F1", "F2",                            # France
-              "N1",                                  # Netherlands
-              "B1",                                  # Belgium
-              "P1",                                  # Portugal
-              "T1",                                  # Turkey
-              "G1",                                  # Greece
+              "E0", "E1", "E2", "E3", "EC",
+              "SC0", "SC1", "SC2", "SC3",
+              "D1", "D2", "I1", "I2", "SP1", "SP2", "F1", "F2",
+              "N1", "B1", "P1", "T1", "G1",
           ]
 
-          # "New leagues" single-file-per-country (one file covers all seasons).
           EXTRA_COUNTRIES = [
               "ARG", "AUT", "BRA", "CHN", "DNK", "FIN", "IRL", "JPN",
               "MEX", "NOR", "POL", "ROU", "RUS", "SWE", "SWZ", "USA",
           ]
 
-          # How many seasons of history to pull for the main divisions.
-          # 12 seasons is plenty: older data is down-weighted to nothing by the
-          # time-decay term anyway, and team identity drifts.
           N_SEASONS = 12
+
+          # Columns worth keeping. Everything else is one of ~30 individual bookmakers
+          # we don't need - dropping them keeps the committed file small enough that
+          # GitHub doesn't complain.
+          CORE_COLS = {
+              "Div", "Date", "Time", "HomeTeam", "AwayTeam",
+              "FTHG", "FTAG", "FTR", "HTHG", "HTAG", "HTR",
+              "HS", "AS", "HST", "AST", "HC", "AC", "HF", "AF", "HY", "AY", "HR", "AR",
+              "SeasonCode", "Source", "Country", "League", "Season",
+          }
+
+          # B365/Pinnacle/BetFair + market max & average, opening and closing ("C").
+          ODDS_RE = re.compile(
+              r"^(B365|PS|P|BF|Max|Avg)C?("
+              r"H|D|A"                       # 1X2
+              r"|>2\.5|<2\.5"                # totals
+              r"|AHH|AHA"                    # asian handicap prices
+              r")$"
+          )
+          LINE_COLS = {"AHh", "AHCh", "B365AHh", "PAHh", "MaxAHh", "AvgAHh"}
+
+          NUMERIC_HINT = re.compile(r"^(FT|HT)(HG|AG)$|^(HS|AS|HST|AST|HC|AC|HF|AF|HY|AY|HR|AR)$")
 
 
           def season_codes(n: int = N_SEASONS) -> list[str]:
-              """['2526', '2425', ...] anchored on the current European season."""
               today = dt.date.today()
               start_year = today.year if today.month >= 7 else today.year - 1
-              out = []
-              for i in range(n):
-                  y = start_year - i
-                  out.append(f"{y % 100:02d}{(y + 1) % 100:02d}")
-              return out
+              return [f"{(start_year - i) % 100:02d}{(start_year - i + 1) % 100:02d}" for i in range(n)]
 
 
           def _get(url: str, tries: int = 3) -> bytes | None:
@@ -114,34 +125,38 @@ jobs:
                       if r.status_code == 200 and r.content:
                           return r.content
                       if r.status_code == 404:
-                          return None  # season/division simply doesn't exist
+                          return None
                   except requests.RequestException as e:
-                      print(f"    retry {attempt + 1}: {e}", file=sys.stderr)
-                  time.sleep(2 * (attempt + 1))
-              print(f"    FAILED {url}", file=sys.stderr)
+                      if attempt == tries - 1:
+                          warn(f"{url}: {e}")
+                  time.sleep(1.5 * (attempt + 1))
               return None
 
 
           def _read_csv(blob: bytes) -> pd.DataFrame | None:
-              """football-data files are latin-1 and occasionally have ragged tails."""
               for enc in ("latin-1", "utf-8"):
                   try:
                       df = pd.read_csv(io.BytesIO(blob), encoding=enc,
                                        on_bad_lines="skip", low_memory=False)
-                      df = df.dropna(how="all", axis=0).dropna(how="all", axis=1)
-                      # trailing junk rows have no date
-                      if "Date" in df.columns:
-                          df = df[df["Date"].notna()]
-                      return df if len(df) else None
                   except Exception:
                       continue
+                  df = df.dropna(how="all", axis=0).dropna(how="all", axis=1)
+                  if "Date" in df.columns:
+                      df = df[df["Date"].notna()]
+                  return df if len(df) else None
               return None
 
 
+          def _trim(df: pd.DataFrame) -> pd.DataFrame:
+              keep = [c for c in df.columns
+                      if c in CORE_COLS or c in LINE_COLS or ODDS_RE.match(str(c))]
+              return df[keep] if keep else df
+
+
           def fetch_football_data() -> pd.DataFrame:
-              frames = []
-              seasons = season_codes()
-              print(f"football-data.co.uk: {len(MAIN_DIVS)} divisions x {len(seasons)} seasons")
+              frames, seasons = [], season_codes()
+              print(f"football-data.co.uk main: {len(MAIN_DIVS)} divisions x {len(seasons)} seasons",
+                    flush=True)
               for div in MAIN_DIVS:
                   got = 0
                   for season in seasons:
@@ -151,96 +166,74 @@ jobs:
                       df = _read_csv(blob)
                       if df is None:
                           continue
+                      df = _trim(df)
                       df["Div"] = div
                       df["SeasonCode"] = season
+                      df["Source"] = "main"
                       frames.append(df)
                       got += 1
-                  print(f"  {div:<4} {got}/{len(seasons)} seasons")
+                  print(f"  {div:<4} {got}/{len(seasons)} seasons", flush=True)
 
-              print(f"football-data.co.uk extra: {len(EXTRA_COUNTRIES)} countries")
+              print(f"football-data.co.uk extra: {len(EXTRA_COUNTRIES)} countries", flush=True)
               for ctry in EXTRA_COUNTRIES:
                   blob = _get(f"https://www.football-data.co.uk/new/{ctry}.csv")
                   if not blob:
+                      print(f"  {ctry:<4} unavailable", flush=True)
                       continue
                   df = _read_csv(blob)
                   if df is None:
                       continue
-                  # Harmonise the extra-file schema onto the main one.
-                  df = df.rename(columns={
-                      "Home": "HomeTeam", "Away": "AwayTeam",
-                      "HG": "FTHG", "AG": "FTAG", "Res": "FTR",
-                  })
+                  df = df.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam",
+                                          "HG": "FTHG", "AG": "FTAG", "Res": "FTR"})
                   if "League" in df.columns:
                       df["Div"] = df["League"].astype(str)
+                  df = _trim(df)
                   df["Source"] = "extra"
                   frames.append(df)
-                  print(f"  {ctry:<4} {len(df)} rows")
+                  print(f"  {ctry:<4} {len(df)} rows", flush=True)
 
               if not frames:
-                  raise SystemExit("football-data.co.uk returned nothing - aborting")
+                  raise RuntimeError("football-data.co.uk returned nothing at all")
 
               out = pd.concat(frames, ignore_index=True, sort=False)
-              out["Source"] = out.get("Source", pd.Series(index=out.index)).fillna("main")
-              return out
 
+              # --- normalise dtypes. This is the step that used to blow the run up:
+              # concatenating 12 seasons of slightly different schemas leaves object
+              # columns holding a mix of floats and stray strings, which parquet refuses.
+              for col in out.columns:
+                  if col in {"Div", "HomeTeam", "AwayTeam", "FTR", "HTR", "Time",
+                             "Date", "SeasonCode", "Source", "Country", "League", "Season"}:
+                      out[col] = out[col].astype("string")
+                  else:
+                      out[col] = pd.to_numeric(out[col], errors="coerce")
 
-          # ---------------------------------------------------------------------------
-          # ClubElo -- free cross-league strength prior, useful for promoted teams
-          # ---------------------------------------------------------------------------
+              # parsed ISO date - football-data uses both dd/mm/yy and dd/mm/yyyy
+              d = pd.to_datetime(out["Date"], format="%d/%m/%Y", errors="coerce")
+              d2 = pd.to_datetime(out["Date"], format="%d/%m/%y", errors="coerce")
+              out["date"] = d.fillna(d2)
+
+              before = len(out)
+              out = out.dropna(subset=["HomeTeam", "AwayTeam", "FTHG", "FTAG"])
+              out = out.drop_duplicates(subset=["Div", "date", "HomeTeam", "AwayTeam"], keep="last")
+              print(f"\ncleaned: {before:,} -> {len(out):,} rows "
+                    f"({out['Div'].nunique()} divisions, "
+                    f"{out['date'].min():%Y-%m-%d} to {out['date'].max():%Y-%m-%d})", flush=True)
+              return out.sort_values("date").reset_index(drop=True)
+
 
           def fetch_clubelo() -> pd.DataFrame | None:
-              today = dt.date.today().isoformat()
-              blob = _get(f"http://api.clubelo.com/{today}")
-              if not blob:
-                  return None
-              try:
-                  return pd.read_csv(io.BytesIO(blob))
-              except Exception as e:
-                  print(f"clubelo parse failed: {e}", file=sys.stderr)
-                  return None
-
-
-          # ---------------------------------------------------------------------------
-          # xG -- FBref / Understat via the `soccerdata` package (top leagues only)
-          # ---------------------------------------------------------------------------
-
-          def fetch_xg() -> pd.DataFrame | None:
-              try:
-                  import soccerdata as sd
-              except ImportError:
-                  print("soccerdata not installed - skipping xG", file=sys.stderr)
-                  return None
-
-              current = dt.date.today()
-              start_year = current.year if current.month >= 7 else current.year - 1
-              seasons = [f"{y % 100:02d}{(y + 1) % 100:02d}" for y in range(start_year - 5, start_year + 1)]
-
-              try:
-                  us = sd.Understat(leagues="ENG-Premier League", seasons=seasons)
-                  del us  # touch-test the constructor before doing the slow pull
-              except Exception as e:
-                  print(f"understat unavailable: {e}", file=sys.stderr)
-
-              frames = []
-              for league in ["ENG-Premier League", "ESP-La Liga", "ITA-Serie A",
-                             "GER-Bundesliga", "FRA-Ligue 1"]:
+              for days_back in (0, 1, 2):
+                  day = (dt.date.today() - dt.timedelta(days=days_back)).isoformat()
+                  blob = _get(f"http://api.clubelo.com/{day}", tries=2)
+                  if not blob:
+                      continue
                   try:
-                      us = sd.Understat(leagues=league, seasons=seasons)
-                      df = us.read_team_match_stats()
-                      df = df.reset_index()
-                      df["league_key"] = league
-                      frames.append(df)
-                      print(f"  xG {league}: {len(df)} rows")
+                      return pd.read_csv(io.BytesIO(blob))
                   except Exception as e:
-                      print(f"  xG {league} failed: {e}", file=sys.stderr)
-              if not frames:
-                  return None
-              return pd.concat(frames, ignore_index=True, sort=False)
+                      warn(f"clubelo parse: {e}")
+              warn("clubelo unavailable")
+              return None
 
-
-          # ---------------------------------------------------------------------------
-          # Odds snapshot -- The Odds API, if a key is present
-          # ---------------------------------------------------------------------------
 
           ODDS_SPORTS = [
               "soccer_epl", "soccer_efl_champ", "soccer_england_league1",
@@ -259,10 +252,10 @@ jobs:
           def fetch_odds() -> pd.DataFrame | None:
               key = os.environ.get("ODDS_API_KEY", "").strip()
               if not key:
-                  print("ODDS_API_KEY not set - skipping live odds")
+                  print("ODDS_API_KEY not set - skipping live odds (expected for now)", flush=True)
                   return None
 
-              rows, used = [], 0
+              rows, used, snap = [], "?", dt.datetime.now(dt.timezone.utc).isoformat()
               for sport in ODDS_SPORTS:
                   url = (f"https://api.the-odds-api.com/v4/sports/{sport}/odds/"
                          f"?apiKey={key}&regions=eu,uk&markets=h2h,totals,spreads"
@@ -270,14 +263,12 @@ jobs:
                   try:
                       r = requests.get(url, timeout=TIMEOUT)
                   except requests.RequestException as e:
-                      print(f"  odds {sport}: {e}", file=sys.stderr)
+                      warn(f"odds {sport}: {e}")
                       continue
-                  if r.status_code == 422:
-                      continue  # sport not in season / not offered
+                  if r.status_code == 401:
+                      warn("odds API rejected the key - stopping")
+                      break
                   if r.status_code != 200:
-                      print(f"  odds {sport}: HTTP {r.status_code} {r.text[:120]}", file=sys.stderr)
-                      if r.status_code == 401:
-                          break
                       continue
                   used = r.headers.get("x-requests-used", used)
                   for ev in r.json():
@@ -285,70 +276,97 @@ jobs:
                           for mk in bk.get("markets", []):
                               for oc in mk.get("outcomes", []):
                                   rows.append({
-                                      "snapshot_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+                                      "snapshot_utc": snap,
                                       "sport_key": ev.get("sport_key"),
                                       "event_id": ev.get("id"),
                                       "commence_time": ev.get("commence_time"),
                                       "home_team": ev.get("home_team"),
                                       "away_team": ev.get("away_team"),
                                       "book": bk.get("key"),
-                                      "book_updated": bk.get("last_update"),
                                       "market": mk.get("key"),
                                       "outcome": oc.get("name"),
                                       "point": oc.get("point"),
                                       "price": oc.get("price"),
                                   })
-              print(f"odds rows: {len(rows)}   credits used this month: {used}")
+              print(f"odds rows: {len(rows)}   credits used this month: {used}", flush=True)
               return pd.DataFrame(rows) if rows else None
 
 
           # ---------------------------------------------------------------------------
 
-          def main() -> None:
-              stamp = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+          def main() -> int:
+              started = dt.datetime.now(dt.timezone.utc)
+              print(f"=== fetch started {started:%Y-%m-%d %H:%M:%S} UTC ===\n", flush=True)
 
-              matches = fetch_football_data()
-              matches.to_parquet(RAW / "matches.parquet", index=False)
-              matches.to_csv(RAW / "matches.csv.gz", index=False, compression="gzip")
-              print(f"\nmatches: {len(matches):,} rows, {matches['Div'].nunique()} divisions")
+              # --- the one thing that must work -------------------------------------
+              try:
+                  matches = fetch_football_data()
+              except Exception:
+                  traceback.print_exc()
+                  print("\nFATAL: could not build the match table.", file=sys.stderr)
+                  return 1
 
-              elo = fetch_clubelo()
-              if elo is not None:
-                  elo.to_csv(RAW / "clubelo.csv", index=False)
-                  print(f"clubelo: {len(elo):,} clubs")
+              # CSV first - it cannot fail on dtypes, so the run always leaves something behind.
+              csv_path = RAW / "matches.csv.gz"
+              matches.to_csv(csv_path, index=False, compression="gzip")
+              print(f"wrote {csv_path.name}  ({csv_path.stat().st_size / 1e6:.1f} MB)", flush=True)
 
-              xg = fetch_xg()
-              if xg is not None:
-                  xg.to_parquet(RAW / "xg.parquet", index=False)
-                  print(f"xg: {len(xg):,} rows")
+              try:
+                  matches.to_parquet(RAW / "matches.parquet", index=False)
+                  print(f"wrote matches.parquet ({(RAW / 'matches.parquet').stat().st_size / 1e6:.1f} MB)",
+                        flush=True)
+              except Exception as e:
+                  warn(f"parquet write skipped: {e}")
 
-              odds = fetch_odds()
-              if odds is not None:
-                  # append-only history so we can measure closing line value later
-                  hist = RAW / "odds_history.csv.gz"
-                  if hist.exists():
-                      prev = pd.read_csv(hist)
-                      odds = pd.concat([prev, odds], ignore_index=True, sort=False)
-                      # keep the file from growing without bound: 90 days is enough for CLV
-                      odds["_ct"] = pd.to_datetime(odds["commence_time"], errors="coerce", utc=True)
-                      cutoff = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=90)
-                      odds = odds[odds["_ct"].isna() | (odds["_ct"] >= cutoff)].drop(columns=["_ct"])
-                  odds.to_csv(hist, index=False, compression="gzip")
-                  print(f"odds history: {len(odds):,} rows")
+              # --- best effort from here on -----------------------------------------
+              elo = None
+              try:
+                  elo = fetch_clubelo()
+                  if elo is not None:
+                      elo.to_csv(RAW / "clubelo.csv", index=False)
+                      print(f"wrote clubelo.csv ({len(elo):,} clubs)", flush=True)
+              except Exception as e:
+                  warn(f"clubelo step: {e}")
 
+              odds = None
+              try:
+                  odds = fetch_odds()
+                  if odds is not None:
+                      hist = RAW / "odds_history.csv.gz"
+                      if hist.exists():
+                          prev = pd.read_csv(hist)
+                          odds = pd.concat([prev, odds], ignore_index=True, sort=False)
+                          ct = pd.to_datetime(odds["commence_time"], errors="coerce", utc=True)
+                          cutoff = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=90)
+                          odds = odds[ct.isna() | (ct >= cutoff)]
+                      odds.to_csv(hist, index=False, compression="gzip")
+                      print(f"wrote odds_history.csv.gz ({len(odds):,} rows)", flush=True)
+              except Exception as e:
+                  warn(f"odds step: {e}")
+
+              per_div = matches.groupby("Div").size().sort_values(ascending=False)
               (RAW / "MANIFEST.txt").write_text(
-                  f"last_run_utc: {stamp}\n"
+                  f"last_run_utc: {started.isoformat(timespec='seconds')}\n"
                   f"matches_rows: {len(matches)}\n"
                   f"divisions: {matches['Div'].nunique()}\n"
+                  f"date_range: {matches['date'].min():%Y-%m-%d} .. {matches['date'].max():%Y-%m-%d}\n"
                   f"clubelo: {'yes' if elo is not None else 'no'}\n"
-                  f"xg: {'yes' if xg is not None else 'no'}\n"
                   f"odds: {'yes' if odds is not None else 'no'}\n"
+                  f"warnings: {len(WARNINGS)}\n"
+                  + "".join(f"  - {w}\n" for w in WARNINGS)
+                  + "\nrows per division:\n"
+                  + "".join(f"  {d:<28} {n}\n" for d, n in per_div.items())
               )
-              print(f"\ndone {stamp}")
+
+              took = (dt.datetime.now(dt.timezone.utc) - started).total_seconds()
+              print(f"\n=== done in {took:.0f}s, {len(WARNINGS)} warning(s) ===", flush=True)
+              for w in WARNINGS:
+                  print(f"  warning: {w}", flush=True)
+              return 0
 
 
           if __name__ == "__main__":
-              main()
+              sys.exit(main())
 
           PYTHON_EOF
 
@@ -357,13 +375,22 @@ jobs:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python fetch/fetch_all.py
 
+      - name: Show what landed
+        if: always()
+        run: |
+          echo "--- data/raw ---"
+          ls -lh data/raw || true
+          echo "--- MANIFEST ---"
+          cat data/raw/MANIFEST.txt || echo "(no manifest)"
+
       - name: Commit raw data
+        if: always()
         run: |
           git config user.name  "soccer-model-bot"
           git config user.email "actions@github.com"
           git add -A data/raw fetch
           if git diff --staged --quiet; then
-            echo "no changes"
+            echo "nothing to commit"
           else
             git commit -m "data: refresh $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
