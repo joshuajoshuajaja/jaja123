@@ -1,4 +1,4 @@
-last_run_utc: 2026-09-05T09:08:53+00:00
+last_run_utc: 2026-09-05T12:41:10+00:00
 matches_rows: 148031
 divisions: 40
 date_range: 2012-03-02 .. 2026-09-03
@@ -7,7 +7,7 @@ xg_matches: 0
 odds: yes
 warnings: 3
   - clubelo unreachable from this runner
-  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18699 bytes) - sample saved to understat_debug.txt
+  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
 
 rows per division:
