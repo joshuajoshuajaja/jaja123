@@ -230,20 +230,58 @@ jobs:
 
 
           def fetch_clubelo() -> pd.DataFrame | None:
+              # One quick attempt per scheme. This host timed out from the runner before,
+              # and six 45-second timeouts is four minutes of nothing.
+              day = dt.date.today().isoformat()
               for scheme in ("https", "http"):
-                  for days_back in (0, 1, 2):
-                      day = (dt.date.today() - dt.timedelta(days=days_back)).isoformat()
-                      blob = _get(f"{scheme}://api.clubelo.com/{day}", tries=2)
-                      if not blob:
-                          continue
-                      try:
-                          df = pd.read_csv(io.BytesIO(blob))
+                  try:
+                      r = requests.get(f"{scheme}://api.clubelo.com/{day}",
+                                       headers=UA, timeout=12)
+                      if r.status_code == 200 and r.content:
+                          df = pd.read_csv(io.BytesIO(r.content))
                           if len(df) > 100:
                               return df
-                      except Exception as e:
-                          warn(f"clubelo parse ({scheme}): {e}")
-              warn("clubelo unavailable")
+                  except requests.RequestException:
+                      pass
+              warn("clubelo unreachable from this runner")
               return None
+
+
+          # ---------------------------------------------------------------------------
+          # Reachability probe - what can this runner actually talk to?
+          # ---------------------------------------------------------------------------
+
+          PROBE_TARGETS = [
+              ("football-data.co.uk", "https://www.football-data.co.uk/mmz4281/2526/E0.csv"),
+              ("understat league page", "https://understat.com/league/EPL/2025"),
+              ("understat root", "https://understat.com/"),
+              ("fbref", "https://fbref.com/en/comps/9/Premier-League-Stats"),
+              ("fbref robots", "https://fbref.com/robots.txt"),
+              ("clubelo api", "https://api.clubelo.com/2026-01-01"),
+              ("the-odds-api", "https://api.the-odds-api.com/v4/sports/?apiKey=probe"),
+              ("sofascore api", "https://api.sofascore.com/api/v1/sport/football/events/live"),
+              ("worldfootball", "https://www.worldfootball.net/"),
+              ("raw.githubusercontent", "https://raw.githubusercontent.com/openfootball/football.json/master/README.md"),
+          ]
+
+
+          def probe_sources() -> None:
+              lines = [f"probe run {dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')}",
+                       "what this GitHub Actions runner can reach", ""]
+              for name, url in PROBE_TARGETS:
+                  try:
+                      r = requests.get(url, headers=UNDERSTAT_HEADERS, timeout=20, stream=True)
+                      body = r.raw.read(2000, decode_content=True) or b""
+                      note = ""
+                      low = body.decode("utf-8", "replace").lower()
+                      if "cloudflare" in low or "captcha" in low or "just a moment" in low:
+                          note = "  <- bot challenge page"
+                      lines.append(f"  {name:<24} HTTP {r.status_code}  "
+                                   f"{r.headers.get('content-type','?')[:30]}{note}")
+                  except Exception as e:
+                      lines.append(f"  {name:<24} FAILED  {type(e).__name__}: {str(e)[:70]}")
+              (RAW / "SOURCE_PROBE.txt").write_text("\n".join(lines) + "\n")
+              print("\n".join(lines), flush=True)
 
 
           # ---------------------------------------------------------------------------
@@ -265,18 +303,56 @@ jobs:
               return list(range(UNDERSTAT_FIRST_SEASON, latest + 1))
 
 
+          UNDERSTAT_HEADERS = {
+              "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+                             "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"),
+              "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+              "Accept-Language": "en-GB,en;q=0.9",
+              "Referer": "https://understat.com/",
+              "Upgrade-Insecure-Requests": "1",
+          }
+
+
+          def _get_understat(url: str) -> tuple[int, bytes]:
+              """Returns (status, body). Status 0 means the request itself failed."""
+              try:
+                  r = requests.get(url, headers=UNDERSTAT_HEADERS, timeout=TIMEOUT)
+                  return r.status_code, r.content
+              except requests.RequestException as e:
+                  warn(f"understat {url}: {e}")
+                  return 0, b""
+
+
           def fetch_xg() -> pd.DataFrame | None:
               import json
 
               rows = []
+              statuses: dict[int, int] = {}
+              sample_saved = False
               for league in UNDERSTAT_LEAGUES:
                   got = 0
                   for year in _understat_season_years():
-                      blob = _get(f"https://understat.com/league/{league}/{year}", tries=2)
-                      if not blob:
+                      url = f"https://understat.com/league/{league}/{year}"
+                      status, blob = _get_understat(url)
+                      statuses[status] = statuses.get(status, 0) + 1
+                      if status != 200 or not blob:
+                          time.sleep(0.5)
                           continue
-                      m = _US_RE.search(blob.decode("utf-8", errors="replace"))
+                      text = blob.decode("utf-8", errors="replace")
+                      m = _US_RE.search(text)
                       if not m:
+                          # 200 but no data block: the page shape changed, or we were
+                          # served a challenge page. Keep one sample so it can be read.
+                          if not sample_saved:
+                              (RAW / "understat_debug.txt").write_text(
+                                  f"url: {url}\nstatus: {status}\nbytes: {len(blob)}\n"
+                                  f"has 'datesData': {'datesData' in text}\n"
+                                  f"has 'Cloudflare'/'captcha': "
+                                  f"{('cloudflare' in text.lower() or 'captcha' in text.lower())}\n"
+                                  f"--- first 3000 chars ---\n{text[:3000]}\n")
+                              sample_saved = True
+                              warn(f"understat {url}: 200 but no datesData block "
+                                   f"({len(blob)} bytes) - sample saved to understat_debug.txt")
                           continue
                       try:
                           # \xHH escapes are UTF-8 *bytes*, so unicode_escape alone turns
@@ -309,8 +385,9 @@ jobs:
                       time.sleep(0.8)           # be polite; the site is a free resource
                   print(f"  xG {league:<12} {got}/{len(_understat_season_years())} seasons", flush=True)
 
+              print(f"  understat HTTP status counts: {statuses}", flush=True)
               if not rows:
-                  warn("understat returned nothing - xG unavailable this run")
+                  warn(f"understat returned nothing - status counts {statuses}")
                   return None
 
               df = pd.DataFrame(rows)
@@ -412,6 +489,12 @@ jobs:
                       print(f"wrote clubelo.csv ({len(elo):,} clubs)", flush=True)
               except Exception as e:
                   warn(f"clubelo step: {e}")
+
+              try:
+                  print("\n--- reachability probe ---", flush=True)
+                  probe_sources()
+              except Exception as e:
+                  warn(f"probe step: {e}")
 
               xg = None
               try:
