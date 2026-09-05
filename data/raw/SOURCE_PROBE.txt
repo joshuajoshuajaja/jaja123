@@ -1,4 +1,4 @@
-probe run 2026-09-05T08:51:31+00:00
+probe run 2026-09-05T09:13:19+00:00
 what this GitHub Actions runner can reach
 
   football-data.co.uk      HTTP 200  text/csv
@@ -10,4 +10,8 @@ what this GitHub Actions runner can reach
   the-odds-api             HTTP 401  application/json; charset=utf-
   sofascore api            HTTP 403  application/json
   worldfootball            HTTP 403  text/html; charset=UTF-8  <- bot challenge page
+  sgodds                   HTTP 200  text/html; charset=UTF-8
+  sgodds odds page         HTTP 404  text/html; charset=UTF-8  <- bot challenge page
+  singaporepools           HTTP 200  text/html; charset=utf-8
+  oddsportal               HTTP 200  text/html; charset=utf-8
   raw.githubusercontent    HTTP 200  text/plain; charset=utf-8
