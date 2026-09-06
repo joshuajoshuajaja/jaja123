@@ -1,88 +1,117 @@
 board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,best_book,fair_prob,model_prob,n_books,edge_pct,parlay,closing_price,clv_pct,result,selection_id
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823419,ATL @ PHI,Kyle Schwarber,PHI,Martín Pérez,3.75,betparx,0.2372,0.2174,6,-11.04,Parlay 1,,,,656941
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824145,ARI @ HOU,Yordan Alvarez,HOU,Brandon Pfaadt,3.85,betparx,0.2372,0.1955,6,-8.67,Parlay 1,,,,670541
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824310,STL @ COL,Hunter Goodman,COL,Matthew Liberatore,4.25,hardrockbet,0.2235,0.2785,6,-5.01,Parlay 1,,,,696100
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823577,SF @ NYM,Juan Soto,NYM,Anthony Molina,4.25,ballybet,0.2222,0.1889,6,-5.56,Parlay 2,,,,665742
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823094,ATH @ SEA,Cal Raleigh,SEA,Jeffrey Springs,4.25,hardrockbet,0.2168,0.2074,6,-7.85,Parlay 2,,,,663728
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823823,CHC @ MIA,Pete Crow-Armstrong,CHC,Ryan Gusto,4.50,hardrockbet,0.2083,0.1817,6,-6.25,Parlay 2,,,,691718
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823419,ATL @ PHI,Matt Olson,ATL,Zack Wheeler,5.10,betparx,0.1976,0.2345,6,0.80,Parlay 3,,,,621566
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824468,MIL @ CIN,Jackson Chourio,MIL,Andrew Abbott,4.50,hardrockbet,0.1976,0.1804,6,-11.06,Parlay 3,,,,694192
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824553,MIN @ CWS,Munetaka Murakami,CWS,Taj Bradley,4.50,hardrockbet,0.1924,0.2207,6,-13.41,Parlay 3,,,,808959
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,822850,TB @ TEX,Junior Caminero,TB,Jacob deGrom,4.60,ballybet,0.1894,0.2080,6,-12.85,Parlay 3,,,,691406
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824310,STL @ COL,Alec Burleson,STL,Mason Adams,4.75,hardrockbet,0.1885,0.1551,6,-10.45,Parlay 4,,,,676475
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823577,SF @ NYM,Francisco Lindor,NYM,Anthony Molina,4.75,hardrockbet,0.1874,0.1519,6,-10.99,Parlay 4,,,,596019
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824553,MIN @ CWS,Royce Lewis,MIN,Anthony Kay,4.60,betrivers,0.1874,0.1389,6,-13.80,Parlay 4,,,,668904
-2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824145,ARI @ HOU,Ketel Marte,ARI,Ethan Pecko,6.10,betparx,0.1829,0.1620,6,11.55,Parlay 4,,,,606466
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823094,ATH @ SEA,Seattle Mariners,SEA,Jeffrey Springs / George Kirby,1.43,betonlineag,0.6916,,15,-1.10,,1.464,-2.30,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823904,WSH @ LAD,Los Angeles Dodgers,LAD,Cade Cavalli / Tyler Glasnow,1.46,betonlineag,0.6754,,15,-1.39,,1.578,-7.46,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823335,LAA @ PIT,Pittsburgh Pirates,PIT,Yusei Kikuchi / Braxton Ashcraft,1.56,mybookieag,0.6286,,15,-1.94,,4.445,-64.90,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823577,SF @ NYM,New York Mets,NYM,Anthony Molina / Zac Thornton,1.56,lowvig,0.6282,,15,-2.00,,1.739,-10.27,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824468,MIL @ CIN,Milwaukee Brewers,MIL,Dustin May / Andrew Abbott,1.64,betonlineag,0.5974,,15,-2.02,,1.527,7.39,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823419,ATL @ PHI,Philadelphia Phillies,PHI,Martín Pérez / Zack Wheeler,1.65,lowvig,0.5947,,15,-1.88,,1.046,57.69,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824389,DET @ CLE,Cleveland Guardians,CLE,Framber Valdez / Parker Messick,1.67,betonlineag,0.5931,,15,-0.96,,50.874,-96.72,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824795,BOS @ BAL,Boston Red Sox,BOS,Sonny Gray / Chris Bassitt,1.71,betonlineag,0.5716,,15,-2.25,,2.000,-14.50,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823823,CHC @ MIA,Chicago Cubs,CHC,Javier Assad / Ryan Gusto,1.75,fanduel,0.5592,,14,-2.14,,1.751,-0.05,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824310,STL @ COL,St. Louis Cardinals,STL,Matthew Liberatore / Mason Adams,1.83,fanduel,0.5339,,15,-2.30,,1.845,-0.80,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824553,MIN @ CWS,Chicago White Sox,CWS,Taj Bradley / Anthony Kay,1.87,mybookieag,0.5266,,14,-1.52,,1.434,30.39,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824066,TOR @ KC,Kansas City Royals,KC,Max Scherzer / Seth Lugo,1.93,fanduel,0.5092,,15,-1.73,,2.482,-22.24,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823257,NYY @ SD,San Diego Padres,SD,Carlos Rodón / Robbie Ray,1.95,betonlineag,0.5082,,15,-0.90,,14.444,-86.50,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824145,ARI @ HOU,Houston Astros,HOU,Brandon Pfaadt / Ethan Pecko,1.95,espnbet,0.5027,,15,-1.97,,1.296,50.47,,
-2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,822850,TB @ TEX,Texas Rangers,TEX,Drew Rasmussen / Jacob deGrom,1.95,betonlineag,0.5000,,15,-2.50,,4.892,-60.14,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824145,ARI @ HOU,Yordan Alvarez,HOU,Brandon Pfaadt,3.70,betparx,0.2414,0.1955,6,-10.67,Parlay 1,,,,670541
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823419,ATL @ PHI,Kyle Schwarber,PHI,Martín Pérez,3.75,betparx,0.2372,0.2174,6,-11.04,Parlay 1,,,,656941
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824310,STL @ COL,Hunter Goodman,COL,Matthew Liberatore,4.25,hardrockbet,0.2235,0.2785,6,-5.01,Parlay 1,,,,696100
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823577,SF @ NYM,Juan Soto,NYM,Anthony Molina,4.25,ballybet,0.2168,0.1889,6,-7.85,Parlay 2,,,,665742
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823094,ATH @ SEA,Cal Raleigh,SEA,Jeffrey Springs,4.25,hardrockbet,0.2118,0.2074,6,-9.99,Parlay 2,,,,663728
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823823,CHC @ MIA,Pete Crow-Armstrong,CHC,Ryan Gusto,4.25,hardrockbet,0.2083,0.1817,6,-11.46,Parlay 2,,,,691718
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823419,ATL @ PHI,Matt Olson,ATL,Zack Wheeler,5.10,betparx,0.1992,0.2345,6,1.61,Parlay 3,,,,621566
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824468,MIL @ CIN,Jackson Chourio,MIL,Andrew Abbott,4.50,betrivers,0.1976,0.1804,6,-11.06,Parlay 3,,,,694192
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824553,MIN @ CWS,Munetaka Murakami,CWS,Taj Bradley,4.50,hardrockbet,0.1926,0.2207,6,-13.35,Parlay 3,,,,808959
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,822850,TB @ TEX,Junior Caminero,TB,Jacob deGrom,4.60,ballybet,0.1909,0.2080,6,-12.18,Parlay 3,,,,691406
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824310,STL @ COL,Alec Burleson,STL,Mason Adams,4.75,hardrockbet,0.1885,0.1551,6,-10.45,Parlay 4,,,,676475
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823577,SF @ NYM,Francisco Lindor,NYM,Anthony Molina,5.00,hardrockbet,0.1874,0.1519,6,-6.31,Parlay 4,,,,596019
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824553,MIN @ CWS,Royce Lewis,MIN,Anthony Kay,4.60,betrivers,0.1874,0.1389,6,-13.80,Parlay 4,,,,668904
-2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824145,ARI @ HOU,Ketel Marte,ARI,Ethan Pecko,5.80,betparx,0.1829,0.1620,6,6.06,Parlay 4,,,,606466
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823094,ATH @ SEA,Seattle Mariners,SEA,Jeffrey Springs / George Kirby,1.43,betonlineag,0.6932,,15,-0.87,,1.464,-2.30,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823904,WSH @ LAD,Los Angeles Dodgers,LAD,Cade Cavalli / Tyler Glasnow,1.46,betonlineag,0.6754,,15,-1.39,,1.578,-7.46,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823335,LAA @ PIT,Pittsburgh Pirates,PIT,Yusei Kikuchi / Braxton Ashcraft,1.57,betus,0.6286,,15,-1.31,,4.445,-64.68,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823577,SF @ NYM,New York Mets,NYM,Anthony Molina / Zac Thornton,1.56,fanduel,0.6270,,15,-2.18,,1.739,-10.27,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823419,ATL @ PHI,Philadelphia Phillies,PHI,Martín Pérez / Zack Wheeler,1.65,lowvig,0.5959,,15,-1.68,,1.046,57.69,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824389,DET @ CLE,Cleveland Guardians,CLE,Framber Valdez / Parker Messick,1.66,betonlineag,0.5922,,15,-1.70,,50.874,-96.74,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824468,MIL @ CIN,Milwaukee Brewers,MIL,Dustin May / Andrew Abbott,1.68,betrivers,0.5875,,15,-1.29,,1.527,10.01,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824795,BOS @ BAL,Boston Red Sox,BOS,Sonny Gray / Chris Bassitt,1.71,betonlineag,0.5721,,15,-2.17,,2.000,-14.50,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823823,CHC @ MIA,Chicago Cubs,CHC,Javier Assad / Ryan Gusto,1.83,lowvig,0.5548,,15,1.53,,1.751,4.52,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823257,NYY @ SD,San Diego Padres,SD,Carlos Rodón / Robbie Ray,1.85,ballybet,0.5339,,15,-1.23,,14.444,-87.19,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824310,STL @ COL,St. Louis Cardinals,STL,Matthew Liberatore / Mason Adams,1.83,fanduel,0.5339,,15,-2.30,,1.845,-0.80,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824553,MIN @ CWS,Chicago White Sox,CWS,Taj Bradley / Anthony Kay,1.86,betonlineag,0.5266,,14,-2.04,,1.434,29.69,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824066,TOR @ KC,Kansas City Royals,KC,Max Scherzer / Seth Lugo,1.96,espnbet,0.5053,,15,-0.97,,2.482,-21.03,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824145,ARI @ HOU,Houston Astros,HOU,Brandon Pfaadt / Ethan Pecko,1.95,espnbet,0.5053,,15,-1.47,,1.296,50.47,,
-2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,822850,TB @ TEX,Texas Rangers,TEX,Drew Rasmussen / Jacob deGrom,1.96,betanysports,0.5000,,15,-2.00,,4.892,-59.93,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824145,ARI @ HOU,Yordan Alvarez,HOU,Brandon Pfaadt,3.60,betparx,0.2460,0.1955,6,-11.43,Parlay 1,,,,670541
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823419,ATL @ PHI,Kyle Schwarber,PHI,Martín Pérez,3.75,betparx,0.2372,0.2174,6,-11.04,Parlay 1,,,,656941
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824310,STL @ COL,Hunter Goodman,COL,Matthew Liberatore,4.00,hardrockbet,0.2235,0.2785,6,-10.60,Parlay 1,,,,696100
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823577,SF @ NYM,Juan Soto,NYM,Anthony Molina,4.25,ballybet,0.2203,0.1889,6,-6.36,Parlay 2,,,,665742
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823823,CHC @ MIA,Pete Crow-Armstrong,CHC,Ryan Gusto,4.00,hardrockbet,0.2134,0.1817,6,-14.66,Parlay 2,,,,691718
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823094,ATH @ SEA,Cal Raleigh,SEA,Jeffrey Springs,4.25,hardrockbet,0.2118,0.2074,6,-9.99,Parlay 2,,,,663728
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823419,ATL @ PHI,Matt Olson,ATL,Zack Wheeler,5.10,betparx,0.2009,0.2345,6,2.44,Parlay 3,,,,621566
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824468,MIL @ CIN,Jackson Chourio,MIL,Andrew Abbott,4.50,betrivers,0.2009,0.1804,6,-9.62,Parlay 3,,,,694192
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824553,MIN @ CWS,Munetaka Murakami,CWS,Taj Bradley,4.50,hardrockbet,0.1926,0.2207,6,-13.35,Parlay 3,,,,808959
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,822850,TB @ TEX,Junior Caminero,TB,Jacob deGrom,4.60,ballybet,0.1909,0.2080,6,-12.18,Parlay 3,,,,691406
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824310,STL @ COL,Alec Burleson,STL,Mason Adams,4.75,hardrockbet,0.1885,0.1551,6,-10.45,Parlay 4,,,,676475
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824553,MIN @ CWS,Royce Lewis,MIN,Anthony Kay,4.60,betrivers,0.1874,0.1389,6,-13.80,Parlay 4,,,,668904
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823577,SF @ NYM,Francisco Lindor,NYM,Anthony Molina,5.00,hardrockbet,0.1838,0.1519,6,-8.12,Parlay 4,,,,596019
-2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824145,ARI @ HOU,Ketel Marte,ARI,Ethan Pecko,5.00,betparx,0.1829,0.1620,6,-8.57,Parlay 4,,,,606466
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823094,ATH @ SEA,Seattle Mariners,SEA,Jeffrey Springs / George Kirby,1.43,betonlineag,0.6905,,15,-1.26,,1.464,-2.30,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823904,WSH @ LAD,Los Angeles Dodgers,LAD,Cade Cavalli / Tyler Glasnow,1.47,fanduel,0.6742,,15,-0.89,,1.578,-6.83,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823335,LAA @ PIT,Pittsburgh Pirates,PIT,Yusei Kikuchi / Braxton Ashcraft,1.57,betus,0.6288,,15,-1.28,,4.445,-64.68,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823577,SF @ NYM,New York Mets,NYM,Anthony Molina / Zac Thornton,1.64,lowvig,0.6061,,15,-0.59,,1.739,-5.67,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823419,ATL @ PHI,Philadelphia Phillies,PHI,Martín Pérez / Zack Wheeler,1.65,fliff,0.5968,,15,-1.53,,1.046,57.69,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824389,DET @ CLE,Cleveland Guardians,CLE,Framber Valdez / Parker Messick,1.66,betonlineag,0.5911,,15,-1.87,,50.874,-96.74,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824468,MIL @ CIN,Milwaukee Brewers,MIL,Dustin May / Andrew Abbott,1.67,betonlineag,0.5875,,15,-1.88,,1.527,9.35,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823823,CHC @ MIA,Chicago Cubs,CHC,Javier Assad / Ryan Gusto,1.83,lowvig,0.5444,,15,-0.38,,1.751,4.52,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823257,NYY @ SD,San Diego Padres,SD,Carlos Rodón / Robbie Ray,1.81,fanduel,0.5421,,15,-1.88,,14.444,-87.47,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824795,BOS @ BAL,Boston Red Sox,BOS,Sonny Gray / Chris Bassitt,1.83,betonlineag,0.5409,,15,-1.01,,2.000,-8.50,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824310,STL @ COL,St. Louis Cardinals,STL,Matthew Liberatore / Mason Adams,1.83,fanduel,0.5339,,15,-2.30,,1.845,-0.80,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824553,MIN @ CWS,Chicago White Sox,CWS,Taj Bradley / Anthony Kay,1.86,betonlineag,0.5272,,14,-1.94,,1.434,29.69,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824145,ARI @ HOU,Houston Astros,HOU,Brandon Pfaadt / Ethan Pecko,1.95,espnbet,0.5027,,15,-1.97,,1.296,50.47,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,822850,TB @ TEX,Texas Rangers,TEX,Drew Rasmussen / Jacob deGrom,1.96,betanysports,0.5000,,15,-2.00,,4.892,-59.93,,
-2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824066,TOR @ KC,Kansas City Royals,KC,Max Scherzer / Seth Lugo,1.96,espnbet,0.5000,,15,-2.00,,2.482,-21.03,,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823419,ATL @ PHI,Kyle Schwarber,PHI,Martín Pérez,3.75,betparx,0.2372,0.2174,6,-11.04,Parlay 1,,,WIN,656941
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824145,ARI @ HOU,Yordan Alvarez,HOU,Brandon Pfaadt,3.85,betparx,0.2372,0.1955,6,-8.67,Parlay 1,,,LOSS,670541
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824310,STL @ COL,Hunter Goodman,COL,Matthew Liberatore,4.25,hardrockbet,0.2235,0.2785,6,-5.01,Parlay 1,,,LOSS,696100
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823577,SF @ NYM,Juan Soto,NYM,Anthony Molina,4.25,ballybet,0.2222,0.1889,6,-5.56,Parlay 2,,,LOSS,665742
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823094,ATH @ SEA,Cal Raleigh,SEA,Jeffrey Springs,4.25,hardrockbet,0.2168,0.2074,6,-7.85,Parlay 2,,,LOSS,663728
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823823,CHC @ MIA,Pete Crow-Armstrong,CHC,Ryan Gusto,4.50,hardrockbet,0.2083,0.1817,6,-6.25,Parlay 2,,,LOSS,691718
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823419,ATL @ PHI,Matt Olson,ATL,Zack Wheeler,5.10,betparx,0.1976,0.2345,6,0.80,Parlay 3,,,LOSS,621566
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824468,MIL @ CIN,Jackson Chourio,MIL,Andrew Abbott,4.50,hardrockbet,0.1976,0.1804,6,-11.06,Parlay 3,,,LOSS,694192
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824553,MIN @ CWS,Munetaka Murakami,CWS,Taj Bradley,4.50,hardrockbet,0.1924,0.2207,6,-13.41,Parlay 3,,,WIN,808959
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,822850,TB @ TEX,Junior Caminero,TB,Jacob deGrom,4.60,ballybet,0.1894,0.2080,6,-12.85,Parlay 3,,,WIN,691406
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824310,STL @ COL,Alec Burleson,STL,Mason Adams,4.75,hardrockbet,0.1885,0.1551,6,-10.45,Parlay 4,,,LOSS,676475
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,823577,SF @ NYM,Francisco Lindor,NYM,Anthony Molina,4.75,hardrockbet,0.1874,0.1519,6,-10.99,Parlay 4,,,LOSS,596019
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824553,MIN @ CWS,Royce Lewis,MIN,Anthony Kay,4.60,betrivers,0.1874,0.1389,6,-13.80,Parlay 4,,,LOSS,668904
+2026-09-05,2026-09-05T12:32:17.312343+00:00,HR,824145,ARI @ HOU,Ketel Marte,ARI,Ethan Pecko,6.10,betparx,0.1829,0.1620,6,11.55,Parlay 4,,,WIN,606466
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823094,ATH @ SEA,Seattle Mariners,SEA,Jeffrey Springs / George Kirby,1.43,betonlineag,0.6916,,15,-1.10,,1.464,-2.30,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823904,WSH @ LAD,Los Angeles Dodgers,LAD,Cade Cavalli / Tyler Glasnow,1.46,betonlineag,0.6754,,15,-1.39,,1.578,-7.46,WIN,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823335,LAA @ PIT,Pittsburgh Pirates,PIT,Yusei Kikuchi / Braxton Ashcraft,1.56,mybookieag,0.6286,,15,-1.94,,4.445,-64.90,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823577,SF @ NYM,New York Mets,NYM,Anthony Molina / Zac Thornton,1.56,lowvig,0.6282,,15,-2.00,,1.739,-10.27,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824468,MIL @ CIN,Milwaukee Brewers,MIL,Dustin May / Andrew Abbott,1.64,betonlineag,0.5974,,15,-2.02,,1.527,7.39,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823419,ATL @ PHI,Philadelphia Phillies,PHI,Martín Pérez / Zack Wheeler,1.65,lowvig,0.5947,,15,-1.88,,1.046,57.69,WIN,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824389,DET @ CLE,Cleveland Guardians,CLE,Framber Valdez / Parker Messick,1.67,betonlineag,0.5931,,15,-0.96,,50.874,-96.72,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824795,BOS @ BAL,Boston Red Sox,BOS,Sonny Gray / Chris Bassitt,1.71,betonlineag,0.5716,,15,-2.25,,2.000,-14.50,WIN,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823823,CHC @ MIA,Chicago Cubs,CHC,Javier Assad / Ryan Gusto,1.75,fanduel,0.5592,,14,-2.14,,1.751,-0.05,WIN,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824310,STL @ COL,St. Louis Cardinals,STL,Matthew Liberatore / Mason Adams,1.83,fanduel,0.5339,,15,-2.30,,1.845,-0.80,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824553,MIN @ CWS,Chicago White Sox,CWS,Taj Bradley / Anthony Kay,1.87,mybookieag,0.5266,,14,-1.52,,1.434,30.39,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824066,TOR @ KC,Kansas City Royals,KC,Max Scherzer / Seth Lugo,1.93,fanduel,0.5092,,15,-1.73,,2.482,-22.24,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,823257,NYY @ SD,San Diego Padres,SD,Carlos Rodón / Robbie Ray,1.95,betonlineag,0.5082,,15,-0.90,,14.444,-86.50,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,824145,ARI @ HOU,Houston Astros,HOU,Brandon Pfaadt / Ethan Pecko,1.95,espnbet,0.5027,,15,-1.97,,1.296,50.47,LOSS,
+2026-09-05,2026-09-05T12:32:17.312343+00:00,ML,822850,TB @ TEX,Texas Rangers,TEX,Drew Rasmussen / Jacob deGrom,1.95,betonlineag,0.5000,,15,-2.50,,4.892,-60.14,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824145,ARI @ HOU,Yordan Alvarez,HOU,Brandon Pfaadt,3.70,betparx,0.2414,0.1955,6,-10.67,Parlay 1,,,LOSS,670541
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823419,ATL @ PHI,Kyle Schwarber,PHI,Martín Pérez,3.75,betparx,0.2372,0.2174,6,-11.04,Parlay 1,,,WIN,656941
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824310,STL @ COL,Hunter Goodman,COL,Matthew Liberatore,4.25,hardrockbet,0.2235,0.2785,6,-5.01,Parlay 1,,,LOSS,696100
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823577,SF @ NYM,Juan Soto,NYM,Anthony Molina,4.25,ballybet,0.2168,0.1889,6,-7.85,Parlay 2,,,LOSS,665742
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823094,ATH @ SEA,Cal Raleigh,SEA,Jeffrey Springs,4.25,hardrockbet,0.2118,0.2074,6,-9.99,Parlay 2,,,LOSS,663728
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823823,CHC @ MIA,Pete Crow-Armstrong,CHC,Ryan Gusto,4.25,hardrockbet,0.2083,0.1817,6,-11.46,Parlay 2,,,LOSS,691718
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823419,ATL @ PHI,Matt Olson,ATL,Zack Wheeler,5.10,betparx,0.1992,0.2345,6,1.61,Parlay 3,,,LOSS,621566
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824468,MIL @ CIN,Jackson Chourio,MIL,Andrew Abbott,4.50,betrivers,0.1976,0.1804,6,-11.06,Parlay 3,,,LOSS,694192
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824553,MIN @ CWS,Munetaka Murakami,CWS,Taj Bradley,4.50,hardrockbet,0.1926,0.2207,6,-13.35,Parlay 3,,,WIN,808959
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,822850,TB @ TEX,Junior Caminero,TB,Jacob deGrom,4.60,ballybet,0.1909,0.2080,6,-12.18,Parlay 3,,,WIN,691406
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824310,STL @ COL,Alec Burleson,STL,Mason Adams,4.75,hardrockbet,0.1885,0.1551,6,-10.45,Parlay 4,,,LOSS,676475
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,823577,SF @ NYM,Francisco Lindor,NYM,Anthony Molina,5.00,hardrockbet,0.1874,0.1519,6,-6.31,Parlay 4,,,LOSS,596019
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824553,MIN @ CWS,Royce Lewis,MIN,Anthony Kay,4.60,betrivers,0.1874,0.1389,6,-13.80,Parlay 4,,,LOSS,668904
+2026-09-05,2026-09-05T14:15:24.161279+00:00,HR,824145,ARI @ HOU,Ketel Marte,ARI,Ethan Pecko,5.80,betparx,0.1829,0.1620,6,6.06,Parlay 4,,,WIN,606466
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823094,ATH @ SEA,Seattle Mariners,SEA,Jeffrey Springs / George Kirby,1.43,betonlineag,0.6932,,15,-0.87,,1.464,-2.30,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823904,WSH @ LAD,Los Angeles Dodgers,LAD,Cade Cavalli / Tyler Glasnow,1.46,betonlineag,0.6754,,15,-1.39,,1.578,-7.46,WIN,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823335,LAA @ PIT,Pittsburgh Pirates,PIT,Yusei Kikuchi / Braxton Ashcraft,1.57,betus,0.6286,,15,-1.31,,4.445,-64.68,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823577,SF @ NYM,New York Mets,NYM,Anthony Molina / Zac Thornton,1.56,fanduel,0.6270,,15,-2.18,,1.739,-10.27,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823419,ATL @ PHI,Philadelphia Phillies,PHI,Martín Pérez / Zack Wheeler,1.65,lowvig,0.5959,,15,-1.68,,1.046,57.69,WIN,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824389,DET @ CLE,Cleveland Guardians,CLE,Framber Valdez / Parker Messick,1.66,betonlineag,0.5922,,15,-1.70,,50.874,-96.74,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824468,MIL @ CIN,Milwaukee Brewers,MIL,Dustin May / Andrew Abbott,1.68,betrivers,0.5875,,15,-1.29,,1.527,10.01,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824795,BOS @ BAL,Boston Red Sox,BOS,Sonny Gray / Chris Bassitt,1.71,betonlineag,0.5721,,15,-2.17,,2.000,-14.50,WIN,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823823,CHC @ MIA,Chicago Cubs,CHC,Javier Assad / Ryan Gusto,1.83,lowvig,0.5548,,15,1.53,,1.751,4.52,WIN,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,823257,NYY @ SD,San Diego Padres,SD,Carlos Rodón / Robbie Ray,1.85,ballybet,0.5339,,15,-1.23,,14.444,-87.19,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824310,STL @ COL,St. Louis Cardinals,STL,Matthew Liberatore / Mason Adams,1.83,fanduel,0.5339,,15,-2.30,,1.845,-0.80,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824553,MIN @ CWS,Chicago White Sox,CWS,Taj Bradley / Anthony Kay,1.86,betonlineag,0.5266,,14,-2.04,,1.434,29.69,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824066,TOR @ KC,Kansas City Royals,KC,Max Scherzer / Seth Lugo,1.96,espnbet,0.5053,,15,-0.97,,2.482,-21.03,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,824145,ARI @ HOU,Houston Astros,HOU,Brandon Pfaadt / Ethan Pecko,1.95,espnbet,0.5053,,15,-1.47,,1.296,50.47,LOSS,
+2026-09-05,2026-09-05T14:15:24.161279+00:00,ML,822850,TB @ TEX,Texas Rangers,TEX,Drew Rasmussen / Jacob deGrom,1.96,betanysports,0.5000,,15,-2.00,,4.892,-59.93,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824145,ARI @ HOU,Yordan Alvarez,HOU,Brandon Pfaadt,3.60,betparx,0.2460,0.1955,6,-11.43,Parlay 1,,,LOSS,670541
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823419,ATL @ PHI,Kyle Schwarber,PHI,Martín Pérez,3.75,betparx,0.2372,0.2174,6,-11.04,Parlay 1,,,WIN,656941
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824310,STL @ COL,Hunter Goodman,COL,Matthew Liberatore,4.00,hardrockbet,0.2235,0.2785,6,-10.60,Parlay 1,,,LOSS,696100
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823577,SF @ NYM,Juan Soto,NYM,Anthony Molina,4.25,ballybet,0.2203,0.1889,6,-6.36,Parlay 2,,,LOSS,665742
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823823,CHC @ MIA,Pete Crow-Armstrong,CHC,Ryan Gusto,4.00,hardrockbet,0.2134,0.1817,6,-14.66,Parlay 2,,,LOSS,691718
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823094,ATH @ SEA,Cal Raleigh,SEA,Jeffrey Springs,4.25,hardrockbet,0.2118,0.2074,6,-9.99,Parlay 2,,,LOSS,663728
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823419,ATL @ PHI,Matt Olson,ATL,Zack Wheeler,5.10,betparx,0.2009,0.2345,6,2.44,Parlay 3,,,LOSS,621566
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824468,MIL @ CIN,Jackson Chourio,MIL,Andrew Abbott,4.50,betrivers,0.2009,0.1804,6,-9.62,Parlay 3,,,LOSS,694192
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824553,MIN @ CWS,Munetaka Murakami,CWS,Taj Bradley,4.50,hardrockbet,0.1926,0.2207,6,-13.35,Parlay 3,,,WIN,808959
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,822850,TB @ TEX,Junior Caminero,TB,Jacob deGrom,4.60,ballybet,0.1909,0.2080,6,-12.18,Parlay 3,,,WIN,691406
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824310,STL @ COL,Alec Burleson,STL,Mason Adams,4.75,hardrockbet,0.1885,0.1551,6,-10.45,Parlay 4,,,LOSS,676475
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824553,MIN @ CWS,Royce Lewis,MIN,Anthony Kay,4.60,betrivers,0.1874,0.1389,6,-13.80,Parlay 4,,,LOSS,668904
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,823577,SF @ NYM,Francisco Lindor,NYM,Anthony Molina,5.00,hardrockbet,0.1838,0.1519,6,-8.12,Parlay 4,,,LOSS,596019
+2026-09-05,2026-09-05T16:33:32.922565+00:00,HR,824145,ARI @ HOU,Ketel Marte,ARI,Ethan Pecko,5.00,betparx,0.1829,0.1620,6,-8.57,Parlay 4,,,WIN,606466
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823094,ATH @ SEA,Seattle Mariners,SEA,Jeffrey Springs / George Kirby,1.43,betonlineag,0.6905,,15,-1.26,,1.464,-2.30,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823904,WSH @ LAD,Los Angeles Dodgers,LAD,Cade Cavalli / Tyler Glasnow,1.47,fanduel,0.6742,,15,-0.89,,1.578,-6.83,WIN,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823335,LAA @ PIT,Pittsburgh Pirates,PIT,Yusei Kikuchi / Braxton Ashcraft,1.57,betus,0.6288,,15,-1.28,,4.445,-64.68,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823577,SF @ NYM,New York Mets,NYM,Anthony Molina / Zac Thornton,1.64,lowvig,0.6061,,15,-0.59,,1.739,-5.67,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823419,ATL @ PHI,Philadelphia Phillies,PHI,Martín Pérez / Zack Wheeler,1.65,fliff,0.5968,,15,-1.53,,1.046,57.69,WIN,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824389,DET @ CLE,Cleveland Guardians,CLE,Framber Valdez / Parker Messick,1.66,betonlineag,0.5911,,15,-1.87,,50.874,-96.74,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824468,MIL @ CIN,Milwaukee Brewers,MIL,Dustin May / Andrew Abbott,1.67,betonlineag,0.5875,,15,-1.88,,1.527,9.35,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823823,CHC @ MIA,Chicago Cubs,CHC,Javier Assad / Ryan Gusto,1.83,lowvig,0.5444,,15,-0.38,,1.751,4.52,WIN,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,823257,NYY @ SD,San Diego Padres,SD,Carlos Rodón / Robbie Ray,1.81,fanduel,0.5421,,15,-1.88,,14.444,-87.47,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824795,BOS @ BAL,Boston Red Sox,BOS,Sonny Gray / Chris Bassitt,1.83,betonlineag,0.5409,,15,-1.01,,2.000,-8.50,WIN,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824310,STL @ COL,St. Louis Cardinals,STL,Matthew Liberatore / Mason Adams,1.83,fanduel,0.5339,,15,-2.30,,1.845,-0.80,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824553,MIN @ CWS,Chicago White Sox,CWS,Taj Bradley / Anthony Kay,1.86,betonlineag,0.5272,,14,-1.94,,1.434,29.69,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824145,ARI @ HOU,Houston Astros,HOU,Brandon Pfaadt / Ethan Pecko,1.95,espnbet,0.5027,,15,-1.97,,1.296,50.47,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,822850,TB @ TEX,Texas Rangers,TEX,Drew Rasmussen / Jacob deGrom,1.96,betanysports,0.5000,,15,-2.00,,4.892,-59.93,LOSS,
+2026-09-05,2026-09-05T16:33:32.922565+00:00,ML,824066,TOR @ KC,Kansas City Royals,KC,Max Scherzer / Seth Lugo,1.96,espnbet,0.5000,,15,-2.00,,2.482,-21.03,LOSS,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,823417,ATL @ PHI,Kyle Schwarber,PHI,Tyler Mahle,3.70,betparx,0.2563,0.2676,6,-5.19,Parlay 1,,,,656941
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,824309,STL @ COL,Hunter Goodman,COL,Kyle Leahy,3.60,espnbet,0.2389,0.2230,6,-14.00,Parlay 1,,,,696100
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,824552,MIN @ CWS,Munetaka Murakami,CWS,Bailey Ober,3.75,hardrockbet,0.2365,0.2385,6,-11.31,Parlay 1,,,,808959
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,824309,STL @ COL,Alec Burleson,STL,Tanner Gordon,3.75,hardrockbet,0.2357,0.1694,6,-11.63,Parlay 2,,,,676475
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,823417,ATL @ PHI,Matt Olson,ATL,Aaron Nola,3.80,espnbet,0.2217,0.2716,6,-15.74,Parlay 2,,,,621566
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,824552,MIN @ CWS,Colson Montgomery,CWS,Bailey Ober,4.10,betparx,0.2118,0.2175,6,-13.17,Parlay 2,,,,695657
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,824309,STL @ COL,Joshua Baez,STL,Tanner Gordon,4.25,hardrockbet,0.2096,0.2196,6,-10.92,Parlay 3,,,,695491
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,823578,SF @ NYM,Rafael Devers,SF,Christian Scott,4.25,ballybet,0.2061,0.1773,6,-12.39,Parlay 3,,,,646240
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,823822,CHC @ MIA,Pete Crow-Armstrong,CHC,Tyler Phillips,4.30,ballybet,0.2010,0.1856,6,-13.58,Parlay 3,,,,691718
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,822848,TB @ TEX,Junior Caminero,TB,MacKenzie Gore,4.30,ballybet,0.1976,0.2024,6,-15.01,Parlay 3,,,,691406
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,824552,MIN @ CWS,Miguel Vargas,CWS,Bailey Ober,4.50,espnbet,0.1976,0.2009,6,-11.06,Parlay 4,,,,678246
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,824469,MIL @ CIN,Jake Bauers,MIL,Brady Singer,4.75,espnbet,0.1924,0.2129,6,-8.60,Parlay 4,,,,641343
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,823091,ATH @ SEA,Cal Raleigh,SEA,Gage Jump,4.75,betparx,0.1924,0.1418,6,-8.60,Parlay 4,,,,663728
+2026-09-06,2026-09-06T14:24:50.389330+00:00,HR,824142,ARI @ HOU,Yordan Alvarez,HOU,Eduardo Rodriguez,4.50,espnbet,0.1909,0.1724,6,-14.09,Parlay 4,,,,670541
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,823903,WSH @ LAD,Los Angeles Dodgers,LAD,Andrew Alvarez / Justin Wrobleski,1.52,lowvig,0.6527,,15,-0.80,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,823091,ATH @ SEA,Seattle Mariners,SEA,Gage Jump / Bryan Woo,1.54,betrivers,0.6447,,15,-0.72,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,823336,LAA @ PIT,Pittsburgh Pirates,PIT,Walbert Ureña / Paul Skenes,1.54,betrivers,0.6417,,15,-1.17,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,824385,DET @ CLE,Cleveland Guardians,CLE,Jackson Jobe / Gavin Williams,1.61,betonlineag,0.6089,,15,-1.96,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,823578,SF @ NYM,New York Mets,NYM,Cesar Perdomo / Christian Scott,1.66,lowvig,0.5902,,15,-2.02,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,823822,CHC @ MIA,Chicago Cubs,CHC,Clay Holmes / Tyler Phillips,1.71,betus,0.5767,,15,-1.38,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,824552,MIN @ CWS,Chicago White Sox,CWS,Bailey Ober / Bryan Hudson,1.70,betonlineag,0.5752,,15,-2.22,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,824469,MIL @ CIN,Milwaukee Brewers,MIL,Kyle Harrison / Brady Singer,1.74,betonlineag,0.5706,,15,-0.71,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,824309,STL @ COL,St. Louis Cardinals,STL,Kyle Leahy / Tanner Gordon,1.79,betus,0.5531,,15,-0.99,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,824794,BOS @ BAL,Boston Red Sox,BOS,Payton Tolle / Kyle Bradish,1.82,betonlineag,0.5521,,15,0.48,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,824065,TOR @ KC,Toronto Blue Jays,TOR,Spencer Arrighetti / Randy Dobnak,1.86,lowvig,0.5252,,15,-2.32,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,823253,NYY @ SD,New York Yankees,NYY,Gerrit Cole / Michael King,1.93,betonlineag,0.5093,,15,-1.71,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,824142,ARI @ HOU,Houston Astros,HOU,Eduardo Rodriguez / Peter Lambert,1.94,betanysports,0.5040,,15,-2.21,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,823417,ATL @ PHI,Philadelphia Phillies,PHI,Tyler Mahle / Aaron Nola,1.96,betanysports,0.5000,,15,-2.00,,,,,
+2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,822848,TB @ TEX,Texas Rangers,TEX,Ian Seymour / MacKenzie Gore,1.95,betrivers,0.5000,,15,-2.50,,,,,
