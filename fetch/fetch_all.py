@@ -25,8 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
 RAW.mkdir(parents=True, exist_ok=True)
 
-UA = {"User-Agent": "Mozilla/5.0 (compatible; soccer-model/2.0)"}
-TIMEOUT = 45
+UA = {"User-Agent": "Mozilla/5.0 (compatible; soccer-model/3.0)"}
+TIMEOUT = 20
 WARNINGS: list[str] = []
 
 
@@ -51,7 +51,14 @@ EXTRA_COUNTRIES = [
     "MEX", "NOR", "POL", "ROU", "RUS", "SWE", "SWZ", "USA",
 ]
 
-N_SEASONS = 12
+# Finished seasons never change, so there is no reason to re-download a decade
+# of them every single day. Those 242 pointless requests are almost certainly
+# what got us throttled. Pull the full history only on a cold start; after that
+# refresh the current season (plus the previous one, to cover the July rollover)
+# and merge it onto what is already committed.
+N_SEASONS_COLD = 12
+N_SEASONS_WARM = 2
+REQUEST_GAP = 0.25          # be a decent guest
 
 # Columns worth keeping. Everything else is one of ~30 individual bookmakers
 # we don't need - dropping them keeps the committed file small enough that
@@ -76,23 +83,26 @@ LINE_COLS = {"AHh", "AHCh", "B365AHh", "PAHh", "MaxAHh", "AvgAHh"}
 NUMERIC_HINT = re.compile(r"^(FT|HT)(HG|AG)$|^(HS|AS|HST|AST|HC|AC|HF|AF|HY|AY|HR|AR)$")
 
 
-def season_codes(n: int = N_SEASONS) -> list[str]:
+def season_codes(n: int = N_SEASONS_COLD) -> list[str]:
     today = dt.date.today()
     start_year = today.year if today.month >= 7 else today.year - 1
     return [f"{(start_year - i) % 100:02d}{(start_year - i + 1) % 100:02d}" for i in range(n)]
 
 
-def _get(url: str, tries: int = 3) -> bytes | None:
+def _get(url: str, tries: int = 2) -> bytes | None:
     for attempt in range(tries):
         try:
             r = requests.get(url, headers=UA, timeout=TIMEOUT)
             if r.status_code == 200 and r.content:
+                time.sleep(REQUEST_GAP)
                 return r.content
             if r.status_code == 404:
                 return None
+            if attempt == tries - 1:
+                warn(f"{url}: HTTP {r.status_code}")
         except requests.RequestException as e:
             if attempt == tries - 1:
-                warn(f"{url}: {e}")
+                warn(f"{url}: {type(e).__name__}")
         time.sleep(1.5 * (attempt + 1))
     return None
 
@@ -121,8 +131,24 @@ def _trim(df: pd.DataFrame) -> pd.DataFrame:
     return df[keep] if keep else df
 
 
-def fetch_football_data() -> pd.DataFrame:
-    frames, seasons = [], season_codes()
+def existing_matches() -> pd.DataFrame | None:
+    """Whatever history is already committed. Cold start returns None."""
+    for path in (RAW / "matches.parquet", RAW / "matches.csv.gz"):
+        if not path.exists():
+            continue
+        try:
+            df = (pd.read_parquet(path) if path.suffix == ".parquet"
+                  else pd.read_csv(path, compression="gzip", low_memory=False))
+            if len(df) > 1000:
+                df["date"] = pd.to_datetime(df["date"], errors="coerce")
+                return df
+        except Exception as e:
+            warn(f"could not read existing {path.name}: {e}")
+    return None
+
+
+def fetch_football_data(n_seasons: int = N_SEASONS_COLD) -> pd.DataFrame:
+    frames, seasons = [], season_codes(n_seasons)
     print(f"football-data.co.uk main: {len(MAIN_DIVS)} divisions x {len(seasons)} seasons",
           flush=True)
     for div in MAIN_DIVS:
@@ -166,6 +192,7 @@ def fetch_football_data() -> pd.DataFrame:
 
     if not frames:
         raise RuntimeError("football-data.co.uk returned nothing at all")
+
 
     out = pd.concat(frames, ignore_index=True, sort=False)
 
@@ -497,13 +524,41 @@ def main() -> int:
     started = dt.datetime.now(dt.timezone.utc)
     print(f"=== fetch started {started:%Y-%m-%d %H:%M:%S} UTC ===\n", flush=True)
 
-    # --- the one thing that must work -------------------------------------
+    # --- match history ----------------------------------------------------
+    # Warm start refreshes only the live seasons and merges onto what is
+    # already committed. If the source is having a bad day we keep the history
+    # we already have rather than losing the night - the odds still refresh,
+    # and the board still runs on current prices.
+    have = existing_matches()
+    n_seasons = N_SEASONS_COLD if have is None else N_SEASONS_WARM
+    print(f"match history: {'cold start' if have is None else f'{len(have):,} rows on disk'}"
+          f" - refreshing {n_seasons} season(s)\n", flush=True)
+
+    fresh = None
     try:
-        matches = fetch_football_data()
-    except Exception:
+        fresh = fetch_football_data(n_seasons)
+    except Exception as e:
         traceback.print_exc()
-        print("\nFATAL: could not build the match table.", file=sys.stderr)
-        return 1
+        if have is None:
+            print("\nFATAL: no match history on disk and the source is unavailable.",
+                  file=sys.stderr)
+            return 1
+        warn(f"football-data.co.uk unavailable ({e}) - keeping the committed history")
+
+    if fresh is None:
+        matches = have
+    elif have is None:
+        matches = fresh
+    else:
+        merged = pd.concat([have, fresh], ignore_index=True, sort=False)
+        merged["date"] = pd.to_datetime(merged["date"], errors="coerce")
+        before = len(merged)
+        matches = (merged.dropna(subset=["HomeTeam", "AwayTeam", "FTHG", "FTAG"])
+                         .drop_duplicates(subset=["Div", "date", "HomeTeam", "AwayTeam"],
+                                          keep="last")
+                         .sort_values("date").reset_index(drop=True))
+        print(f"merged: {len(have):,} on disk + {len(fresh):,} fresh "
+              f"-> {len(matches):,} ({before - len(matches):,} overlapping)", flush=True)
 
     # CSV first - it cannot fail on dtypes, so the run always leaves something behind.
     csv_path = RAW / "matches.csv.gz"

@@ -1,11 +1,72 @@
-last_run_utc: 2026-09-05T12:41:10+00:00
+last_run_utc: 2026-09-06T12:02:17+00:00
 matches_rows: 148031
 divisions: 40
 date_range: 2012-03-02 .. 2026-09-03
 clubelo: no
 xg_matches: 0
 odds: yes
-warnings: 3
+warnings: 64
+  - https://www.football-data.co.uk/mmz4281/2627/E0.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/E0.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/E1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/E1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/E2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/E2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/E3.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/E3.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/EC.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/EC.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/SC0.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/SC0.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/SC1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/SC1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/SC2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/SC2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/SC3.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/SC3.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/D1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/D1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/D2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/D2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/I1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/I1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/I2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/I2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/SP1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/SP1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/SP2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/SP2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/F1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/F1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/F2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/F2.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/N1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/N1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/B1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/B1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/P1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/P1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/T1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/T1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2627/G1.csv: HTTP 503
+  - https://www.football-data.co.uk/mmz4281/2526/G1.csv: HTTP 503
+  - https://www.football-data.co.uk/new/ARG.csv: HTTP 503
+  - https://www.football-data.co.uk/new/AUT.csv: HTTP 503
+  - https://www.football-data.co.uk/new/BRA.csv: HTTP 503
+  - https://www.football-data.co.uk/new/CHN.csv: HTTP 503
+  - https://www.football-data.co.uk/new/DNK.csv: HTTP 503
+  - https://www.football-data.co.uk/new/FIN.csv: HTTP 503
+  - https://www.football-data.co.uk/new/IRL.csv: HTTP 503
+  - https://www.football-data.co.uk/new/JPN.csv: HTTP 503
+  - https://www.football-data.co.uk/new/MEX.csv: HTTP 503
+  - https://www.football-data.co.uk/new/NOR.csv: HTTP 503
+  - https://www.football-data.co.uk/new/POL.csv: HTTP 503
+  - https://www.football-data.co.uk/new/ROU.csv: HTTP 503
+  - https://www.football-data.co.uk/new/RUS.csv: HTTP 503
+  - https://www.football-data.co.uk/new/SWE.csv: HTTP 503
+  - https://www.football-data.co.uk/new/SWZ.csv: HTTP 503
+  - https://www.football-data.co.uk/new/USA.csv: HTTP 503
+  - football-data.co.uk unavailable (football-data.co.uk returned nothing at all) - keeping the committed history
   - clubelo unreachable from this runner
   - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
