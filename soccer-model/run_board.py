@@ -118,12 +118,35 @@ def send(text: str) -> bool:
     return True
 
 
+def odds_age_hours() -> float | None:
+    """How old the newest odds snapshot is. Stale odds = the fetch was skipped."""
+    import pandas as pd
+    for path in ("data/raw/odds_history.csv.gz", "data/odds_history.csv.gz"):
+        if not os.path.exists(path):
+            continue
+        try:
+            snaps = pd.read_csv(path, usecols=["snapshot_utc"])
+            newest = pd.to_datetime(snaps["snapshot_utc"], utc=True, errors="coerce").max()
+            if pd.isna(newest):
+                return None
+            return float((pd.Timestamp.now(tz="UTC") - newest).total_seconds() / 3600)
+        except Exception:
+            return None
+    return None
+
+
 def summary(fx, winners, totals, parlay, acca, board_url: str | None) -> str:
     e = _html.escape
     day = datetime.now(SGT).strftime("%a %-d %b")
     comb = float(np.prod([s["top"][0][0] for s in parlay])) if parlay else 0.0
     L = [f"<b>Matchday board - {day}</b>",
          f"{len(fx)} games still to kick off", ""]
+
+    age = odds_age_hours()
+    if age is not None and age > 20:
+        L.append(f"⚠️ <b>Prices are {age:.0f} hours old</b> - the odds refresh didn't run, "
+                 f"so these may have moved. Check before betting.")
+        L.append("")
 
     if acca:
         apr = float(np.prod([r["price"] for r in acca]))
