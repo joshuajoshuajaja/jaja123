@@ -115,3 +115,29 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,824142,ARI @ HOU,Houston Astros,HOU,Eduardo Rodriguez / Peter Lambert,1.94,betanysports,0.5040,,15,-2.21,,,,,
 2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,823417,ATL @ PHI,Philadelphia Phillies,PHI,Tyler Mahle / Aaron Nola,1.96,betanysports,0.5000,,15,-2.00,,,,,
 2026-09-06,2026-09-06T14:24:50.389330+00:00,ML,822848,TB @ TEX,Texas Rangers,TEX,Ian Seymour / MacKenzie Gore,1.95,betrivers,0.5000,,15,-2.50,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,824309,STL @ COL,Alec Burleson,STL,Tanner Gordon,3.60,espnbet,0.2389,0.1794,6,-14.00,Parlay 1,,,,676475
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,824552,MIN @ CWS,Munetaka Murakami,CWS,Bailey Ober,3.75,hardrockbet,0.2365,0.2385,6,-11.31,Parlay 1,,,,808959
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,823578,SF @ NYM,Rafael Devers,SF,Christian Scott,4.30,ballybet,0.2118,0.1914,6,-8.94,Parlay 1,,,,646240
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,824309,STL @ COL,Joshua Baez,STL,Tanner Gordon,4.25,hardrockbet,0.2118,0.2163,6,-9.99,Parlay 2,,,,695491
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,823822,CHC @ MIA,Pete Crow-Armstrong,CHC,Tyler Phillips,4.25,espnbet,0.2053,0.2044,6,-12.75,Parlay 2,,,,691718
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,822848,TB @ TEX,Junior Caminero,TB,MacKenzie Gore,4.25,espnbet,0.2010,0.2141,6,-14.58,Parlay 2,,,,691406
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,824142,ARI @ HOU,Yordan Alvarez,HOU,Eduardo Rodriguez,4.50,espnbet,0.1989,0.1863,6,-10.50,Parlay 3,,,,670541
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,824552,MIN @ CWS,Miguel Vargas,CWS,Bailey Ober,4.50,espnbet,0.1976,0.2009,6,-11.06,Parlay 3,,,,678246
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,823091,ATH @ SEA,Cal Raleigh,SEA,Gage Jump,4.70,betparx,0.1874,0.1418,6,-11.93,Parlay 3,,,,663728
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,823578,SF @ NYM,Juan Soto,NYM,Cesar Perdomo,5.00,hardrockbet,0.1829,0.2060,6,-8.57,Parlay 3,,,,665742
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,823253,NYY @ SD,Ben Rice,NYY,Michael King,4.80,betparx,0.1829,0.1824,6,-12.23,Parlay 4,,,,700250
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,824552,MIN @ CWS,Andrew Benintendi,CWS,Bailey Ober,5.00,espnbet,0.1815,0.1517,6,-9.25,Parlay 4,,,,643217
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,824309,STL @ COL,Mickey Moniak,COL,Kyle Leahy,5.00,espnbet,0.1802,0.1799,6,-9.92,Parlay 4,,,,666160
+2026-09-06,2026-09-06T17:07:45.803024+00:00,HR,824794,BOS @ BAL,Pete Alonso,BAL,Payton Tolle,4.75,espnbet,0.1779,0.1932,6,-15.49,Parlay 4,,,,624413
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,823091,ATH @ SEA,Seattle Mariners,SEA,Gage Jump / Bryan Woo,1.53,betanysports,0.6451,,15,-1.30,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,823903,WSH @ LAD,Los Angeles Dodgers,LAD,Andrew Alvarez / Justin Wrobleski,1.53,lowvig,0.6447,,15,-1.37,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,824385,DET @ CLE,Cleveland Guardians,CLE,Jackson Jobe / Gavin Williams,1.62,betonlineag,0.6090,,15,-1.34,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,823578,SF @ NYM,New York Mets,NYM,Cesar Perdomo / Christian Scott,1.64,draftkings,0.6029,,15,-1.13,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,824552,MIN @ CWS,Chicago White Sox,CWS,Bailey Ober / Bryan Hudson,1.70,betonlineag,0.5758,,15,-2.12,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,823822,CHC @ MIA,Chicago Cubs,CHC,Clay Holmes / Tyler Phillips,1.72,lowvig,0.5695,,15,-2.05,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,824309,STL @ COL,St. Louis Cardinals,STL,Kyle Leahy / Tanner Gordon,1.78,betonlineag,0.5564,,15,-0.97,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,824794,BOS @ BAL,Boston Red Sox,BOS,Payton Tolle / Kyle Bradish,1.79,betonlineag,0.5471,,15,-2.06,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,824065,TOR @ KC,Toronto Blue Jays,TOR,Spencer Arrighetti / Randy Dobnak,1.85,betanysports,0.5299,,15,-1.96,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,824142,ARI @ HOU,Houston Astros,HOU,Eduardo Rodriguez / Peter Lambert,1.93,espnbet,0.5082,,15,-1.91,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,823253,NYY @ SD,New York Yankees,NYY,Gerrit Cole / Michael King,1.95,betus,0.5026,,15,-1.99,,,,,
+2026-09-06,2026-09-06T17:07:45.803024+00:00,ML,822848,TB @ TEX,Texas Rangers,TEX,Ian Seymour / MacKenzie Gore,1.96,betrivers,0.5000,,15,-2.00,,,,,
