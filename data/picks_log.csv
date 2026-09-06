@@ -1059,3 +1059,25 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-06T11:58:08+00:00,2026-09-06T13:00:00+00:00,Serie A,Parma,Monza,Correct Score,1-1,0.14104,,,
 2026-09-06T11:58:08+00:00,2026-09-06T16:30:00+00:00,La Liga,Alavés,CA Osasuna,Correct Score,1-0,0.13778,,,
 2026-09-06T11:58:08+00:00,2026-09-06T19:00:00+00:00,La Liga,Espanyol,Sevilla,Correct Score,1-0,0.13463,,,
+2026-09-06T12:09:47+00:00,2026-09-06T19:00:00+00:00,La Liga 2,Almería,Cádiz CF,1X2/Totals,Almería,0.64149,1.52,coolbet,-0.02494
+2026-09-06T12:09:47+00:00,2026-09-06T16:30:00+00:00,La Liga 2,CD Castellón,Albacete,1X2/Totals,CD Castellón,0.62061,1.58,betfair_ex_eu,-0.01943
+2026-09-06T12:09:47+00:00,2026-09-06T15:30:00+00:00,Premier League,Arsenal,Chelsea,1X2/Totals,Arsenal,0.56205,1.78,matchbook,0.00044
+2026-09-06T12:09:47+00:00,2026-09-06T14:15:00+00:00,La Liga 2,Oviedo,Burgos CF,1X2/Totals,Under 2.5,0.64722,1.57,onexbet,0.01614
+2026-09-06T12:09:47+00:00,2026-09-06T16:30:00+00:00,La Liga,Alavés,CA Osasuna,1X2/Totals,Under 2.5,0.6185,1.63,matchbook,0.00815
+2026-09-06T12:09:47+00:00,2026-09-06T15:15:00+00:00,Ligue 1,Angers,Rennes,1X2/Totals,Under 3.5,0.60519,1.55,tipico_de,-0.06196
+2026-09-06T12:09:47+00:00,2026-09-06T13:00:00+00:00,Serie A,Frosinone,Venezia,1X2/Totals,Under 3.5,0.59949,1.68,onexbet,0.00714
+2026-09-06T12:09:47+00:00,2026-09-06T13:00:00+00:00,Premier League,Everton,Manchester United,1X2/Totals,Over 2.5,0.58759,1.67,onexbet,-0.01873
+2026-09-06T12:09:47+00:00,2026-09-06T13:00:00+00:00,Serie A,Parma,Monza,1X2/Totals,Under 2.5,0.57831,1.73,coolbet,0.00048
+2026-09-06T12:09:47+00:00,2026-09-06T19:00:00+00:00,La Liga,Espanyol,Sevilla,1X2/Totals,Under 2.5,0.55726,1.79,matchbook,-0.0025
+2026-09-06T12:09:47+00:00,2026-09-06T15:30:00+00:00,Bundesliga,Eintracht Frankfurt,Augsburg,1X2/Totals,Over 3,0.55317,1.73,coolbet,-0.04302
+2026-09-06T12:09:47+00:00,2026-09-06T18:45:00+00:00,Serie A,Juventus,AC Milan,1X2/Totals,Under 2.5,0.55102,1.81,matchbook,-0.00266
+2026-09-06T12:09:47+00:00,2026-09-06T18:45:00+00:00,Ligue 1,Marseille,Paris FC,1X2/Totals,Over 2.5,0.55031,1.81,onexbet,-0.00393
+2026-09-06T12:09:47+00:00,2026-09-06T16:00:00+00:00,Serie A,Bologna,Sassuolo,1X2/Totals,Over 2.25,0.53284,1.83,pinnacle,-0.0249
+2026-09-06T12:09:47+00:00,2026-09-06T13:00:00+00:00,Ligue 1,Troyes,Strasbourg,1X2/Totals,Over 2.5,0.52382,1.88,onexbet,-0.01522
+2026-09-06T12:09:47+00:00,2026-09-06T13:30:00+00:00,Bundesliga,Hamburger SV,FSV Mainz 05,1X2/Totals,Over 2.5,0.51832,1.92,onexbet,-0.00484
+2026-09-06T12:09:47+00:00,2026-09-06T16:30:00+00:00,La Liga,Málaga,Levante,1X2/Totals,Under 2.5,0.51492,1.94,matchbook,-0.00106
+2026-09-06T12:09:47+00:00,2026-09-06T14:15:00+00:00,La Liga,Valencia,Barcelona,1X2/Totals,Under 3.5,0.51263,1.94,matchbook,-0.0055
+2026-09-06T12:09:47+00:00,2026-09-06T14:15:00+00:00,La Liga 2,Oviedo,Burgos CF,Correct Score,1-0,0.1612,,,
+2026-09-06T12:09:47+00:00,2026-09-06T13:00:00+00:00,Serie A,Parma,Monza,Correct Score,1-1,0.13992,,,
+2026-09-06T12:09:47+00:00,2026-09-06T16:30:00+00:00,La Liga,Alavés,CA Osasuna,Correct Score,1-0,0.13694,,,
+2026-09-06T12:09:47+00:00,2026-09-06T18:45:00+00:00,Serie A,Juventus,AC Milan,Correct Score,1-1,0.13368,,,
