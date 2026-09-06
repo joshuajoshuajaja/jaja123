@@ -1,0 +1,659 @@
+name: daily-fetch
+
+# Pulls football results, bookmaker closing odds and ClubElo ratings every day
+# and commits them into this repo. Everything lives in this one file.
+
+on:
+  schedule:
+    # 09:07 UTC = 17:07 Singapore. Odd minute on purpose: :00 and :15 are the
+    # most contended slots on shared runners and get dropped first.
+    - cron: "7 9 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet pandas numpy requests pyarrow
+
+      - name: Write the fetch script
+        run: |
+          mkdir -p fetch data/raw
+          cat > fetch/fetch_all.py <<'PYTHON_EOF'
+          #!/usr/bin/env python3
+          """
+          Daily data pull for the soccer model.  v2 - hardened.
+
+          Design rule: football-data.co.uk is the only source allowed to fail the run.
+          Everything else is best-effort and reports itself in the log. Whatever landed
+          gets committed either way.
+          """
+          from __future__ import annotations
+
+          import io
+          import os
+          import re
+          import sys
+          import time
+          import traceback
+          import datetime as dt
+          from pathlib import Path
+
+          import numpy as np
+          import pandas as pd
+          import requests
+
+          ROOT = Path(__file__).resolve().parents[1]
+          RAW = ROOT / "data" / "raw"
+          RAW.mkdir(parents=True, exist_ok=True)
+
+          UA = {"User-Agent": "Mozilla/5.0 (compatible; soccer-model/2.0)"}
+          TIMEOUT = 45
+          WARNINGS: list[str] = []
+
+
+          def warn(msg: str) -> None:
+              WARNINGS.append(msg)
+              print(f"  !! {msg}", file=sys.stderr, flush=True)
+
+
+          # ---------------------------------------------------------------------------
+          # Sources
+          # ---------------------------------------------------------------------------
+
+          MAIN_DIVS = [
+              "E0", "E1", "E2", "E3", "EC",
+              "SC0", "SC1", "SC2", "SC3",
+              "D1", "D2", "I1", "I2", "SP1", "SP2", "F1", "F2",
+              "N1", "B1", "P1", "T1", "G1",
+          ]
+
+          EXTRA_COUNTRIES = [
+              "ARG", "AUT", "BRA", "CHN", "DNK", "FIN", "IRL", "JPN",
+              "MEX", "NOR", "POL", "ROU", "RUS", "SWE", "SWZ", "USA",
+          ]
+
+          N_SEASONS = 12
+
+          # Columns worth keeping. Everything else is one of ~30 individual bookmakers
+          # we don't need - dropping them keeps the committed file small enough that
+          # GitHub doesn't complain.
+          CORE_COLS = {
+              "Div", "Date", "Time", "HomeTeam", "AwayTeam",
+              "FTHG", "FTAG", "FTR", "HTHG", "HTAG", "HTR",
+              "HS", "AS", "HST", "AST", "HC", "AC", "HF", "AF", "HY", "AY", "HR", "AR",
+              "SeasonCode", "Source", "Country", "League", "Season",
+          }
+
+          # B365/Pinnacle/BetFair + market max & average, opening and closing ("C").
+          ODDS_RE = re.compile(
+              r"^(B365|PS|P|BF|Max|Avg)C?("
+              r"H|D|A"                       # 1X2
+              r"|>2\.5|<2\.5"                # totals
+              r"|AHH|AHA"                    # asian handicap prices
+              r")$"
+          )
+          LINE_COLS = {"AHh", "AHCh", "B365AHh", "PAHh", "MaxAHh", "AvgAHh"}
+
+          NUMERIC_HINT = re.compile(r"^(FT|HT)(HG|AG)$|^(HS|AS|HST|AST|HC|AC|HF|AF|HY|AY|HR|AR)$")
+
+
+          def season_codes(n: int = N_SEASONS) -> list[str]:
+              today = dt.date.today()
+              start_year = today.year if today.month >= 7 else today.year - 1
+              return [f"{(start_year - i) % 100:02d}{(start_year - i + 1) % 100:02d}" for i in range(n)]
+
+
+          def _get(url: str, tries: int = 3) -> bytes | None:
+              for attempt in range(tries):
+                  try:
+                      r = requests.get(url, headers=UA, timeout=TIMEOUT)
+                      if r.status_code == 200 and r.content:
+                          return r.content
+                      if r.status_code == 404:
+                          return None
+                  except requests.RequestException as e:
+                      if attempt == tries - 1:
+                          warn(f"{url}: {e}")
+                  time.sleep(1.5 * (attempt + 1))
+              return None
+
+
+          def _read_csv(blob: bytes) -> pd.DataFrame | None:
+              # utf-8-sig FIRST: these files carry a UTF-8 BOM, and decoding them as
+              # latin-1 turns the first column name into "ï»¿Country",
+              # which silently loses the Country column on the extra-league files.
+              for enc in ("utf-8-sig", "utf-8", "latin-1"):
+                  try:
+                      df = pd.read_csv(io.BytesIO(blob), encoding=enc,
+                                       on_bad_lines="skip", low_memory=False)
+                  except Exception:
+                      continue
+                  df.columns = [str(c).replace("﻿", "").strip() for c in df.columns]
+                  df = df.dropna(how="all", axis=0).dropna(how="all", axis=1)
+                  if "Date" in df.columns:
+                      df = df[df["Date"].notna()]
+                  return df if len(df) else None
+              return None
+
+
+          def _trim(df: pd.DataFrame) -> pd.DataFrame:
+              keep = [c for c in df.columns
+                      if c in CORE_COLS or c in LINE_COLS or ODDS_RE.match(str(c))]
+              return df[keep] if keep else df
+
+
+          def fetch_football_data() -> pd.DataFrame:
+              frames, seasons = [], season_codes()
+              print(f"football-data.co.uk main: {len(MAIN_DIVS)} divisions x {len(seasons)} seasons",
+                    flush=True)
+              for div in MAIN_DIVS:
+                  got = 0
+                  for season in seasons:
+                      blob = _get(f"https://www.football-data.co.uk/mmz4281/{season}/{div}.csv")
+                      if not blob:
+                          continue
+                      df = _read_csv(blob)
+                      if df is None:
+                          continue
+                      df = _trim(df)
+                      df["Div"] = div
+                      df["SeasonCode"] = season
+                      df["Source"] = "main"
+                      frames.append(df)
+                      got += 1
+                  print(f"  {div:<4} {got}/{len(seasons)} seasons", flush=True)
+
+              print(f"football-data.co.uk extra: {len(EXTRA_COUNTRIES)} countries", flush=True)
+              for ctry in EXTRA_COUNTRIES:
+                  blob = _get(f"https://www.football-data.co.uk/new/{ctry}.csv")
+                  if not blob:
+                      print(f"  {ctry:<4} unavailable", flush=True)
+                      continue
+                  df = _read_csv(blob)
+                  if df is None:
+                      continue
+                  df = df.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam",
+                                          "HG": "FTHG", "AG": "FTAG", "Res": "FTR"})
+                  # League names collide across countries ("Super League" is both China
+                  # and Switzerland; "Superliga" is Denmark and Romania) and arrive with
+                  # stray whitespace, so key on country + league, always.
+                  league = df["League"].astype(str).str.strip() if "League" in df.columns else ctry
+                  country = df["Country"].astype(str).str.strip() if "Country" in df.columns else ctry
+                  df["Div"] = country.str.upper().str.slice(0, 3) + ": " + league
+                  df = _trim(df)
+                  df["Source"] = "extra"
+                  frames.append(df)
+                  print(f"  {ctry:<4} {len(df)} rows", flush=True)
+
+              if not frames:
+                  raise RuntimeError("football-data.co.uk returned nothing at all")
+
+              out = pd.concat(frames, ignore_index=True, sort=False)
+
+              # --- normalise dtypes. This is the step that used to blow the run up:
+              # concatenating 12 seasons of slightly different schemas leaves object
+              # columns holding a mix of floats and stray strings, which parquet refuses.
+              for col in out.columns:
+                  if col in {"Div", "HomeTeam", "AwayTeam", "FTR", "HTR", "Time",
+                             "Date", "SeasonCode", "Source", "Country", "League", "Season"}:
+                      out[col] = out[col].astype("string")
+                  else:
+                      out[col] = pd.to_numeric(out[col], errors="coerce")
+
+              # parsed ISO date - football-data uses both dd/mm/yy and dd/mm/yyyy
+              d = pd.to_datetime(out["Date"], format="%d/%m/%Y", errors="coerce")
+              d2 = pd.to_datetime(out["Date"], format="%d/%m/%y", errors="coerce")
+              out["date"] = d.fillna(d2)
+
+              before = len(out)
+              out = out.dropna(subset=["HomeTeam", "AwayTeam", "FTHG", "FTAG"])
+              out = out.drop_duplicates(subset=["Div", "date", "HomeTeam", "AwayTeam"], keep="last")
+              print(f"\ncleaned: {before:,} -> {len(out):,} rows "
+                    f"({out['Div'].nunique()} divisions, "
+                    f"{out['date'].min():%Y-%m-%d} to {out['date'].max():%Y-%m-%d})", flush=True)
+              return out.sort_values("date").reset_index(drop=True)
+
+
+          def fetch_clubelo() -> pd.DataFrame | None:
+              # One quick attempt per scheme. This host timed out from the runner before,
+              # and six 45-second timeouts is four minutes of nothing.
+              day = dt.date.today().isoformat()
+              for scheme in ("https", "http"):
+                  try:
+                      r = requests.get(f"{scheme}://api.clubelo.com/{day}",
+                                       headers=UA, timeout=12)
+                      if r.status_code == 200 and r.content:
+                          df = pd.read_csv(io.BytesIO(r.content))
+                          if len(df) > 100:
+                              return df
+                  except requests.RequestException:
+                      pass
+              warn("clubelo unreachable from this runner")
+              return None
+
+
+          # ---------------------------------------------------------------------------
+          # Reachability probe - what can this runner actually talk to?
+          # ---------------------------------------------------------------------------
+
+          PROBE_TARGETS = [
+              ("football-data.co.uk", "https://www.football-data.co.uk/mmz4281/2526/E0.csv"),
+              ("understat league page", "https://understat.com/league/EPL/2025"),
+              ("understat root", "https://understat.com/"),
+              ("fbref", "https://fbref.com/en/comps/9/Premier-League-Stats"),
+              ("fbref robots", "https://fbref.com/robots.txt"),
+              ("clubelo api", "https://api.clubelo.com/2026-01-01"),
+              ("the-odds-api", "https://api.the-odds-api.com/v4/sports/?apiKey=probe"),
+              ("sofascore api", "https://api.sofascore.com/api/v1/sport/football/events/live"),
+              ("worldfootball", "https://www.worldfootball.net/"),
+              ("sgodds", "https://sgodds.com/"),
+              ("sgodds odds page", "https://sgodds.com/odds"),
+              ("singaporepools", "https://online.singaporepools.com/en/sports"),
+              ("oddsportal", "https://www.oddsportal.com/"),
+              ("raw.githubusercontent", "https://raw.githubusercontent.com/openfootball/football.json/master/README.md"),
+          ]
+
+
+          def probe_sources() -> None:
+              lines = [f"probe run {dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')}",
+                       "what this GitHub Actions runner can reach", ""]
+              for name, url in PROBE_TARGETS:
+                  try:
+                      r = requests.get(url, headers=UNDERSTAT_HEADERS, timeout=20, stream=True)
+                      body = r.raw.read(2000, decode_content=True) or b""
+                      note = ""
+                      low = body.decode("utf-8", "replace").lower()
+                      if "cloudflare" in low or "captcha" in low or "just a moment" in low:
+                          note = "  <- bot challenge page"
+                      lines.append(f"  {name:<24} HTTP {r.status_code}  "
+                                   f"{r.headers.get('content-type','?')[:30]}{note}")
+                  except Exception as e:
+                      lines.append(f"  {name:<24} FAILED  {type(e).__name__}: {str(e)[:70]}")
+              (RAW / "SOURCE_PROBE.txt").write_text("\n".join(lines) + "\n")
+              print("\n".join(lines), flush=True)
+
+
+          # ---------------------------------------------------------------------------
+          # Understat - match-level expected goals for the top five leagues
+          # ---------------------------------------------------------------------------
+          # Understat embeds its data as a hex-escaped JSON string inside a <script> tag
+          # rather than serving an API, so we pull the page and unescape it. No scraping
+          # library needed, and nothing to break when a package version moves.
+
+          UNDERSTAT_LEAGUES = ["EPL", "La_liga", "Bundesliga", "Serie_A", "Ligue_1", "RFPL"]
+          UNDERSTAT_FIRST_SEASON = 2014
+
+          _US_RE = re.compile(r"var\s+datesData\s*=\s*JSON\.parse\('(.*?)'\)\s*;", re.S)
+
+
+          def _understat_season_years() -> list[int]:
+              today = dt.date.today()
+              latest = today.year if today.month >= 7 else today.year - 1
+              return list(range(UNDERSTAT_FIRST_SEASON, latest + 1))
+
+
+          UNDERSTAT_HEADERS = {
+              "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+                             "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"),
+              "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+              "Accept-Language": "en-GB,en;q=0.9",
+              "Referer": "https://understat.com/",
+              "Upgrade-Insecure-Requests": "1",
+          }
+
+
+          def _get_understat(url: str) -> tuple[int, bytes]:
+              """Returns (status, body). Status 0 means the request itself failed."""
+              try:
+                  r = requests.get(url, headers=UNDERSTAT_HEADERS, timeout=TIMEOUT)
+                  return r.status_code, r.content
+              except requests.RequestException as e:
+                  warn(f"understat {url}: {e}")
+                  return 0, b""
+
+
+          def fetch_xg() -> pd.DataFrame | None:
+              import json
+
+              rows = []
+              statuses: dict[int, int] = {}
+              sample_saved = False
+              for league in UNDERSTAT_LEAGUES:
+                  got = 0
+                  for year in _understat_season_years():
+                      url = f"https://understat.com/league/{league}/{year}"
+                      status, blob = _get_understat(url)
+                      statuses[status] = statuses.get(status, 0) + 1
+                      if status != 200 or not blob:
+                          time.sleep(0.5)
+                          continue
+                      text = blob.decode("utf-8", errors="replace")
+                      m = _US_RE.search(text)
+                      if not m:
+                          # 200 but no data block: the page shape changed, or we were
+                          # served a challenge page. Keep one sample so it can be read.
+                          if not sample_saved:
+                              (RAW / "understat_debug.txt").write_text(
+                                  f"url: {url}\nstatus: {status}\nbytes: {len(blob)}\n"
+                                  f"has 'datesData': {'datesData' in text}\n"
+                                  f"has 'Cloudflare'/'captcha': "
+                                  f"{('cloudflare' in text.lower() or 'captcha' in text.lower())}\n"
+                                  f"--- first 3000 chars ---\n{text[:3000]}\n")
+                              sample_saved = True
+                              warn(f"understat {url}: 200 but no datesData block "
+                                   f"({len(blob)} bytes) - sample saved to understat_debug.txt")
+                          continue
+                      try:
+                          # \xHH escapes are UTF-8 *bytes*, so unicode_escape alone turns
+                          # "Munchen" with an umlaut into mojibake - round-trip through
+                          # latin-1 to recover the real characters.
+                          s = m.group(1).encode("utf-8").decode("unicode_escape")
+                          s = s.encode("latin-1", "replace").decode("utf-8", "replace")
+                          data = json.loads(s)
+                      except Exception as e:
+                          warn(f"understat {league} {year}: parse failed ({e})")
+                          continue
+                      for g in data:
+                          if not g.get("isResult"):
+                              continue          # fixture not played yet
+                          try:
+                              rows.append({
+                                  "league": league,
+                                  "season": year,
+                                  "datetime": g.get("datetime"),
+                                  "home": g["h"]["title"],
+                                  "away": g["a"]["title"],
+                                  "hg": int(g["goals"]["h"]),
+                                  "ag": int(g["goals"]["a"]),
+                                  "hxg": float(g["xG"]["h"]),
+                                  "axg": float(g["xG"]["a"]),
+                              })
+                          except (KeyError, TypeError, ValueError):
+                              continue
+                      got += 1
+                      time.sleep(0.8)           # be polite; the site is a free resource
+                  print(f"  xG {league:<12} {got}/{len(_understat_season_years())} seasons", flush=True)
+
+              print(f"  understat HTTP status counts: {statuses}", flush=True)
+              if not rows:
+                  warn(f"understat returned nothing - status counts {statuses}")
+                  return None
+
+              df = pd.DataFrame(rows)
+              df["date"] = pd.to_datetime(df["datetime"], errors="coerce").dt.normalize()
+              df = df.dropna(subset=["date"]).drop_duplicates(
+                  subset=["league", "date", "home", "away"], keep="last")
+              return df.sort_values("date").reset_index(drop=True)
+
+
+          # Priority order. The free tier is 500 credits a month and an /odds call costs
+          # markets x regions, so the budget decides how far down this list we get today.
+          ODDS_SPORTS = [
+              "soccer_epl", "soccer_spain_la_liga", "soccer_italy_serie_a",
+              "soccer_germany_bundesliga", "soccer_france_ligue_one", "soccer_efl_champ",
+              "soccer_netherlands_eredivisie", "soccer_portugal_primeira_liga",
+              "soccer_belgium_first_div", "soccer_turkey_super_league",
+              "soccer_brazil_campeonato", "soccer_argentina_primera_division",
+              "soccer_usa_mls", "soccer_mexico_ligamx", "soccer_japan_j_league",
+              "soccer_england_league1", "soccer_england_league2",
+              "soccer_spain_segunda_division", "soccer_italy_serie_b",
+              "soccer_germany_bundesliga2", "soccer_france_ligue_two",
+              "soccer_greece_super_league",
+              "soccer_uefa_champs_league", "soccer_uefa_europa_league",
+          ]
+
+          # h2h + totals is exactly what the correct-score consistency check needs:
+          # a supremacy and a total, from the same book, at the same moment.
+          ODDS_MARKETS = "h2h,totals"
+          ODDS_REGIONS = "eu"
+          CREDITS_PER_CALL = len(ODDS_MARKETS.split(",")) * len(ODDS_REGIONS.split(","))
+          MONTHLY_FREE = 500
+          EVENT_HORIZON_H = 60          # only pay for a league with a game this soon
+
+
+          def _odds_remaining(key: str) -> int | None:
+              """/sports is free, and its headers report the quota. Ask before spending."""
+              try:
+                  r = requests.get(f"https://api.the-odds-api.com/v4/sports/?apiKey={key}",
+                                   timeout=TIMEOUT)
+                  if r.status_code == 401:
+                      warn("odds API rejected the key")
+                      return -1
+                  v = r.headers.get("x-requests-remaining")
+                  return int(float(v)) if v is not None else None
+              except (requests.RequestException, ValueError):
+                  return None
+
+
+          def _has_upcoming(key: str, sport: str) -> bool:
+              """/events is free too, so we never pay to discover an empty league."""
+              try:
+                  r = requests.get(f"https://api.the-odds-api.com/v4/sports/{sport}/events/"
+                                   f"?apiKey={key}&dateFormat=iso", timeout=TIMEOUT)
+                  if r.status_code != 200:
+                      return False
+                  cutoff = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=EVENT_HORIZON_H)
+                  for ev in r.json():
+                      t = pd.to_datetime(ev.get("commence_time"), errors="coerce", utc=True)
+                      if pd.notna(t) and t <= cutoff:
+                          return True
+              except requests.RequestException:
+                  pass
+              return False
+
+
+          def fetch_odds() -> pd.DataFrame | None:
+              key = os.environ.get("ODDS_API_KEY", "").strip()
+              if not key:
+                  print("ODDS_API_KEY not set - skipping live odds", flush=True)
+                  return None
+
+              remaining = _odds_remaining(key)
+              if remaining == -1:
+                  return None
+              if remaining is None:
+                  remaining = MONTHLY_FREE
+              # Spread whatever is left over the rest of the month rather than spending it
+              # all on the first slate. Self-correcting: as the quota drops, so does the cap.
+              budget = int(np.clip(remaining // 30, CREDITS_PER_CALL, 8 * CREDITS_PER_CALL))
+              print(f"odds: {remaining} credits remaining, spending up to {budget} today "
+                    f"({CREDITS_PER_CALL}/league)", flush=True)
+
+              # rotate the tail so lower-priority leagues still get sampled
+              day = dt.date.today().toordinal()
+              head, tail = ODDS_SPORTS[:6], ODDS_SPORTS[6:]
+              order = head + tail[day % len(tail):] + tail[:day % len(tail)]
+
+              rows, spent, used = [], 0, "?"
+              snap = dt.datetime.now(dt.timezone.utc).isoformat()
+              for sport in order:
+                  if spent + CREDITS_PER_CALL > budget:
+                      break
+                  if not _has_upcoming(key, sport):
+                      continue
+                  url = (f"https://api.the-odds-api.com/v4/sports/{sport}/odds/"
+                         f"?apiKey={key}&regions={ODDS_REGIONS}&markets={ODDS_MARKETS}"
+                         f"&oddsFormat=decimal&dateFormat=iso")
+                  try:
+                      r = requests.get(url, timeout=TIMEOUT)
+                  except requests.RequestException as e:
+                      warn(f"odds {sport}: {e}")
+                      continue
+                  if r.status_code == 401:
+                      warn("odds API rejected the key mid-run - stopping")
+                      break
+                  if r.status_code != 200:
+                      warn(f"odds {sport}: HTTP {r.status_code}")
+                      continue
+                  spent += int(float(r.headers.get("x-requests-last", CREDITS_PER_CALL)))
+                  used = r.headers.get("x-requests-used", used)
+                  n0 = len(rows)
+                  for ev in r.json():
+                      for bk in ev.get("bookmakers", []):
+                          for mk in bk.get("markets", []):
+                              for oc in mk.get("outcomes", []):
+                                  rows.append({
+                                      "snapshot_utc": snap,
+                                      "sport_key": ev.get("sport_key"),
+                                      "event_id": ev.get("id"),
+                                      "commence_time": ev.get("commence_time"),
+                                      "home_team": ev.get("home_team"),
+                                      "away_team": ev.get("away_team"),
+                                      "book": bk.get("key"),
+                                      "market": mk.get("key"),
+                                      "outcome": oc.get("name"),
+                                      "point": oc.get("point"),
+                                      "price": oc.get("price"),
+                                  })
+                  print(f"  {sport:<38} +{len(rows)-n0:>5} rows  (spent {spent}/{budget})", flush=True)
+
+              print(f"odds rows: {len(rows)}  credits spent today: {spent}  "
+                    f"used this period: {used}", flush=True)
+              return pd.DataFrame(rows) if rows else None
+
+
+          # ---------------------------------------------------------------------------
+
+          def main() -> int:
+              started = dt.datetime.now(dt.timezone.utc)
+              print(f"=== fetch started {started:%Y-%m-%d %H:%M:%S} UTC ===\n", flush=True)
+
+              # --- the one thing that must work -------------------------------------
+              try:
+                  matches = fetch_football_data()
+              except Exception:
+                  traceback.print_exc()
+                  print("\nFATAL: could not build the match table.", file=sys.stderr)
+                  return 1
+
+              # CSV first - it cannot fail on dtypes, so the run always leaves something behind.
+              csv_path = RAW / "matches.csv.gz"
+              matches.to_csv(csv_path, index=False, compression="gzip")
+              print(f"wrote {csv_path.name}  ({csv_path.stat().st_size / 1e6:.1f} MB)", flush=True)
+
+              try:
+                  matches.to_parquet(RAW / "matches.parquet", index=False)
+                  print(f"wrote matches.parquet ({(RAW / 'matches.parquet').stat().st_size / 1e6:.1f} MB)",
+                        flush=True)
+              except Exception as e:
+                  warn(f"parquet write skipped: {e}")
+
+              # --- best effort from here on -----------------------------------------
+              elo = None
+              try:
+                  elo = fetch_clubelo()
+                  if elo is not None:
+                      elo.to_csv(RAW / "clubelo.csv", index=False)
+                      print(f"wrote clubelo.csv ({len(elo):,} clubs)", flush=True)
+              except Exception as e:
+                  warn(f"clubelo step: {e}")
+
+              try:
+                  print("\n--- reachability probe ---", flush=True)
+                  probe_sources()
+              except Exception as e:
+                  warn(f"probe step: {e}")
+
+              xg = None
+              try:
+                  print("\nunderstat xG:", flush=True)
+                  xg = fetch_xg()
+                  if xg is not None:
+                      xg.to_csv(RAW / "xg.csv.gz", index=False, compression="gzip")
+                      # distinct team names, so the modelling side can build the mapping
+                      # onto football-data's names without another round trip
+                      names = (pd.concat([xg[["league", "home"]].rename(columns={"home": "team"}),
+                                          xg[["league", "away"]].rename(columns={"away": "team"})])
+                               .drop_duplicates().sort_values(["league", "team"]))
+                      names.to_csv(RAW / "xg_teams.csv", index=False)
+                      print(f"wrote xg.csv.gz ({len(xg):,} matches, "
+                            f"{xg['date'].min():%Y-%m-%d}..{xg['date'].max():%Y-%m-%d}, "
+                            f"{len(names)} team-league pairs)", flush=True)
+              except Exception as e:
+                  warn(f"xg step: {e}")
+
+              odds = None
+              try:
+                  odds = fetch_odds()
+                  if odds is not None:
+                      hist = RAW / "odds_history.csv.gz"
+                      if hist.exists():
+                          prev = pd.read_csv(hist)
+                          odds = pd.concat([prev, odds], ignore_index=True, sort=False)
+                          ct = pd.to_datetime(odds["commence_time"], errors="coerce", utc=True)
+                          cutoff = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=90)
+                          odds = odds[ct.isna() | (ct >= cutoff)]
+                      odds.to_csv(hist, index=False, compression="gzip")
+                      print(f"wrote odds_history.csv.gz ({len(odds):,} rows)", flush=True)
+              except Exception as e:
+                  warn(f"odds step: {e}")
+
+              per_div = matches.groupby("Div").size().sort_values(ascending=False)
+              (RAW / "MANIFEST.txt").write_text(
+                  f"last_run_utc: {started.isoformat(timespec='seconds')}\n"
+                  f"matches_rows: {len(matches)}\n"
+                  f"divisions: {matches['Div'].nunique()}\n"
+                  f"date_range: {matches['date'].min():%Y-%m-%d} .. {matches['date'].max():%Y-%m-%d}\n"
+                  f"clubelo: {'yes' if elo is not None else 'no'}\n"
+                  f"xg_matches: {0 if xg is None else len(xg)}\n"
+                  f"odds: {'yes' if odds is not None else 'no'}\n"
+                  f"warnings: {len(WARNINGS)}\n"
+                  + "".join(f"  - {w}\n" for w in WARNINGS)
+                  + "\nrows per division:\n"
+                  + "".join(f"  {d:<28} {n}\n" for d, n in per_div.items())
+              )
+
+              took = (dt.datetime.now(dt.timezone.utc) - started).total_seconds()
+              print(f"\n=== done in {took:.0f}s, {len(WARNINGS)} warning(s) ===", flush=True)
+              for w in WARNINGS:
+                  print(f"  warning: {w}", flush=True)
+              return 0
+
+
+          if __name__ == "__main__":
+              sys.exit(main())
+
+          PYTHON_EOF
+
+      - name: Fetch data
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python fetch/fetch_all.py
+
+      - name: Show what landed
+        if: always()
+        run: |
+          echo "--- data/raw ---"
+          ls -lh data/raw || true
+          echo "--- MANIFEST ---"
+          cat data/raw/MANIFEST.txt || echo "(no manifest)"
+
+      - name: Commit raw data
+        if: always()
+        run: |
+          git config user.name  "soccer-model-bot"
+          git config user.email "actions@github.com"
+          git add -A data/raw fetch
+          if git diff --staged --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "data: refresh $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
