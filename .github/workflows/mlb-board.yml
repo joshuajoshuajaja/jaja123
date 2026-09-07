@@ -2,7 +2,9 @@ name: MLB Daily Board
 
 on:
   schedule:
-    - cron: '48 12 * * *'
+    - cron: '47 10 * * *'
+    - cron: '17 12 * * *'
+    - cron: '47 13 * * *'
   workflow_dispatch:
 
 permissions:
@@ -540,9 +542,12 @@ jobs:
           """
           MLB Board — daily build.
 
-          Runs 13:45 UTC = 9:45pm Singapore = 9:45am US Eastern, ahead of that day's
-          slate. Deliberately off the top of the hour: GitHub delays scheduled jobs
-          most heavily at :00, and a delayed board is a board that misses the window.
+          Scheduled several times a day, because GitHub routinely runs scheduled jobs
+          hours late and the drift is neither predictable nor fixable from our side.
+          The first attempt that actually gets home-run prices sends the board and
+          claims the day; every later attempt sees that and exits without spending a
+          credit. Early is recoverable, late is not: a board at 7pm Singapore is still
+          useful, a board at 1am is worthless because the games have started.
 
           Output
             2 x 3-leg home-run parlays  (the likeliest bats)
@@ -841,7 +846,8 @@ jobs:
               return dt.astimezone(SGT).strftime("%-I:%M%p").lower()
 
 
-          def render(board_date, parlays, mls, sels, credits, graded, hr_note=""):
+          def render(board_date, parlays, mls, sels, credits, graded, hr_note="",
+                     ml_already_sent=False):
               A, B = [], []
               thr = edge_threshold(sels)
               A.append(f"<b>MLB HOME RUN BOARD — {board_date:%a %d %b %Y}</b>")
@@ -859,6 +865,10 @@ jobs:
                                f"{star}")
                   A.append(f"  <b>Combined {price:.2f} ({C.american(price)})</b> · "
                            f"hit chance {prob*100:.2f}%")
+                  A.append("")
+              if ml_already_sent:
+                  A.append("<i>Home-run prices weren't up when today's moneylines were "
+                           "sent earlier — these are the parlays.</i>")
                   A.append("")
               A.append(f"<i>Legs ranked by how likely they are to land, never two from "
                        f"the same game. ⚡ = the best price out there is unusually far "
@@ -1062,6 +1072,19 @@ jobs:
 
               print(f"== MLB board for US Eastern date {ds} ==")
 
+              # Several crons target the same slate so that GitHub's scheduling drift
+              # can't cost a night. The first run to get home-run prices claims the day.
+              prior = [r for r in C.read_csv(PICKS) if r.get("board_date") == ds]
+              sent_hr = any(r.get("market") == "HR" for r in prior)
+              sent_ml = any(r.get("market") == "ML" for r in prior)
+              if sent_hr:
+                  print(f"  board for {ds} already sent ({len(prior)} picks logged). "
+                        f"Nothing to do — exiting before spending any credits.")
+                  return
+              if sent_ml:
+                  print(f"  an earlier run today sent moneylines but got no home-run "
+                        f"prices; retrying for the props now")
+
               print("- grading previous picks")
               graded = ""
               try:
@@ -1139,6 +1162,13 @@ jobs:
                       pool = []
 
               parlays = build_parlays(pool) if pool else []
+              if not parlays and sent_ml:
+                  print("")
+                  print("still no home-run prices, and today's moneylines already went "
+                        "out on an earlier run — not sending a duplicate. A later run "
+                        "will try again.")
+                  return
+
               if not parlays and not mls:
                   print("")
                   print("=" * 62)
@@ -1152,7 +1182,7 @@ jobs:
                   sys.exit(1)
 
               msg_a, msg_b = render(board_date, parlays, mls, sels, od.remaining,
-                                    graded, hr_note)
+                                    graded, hr_note, sent_ml)
 
               with open(BOARD_MD, "w", encoding="utf-8") as f:
                   f.write(f"# MLB board {ds}\n\n")
@@ -1181,7 +1211,7 @@ jobs:
                           "edge_pct": f"{(s['best_price']*s['fair']-1)*100:.2f}",
                           "parlay": name,
                       })
-              for m in mls:
+              for m in ([] if sent_ml else mls):
                   rows.append({
                       "board_date": ds, "logged_at": now, "market": "ML",
                       "game_pk": m["game_pk"], "matchup": m["matchup"],
@@ -1200,7 +1230,13 @@ jobs:
               ok1, c1, b1 = (True, 200, "")
               if parlays:
                   ok1, c1, b1 = telegram(token, chat, msg_a)
-              ok2, c2, b2 = telegram(token, chat, msg_b)
+              ok2, c2, b2 = (True, 200, "")
+              if not sent_ml:
+                  # moneylines already went out on an earlier attempt today; the retry
+                  # exists to deliver the parlays, not to repeat what you've read
+                  ok2, c2, b2 = telegram(token, chat, msg_b)
+              else:
+                  print("  moneylines already sent earlier today — parlays only")
               if not (ok1 and ok2):
                   print("")
                   print("=" * 62)
