@@ -1,7 +1,12 @@
 """
 MLB Board — daily build.
 
-Runs 14:00 UTC = 10pm Singapore = 10am US Eastern, ahead of that day's slate.
+Scheduled several times a day, because GitHub routinely runs scheduled jobs
+hours late and the drift is neither predictable nor fixable from our side.
+The first attempt that actually gets home-run prices sends the board and
+claims the day; every later attempt sees that and exits without spending a
+credit. Early is recoverable, late is not: a board at 7pm Singapore is still
+useful, a board at 1am is worthless because the games have started.
 
 Output
   2 x 3-leg home-run parlays  (the likeliest bats)
@@ -300,7 +305,8 @@ def sgt_time(dt):
     return dt.astimezone(SGT).strftime("%-I:%M%p").lower()
 
 
-def render(board_date, parlays, mls, sels, credits, graded):
+def render(board_date, parlays, mls, sels, credits, graded, hr_note="",
+           ml_already_sent=False):
     A, B = [], []
     thr = edge_threshold(sels)
     A.append(f"<b>MLB HOME RUN BOARD — {board_date:%a %d %b %Y}</b>")
@@ -319,11 +325,18 @@ def render(board_date, parlays, mls, sels, credits, graded):
         A.append(f"  <b>Combined {price:.2f} ({C.american(price)})</b> · "
                  f"hit chance {prob*100:.2f}%")
         A.append("")
+    if ml_already_sent:
+        A.append("<i>Home-run prices weren't up when today's moneylines were "
+                 "sent earlier — these are the parlays.</i>")
+        A.append("")
     A.append(f"<i>Legs ranked by how likely they are to land, never two from "
              f"the same game. ⚡ = the best price out there is unusually far "
              f"above what the rest of the market is offering.</i>")
 
     B.append(f"<b>MONEYLINE — every game, {board_date:%a %d %b}</b>")
+    if hr_note:
+        B.append("")
+        B.append(f"<b>⚠ {hr_note}</b>")
     for label in TIER_ORDER:
         group = [m for m in mls if tier(m["fair"]) == label]
         if not group:
@@ -518,12 +531,32 @@ def main():
 
     print(f"== MLB board for US Eastern date {ds} ==")
 
+    # Several crons target the same slate so that GitHub's scheduling drift
+    # can't cost a night. The first run to get home-run prices claims the day.
+    prior = [r for r in C.read_csv(PICKS) if r.get("board_date") == ds]
+    sent_hr = any(r.get("market") == "HR" for r in prior)
+    sent_ml = any(r.get("market") == "ML" for r in prior)
+    if sent_hr:
+        print(f"  board for {ds} already sent ({len(prior)} picks logged). "
+              f"Nothing to do — exiting before spending any credits.")
+        return
+    if sent_ml:
+        print(f"  an earlier run today sent moneylines but got no home-run "
+              f"prices; retrying for the props now")
+
     print("- grading previous picks")
-    graded, all_rows, changed = grade_previous(board_date)
-    if changed:
-        hdr = PICK_HEADER + ["selection_id"]
-        C.write_csv(PICKS, hdr, all_rows)
-    print(f"  {graded or 'nothing to grade'}")
+    graded = ""
+    try:
+        graded, all_rows, changed = grade_previous(board_date)
+        if changed:
+            hdr = PICK_HEADER + ["selection_id"]
+            C.write_csv(PICKS, hdr, all_rows)
+        print(f"  {graded or 'nothing to grade'}")
+    except Exception as e:
+        # Settling yesterday is a nice-to-have. Today's board is the job, and
+        # a malformed old row must never be able to stop it going out.
+        print(f"  GRADING FAILED ({type(e).__name__}: {e}) — skipping it, "
+              f"today's board is unaffected")
 
     print("- season rates")
     season = board_date.year
@@ -535,8 +568,12 @@ def main():
     print("- schedule")
     games = [g for g in F.schedule(ds) if g["state"] == "Preview"]
     if not games:
-        print("FATAL: no upcoming games on the slate")
-        sys.exit(1)
+        print("no upcoming games on the slate — sending a note instead")
+        telegram(token, chat,
+                 f"<b>MLB — {board_date:%a %d %b}</b>\n\n"
+                 f"No games scheduled today, so no board. "
+                 f"Back tomorrow.")
+        return
 
     print("- odds")
     od = F.Odds(api)
@@ -564,22 +601,47 @@ def main():
         sels.extend(got)
         print(f"  {C.TEAMS.get(g['away_id'],('?',))[0]}@"
               f"{C.TEAMS.get(g['home_id'],('?',))[0]}: {len(got)} bats")
+    hr_note = ""
+    pool = []
     if not sels:
-        print("FATAL: no home run prices returned — check plan level "
-              "and that batter_home_runs is covered for this slate")
+        hr_note = ("No home-run prices came back from the books this run.")
+        print("WARNING: no home run prices returned — check the plan level "
+              "and that batter_home_runs is covered for this slate. "
+              "Sending the moneylines anyway.")
+    else:
+        fill_estimated_fair(sels)
+        pool = [s for s in sels
+                if s["fair"] and MIN_PRICE <= s["best_price"] <= MAX_PRICE]
+        print(f"  {len(pool)} of {len(sels)} bats eligible "
+              f"(>= {MIN_BOOKS} books, {MIN_PRICE}-{MAX_PRICE})")
+        if len(pool) < 3:
+            hr_note = (f"Only {len(pool)} home-run selections cleared the "
+                       f"filters — not enough for a parlay.")
+            print("WARNING: eligible pool too small to build a parlay")
+            pool = []
+
+    parlays = build_parlays(pool) if pool else []
+    if not parlays and sent_ml:
+        print("")
+        print("still no home-run prices, and today's moneylines already went "
+              "out on an earlier run — not sending a duplicate. A later run "
+              "will try again.")
+        return
+
+    if not parlays and not mls:
+        print("")
+        print("=" * 62)
+        print("NOTHING TO SEND — neither home-run props nor moneylines came "
+              "back. This is almost always the Odds API: check the key is "
+              "valid and the plan covers player props.")
+        telegram(token, chat,
+                 f"<b>MLB — {board_date:%a %d %b}</b>\n\n"
+                 f"No prices came back from the books this run. "
+                 f"Check the Actions log.")
         sys.exit(1)
 
-    fill_estimated_fair(sels)
-    pool = [s for s in sels
-            if s["fair"] and MIN_PRICE <= s["best_price"] <= MAX_PRICE]
-    print(f"  {len(pool)} of {len(sels)} bats eligible "
-          f"(>= {MIN_BOOKS} books, {MIN_PRICE}-{MAX_PRICE})")
-    if len(pool) < 3:
-        print("FATAL: eligible pool too small to build a parlay")
-        sys.exit(1)
-
-    parlays = build_parlays(pool)
-    msg_a, msg_b = render(board_date, parlays, mls, sels, od.remaining, graded)
+    msg_a, msg_b = render(board_date, parlays, mls, sels, od.remaining,
+                          graded, hr_note, sent_ml)
 
     with open(BOARD_MD, "w", encoding="utf-8") as f:
         f.write(f"# MLB board {ds}\n\n")
@@ -608,7 +670,7 @@ def main():
                 "edge_pct": f"{(s['best_price']*s['fair']-1)*100:.2f}",
                 "parlay": name,
             })
-    for m in mls:
+    for m in ([] if sent_ml else mls):
         rows.append({
             "board_date": ds, "logged_at": now, "market": "ML",
             "game_pk": m["game_pk"], "matchup": m["matchup"],
@@ -624,8 +686,16 @@ def main():
     print(f"  logged {len(rows)} picks")
 
     print("- telegram")
-    ok1, c1, b1 = telegram(token, chat, msg_a)
-    ok2, c2, b2 = telegram(token, chat, msg_b)
+    ok1, c1, b1 = (True, 200, "")
+    if parlays:
+        ok1, c1, b1 = telegram(token, chat, msg_a)
+    ok2, c2, b2 = (True, 200, "")
+    if not sent_ml:
+        # moneylines already went out on an earlier attempt today; the retry
+        # exists to deliver the parlays, not to repeat what you've read
+        ok2, c2, b2 = telegram(token, chat, msg_b)
+    else:
+        print("  moneylines already sent earlier today — parlays only")
     if not (ok1 and ok2):
         print("")
         print("=" * 62)
