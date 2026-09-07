@@ -1081,3 +1081,14 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-06T12:09:47+00:00,2026-09-06T13:00:00+00:00,Serie A,Parma,Monza,Correct Score,1-1,0.13992,,,
 2026-09-06T12:09:47+00:00,2026-09-06T16:30:00+00:00,La Liga,Alavés,CA Osasuna,Correct Score,1-0,0.13694,,,
 2026-09-06T12:09:47+00:00,2026-09-06T18:45:00+00:00,Serie A,Juventus,AC Milan,Correct Score,1-1,0.13368,,,
+2026-09-07T11:53:51+00:00,2026-09-07T18:30:00+00:00,Serie B,Palermo,Sampdoria,1X2/Totals,Palermo,0.58529,1.71,unibet_nl,0.00084
+2026-09-07T11:53:51+00:00,2026-09-07T17:00:00+00:00,La Liga,Getafe,Celta Vigo,1X2/Totals,Over 1.5,0.58523,1.75,matchbook,0.02415
+2026-09-07T11:53:51+00:00,2026-09-07T18:45:00+00:00,Serie A,Udinese,Lazio,1X2/Totals,Under 2.5,0.58372,1.74,matchbook,0.01567
+2026-09-07T11:53:51+00:00,2026-09-07T16:30:00+00:00,Serie A,Cagliari,Lecce,1X2/Totals,Under 2.5,0.58264,1.75,onexbet,0.01962
+2026-09-07T11:53:51+00:00,2026-09-07T18:45:00+00:00,Ligue 2,Nantes,Nancy,1X2/Totals,Under 2.75,0.55488,1.7,betonlineag,-0.0567
+2026-09-07T11:53:51+00:00,2026-09-07T18:30:00+00:00,La Liga 2,Sabadell FC,Córdoba,1X2/Totals,Under 2.5,0.55252,1.83,onexbet,0.01111
+2026-09-07T11:53:51+00:00,2026-09-07T19:30:00+00:00,La Liga,Elche CF,Real Sociedad,1X2/Totals,Over 2.5,0.54026,1.84,matchbook,-0.00593
+2026-09-07T11:53:51+00:00,2026-09-07T17:00:00+00:00,La Liga,Getafe,Celta Vigo,Correct Score,1-0,0.15454,,,
+2026-09-07T11:53:51+00:00,2026-09-07T18:45:00+00:00,Serie A,Udinese,Lazio,Correct Score,1-1,0.14035,,,
+2026-09-07T11:53:51+00:00,2026-09-07T16:30:00+00:00,Serie A,Cagliari,Lecce,Correct Score,1-1,0.135,,,
+2026-09-07T11:53:51+00:00,2026-09-07T18:30:00+00:00,La Liga 2,Sabadell FC,Córdoba,Correct Score,1-1,0.12689,,,

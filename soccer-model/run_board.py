@@ -18,6 +18,17 @@ sys.path.insert(0, ".")
 
 SGT = timezone(timedelta(hours=8))
 TG = "https://api.telegram.org"
+SENT_MARKER = "data/last_sent.txt"
+
+
+def mark_sent() -> None:
+    """Record that today's board went out, so the later retry runs stand down."""
+    try:
+        os.makedirs("data", exist_ok=True)
+        with open(SENT_MARKER, "w") as fh:
+            fh.write(datetime.now(SGT).strftime("%Y-%m-%d") + "\n")
+    except Exception as e:
+        print(f"could not write {SENT_MARKER}: {e}", file=sys.stderr)
 
 
 def odds_credits() -> str | None:
@@ -214,6 +225,8 @@ def main() -> int:
 
     url = os.environ.get("BOARD_URL", "").strip() or None
     delivered = send(summary(fx, winners, totals, parlay, acca, url))
+    if delivered:
+        mark_sent()
     print(f"board built: {len(fx)} fixtures, {n} picks logged")
     if not delivered:
         print("\nBOARD BUILT BUT NOT DELIVERED - see the telegram line above.",
