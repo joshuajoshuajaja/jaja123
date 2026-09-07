@@ -1092,3 +1092,12 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-07T11:53:51+00:00,2026-09-07T18:45:00+00:00,Serie A,Udinese,Lazio,Correct Score,1-1,0.14035,,,
 2026-09-07T11:53:51+00:00,2026-09-07T16:30:00+00:00,Serie A,Cagliari,Lecce,Correct Score,1-1,0.135,,,
 2026-09-07T11:53:51+00:00,2026-09-07T18:30:00+00:00,La Liga 2,Sabadell FC,Córdoba,Correct Score,1-1,0.12689,,,
+2026-09-07T17:16:45+00:00,2026-09-07T18:30:00+00:00,Serie B,Palermo,Sampdoria,1X2/Totals,Palermo,0.61755,1.6,betfair_ex_eu,-0.01192
+2026-09-07T17:16:45+00:00,2026-09-07T18:45:00+00:00,Serie A,Udinese,Lazio,1X2/Totals,Under 2.5,0.57425,1.75,matchbook,0.00493
+2026-09-07T17:16:45+00:00,2026-09-07T18:45:00+00:00,Ligue 2,Nantes,Nancy,1X2/Totals,Under 2.75,0.55488,1.7,betonlineag,-0.0567
+2026-09-07T17:16:45+00:00,2026-09-07T18:30:00+00:00,La Liga 2,Sabadell FC,Córdoba,1X2/Totals,Under 2.5,0.55252,1.83,onexbet,0.01111
+2026-09-07T17:16:45+00:00,2026-09-07T19:30:00+00:00,La Liga,Elche CF,Real Sociedad,1X2/Totals,Over 2.5,0.55102,1.84,matchbook,0.01388
+2026-09-07T17:16:45+00:00,2026-09-07T18:45:00+00:00,Serie A,Udinese,Lazio,Correct Score,1-1,0.13957,,,
+2026-09-07T17:16:45+00:00,2026-09-07T18:30:00+00:00,La Liga 2,Sabadell FC,Córdoba,Correct Score,1-1,0.12689,,,
+2026-09-07T17:16:45+00:00,2026-09-07T18:45:00+00:00,Ligue 2,Nantes,Nancy,Correct Score,1-1,0.12121,,,
+2026-09-07T17:16:45+00:00,2026-09-07T18:30:00+00:00,Serie B,Palermo,Sampdoria,Correct Score,2-0,0.11362,,,
