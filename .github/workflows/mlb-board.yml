@@ -2,7 +2,7 @@ name: MLB Daily Board
 
 on:
   schedule:
-    - cron: '17 14 * * *'
+    - cron: '48 12 * * *'
   workflow_dispatch:
 
 permissions:
@@ -540,7 +540,9 @@ jobs:
           """
           MLB Board — daily build.
 
-          Runs 14:00 UTC = 10pm Singapore = 10am US Eastern, ahead of that day's slate.
+          Runs 13:45 UTC = 9:45pm Singapore = 9:45am US Eastern, ahead of that day's
+          slate. Deliberately off the top of the hour: GitHub delays scheduled jobs
+          most heavily at :00, and a delayed board is a board that misses the window.
 
           Output
             2 x 3-leg home-run parlays  (the likeliest bats)
@@ -839,7 +841,7 @@ jobs:
               return dt.astimezone(SGT).strftime("%-I:%M%p").lower()
 
 
-          def render(board_date, parlays, mls, sels, credits, graded):
+          def render(board_date, parlays, mls, sels, credits, graded, hr_note=""):
               A, B = [], []
               thr = edge_threshold(sels)
               A.append(f"<b>MLB HOME RUN BOARD — {board_date:%a %d %b %Y}</b>")
@@ -863,6 +865,9 @@ jobs:
                        f"above what the rest of the market is offering.</i>")
 
               B.append(f"<b>MONEYLINE — every game, {board_date:%a %d %b}</b>")
+              if hr_note:
+                  B.append("")
+                  B.append(f"<b>⚠ {hr_note}</b>")
               for label in TIER_ORDER:
                   group = [m for m in mls if tier(m["fair"]) == label]
                   if not group:
@@ -1058,11 +1063,18 @@ jobs:
               print(f"== MLB board for US Eastern date {ds} ==")
 
               print("- grading previous picks")
-              graded, all_rows, changed = grade_previous(board_date)
-              if changed:
-                  hdr = PICK_HEADER + ["selection_id"]
-                  C.write_csv(PICKS, hdr, all_rows)
-              print(f"  {graded or 'nothing to grade'}")
+              graded = ""
+              try:
+                  graded, all_rows, changed = grade_previous(board_date)
+                  if changed:
+                      hdr = PICK_HEADER + ["selection_id"]
+                      C.write_csv(PICKS, hdr, all_rows)
+                  print(f"  {graded or 'nothing to grade'}")
+              except Exception as e:
+                  # Settling yesterday is a nice-to-have. Today's board is the job, and
+                  # a malformed old row must never be able to stop it going out.
+                  print(f"  GRADING FAILED ({type(e).__name__}: {e}) — skipping it, "
+                        f"today's board is unaffected")
 
               print("- season rates")
               season = board_date.year
@@ -1074,8 +1086,12 @@ jobs:
               print("- schedule")
               games = [g for g in F.schedule(ds) if g["state"] == "Preview"]
               if not games:
-                  print("FATAL: no upcoming games on the slate")
-                  sys.exit(1)
+                  print("no upcoming games on the slate — sending a note instead")
+                  telegram(token, chat,
+                           f"<b>MLB — {board_date:%a %d %b}</b>\n\n"
+                           f"No games scheduled today, so no board. "
+                           f"Back tomorrow.")
+                  return
 
               print("- odds")
               od = F.Odds(api)
@@ -1103,22 +1119,40 @@ jobs:
                   sels.extend(got)
                   print(f"  {C.TEAMS.get(g['away_id'],('?',))[0]}@"
                         f"{C.TEAMS.get(g['home_id'],('?',))[0]}: {len(got)} bats")
+              hr_note = ""
+              pool = []
               if not sels:
-                  print("FATAL: no home run prices returned — check plan level "
-                        "and that batter_home_runs is covered for this slate")
+                  hr_note = ("No home-run prices came back from the books this run.")
+                  print("WARNING: no home run prices returned — check the plan level "
+                        "and that batter_home_runs is covered for this slate. "
+                        "Sending the moneylines anyway.")
+              else:
+                  fill_estimated_fair(sels)
+                  pool = [s for s in sels
+                          if s["fair"] and MIN_PRICE <= s["best_price"] <= MAX_PRICE]
+                  print(f"  {len(pool)} of {len(sels)} bats eligible "
+                        f"(>= {MIN_BOOKS} books, {MIN_PRICE}-{MAX_PRICE})")
+                  if len(pool) < 3:
+                      hr_note = (f"Only {len(pool)} home-run selections cleared the "
+                                 f"filters — not enough for a parlay.")
+                      print("WARNING: eligible pool too small to build a parlay")
+                      pool = []
+
+              parlays = build_parlays(pool) if pool else []
+              if not parlays and not mls:
+                  print("")
+                  print("=" * 62)
+                  print("NOTHING TO SEND — neither home-run props nor moneylines came "
+                        "back. This is almost always the Odds API: check the key is "
+                        "valid and the plan covers player props.")
+                  telegram(token, chat,
+                           f"<b>MLB — {board_date:%a %d %b}</b>\n\n"
+                           f"No prices came back from the books this run. "
+                           f"Check the Actions log.")
                   sys.exit(1)
 
-              fill_estimated_fair(sels)
-              pool = [s for s in sels
-                      if s["fair"] and MIN_PRICE <= s["best_price"] <= MAX_PRICE]
-              print(f"  {len(pool)} of {len(sels)} bats eligible "
-                    f"(>= {MIN_BOOKS} books, {MIN_PRICE}-{MAX_PRICE})")
-              if len(pool) < 3:
-                  print("FATAL: eligible pool too small to build a parlay")
-                  sys.exit(1)
-
-              parlays = build_parlays(pool)
-              msg_a, msg_b = render(board_date, parlays, mls, sels, od.remaining, graded)
+              msg_a, msg_b = render(board_date, parlays, mls, sels, od.remaining,
+                                    graded, hr_note)
 
               with open(BOARD_MD, "w", encoding="utf-8") as f:
                   f.write(f"# MLB board {ds}\n\n")
@@ -1163,7 +1197,9 @@ jobs:
               print(f"  logged {len(rows)} picks")
 
               print("- telegram")
-              ok1, c1, b1 = telegram(token, chat, msg_a)
+              ok1, c1, b1 = (True, 200, "")
+              if parlays:
+                  ok1, c1, b1 = telegram(token, chat, msg_a)
               ok2, c2, b2 = telegram(token, chat, msg_b)
               if not (ok1 and ok2):
                   print("")
