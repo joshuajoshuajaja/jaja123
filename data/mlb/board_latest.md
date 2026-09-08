@@ -1,54 +1,58 @@
-# MLB board 2026-09-07
+# MLB board 2026-09-08
 
-**MLB HOME RUN BOARD — Mon 07 Sep 2026**
-11 games · 170 priced bats · built 14:17 UTC
+**MLB HOME RUN BOARD — Tue 08 Sep 2026**
+15 games · 235 priced bats · built 12:02 UTC
 
 **━━ Parlay 1 · 3 legs ━━**
-• **Kyle Schwarber** (PHI) — ATL @ PHI — 3.50 (+250)
-• **Shohei Ohtani** (LAD) — CIN @ LAD — 3.75 (+275)
-• **Kazuma Okamoto** (TOR) — TOR @ ATH — 4.25 (+325)
-  **Combined 55.78 (+5478)** · hit chance 1.19%
+• **Kyle Schwarber** (PHI) — HOU @ PHI — 3.50 (+250)
+• **Aaron Judge** (NYY) — COL @ NYY — 3.50 (+250)
+• **Shohei Ohtani** (LAD) — CIN @ LAD — 4.00 (+300)
+  **Combined 49.00 (+4800)** · hit chance 1.44%
 
 **━━ Parlay 2 · 3 legs ━━**
-• **Juan Soto** (NYM) — NYM @ MIA — 4.75 (+375)
-• **Ketel Marte** (ARI) — ARI @ KC — 4.80 (+380)
-• **Pete Crow-Armstrong** (CHC) — CHC @ MIL — 4.80 (+380)
-  **Combined 109.44 (+10844)** · hit chance 0.59%
+• **Cal Raleigh** (SEA) — TEX @ SEA — 4.20 (+320)
+• **Ben Rice** (NYY) — COL @ NYY — 4.25 (+325)
+• **James Wood** (WSH) — WSH @ SD — 4.25 (+325)
+  **Combined 75.86 (+7486)** · hit chance 0.95%
 
 **━━ Parlay 3 · 4 legs ━━**
-• **James Wood** (WSH) — WSH @ SD — 5.50 (+450)
-• **Rafael Devers** (SF) — STL @ SF — 5.40 (+440)
-• **Pete Alonso** (BAL) — CLE @ BAL — 5.00 (+400)
-• **Bryce Harper** (PHI) — ATL @ PHI — 5.25 (+425)
-  **Combined 779.62 (+77862)** · hit chance 0.09%
+• **Munetaka Murakami** (CWS) — PIT @ CWS — 4.30 (+330)
+• **Pete Alonso** (BAL) — CLE @ BAL — 4.40 (+340)
+• **Juan Soto** (NYM) — NYM @ MIA — 4.40 (+340)
+• **Junior Caminero** (TB) — TB @ ATL — 4.40 (+340)
+  **Combined 366.29 (+36529)** · hit chance 0.16%
 
 **━━ Parlay 4 · 4 legs ━━**
-• **Jackson Merrill** (SD) — WSH @ SD — 5.30 (+430)
-• **George Springer** (TOR) — TOR @ ATH — 5.25 (+425)
-• **Max Muncy** (LAD) — CIN @ LAD — 5.50 (+450)
-• **Kody Clemens** (MIN) — MIN @ DET — 6.00 (+500)
-  **Combined 918.22 (+91722)** · hit chance 0.07%
+• **Kazuma Okamoto** (TOR) — TOR @ ATH — 4.75 (+375)
+• **Heriberto Hernandez** (MIA) — NYM @ MIA — 4.75 (+375)
+• **Matt Olson** (ATL) — TB @ ATL — 4.50 (+350)
+• **Oneil Cruz** (PIT) — PIT @ CWS — 5.10 (+410)
+  **Combined 517.81 (+51681)** · hit chance 0.13%
 
 _Legs ranked by how likely they are to land, never two from the same game. ⚡ = the best price out there is unusually far above what the rest of the market is offering._
 
-**MONEYLINE — every game, Mon 07 Sep**
+**MONEYLINE — every game, Tue 08 Sep**
 
 **━━ STRONG ━━**
-**SD** WSH @ SD · 1.52 (-192) · fair 65% · 5:11am
-**TOR** TOR @ ATH · 1.53 (-189) · fair 65% · 10:06am
+**NYY** COL @ NYY · 1.31 (-323) · fair 76% · 7:06am
+**MIL** CHC @ MIL · 1.49 (-204) · fair 67% · 7:41am
+**SD** WSH @ SD · 1.55 (-182) · fair 63% · 9:41am
+**TOR** TOR @ ATH · 1.57 (-175) · fair 63% · 9:41am
+**LAD** CIN @ LAD · 1.32 (-312) · fair 75% · 10:11am
 
 **━━ LEAN ━━**
-**PHI** ATL @ PHI · 1.63 (-159) · fair 60% · 1:06am
-**BOS** LAA @ BOS · 1.58 (-172) · fair 62% · 1:36am
-**LAD** CIN @ LAD · 1.63 (-159) · fair 61% · 9:11am
+**PHI** HOU @ PHI · 1.73 (-137) · fair 57% · 6:41am
+**DET** MIN @ DET · 1.75 (-133) · fair 57% · 6:41am
+**MIA** NYM @ MIA · 1.76 (-132) · fair 56% · 6:41am
+**BOS** LAA @ BOS · 1.74 (-135) · fair 57% · 6:46am
+**CWS** PIT @ CWS · 1.71 (-141) · fair 57% · 7:41am
+**SEA** TEX @ SEA · 1.74 (-135) · fair 56% · 9:41am
 
 **━━ COIN FLIP ━━**
-**MIA** NYM @ MIA · 1.80 (-125) · fair 55% · 1:11am
-**BAL** CLE @ BAL · 1.80 (-125) · fair 55% · 1:36am
-**MIL** CHC @ MIL · 1.83 (-120) · fair 54% · 2:11am
-**KC** ARI @ KC · 1.93 (-108) · fair 51% · 2:11am
-**DET** MIN @ DET · 1.88 (-114) · fair 52% · 3:11am
-**SF** STL @ SF · 1.79 (-127) · fair 55% · 8:11am
+**BAL** CLE @ BAL · 1.82 (-122) · fair 54% · 6:36am
+**ATL** TB @ ATL · 1.91 (-110) · fair 51% · 7:16am
+**ARI** ARI @ KC · 1.88 (-114) · fair 52% · 7:40am
+**SF** STL @ SF · 1.95 (-105) · fair 51% · 9:46am
 
-**Yesterday:** HR legs 7/28 · moneylines 17/27 (63%)
-_Sorted strongest first, then by start time (Singapore). Prices are the best available across 14 books. ⚡ = that price beats where the market has the game — the one edge the football backtest ever found. Credits left: 266._
+**Yesterday:** HR legs 3/14 · moneylines 8/11 (73%)
+_Sorted strongest first, then by start time (Singapore). Prices are the best available across 15 books. ⚡ = that price beats where the market has the game — the one edge the football backtest ever found. Credits left: 222._
