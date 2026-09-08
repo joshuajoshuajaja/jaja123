@@ -1101,3 +1101,13 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-07T17:16:45+00:00,2026-09-07T18:30:00+00:00,La Liga 2,Sabadell FC,Córdoba,Correct Score,1-1,0.12689,,,
 2026-09-07T17:16:45+00:00,2026-09-07T18:45:00+00:00,Ligue 2,Nantes,Nancy,Correct Score,1-1,0.12121,,,
 2026-09-07T17:16:45+00:00,2026-09-07T18:30:00+00:00,Serie B,Palermo,Sampdoria,Correct Score,2-0,0.11362,,,
+2026-09-08T12:10:59+00:00,2026-09-08T19:00:00+00:00,Championship,Bolton Wanderers,West Ham United,1X2/Totals,Over 2.5,0.6125,1.64,matchbook,0.00449
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Cardiff City,Stoke City,1X2/Totals,Over 2.5,0.58828,1.62,betsson,-0.04698
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Southampton,Swansea City,1X2/Totals,Over 2.5,0.54026,1.76,coolbet,-0.04914
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Wrexham AFC,Burnley,1X2/Totals,Under 2.75,0.52813,1.83,pinnacle,-0.03353
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Blackburn Rovers,Sheffield United,1X2/Totals,Over 2.5,0.51292,1.93,matchbook,-0.01006
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Watford,Preston North End,1X2/Totals,Under 2.5,0.50148,2.02,matchbook,0.013
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Blackburn Rovers,Sheffield United,Correct Score,1-1,0.12373,,,
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Watford,Preston North End,Correct Score,1-1,0.12306,,,
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Wrexham AFC,Burnley,Correct Score,1-1,0.12175,,,
+2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Southampton,Swansea City,Correct Score,1-1,0.11394,,,
