@@ -146,7 +146,7 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-09-07,2026-09-07T14:17:46.148820+00:00,HR,824958,TOR @ ATH,Kazuma Okamoto,TOR,Jacob Lopez,4.25,espnbet,0.2061,0.1980,6,-12.39,Parlay 1,,,,672960
 2026-09-07,2026-09-07T14:17:46.148820+00:00,HR,823820,NYM @ MIA,Juan Soto,NYM,Eury Pérez,4.75,betparx,0.1874,0.1864,6,-10.99,Parlay 2,,,,665742
 2026-09-07,2026-09-07T14:17:46.148820+00:00,HR,824062,ARI @ KC,Ketel Marte,ARI,Noah Cameron,4.80,fliff,0.1779,0.1358,6,-14.60,Parlay 2,,,,606466
-2026-09-07,2026-09-07T14:17:46.148820+00:00,HR,823742,CHC @ MIL,Pete Crow-Armstrong,CHC,Robert Gasser,4.80,ballybet,0.1779,0.2270,6,-14.60,Parlay 2,,,,691718
+2026-09-07,2026-09-07T14:17:46.148820+00:00,HR,823742,CHC @ MIL,Pete Crow-Armstrong,CHC,Robert Gasser,4.80,ballybet,0.1779,0.2270,6,-14.60,Parlay 2,5.995,-19.93,,691718
 2026-09-07,2026-09-07T14:17:46.148820+00:00,HR,823254,WSH @ SD,James Wood,WSH,Nick Pivetta,5.50,betparx,0.1779,0.1537,6,-2.15,Parlay 3,,,,695578
 2026-09-07,2026-09-07T14:17:46.148820+00:00,HR,823175,STL @ SF,Rafael Devers,SF,Michael McGreevy,5.40,betrivers,0.1779,0.1771,6,-3.93,Parlay 3,,,,646240
 2026-09-07,2026-09-07T14:17:46.148820+00:00,HR,824793,CLE @ BAL,Pete Alonso,BAL,Joey Cantillo,5.00,espnbet,0.1674,0.1724,6,-16.29,Parlay 3,,,,624413
