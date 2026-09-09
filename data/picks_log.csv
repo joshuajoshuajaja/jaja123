@@ -1111,3 +1111,9 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Watford,Preston North End,Correct Score,1-1,0.12306,,,
 2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Wrexham AFC,Burnley,Correct Score,1-1,0.12175,,,
 2026-09-08T12:10:59+00:00,2026-09-08T18:45:00+00:00,Championship,Southampton,Swansea City,Correct Score,1-1,0.11394,,,
+2026-09-09T14:17:02+00:00,2026-09-09T18:45:00+00:00,Championship,Norwich City,Birmingham City,1X2/Totals,Over 2.5,0.53675,1.83,pinnacle,-0.01775
+2026-09-09T14:17:02+00:00,2026-09-09T19:00:00+00:00,Championship,Charlton Athletic,Queens Park Rangers,1X2/Totals,Under 2.5,0.5104,1.94,matchbook,-0.00983
+2026-09-09T14:17:02+00:00,2026-09-09T18:45:00+00:00,Championship,Derby County,West Bromwich Albion,1X2/Totals,Over 2.5,0.5,1.96,matchbook,-0.02
+2026-09-09T14:17:02+00:00,2026-09-09T19:00:00+00:00,Championship,Charlton Athletic,Queens Park Rangers,Correct Score,1-1,0.12618,,,
+2026-09-09T14:17:02+00:00,2026-09-09T18:45:00+00:00,Championship,Derby County,West Bromwich Albion,Correct Score,1-1,0.12554,,,
+2026-09-09T14:17:02+00:00,2026-09-09T18:45:00+00:00,Championship,Norwich City,Birmingham City,Correct Score,1-1,0.11617,,,
