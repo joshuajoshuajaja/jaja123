@@ -1,7 +1,7 @@
-probe run 2026-09-09T14:15:43+00:00
+probe run 2026-09-10T14:05:21+00:00
 what this GitHub Actions runner can reach
 
-  football-data.co.uk      HTTP 503  text/html
+  football-data.co.uk      HTTP 200  text/csv
   understat league page    HTTP 200  text/html; charset=UTF-8
   understat root           HTTP 200  text/html; charset=UTF-8
   fbref                    HTTP 403  text/html; charset=UTF-8  <- bot challenge page
