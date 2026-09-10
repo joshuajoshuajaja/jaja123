@@ -228,18 +228,18 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823499,COL @ NYY,Aaron Judge,NYY,Ryan Feltner,3.55,betparx,0.2702,0.2280,6,-4.07,Parlay 1,,,,592450
 2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,824872,TB @ ATL,Junior Caminero,TB,Martín Pérez,4.40,ballybet,0.1992,0.2045,6,-12.34,Parlay 1,,,,691406
 2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,824872,TB @ ATL,Matt Olson,ATL,Nick Martinez,4.25,espnbet,0.1992,0.2084,6,-15.33,Parlay 2,,,,621566
-2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823499,COL @ NYY,Luis Garcia Jr.,NYY,Ryan Feltner,4.50,betparx,0.1976,0.2354,6,-11.06,Parlay 2,,,,671277
+2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823499,COL @ NYY,Luis Garcia Jr.,NYY,Ryan Feltner,4.50,betparx,0.1976,0.2354,6,-11.06,Parlay 2,4.976,-9.56,,671277
 2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823088,TEX @ SEA,Cal Raleigh,SEA,Jacob deGrom,4.50,espnbet,0.1926,0.1534,6,-13.35,Parlay 2,,,,663728
-2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,824550,PIT @ CWS,Munetaka Murakami,CWS,Jared Jones,4.50,espnbet,0.1926,0.2336,6,-13.35,Parlay 3,,,,808959
-2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823499,COL @ NYY,Hunter Goodman,COL,Max Fried,4.75,espnbet,0.1779,0.1907,6,-15.49,Parlay 3,,,,696100
+2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,824550,PIT @ CWS,Munetaka Murakami,CWS,Jared Jones,4.50,espnbet,0.1926,0.2336,6,-13.35,Parlay 3,5.028,-10.50,,808959
+2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823499,COL @ NYY,Hunter Goodman,COL,Max Fried,4.75,espnbet,0.1779,0.1907,6,-15.49,Parlay 3,5.442,-12.71,,696100
 2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823088,TEX @ SEA,Corey Seager,TEX,Logan Gilbert,5.25,espnbet,0.1753,0.1657,6,-7.94,Parlay 3,,,,608369
 2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,824872,TB @ ATL,Ronald Acuna Jr.,ATL,Nick Martinez,5.00,espnbet,0.1750,0.1548,6,-12.48,Parlay 3,,,,660670
 2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,824872,TB @ ATL,Drake Baldwin,ATL,Nick Martinez,5.75,hardrockbet,0.1566,0.1689,6,-9.93,Parlay 4,,,,686948
 2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823088,TEX @ SEA,Jake Burger,TEX,Logan Gilbert,5.25,espnbet,0.1566,0.1729,6,-17.76,Parlay 4,,,,669394
-2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,824550,PIT @ CWS,Oneil Cruz,PIT,Hagen Smith,5.40,betrivers,0.1566,0.1642,6,-15.41,Parlay 4,,,,665833
-2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823499,COL @ NYY,Cody Bellinger,NYY,Ryan Feltner,5.60,betparx,0.1484,0.1369,6,-16.88,Parlay 4,,,,641355
-2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,823499,COL @ NYY,New York Yankees,NYY,Ryan Feltner / Max Fried,1.36,lowvig,0.7284,,15,-0.93,,,,,
-2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,823413,HOU @ PHI,Philadelphia Phillies,PHI,Cristian Javier / Zack Wheeler,1.55,betonlineag,0.6345,,15,-1.65,,,,,
-2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,823088,TEX @ SEA,Seattle Mariners,SEA,Jacob deGrom / Logan Gilbert,1.83,lowvig,0.5394,,15,-1.30,,,,,
-2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,824872,TB @ ATL,Atlanta Braves,ATL,Nick Martinez / Martín Pérez,1.87,fliff,0.5343,,15,-0.08,,,,,
-2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,824550,PIT @ CWS,Chicago White Sox,CWS,Jared Jones / Hagen Smith,1.96,betanysports,0.5000,,15,-2.00,,,,,
+2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,824550,PIT @ CWS,Oneil Cruz,PIT,Hagen Smith,5.40,betrivers,0.1566,0.1642,6,-15.41,Parlay 4,6.384,-15.41,,665833
+2026-09-10,2026-09-10T14:39:19.408921+00:00,HR,823499,COL @ NYY,Cody Bellinger,NYY,Ryan Feltner,5.60,betparx,0.1484,0.1369,6,-16.88,Parlay 4,6.737,-16.88,,641355
+2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,823499,COL @ NYY,New York Yankees,NYY,Ryan Feltner / Max Fried,1.36,lowvig,0.7284,,15,-0.93,,1.381,-1.54,,
+2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,823413,HOU @ PHI,Philadelphia Phillies,PHI,Cristian Javier / Zack Wheeler,1.55,betonlineag,0.6345,,15,-1.65,,2.618,-40.80,,
+2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,823088,TEX @ SEA,Seattle Mariners,SEA,Jacob deGrom / Logan Gilbert,1.83,lowvig,0.5394,,15,-1.30,,1.105,65.62,,
+2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,824872,TB @ ATL,Atlanta Braves,ATL,Nick Martinez / Martín Pérez,1.87,fliff,0.5343,,15,-0.08,,1.618,15.57,,
+2026-09-10,2026-09-10T14:39:19.408921+00:00,ML,824550,PIT @ CWS,Chicago White Sox,CWS,Jared Jones / Hagen Smith,1.96,betanysports,0.5000,,15,-2.00,,1.931,1.48,,
