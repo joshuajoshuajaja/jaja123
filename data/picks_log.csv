@@ -1119,3 +1119,20 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-09T14:17:02+00:00,2026-09-09T18:45:00+00:00,Championship,Norwich City,Birmingham City,Correct Score,1-1,0.11617,,,
 2026-09-10T14:06:43+00:00,2026-09-10T18:15:00+00:00,Super League Greece,Panathinaikos,AE Kifisia FC,1X2/Totals,Over 2.5,0.53771,1.78,betsson,-0.04288
 2026-09-10T14:06:43+00:00,2026-09-10T18:15:00+00:00,Super League Greece,Panathinaikos,AE Kifisia FC,Correct Score,2-0,0.14975,,,
+2026-09-11T14:05:49+00:00,2026-09-11T19:00:00+00:00,Championship,West Ham United,Wrexham AFC,1X2/Totals,West Ham United,0.62286,1.57,codere_it,-0.02211
+2026-09-11T14:05:49+00:00,2026-09-11T18:00:00+00:00,Ligue 2,Rodez AF,Grenoble,1X2/Totals,Rodez AF,0.56815,1.72,coolbet,-0.02278
+2026-09-11T14:05:49+00:00,2026-09-11T18:00:00+00:00,Ligue 2,Clermont,Boulogne,1X2/Totals,Under 2.5,0.62104,1.51,leovegas_se,-0.06223
+2026-09-11T14:05:49+00:00,2026-09-11T18:30:00+00:00,Bundesliga,Union Berlin,FC Schalke 04,1X2/Totals,Under 3.5,0.60711,1.64,onexbet,-0.00434
+2026-09-11T14:05:49+00:00,2026-09-11T19:00:00+00:00,Serie B,Pisa,Virtus Entella,1X2/Totals,Under 2.5,0.60613,1.64,onexbet,-0.00595
+2026-09-11T14:05:49+00:00,2026-09-11T18:45:00+00:00,Ligue 1,Rennes,Marseille,1X2/Totals,Under 3.5,0.60431,1.65,onexbet,-0.00288
+2026-09-11T14:05:49+00:00,2026-09-11T19:00:00+00:00,La Liga,Sevilla,Valencia,1X2/Totals,Under 2.5,0.59126,1.71,matchbook,0.01106
+2026-09-11T14:05:49+00:00,2026-09-11T18:30:00+00:00,La Liga 2,Burgos CF,AD Ceuta FC,1X2/Totals,Under 2.5,0.584,1.6,unibet_nl,-0.0656
+2026-09-11T14:05:49+00:00,2026-09-11T17:00:00+00:00,Serie B,Empoli,Arezzo,1X2/Totals,Under 2.5,0.5543,1.73,onexbet,-0.04106
+2026-09-11T14:05:49+00:00,2026-09-11T19:00:00+00:00,Serie B,Benevento,Hellas Verona,1X2/Totals,Under 2.5,0.55372,1.79,onexbet,-0.00885
+2026-09-11T14:05:49+00:00,2026-09-11T18:00:00+00:00,Ligue 2,Montpellier,Pau FC,1X2/Totals,Over 2.5,0.53779,1.76,coolbet,-0.0535
+2026-09-11T14:05:49+00:00,2026-09-11T18:45:00+00:00,Serie A,Venezia,Fiorentina,1X2/Totals,Over 2.5,0.52687,1.87,onexbet,-0.01476
+2026-09-11T14:05:49+00:00,2026-09-11T18:00:00+00:00,Ligue 2,Dijon,Stade Lavallois,1X2/Totals,Under 2.5,0.52502,1.88,onexbet,-0.01296
+2026-09-11T14:05:49+00:00,2026-09-11T19:00:00+00:00,Serie B,Pisa,Virtus Entella,Correct Score,1-0,0.14596,,,
+2026-09-11T14:05:49+00:00,2026-09-11T18:30:00+00:00,La Liga 2,Burgos CF,AD Ceuta FC,Correct Score,1-0,0.14561,,,
+2026-09-11T14:05:49+00:00,2026-09-11T19:00:00+00:00,La Liga,Sevilla,Valencia,Correct Score,1-0,0.14097,,,
+2026-09-11T14:05:49+00:00,2026-09-11T18:00:00+00:00,Ligue 2,Clermont,Boulogne,Correct Score,1-1,0.1378,,,
