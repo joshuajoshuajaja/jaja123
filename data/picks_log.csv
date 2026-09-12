@@ -1179,3 +1179,16 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-12T12:46:32+00:00,2026-09-12T19:00:00+00:00,Premier League,Sunderland,Arsenal,Correct Score,0-1,0.14335,,,
 2026-09-12T12:46:32+00:00,2026-09-12T13:00:00+00:00,Serie B,Südtirol,Modena,Correct Score,1-1,0.14093,,,
 2026-09-12T12:46:32+00:00,2026-09-12T16:00:00+00:00,Serie A,Lazio,AC Milan,Correct Score,1-1,0.13802,,,
+2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Serie A,Atalanta BC,Cagliari,1X2/Totals,Atalanta BC,0.62292,1.61,betfair_ex_eu,0.0029
+2026-09-12T17:41:29+00:00,2026-09-12T19:00:00+00:00,Premier League,Sunderland,Arsenal,1X2/Totals,Arsenal,0.62057,1.63,onexbet,0.01154
+2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Le Havre,Angers,1X2/Totals,Under 2.5,0.57279,1.73,onexbet,-0.00907
+2026-09-12T17:41:29+00:00,2026-09-12T18:00:00+00:00,Super League Greece,Iraklis FC,Atromitos Athens,1X2/Totals,Over 2,0.57035,1.68,coolbet,-0.04182
+2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Paris FC,Lyon,1X2/Totals,Over 2.5,0.5608,1.76,unibet_se,-0.01298
+2026-09-12T17:41:29+00:00,2026-09-12T19:00:00+00:00,La Liga,Real Madrid,Rayo Vallecano,1X2/Totals,Over 3.5,0.55483,1.82,pinnacle,0.0098
+2026-09-12T17:41:29+00:00,2026-09-12T18:00:00+00:00,Ligue 2,USL Dunkerque,Saint Etienne,1X2/Totals,Over 2.5,0.55308,1.73,coolbet,-0.04317
+2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Auxerre,Nice,1X2/Totals,Under 2.5,0.52962,1.87,onexbet,-0.0096
+2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Lorient,Toulouse,1X2/Totals,Under 2.5,0.52525,1.89,onexbet,-0.00727
+2026-09-12T17:41:29+00:00,2026-09-12T18:00:00+00:00,Super League Greece,Iraklis FC,Atromitos Athens,Correct Score,1-1,0.15181,,,
+2026-09-12T17:41:29+00:00,2026-09-12T19:00:00+00:00,Premier League,Sunderland,Arsenal,Correct Score,0-1,0.14304,,,
+2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Le Havre,Angers,Correct Score,1-1,0.13347,,,
+2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Auxerre,Nice,Correct Score,1-1,0.13165,,,
