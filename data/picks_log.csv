@@ -1136,3 +1136,46 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-11T14:05:49+00:00,2026-09-11T18:30:00+00:00,La Liga 2,Burgos CF,AD Ceuta FC,Correct Score,1-0,0.14561,,,
 2026-09-11T14:05:49+00:00,2026-09-11T19:00:00+00:00,La Liga,Sevilla,Valencia,Correct Score,1-0,0.14097,,,
 2026-09-11T14:05:49+00:00,2026-09-11T18:00:00+00:00,Ligue 2,Clermont,Boulogne,Correct Score,1-1,0.1378,,,
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Premier League,Liverpool,Fulham,1X2/Totals,Liverpool,0.64982,1.55,betfair_ex_eu,0.00721
+2026-09-12T12:46:32+00:00,2026-09-12T18:45:00+00:00,Serie A,Atalanta BC,Cagliari,1X2/Totals,Atalanta BC,0.62292,1.61,betfair_ex_eu,0.0029
+2026-09-12T12:46:32+00:00,2026-09-12T19:00:00+00:00,Premier League,Sunderland,Arsenal,1X2/Totals,Arsenal,0.6107,1.65,onexbet,0.00765
+2026-09-12T12:46:32+00:00,2026-09-12T13:30:00+00:00,Bundesliga,Augsburg,Bayer Leverkusen,1X2/Totals,Bayer Leverkusen,0.54603,1.83,matchbook,-0.00076
+2026-09-12T12:46:32+00:00,2026-09-12T13:30:00+00:00,Bundesliga,FSV Mainz 05,Eintracht Frankfurt,1X2/Totals,Over 2.5,0.63505,1.62,matchbook,0.02878
+2026-09-12T12:46:32+00:00,2026-09-12T13:30:00+00:00,Bundesliga,SC Freiburg,Borussia Monchengladbach,1X2/Totals,Over 2.5,0.6113,1.67,matchbook,0.02088
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Championship,Southampton,Bristol City,1X2/Totals,Under 3.5,0.60661,1.57,gtbets,-0.04763
+2026-09-12T12:46:32+00:00,2026-09-12T13:00:00+00:00,Serie B,Vicenza,Juve Stabia,1X2/Totals,Under 2.5,0.60613,1.64,onexbet,-0.00595
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Premier League,Bournemouth,Brentford,1X2/Totals,Under 3.5,0.60519,1.55,tipico_de,-0.06196
+2026-09-12T12:46:32+00:00,2026-09-12T13:00:00+00:00,Serie B,Südtirol,Modena,1X2/Totals,Under 2.5,0.60328,1.66,onexbet,0.00145
+2026-09-12T12:46:32+00:00,2026-09-12T16:30:00+00:00,Bundesliga,1. FC Köln,Werder Bremen,1X2/Totals,Over 2.5,0.59917,1.63,onexbet,-0.02335
+2026-09-12T12:46:32+00:00,2026-09-12T15:15:00+00:00,Ligue 1,Strasbourg,AS Monaco,1X2/Totals,Over 2.5,0.58934,1.69,onexbet,-0.00401
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Championship,Middlesbrough,Norwich City,1X2/Totals,Over 2.5,0.58881,1.62,betsson,-0.04612
+2026-09-12T12:46:32+00:00,2026-09-12T16:00:00+00:00,Serie A,Lazio,AC Milan,1X2/Totals,Under 2.5,0.58518,1.7,onexbet,-0.00519
+2026-09-12T12:46:32+00:00,2026-09-12T13:00:00+00:00,Serie B,Padova,Ascoli,1X2/Totals,Under 2.5,0.58511,1.74,onexbet,0.01809
+2026-09-12T12:46:32+00:00,2026-09-12T16:00:00+00:00,Super League Greece,Olympiakos Piraeus,OFI Crete,1X2/Totals,Under 3.5,0.58102,1.65,tipico_de,-0.04132
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Championship,Charlton Athletic,Portsmouth,1X2/Totals,Under 2.5,0.57633,1.67,williamhill,-0.03752
+2026-09-12T12:46:32+00:00,2026-09-12T14:15:00+00:00,La Liga,CA Osasuna,Espanyol,1X2/Totals,Over 2,0.57385,1.7,coolbet,-0.02445
+2026-09-12T12:46:32+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Le Havre,Angers,1X2/Totals,Under 2.5,0.57279,1.73,onexbet,-0.00907
+2026-09-12T12:46:32+00:00,2026-09-12T15:15:00+00:00,Serie B,US Catanzaro 1929,Carrarese,1X2/Totals,Over 2.25,0.5709,1.63,betonlineag,-0.06943
+2026-09-12T12:46:32+00:00,2026-09-12T18:00:00+00:00,Super League Greece,Iraklis FC,Atromitos Athens,1X2/Totals,Over 2,0.57035,1.68,coolbet,-0.04182
+2026-09-12T12:46:32+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Paris FC,Lyon,1X2/Totals,Over 2.5,0.5608,1.76,unibet_se,-0.01298
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Premier League,Crystal Palace,Ipswich Town,1X2/Totals,Under 3,0.56071,1.73,coolbet,-0.02998
+2026-09-12T12:46:32+00:00,2026-09-12T16:30:00+00:00,Premier League,Tottenham Hotspur,Everton,1X2/Totals,Over 2.5,0.56065,1.94,matchbook,0.08767
+2026-09-12T12:46:32+00:00,2026-09-12T16:30:00+00:00,La Liga,Athletic Bilbao,Elche CF,1X2/Totals,Over 2.5,0.55946,1.84,pinnacle,0.02941
+2026-09-12T12:46:32+00:00,2026-09-12T19:00:00+00:00,La Liga,Real Madrid,Rayo Vallecano,1X2/Totals,Over 3.5,0.55483,1.82,pinnacle,0.0098
+2026-09-12T12:46:32+00:00,2026-09-12T18:00:00+00:00,Ligue 2,USL Dunkerque,Saint Etienne,1X2/Totals,Over 2.5,0.55308,1.73,coolbet,-0.04317
+2026-09-12T12:46:32+00:00,2026-09-12T17:30:00+00:00,Serie B,Cesena FC,Cremonese,1X2/Totals,Under 2.5,0.54659,1.8,onexbet,-0.01613
+2026-09-12T12:46:32+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Auxerre,Nice,1X2/Totals,Under 2.5,0.52962,1.87,onexbet,-0.0096
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Championship,Swansea City,Burnley,1X2/Totals,Over 2.5,0.52525,1.82,betsson,-0.04404
+2026-09-12T12:46:32+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Lorient,Toulouse,1X2/Totals,Under 2.5,0.52525,1.89,onexbet,-0.00727
+2026-09-12T12:46:32+00:00,2026-09-12T13:30:00+00:00,Bundesliga,TSG Hoffenheim,VfB Stuttgart,1X2/Totals,Over 3.25,0.52447,1.83,pinnacle,-0.04022
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Premier League,Chelsea,Hull City,1X2/Totals,Under 3.5,0.52322,1.89,matchbook,-0.01111
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Championship,Preston North End,Lincoln City,1X2/Totals,Over 2.5,0.52317,1.86,coolbet,-0.02691
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Championship,Watford,Stoke City,1X2/Totals,Under 2.5,0.52026,1.85,betsson,-0.03751
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Championship,Blackburn Rovers,Millwall,1X2/Totals,Under 2.5,0.51939,1.85,betsson,-0.03912
+2026-09-12T12:46:32+00:00,2026-09-12T13:00:00+00:00,Serie A,Genoa,Frosinone,1X2/Totals,Under 2.5,0.51832,1.95,matchbook,0.01071
+2026-09-12T12:46:32+00:00,2026-09-12T14:00:00+00:00,Premier League,Aston Villa,Nottingham Forest,1X2/Totals,Under 2.5,0.50554,1.98,matchbook,0.00097
+2026-09-12T12:46:32+00:00,2026-09-12T13:30:00+00:00,Bundesliga,Borussia Dortmund,SC Paderborn,1X2/Totals,Over 3.5,0.50354,1.95,leovegas_se,-0.01809
+2026-09-12T12:46:32+00:00,2026-09-12T18:00:00+00:00,Super League Greece,Iraklis FC,Atromitos Athens,Correct Score,1-1,0.15181,,,
+2026-09-12T12:46:32+00:00,2026-09-12T19:00:00+00:00,Premier League,Sunderland,Arsenal,Correct Score,0-1,0.14335,,,
+2026-09-12T12:46:32+00:00,2026-09-12T13:00:00+00:00,Serie B,Südtirol,Modena,Correct Score,1-1,0.14093,,,
+2026-09-12T12:46:32+00:00,2026-09-12T16:00:00+00:00,Serie A,Lazio,AC Milan,Correct Score,1-1,0.13802,,,
