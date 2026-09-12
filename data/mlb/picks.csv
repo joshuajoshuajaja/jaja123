@@ -283,21 +283,21 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-09-12,2026-09-12T13:45:16.607429+00:00,HR,823496,NYM @ NYY,Francisco Lindor,NYM,Gerrit Cole,4.75,espnbet,0.1838,0.1885,6,-12.71,Parlay 3,,,,596019
 2026-09-12,2026-09-12T13:45:16.607429+00:00,HR,822768,BAL @ TOR,Pete Alonso,BAL,Spencer Miles,4.40,ballybet,0.1794,0.1569,5,-21.07,Parlay 3,,,,624413
 2026-09-12,2026-09-12T13:45:16.607429+00:00,HR,823170,SD @ SF,Rafael Devers,SF,Michael King,4.75,espnbet,0.1716,0.1633,5,-18.50,Parlay 4,,,,646240
-2026-09-12,2026-09-12T13:45:16.607429+00:00,HR,823009,CWS @ STL,Munetaka Murakami,CWS,Kyle Leahy,5.25,espnbet,0.1716,0.1784,5,-9.92,Parlay 4,,,,808959
+2026-09-12,2026-09-12T13:45:16.607429+00:00,HR,823009,CWS @ STL,Munetaka Murakami,CWS,Kyle Leahy,5.25,espnbet,0.1716,0.1784,5,-9.92,Parlay 4,5.806,-9.58,,808959
 2026-09-12,2026-09-12T13:45:16.607429+00:00,HR,822768,BAL @ TOR,Coby Mayo,BAL,Spencer Miles,5.00,espnbet,0.1662,0.1588,5,-16.92,Parlay 4,,,,691723
 2026-09-12,2026-09-12T13:45:16.607429+00:00,HR,824712,KC @ BOS,Wilyer Abreu,BOS,Randy Dobnak,5.25,espnbet,0.1644,0.1283,5,-13.67,Parlay 4,,,,677800
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824712,KC @ BOS,Boston Red Sox,BOS,Randy Dobnak / Ranger Suarez,1.48,hardrockbet,0.6622,,14,-1.99,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823737,CIN @ MIL,Milwaukee Brewers,MIL,Brady Singer / TBD,1.53,draftkings,0.6388,,10,-2.26,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823819,LAD @ MIA,Los Angeles Dodgers,LAD,Tyler Glasnow / Tyler Phillips,1.55,lowvig,0.6332,,15,-1.86,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824224,COL @ DET,Detroit Tigers,DET,Tanner Gordon / Andrew Sears,1.60,lowvig,0.6144,,14,-1.70,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824955,SEA @ ATH,Seattle Mariners,SEA,Bryan Woo / Gage Jump,1.61,lowvig,0.6144,,15,-1.08,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823496,NYM @ NYY,New York Yankees,NYY,Zac Thornton / Gerrit Cole,1.63,betonlineag,0.6124,,15,-0.18,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823170,SD @ SF,San Diego Padres,SD,Michael King / Cesar Perdomo,1.65,betonlineag,0.5959,,14,-1.67,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,822927,HOU @ TB,Tampa Bay Rays,TB,Peter Lambert / Ian Seymour,1.71,lowvig,0.5729,,15,-2.04,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,825035,TEX @ ARI,Arizona Diamondbacks,ARI,Kumar Rocker / Brandon Pfaadt,1.74,lowvig,0.5658,,14,-1.55,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824630,PIT @ CHC,Chicago Cubs,CHC,Paul Skenes / Clay Holmes,1.83,lowvig,0.5339,,15,-2.30,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824870,PHI @ ATL,Atlanta Braves,ATL,TBD / Tyler Mahle,1.85,betmgm,0.5255,,12,-2.78,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,822685,LAA @ WSH,Washington Nationals,WSH,Walbert Ureña / Andrew Alvarez,1.90,betonlineag,0.5177,,14,-1.65,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,822768,BAL @ TOR,Toronto Blue Jays,TOR,Kyle Bradish / Spencer Miles,1.92,ballybet,0.5110,,14,-1.89,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823009,CWS @ STL,St. Louis Cardinals,STL,Sean Newcomb / Kyle Leahy,1.93,lowvig,0.5110,,14,-1.38,,,,,
-2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823657,CLE @ MIN,Minnesota Twins,MIN,Daniel Espino / Connor Prielipp,1.96,fanduel,0.5000,,15,-2.00,,,,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824712,KC @ BOS,Boston Red Sox,BOS,Randy Dobnak / Ranger Suarez,1.48,hardrockbet,0.6622,,14,-1.99,,1.601,-7.55,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823737,CIN @ MIL,Milwaukee Brewers,MIL,Brady Singer / TBD,1.53,draftkings,0.6388,,10,-2.26,,1.519,0.71,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823819,LAD @ MIA,Los Angeles Dodgers,LAD,Tyler Glasnow / Tyler Phillips,1.55,lowvig,0.6332,,15,-1.86,,10.063,-84.60,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824224,COL @ DET,Detroit Tigers,DET,Tanner Gordon / Andrew Sears,1.60,lowvig,0.6144,,14,-1.70,,1.691,-5.41,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824955,SEA @ ATH,Seattle Mariners,SEA,Bryan Woo / Gage Jump,1.61,lowvig,0.6144,,15,-1.08,,1.686,-4.52,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823496,NYM @ NYY,New York Yankees,NYY,Zac Thornton / Gerrit Cole,1.63,betonlineag,0.6124,,15,-0.18,,1.592,2.40,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823170,SD @ SF,San Diego Padres,SD,Michael King / Cesar Perdomo,1.65,betonlineag,0.5959,,14,-1.67,,1.237,33.40,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,822927,HOU @ TB,Tampa Bay Rays,TB,Peter Lambert / Ian Seymour,1.71,lowvig,0.5729,,15,-2.04,,2.120,-19.35,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,825035,TEX @ ARI,Arizona Diamondbacks,ARI,Kumar Rocker / Brandon Pfaadt,1.74,lowvig,0.5658,,14,-1.55,,1.818,-4.31,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824630,PIT @ CHC,Chicago Cubs,CHC,Paul Skenes / Clay Holmes,1.83,lowvig,0.5339,,15,-2.30,,1.749,4.61,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,824870,PHI @ ATL,Atlanta Braves,ATL,TBD / Tyler Mahle,1.85,betmgm,0.5255,,12,-2.78,,1.763,4.93,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,822685,LAA @ WSH,Washington Nationals,WSH,Walbert Ureña / Andrew Alvarez,1.90,betonlineag,0.5177,,14,-1.65,,2.114,-10.12,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,822768,BAL @ TOR,Toronto Blue Jays,TOR,Kyle Bradish / Spencer Miles,1.92,ballybet,0.5110,,14,-1.89,,1.707,12.46,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823009,CWS @ STL,St. Louis Cardinals,STL,Sean Newcomb / Kyle Leahy,1.93,lowvig,0.5110,,14,-1.38,,2.022,-4.54,,
+2026-09-12,2026-09-12T13:45:16.607429+00:00,ML,823657,CLE @ MIN,Minnesota Twins,MIN,Daniel Espino / Connor Prielipp,1.96,fanduel,0.5000,,15,-2.00,,1.345,45.73,,
