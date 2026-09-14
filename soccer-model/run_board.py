@@ -19,14 +19,28 @@ sys.path.insert(0, ".")
 SGT = timezone(timedelta(hours=8))
 TG = "https://api.telegram.org"
 SENT_MARKER = "data/last_sent.txt"
+SLATE_END_HOUR = 10          # must match build_board.SLATE_END_HOUR
+
+
+def board_day(now=None) -> str:
+    """
+    Which evening's board a moment belongs to.
+
+    Not the calendar date: a run at 1:40am belongs to the PREVIOUS evening's
+    slate, the same way the 16-hour window does. Using the plain date meant a
+    late-night run stamped tomorrow's date on the marker and silently
+    suppressed the following evening's board.
+    """
+    now = datetime.now(SGT) if now is None else now.astimezone(SGT)
+    return (now - timedelta(hours=SLATE_END_HOUR)).strftime("%Y-%m-%d")
 
 
 def mark_sent() -> None:
-    """Record that today's board went out, so the later retry runs stand down."""
+    """Record that this evening's board went out, so the retries stand down."""
     try:
         os.makedirs("data", exist_ok=True)
         with open(SENT_MARKER, "w") as fh:
-            fh.write(datetime.now(SGT).strftime("%Y-%m-%d") + "\n")
+            fh.write(board_day() + "\n")
     except Exception as e:
         print(f"could not write {SENT_MARKER}: {e}", file=sys.stderr)
 

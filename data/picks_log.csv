@@ -1192,3 +1192,12 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-12T17:41:29+00:00,2026-09-12T19:00:00+00:00,Premier League,Sunderland,Arsenal,Correct Score,0-1,0.14304,,,
 2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Le Havre,Angers,Correct Score,1-1,0.13347,,,
 2026-09-12T17:41:29+00:00,2026-09-12T18:45:00+00:00,Ligue 1,Auxerre,Nice,Correct Score,1-1,0.13165,,,
+2026-09-14T16:12:21+00:00,2026-09-14T16:30:00+00:00,Serie A,Torino,AS Roma,1X2/Totals,AS Roma,0.60842,1.64,unibet_nl,-0.00218
+2026-09-14T16:12:21+00:00,2026-09-14T18:45:00+00:00,Serie A,Inter Milan,Udinese,1X2/Totals,Under 3.5,0.60954,1.65,onexbet,0.00574
+2026-09-14T16:12:21+00:00,2026-09-14T19:00:00+00:00,La Liga,Villarreal,Real Betis,1X2/Totals,Under 3.5,0.60519,1.6,matchbook,-0.0317
+2026-09-14T16:12:21+00:00,2026-09-14T19:00:00+00:00,Premier League,Leeds United,Newcastle United,1X2/Totals,Over 2.5,0.55777,1.86,matchbook,0.03745
+2026-09-14T16:12:21+00:00,2026-09-14T16:30:00+00:00,Serie A,Como,Parma,1X2/Totals,Under 3,0.55636,1.75,coolbet,-0.02638
+2026-09-14T16:12:21+00:00,2026-09-14T16:30:00+00:00,Serie A,Como,Parma,Correct Score,2-0,0.15149,,,
+2026-09-14T16:12:21+00:00,2026-09-14T18:45:00+00:00,Serie A,Inter Milan,Udinese,Correct Score,2-0,0.13368,,,
+2026-09-14T16:12:21+00:00,2026-09-14T16:30:00+00:00,Serie A,Torino,AS Roma,Correct Score,0-1,0.11791,,,
+2026-09-14T16:12:21+00:00,2026-09-14T19:00:00+00:00,Premier League,Leeds United,Newcastle United,Correct Score,1-1,0.1173,,,
