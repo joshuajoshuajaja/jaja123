@@ -1,53 +1,54 @@
-last_run_utc: 2026-09-14T16:09:03+00:00
-matches_rows: 148374
+last_run_utc: 2026-09-15T14:37:44+00:00
+matches_rows: 148692
 divisions: 40
-date_range: 2012-03-02 .. 2026-09-10
+date_range: 2012-03-02 .. 2026-09-15
 clubelo: no
 xg_matches: 0
-odds: yes
-warnings: 3
+odds: no
+warnings: 4
   - clubelo unreachable from this runner
   - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
+  - odds API rejected the key mid-run - stopping
 
 rows per division:
-  USA: MLS                     6173
-  E1                           6141
-  E3                           6020
-  E2                           5980
-  EC                           5922
-  BRA: Serie A                 5575
-  ARG: Liga Profesional        5435
-  SP2                          5126
-  MEX: Liga MX                 4714
-  JAP: J1 League               4583
-  I2                           4418
-  ROM: Superliga               4245
-  SP1                          4221
-  E0                           4210
-  I1                           4210
-  POL: Ekstraklasa             4140
-  F2                           3975
-  F1                           3884
-  T1                           3736
-  SWE: Allsvenskan             3543
-  NOR: Eliteserien             3534
+  USA: MLS                     6188
+  E1                           6153
+  E3                           6032
+  E2                           5991
+  EC                           5934
+  BRA: Serie A                 5585
+  ARG: Liga Profesional        5450
+  SP2                          5137
+  MEX: Liga MX                 4724
+  JAP: J1 League               4593
+  I2                           4428
+  ROM: Superliga               4253
+  SP1                          4231
+  E0                           4220
+  I1                           4220
+  POL: Ekstraklasa             4149
+  F2                           3984
+  F1                           3893
+  T1                           3745
+  SWE: Allsvenskan             3551
+  NOR: Eliteserien             3542
+  P1                           3419
   RUS: Premier League          3416
-  P1                           3410
-  D2                           3402
-  D1                           3384
-  N1                           3336
-  B1                           3090
-  CHI: Super League            3013
-  DEN: Superliga               2994
-  SWI: Super League            2712
-  IRE: Premier Division        2707
-  FIN: Veikkausliiga           2682
-  AUS: Bundesliga              2668
-  G1                           2649
+  D2                           3411
+  D1                           3393
+  N1                           3345
+  B1                           3099
+  CHI: Super League            3015
+  DEN: Superliga               3000
+  SWI: Super League            2718
+  IRE: Premier Division        2716
+  FIN: Veikkausliiga           2688
+  AUS: Bundesliga              2674
+  G1                           2656
   SC0                          2492
-  SC1                          1917
-  SC2                          1898
-  SC3                          1897
+  SC1                          1921
+  SC3                          1902
+  SC2                          1902
   ARG: Copa De La Liga Profesional 920
   SWI: Challenge League        2

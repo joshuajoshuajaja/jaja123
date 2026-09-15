@@ -1201,3 +1201,12 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-14T16:12:21+00:00,2026-09-14T18:45:00+00:00,Serie A,Inter Milan,Udinese,Correct Score,2-0,0.13368,,,
 2026-09-14T16:12:21+00:00,2026-09-14T16:30:00+00:00,Serie A,Torino,AS Roma,Correct Score,0-1,0.11791,,,
 2026-09-14T16:12:21+00:00,2026-09-14T19:00:00+00:00,Premier League,Leeds United,Newcastle United,Correct Score,1-1,0.1173,,,
+2026-09-15T14:41:14+00:00,2026-09-15T18:00:00+00:00,La Liga,Alavés,Valencia,1X2/Totals,Under 2.5,0.58698,1.68,onexbet,-0.01388
+2026-09-15T14:41:14+00:00,2026-09-15T18:45:00+00:00,Championship,Bristol City,Lincoln City,1X2/Totals,Over 2.5,0.53191,1.75,leovegas_se,-0.06916
+2026-09-15T14:41:14+00:00,2026-09-15T19:30:00+00:00,La Liga,Elche CF,Real Madrid,1X2/Totals,Under 3.5,0.51416,1.96,onexbet,0.00775
+2026-09-15T14:41:14+00:00,2026-09-15T17:00:00+00:00,La Liga,Rayo Vallecano,Espanyol,1X2/Totals,Under 2.5,0.51266,1.93,onexbet,-0.01057
+2026-09-15T14:41:14+00:00,2026-09-15T18:45:00+00:00,Championship,Middlesbrough,Millwall,1X2/Totals,Over 2.5,0.50727,1.83,leovegas_se,-0.0717
+2026-09-15T14:41:14+00:00,2026-09-15T18:00:00+00:00,La Liga,Alavés,Valencia,Correct Score,1-0,0.13297,,,
+2026-09-15T14:41:14+00:00,2026-09-15T17:00:00+00:00,La Liga,Rayo Vallecano,Espanyol,Correct Score,1-1,0.12143,,,
+2026-09-15T14:41:14+00:00,2026-09-15T18:45:00+00:00,Championship,Middlesbrough,Millwall,Correct Score,1-1,0.1204,,,
+2026-09-15T14:41:14+00:00,2026-09-15T18:45:00+00:00,Championship,Bristol City,Lincoln City,Correct Score,1-1,0.11959,,,
