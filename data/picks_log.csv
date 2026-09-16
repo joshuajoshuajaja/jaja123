@@ -1210,3 +1210,11 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-15T14:41:14+00:00,2026-09-15T17:00:00+00:00,La Liga,Rayo Vallecano,Espanyol,Correct Score,1-1,0.12143,,,
 2026-09-15T14:41:14+00:00,2026-09-15T18:45:00+00:00,Championship,Middlesbrough,Millwall,Correct Score,1-1,0.1204,,,
 2026-09-15T14:41:14+00:00,2026-09-15T18:45:00+00:00,Championship,Bristol City,Lincoln City,Correct Score,1-1,0.11959,,,
+2026-09-16T14:38:18+00:00,2026-09-16T17:00:00+00:00,La Liga,Atlético Madrid,CA Osasuna,1X2/Totals,Atlético Madrid,0.65326,1.52,onexbet,-0.00704
+2026-09-16T14:38:18+00:00,2026-09-16T17:00:00+00:00,La Liga,Deportivo La Coruña,Sevilla,1X2/Totals,Under 2.5,0.58981,1.7,onexbet,0.00268
+2026-09-16T14:38:18+00:00,2026-09-16T19:30:00+00:00,La Liga,Barcelona,Real Racing Club de Santander,1X2/Totals,Over 4.25,0.52347,1.82,pinnacle,-0.04729
+2026-09-16T14:38:18+00:00,2026-09-16T19:30:00+00:00,La Liga,Levante,Athletic Bilbao,1X2/Totals,Over 2.5,0.5,1.97,onexbet,-0.015
+2026-09-16T14:38:18+00:00,2026-09-16T17:00:00+00:00,La Liga,Deportivo La Coruña,Sevilla,Correct Score,1-1,0.13263,,,
+2026-09-16T14:38:18+00:00,2026-09-16T19:30:00+00:00,La Liga,Levante,Athletic Bilbao,Correct Score,1-1,0.12287,,,
+2026-09-16T14:38:18+00:00,2026-09-16T17:00:00+00:00,La Liga,Atlético Madrid,CA Osasuna,Correct Score,2-0,0.11798,,,
+2026-09-16T14:38:18+00:00,2026-09-16T19:30:00+00:00,La Liga,Barcelona,Real Racing Club de Santander,Correct Score,3-0,0.10211,,,
