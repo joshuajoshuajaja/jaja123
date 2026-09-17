@@ -1,13 +1,74 @@
-last_run_utc: 2026-09-16T14:34:48+00:00
+last_run_utc: 2026-09-17T14:40:00+00:00
 matches_rows: 148692
 divisions: 40
 date_range: 2012-03-02 .. 2026-09-15
 clubelo: no
 xg_matches: 0
 odds: no
-warnings: 4
+warnings: 65
+  - https://www.football-data.co.uk/mmz4281/2627/E0.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/E0.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/E1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/E1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/E2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/E2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/E3.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/E3.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/EC.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/EC.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/SC0.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/SC0.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/SC1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/SC1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/SC2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/SC2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/SC3.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/SC3.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/D1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/D1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/D2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/D2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/I1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/I1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/I2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/I2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/SP1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/SP1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/SP2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/SP2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/F1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/F1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/F2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/F2.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/N1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/N1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/B1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/B1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/P1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/P1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/T1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/T1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2627/G1.csv: ConnectionError
+  - https://www.football-data.co.uk/mmz4281/2526/G1.csv: ConnectionError
+  - https://www.football-data.co.uk/new/ARG.csv: ConnectionError
+  - https://www.football-data.co.uk/new/AUT.csv: ConnectionError
+  - https://www.football-data.co.uk/new/BRA.csv: ConnectionError
+  - https://www.football-data.co.uk/new/CHN.csv: ConnectionError
+  - https://www.football-data.co.uk/new/DNK.csv: ConnectionError
+  - https://www.football-data.co.uk/new/FIN.csv: ConnectionError
+  - https://www.football-data.co.uk/new/IRL.csv: ConnectionError
+  - https://www.football-data.co.uk/new/JPN.csv: ConnectionError
+  - https://www.football-data.co.uk/new/MEX.csv: ConnectionError
+  - https://www.football-data.co.uk/new/NOR.csv: ConnectionError
+  - https://www.football-data.co.uk/new/POL.csv: ConnectionError
+  - https://www.football-data.co.uk/new/ROU.csv: ConnectionError
+  - https://www.football-data.co.uk/new/RUS.csv: ConnectionError
+  - https://www.football-data.co.uk/new/SWE.csv: ConnectionError
+  - https://www.football-data.co.uk/new/SWZ.csv: ConnectionError
+  - https://www.football-data.co.uk/new/USA.csv: ConnectionError
+  - football-data.co.uk unavailable (football-data.co.uk returned nothing at all) - keeping the committed history
   - clubelo unreachable from this runner
-  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
+  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18689 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
   - odds API rejected the key mid-run - stopping
 

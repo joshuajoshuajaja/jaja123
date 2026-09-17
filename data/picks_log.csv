@@ -1218,3 +1218,7 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-16T14:38:18+00:00,2026-09-16T19:30:00+00:00,La Liga,Levante,Athletic Bilbao,Correct Score,1-1,0.12287,,,
 2026-09-16T14:38:18+00:00,2026-09-16T17:00:00+00:00,La Liga,Atlético Madrid,CA Osasuna,Correct Score,2-0,0.11798,,,
 2026-09-16T14:38:18+00:00,2026-09-16T19:30:00+00:00,La Liga,Barcelona,Real Racing Club de Santander,Correct Score,3-0,0.10211,,,
+2026-09-17T14:47:41+00:00,2026-09-17T17:00:00+00:00,La Liga,Real Betis,Getafe,1X2/Totals,Under 2.5,0.60143,1.68,onexbet,0.0104
+2026-09-17T14:47:41+00:00,2026-09-17T19:30:00+00:00,La Liga,Málaga,Villarreal,1X2/Totals,Over 2.5,0.57661,1.72,onexbet,-0.00824
+2026-09-17T14:47:41+00:00,2026-09-17T17:00:00+00:00,La Liga,Real Betis,Getafe,Correct Score,1-0,0.14926,,,
+2026-09-17T14:47:41+00:00,2026-09-17T19:30:00+00:00,La Liga,Málaga,Villarreal,Correct Score,1-1,0.10976,,,
