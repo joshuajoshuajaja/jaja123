@@ -1222,3 +1222,11 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-17T14:47:41+00:00,2026-09-17T19:30:00+00:00,La Liga,Málaga,Villarreal,1X2/Totals,Over 2.5,0.57661,1.72,onexbet,-0.00824
 2026-09-17T14:47:41+00:00,2026-09-17T17:00:00+00:00,La Liga,Real Betis,Getafe,Correct Score,1-0,0.14926,,,
 2026-09-17T14:47:41+00:00,2026-09-17T19:30:00+00:00,La Liga,Málaga,Villarreal,Correct Score,1-1,0.10976,,,
+2026-09-18T14:08:14+00:00,2026-09-18T19:00:00+00:00,Premier League,Brentford,Chelsea,1X2/Totals,Over 2.5,0.61043,1.65,onexbet,0.00721
+2026-09-18T14:08:14+00:00,2026-09-18T18:30:00+00:00,Bundesliga,Bayern Munich,Union Berlin,1X2/Totals,Under 4.5,0.57213,1.77,onexbet,0.01267
+2026-09-18T14:08:14+00:00,2026-09-18T19:00:00+00:00,La Liga,Espanyol,Elche CF,1X2/Totals,Under 2.5,0.5371,1.81,onexbet,-0.02785
+2026-09-18T14:08:14+00:00,2026-09-18T18:45:00+00:00,Serie A,Monza,Sassuolo,1X2/Totals,Over 2.5,0.5,1.99,onexbet,-0.005
+2026-09-18T14:08:14+00:00,2026-09-18T18:45:00+00:00,Serie A,Monza,Sassuolo,Correct Score,1-1,0.12988,,,
+2026-09-18T14:08:14+00:00,2026-09-18T19:00:00+00:00,La Liga,Espanyol,Elche CF,Correct Score,1-1,0.12225,,,
+2026-09-18T14:08:14+00:00,2026-09-18T19:00:00+00:00,Premier League,Brentford,Chelsea,Correct Score,1-1,0.10859,,,
+2026-09-18T14:08:14+00:00,2026-09-18T18:30:00+00:00,Bundesliga,Bayern Munich,Union Berlin,Correct Score,3-0,0.09865,,,

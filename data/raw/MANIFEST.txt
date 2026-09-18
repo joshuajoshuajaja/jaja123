@@ -1,115 +1,54 @@
-last_run_utc: 2026-09-17T14:40:00+00:00
-matches_rows: 148692
+last_run_utc: 2026-09-18T14:05:13+00:00
+matches_rows: 148729
 divisions: 40
-date_range: 2012-03-02 .. 2026-09-15
+date_range: 2012-03-02 .. 2026-09-17
 clubelo: no
 xg_matches: 0
 odds: no
-warnings: 65
-  - https://www.football-data.co.uk/mmz4281/2627/E0.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/E0.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/E1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/E1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/E2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/E2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/E3.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/E3.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/EC.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/EC.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/SC0.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/SC0.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/SC1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/SC1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/SC2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/SC2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/SC3.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/SC3.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/D1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/D1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/D2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/D2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/I1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/I1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/I2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/I2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/SP1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/SP1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/SP2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/SP2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/F1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/F1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/F2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/F2.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/N1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/N1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/B1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/B1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/P1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/P1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/T1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/T1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2627/G1.csv: ConnectionError
-  - https://www.football-data.co.uk/mmz4281/2526/G1.csv: ConnectionError
-  - https://www.football-data.co.uk/new/ARG.csv: ConnectionError
-  - https://www.football-data.co.uk/new/AUT.csv: ConnectionError
-  - https://www.football-data.co.uk/new/BRA.csv: ConnectionError
-  - https://www.football-data.co.uk/new/CHN.csv: ConnectionError
-  - https://www.football-data.co.uk/new/DNK.csv: ConnectionError
-  - https://www.football-data.co.uk/new/FIN.csv: ConnectionError
-  - https://www.football-data.co.uk/new/IRL.csv: ConnectionError
-  - https://www.football-data.co.uk/new/JPN.csv: ConnectionError
-  - https://www.football-data.co.uk/new/MEX.csv: ConnectionError
-  - https://www.football-data.co.uk/new/NOR.csv: ConnectionError
-  - https://www.football-data.co.uk/new/POL.csv: ConnectionError
-  - https://www.football-data.co.uk/new/ROU.csv: ConnectionError
-  - https://www.football-data.co.uk/new/RUS.csv: ConnectionError
-  - https://www.football-data.co.uk/new/SWE.csv: ConnectionError
-  - https://www.football-data.co.uk/new/SWZ.csv: ConnectionError
-  - https://www.football-data.co.uk/new/USA.csv: ConnectionError
-  - football-data.co.uk unavailable (football-data.co.uk returned nothing at all) - keeping the committed history
+warnings: 4
   - clubelo unreachable from this runner
-  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18689 bytes) - sample saved to understat_debug.txt
+  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
   - odds API rejected the key mid-run - stopping
 
 rows per division:
   USA: MLS                     6188
-  E1                           6153
+  E1                           6155
   E3                           6032
-  E2                           5991
-  EC                           5934
-  BRA: Serie A                 5585
+  E2                           5992
+  EC                           5946
+  BRA: Serie A                 5586
   ARG: Liga Profesional        5450
   SP2                          5137
-  MEX: Liga MX                 4724
+  MEX: Liga MX                 4725
   JAP: J1 League               4593
   I2                           4428
   ROM: Superliga               4253
-  SP1                          4231
+  SP1                          4239
   E0                           4220
   I1                           4220
-  POL: Ekstraklasa             4149
+  POL: Ekstraklasa             4151
   F2                           3984
   F1                           3893
   T1                           3745
-  SWE: Allsvenskan             3551
+  SWE: Allsvenskan             3552
   NOR: Eliteserien             3542
   P1                           3419
   RUS: Premier League          3416
   D2                           3411
   D1                           3393
-  N1                           3345
+  N1                           3346
   B1                           3099
   CHI: Super League            3015
   DEN: Superliga               3000
-  SWI: Super League            2718
+  SWI: Super League            2721
   IRE: Premier Division        2716
   FIN: Veikkausliiga           2688
   AUS: Bundesliga              2674
   G1                           2656
-  SC0                          2492
-  SC1                          1921
+  SC0                          2495
+  SC1                          1922
+  SC2                          1903
   SC3                          1902
-  SC2                          1902
   ARG: Copa De La Liga Profesional 920
   SWI: Challenge League        2

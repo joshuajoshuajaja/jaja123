@@ -1,7 +1,7 @@
-probe run 2026-09-17T14:46:25+00:00
+probe run 2026-09-18T14:07:04+00:00
 what this GitHub Actions runner can reach
 
-  football-data.co.uk      FAILED  ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=80): Max retries exceeded wi
+  football-data.co.uk      HTTP 200  text/csv
   understat league page    HTTP 200  text/html; charset=UTF-8
   understat root           HTTP 200  text/html; charset=UTF-8
   fbref                    HTTP 403  text/html; charset=UTF-8  <- bot challenge page
