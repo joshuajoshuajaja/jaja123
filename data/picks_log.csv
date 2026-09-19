@@ -1230,3 +1230,14 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-18T14:08:14+00:00,2026-09-18T19:00:00+00:00,La Liga,Espanyol,Elche CF,Correct Score,1-1,0.12225,,,
 2026-09-18T14:08:14+00:00,2026-09-18T19:00:00+00:00,Premier League,Brentford,Chelsea,Correct Score,1-1,0.10859,,,
 2026-09-18T14:08:14+00:00,2026-09-18T18:30:00+00:00,Bundesliga,Bayern Munich,Union Berlin,Correct Score,3-0,0.09865,,,
+2026-09-19T13:44:27+00:00,2026-09-19T14:00:00+00:00,Premier League,Newcastle United,Hull City,1X2/Totals,Newcastle United,0.64206,1.57,betfair_ex_eu,0.00804
+2026-09-19T13:44:27+00:00,2026-09-19T16:30:00+00:00,Premier League,Nottingham Forest,Coventry City,1X2/Totals,Nottingham Forest,0.57308,1.77,gtbets,0.01436
+2026-09-19T13:44:27+00:00,2026-09-19T14:00:00+00:00,Premier League,Brighton and Hove Albion,Arsenal,1X2/Totals,Arsenal,0.56385,1.78,gtbets,0.00365
+2026-09-19T13:44:27+00:00,2026-09-19T14:00:00+00:00,Premier League,Everton,Ipswich Town,1X2/Totals,Over 2.5,0.5451,1.87,pinnacle,0.01934
+2026-09-19T13:44:27+00:00,2026-09-19T16:00:00+00:00,Serie A,AS Roma,Inter Milan,1X2/Totals,Over 2.5,0.54079,1.82,onexbet,-0.01577
+2026-09-19T13:44:27+00:00,2026-09-19T18:45:00+00:00,Serie A,Venezia,Lazio,1X2/Totals,Under 2.5,0.50841,1.97,onexbet,0.00156
+2026-09-19T13:44:27+00:00,2026-09-19T16:30:00+00:00,Bundesliga,VfB Stuttgart,Borussia Dortmund,1X2/Totals,Over 3.5,0.5,1.97,onexbet,-0.015
+2026-09-19T13:44:27+00:00,2026-09-19T18:45:00+00:00,Serie A,Venezia,Lazio,Correct Score,1-1,0.13092,,,
+2026-09-19T13:44:27+00:00,2026-09-19T16:00:00+00:00,Serie A,AS Roma,Inter Milan,Correct Score,1-1,0.12417,,,
+2026-09-19T13:44:27+00:00,2026-09-19T14:00:00+00:00,Premier League,Everton,Ipswich Town,Correct Score,1-1,0.11194,,,
+2026-09-19T13:44:27+00:00,2026-09-19T14:00:00+00:00,Premier League,Brighton and Hove Albion,Arsenal,Correct Score,1-1,0.11127,,,
