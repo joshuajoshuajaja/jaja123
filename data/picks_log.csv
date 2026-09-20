@@ -1241,3 +1241,12 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-19T13:44:27+00:00,2026-09-19T16:00:00+00:00,Serie A,AS Roma,Inter Milan,Correct Score,1-1,0.12417,,,
 2026-09-19T13:44:27+00:00,2026-09-19T14:00:00+00:00,Premier League,Everton,Ipswich Town,Correct Score,1-1,0.11194,,,
 2026-09-19T13:44:27+00:00,2026-09-19T14:00:00+00:00,Premier League,Brighton and Hove Albion,Arsenal,Correct Score,1-1,0.11127,,,
+2026-09-20T13:58:54+00:00,2026-09-20T16:00:00+00:00,Serie A,Juventus,Atalanta BC,1X2/Totals,Juventus,0.59377,1.69,onexbet,0.00347
+2026-09-20T13:58:54+00:00,2026-09-20T17:30:00+00:00,Bundesliga,SC Paderborn,TSG Hoffenheim,1X2/Totals,TSG Hoffenheim,0.58047,1.71,onexbet,-0.0074
+2026-09-20T13:58:54+00:00,2026-09-20T15:30:00+00:00,Premier League,Fulham,Manchester United,1X2/Totals,Under 3.5,0.60431,1.6,leovegas_se,-0.0331
+2026-09-20T13:58:54+00:00,2026-09-20T15:30:00+00:00,Bundesliga,FC Schalke 04,Elversberg,1X2/Totals,Over 2.5,0.58044,1.7,onexbet,-0.01325
+2026-09-20T13:58:54+00:00,2026-09-20T18:45:00+00:00,Serie A,AC Milan,Lecce,1X2/Totals,Under 2.75,0.52447,1.83,pinnacle,-0.04022
+2026-09-20T13:58:54+00:00,2026-09-20T18:45:00+00:00,Serie A,AC Milan,Lecce,Correct Score,2-0,0.1423,,,
+2026-09-20T13:58:54+00:00,2026-09-20T15:30:00+00:00,Bundesliga,FC Schalke 04,Elversberg,Correct Score,1-1,0.11505,,,
+2026-09-20T13:58:54+00:00,2026-09-20T16:00:00+00:00,Serie A,Juventus,Atalanta BC,Correct Score,1-1,0.11009,,,
+2026-09-20T13:58:54+00:00,2026-09-20T15:30:00+00:00,Premier League,Fulham,Manchester United,Correct Score,1-1,0.10818,,,
