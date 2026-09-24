@@ -23,6 +23,26 @@ SPORT_TO_DIV = {
     "soccer_argentina_primera_division": "ARG: Liga Profesional",
 }
 
+# Cups and internationals have no single domestic division behind them - the
+# teams come from everywhere. They don't need one: the board prices off the
+# bookmakers' own consensus, and the only thing the fitted model contributes
+# is the low-score correction, which we can supply as a sensible default.
+CUP_COMPS = {
+    "soccer_uefa_champs_league": "Champions League",
+    "soccer_uefa_europa_league": "Europa League",
+    "soccer_uefa_europa_conference_league": "Conference League",
+    "soccer_uefa_nations_league": "Nations League",
+    "soccer_fifa_world_cup_qualifiers_europe": "World Cup Qual (Europe)",
+    "soccer_fifa_world_cup_qualifiers_south_america": "World Cup Qual (S. America)",
+    "soccer_uefa_euro_qualification": "Euro Qualifying",
+    "soccer_uefa_european_championship": "European Championship",
+    "soccer_fifa_world_cup": "World Cup",
+}
+
+# Knockout and international football runs slightly cagier than league football
+# - a touch more 0-0 and 1-0 than independent maths expects.
+CUP_RHO = -0.045
+
 _NOISE = re.compile(r"\b(fc|cf|afc|ac|as|ss|ssc|sc|cd|ud|rcd|club|calcio|"
                     r"football|deportivo|de|the|united|city|town|athletic|"
                     r"wanderers|rovers|albion|county|hotspur)\b")

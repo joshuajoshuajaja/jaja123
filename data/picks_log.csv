@@ -1250,3 +1250,14 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-20T13:58:54+00:00,2026-09-20T15:30:00+00:00,Bundesliga,FC Schalke 04,Elversberg,Correct Score,1-1,0.11505,,,
 2026-09-20T13:58:54+00:00,2026-09-20T16:00:00+00:00,Serie A,Juventus,Atalanta BC,Correct Score,1-1,0.11009,,,
 2026-09-20T13:58:54+00:00,2026-09-20T15:30:00+00:00,Premier League,Fulham,Manchester United,Correct Score,1-1,0.10818,,,
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Norway,Denmark,1X2/Totals,Over 2.5,0.63492,1.5,betsson,-0.04762
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Austria,Israel,1X2/Totals,Over 2.5,0.6125,1.55,betsson,-0.05063
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Liechtenstein,Lithuania,1X2/Totals,Under 2.5,0.60583,1.61,onexbet,-0.02461
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Kosovo,Republic of Ireland,1X2/Totals,Under 2.5,0.60108,1.61,onexbet,-0.03226
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Serbia,Greece,1X2/Totals,Under 2.5,0.58934,1.65,onexbet,-0.02758
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Netherlands,Germany,1X2/Totals,Under 3.5,0.5396,1.82,onexbet,-0.01792
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Portugal,Wales,1X2/Totals,Over 3.5,0.50797,1.91,onexbet,-0.02977
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Liechtenstein,Lithuania,Correct Score,0-1,0.19912,,,
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Kosovo,Republic of Ireland,Correct Score,1-1,0.13792,,,
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Serbia,Greece,Correct Score,1-1,0.13785,,,
+2026-09-24T16:19:31+00:00,2026-09-24T18:45:00+00:00,Nations League,Portugal,Wales,Correct Score,3-0,0.11806,,,

@@ -395,6 +395,16 @@ def fetch_xg() -> pd.DataFrame | None:
 # Priority order. The free tier is 500 credits a month and an /odds call costs
 # markets x regions, so the budget decides how far down this list we get today.
 ODDS_SPORTS = [
+    # Cups and internationals first. They only play on certain nights, and the
+    # free /events check means we pay nothing on the nights they don't, so
+    # there is no cost to keeping them at the top of the queue.
+    "soccer_uefa_champs_league",
+    "soccer_uefa_europa_league",
+    "soccer_uefa_europa_conference_league",
+    "soccer_uefa_nations_league",
+    "soccer_fifa_world_cup_qualifiers_europe",
+    "soccer_fifa_world_cup_qualifiers_south_america",
+    "soccer_uefa_euro_qualification",
     "soccer_epl", "soccer_spain_la_liga", "soccer_italy_serie_a",
     "soccer_germany_bundesliga", "soccer_france_ligue_one", "soccer_efl_champ",
     "soccer_netherlands_eredivisie", "soccer_portugal_primeira_liga",
@@ -405,7 +415,6 @@ ODDS_SPORTS = [
     "soccer_spain_segunda_division", "soccer_italy_serie_b",
     "soccer_germany_bundesliga2", "soccer_france_ligue_two",
     "soccer_greece_super_league",
-    "soccer_uefa_champs_league", "soccer_uefa_europa_league",
 ]
 
 # h2h + totals is exactly what the correct-score consistency check needs:
@@ -465,9 +474,13 @@ def fetch_odds() -> pd.DataFrame | None:
     print(f"odds: {remaining} credits remaining, spending up to {budget} today "
           f"({CREDITS_PER_CALL}/league)", flush=True)
 
-    # rotate the tail so lower-priority leagues still get sampled
+    # The cups sit at the front but cost nothing on nights they aren't playing,
+    # so "always covered" = every cup PLUS the six main domestic leagues. Only
+    # what's left over rotates, which stops a Champions League night from
+    # quietly pushing the Premier League off the board.
+    n_cups = sum(1 for s in ODDS_SPORTS if "uefa" in s or "fifa" in s)
     day = dt.date.today().toordinal()
-    head, tail = ODDS_SPORTS[:6], ODDS_SPORTS[6:]
+    head, tail = ODDS_SPORTS[:n_cups + 6], ODDS_SPORTS[n_cups + 6:]
     order = head + tail[day % len(tail):] + tail[:day % len(tail)]
 
     rows, spent, used = [], 0, "?"

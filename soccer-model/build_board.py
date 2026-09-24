@@ -12,8 +12,8 @@ import pandas as pd
 sys.path.insert(0, "soccer-model")
 from model.db import load, SystemData, DIV_NAMES          # noqa: E402
 from model.dc import DixonColes, score_matrix             # noqa: E402
-from model.live import (SPORT_TO_DIV, map_teams, consensus_1x2,     # noqa: E402
-                        consensus_totals, implied_matrix)
+from model.live import (SPORT_TO_DIV, CUP_COMPS, CUP_RHO, map_teams,  # noqa: E402
+                        consensus_1x2, consensus_totals, implied_matrix)
 
 HALF_LIFE, RIDGE = 330.0, 0.25
 
@@ -79,7 +79,15 @@ def _find(*names):
 def main() -> None:
     matches = load(_find("data/raw/matches.parquet", "data/matches.parquet"))
     odds = pd.read_csv(_find("data/raw/odds_history.csv.gz", "data/odds_history.csv.gz"))
-    odds["ct"] = pd.to_datetime(odds.commence_time, utc=True, errors="coerce")
+    # format="ISO8601" matters: the column can hold a mix of precisions
+    # ("...T20:00:00Z" and "...T20:00:00.971495+00:00"). Without it pandas
+    # locks onto the first format it sees and silently turns every other row
+    # into NaT - which drops those fixtures off the board with no error.
+    odds["ct"] = pd.to_datetime(odds.commence_time, utc=True,
+                                format="ISO8601", errors="coerce")
+    bad = int(odds["ct"].isna().sum())
+    if bad:
+        print(f"  ! {bad} rows had an unreadable kickoff time", flush=True)
 
     # keep only the most recent snapshot per event/book/market/outcome
     odds = (odds.sort_values("snapshot_utc")
@@ -99,8 +107,34 @@ def main() -> None:
     fixtures = []
 
     for sport, gs in live.groupby("sport_key"):
+        # --- cups and internationals: no domestic division, no team ratings.
+        # The consensus across the books is the whole basis for the price, so
+        # these need nothing except a low-score correction.
+        if sport in CUP_COMPS:
+            name = CUP_COMPS[sport]
+            n_before = len(fixtures)
+            for eid, g in gs.groupby("event_id"):
+                h_feed, a_feed = g.home_team.iat[0], g.away_team.iat[0]
+                fair, best, nbooks = consensus_1x2(g, h_feed, a_feed)
+                if fair is None:
+                    continue
+                tot = consensus_totals(g)
+                M = implied_matrix(fair, tot, rho=CUP_RHO)
+                if M is None:
+                    continue
+                fixtures.append(dict(
+                    event_id=eid, sport=sport, div=sport, league=name,
+                    kickoff=g.ct.iat[0].isoformat(),
+                    home=h_feed, away=a_feed, home_fd=h_feed, away_fd=a_feed,
+                    nbooks=nbooks, M=M, own=None, fair=fair,
+                    best=best, totals=tot))
+            print(f"  {name}: {len(fixtures) - n_before} fixtures "
+                  f"(market-priced, no ratings needed)", flush=True)
+            continue
+
         div = SPORT_TO_DIV.get(sport)
         if div is None:
+            print(f"  ! {sport}: no mapping, skipped", flush=True)
             continue
         system = matches.loc[matches.Div == div, "system"].dropna()
         if system.empty:
