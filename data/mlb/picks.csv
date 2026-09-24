@@ -354,3 +354,29 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-09-14,2026-09-14T16:34:56.551234+00:00,ML,823656,NYY @ MIN,New York Yankees,NYY,Will Warren / Dean Kremer,1.83,betonlineag,0.5354,,15,-2.02,,,,WIN,
 2026-09-14,2026-09-14T16:34:56.551234+00:00,ML,823575,BAL @ NYM,New York Mets,NYM,Brandon Young / Jonah Tong,1.85,betus,0.5299,,15,-1.96,,,,LOSS,
 2026-09-14,2026-09-14T16:34:56.551234+00:00,ML,823981,SEA @ LAA,Seattle Mariners,SEA,Kade Anderson / Reid Detmers,1.93,betonlineag,0.5110,,15,-1.38,,,,LOSS,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,824950,HOU @ ATH,Yordan Alvarez,HOU,Mason Barnett,3.20,betrivers,0.2819,0.2650,6,-9.79,Parlay 1,,,,670541
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,823895,SD @ LAD,Shohei Ohtani,LAD,Nick Pivetta,4.00,hardrockbet,0.2184,0.1684,6,-12.65,Parlay 1,,,,660271
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,823411,MIL @ PHI,Kyle Schwarber,PHI,TBD,4.00,espnbet,0.2118,0.2370,6,-15.29,Parlay 1,,,,656941
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,824866,CIN @ ATL,Matt Olson,ATL,Brady Singer,4.25,hardrockbet,0.2079,0.2403,6,-11.66,Parlay 2,,,,621566
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,824298,ARI @ COL,Corbin Carroll,ARI,Tanner Gordon,4.25,espnbet,0.2053,0.1634,6,-12.75,Parlay 2,,,,682998
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,822842,NYM @ TEX,Juan Soto,NYM,Kumar Rocker,4.60,ballybet,0.2010,0.2007,6,-7.55,Parlay 2,,,,665742
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,823087,LAA @ SEA,Cal Raleigh,SEA,Grayson Rodriguez,4.50,hardrockbet,0.2010,0.1571,6,-9.56,Parlay 3,,,,663728
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,824298,ARI @ COL,Hunter Goodman,COL,Eduardo Rodriguez,4.60,betrivers,0.2009,0.2211,6,-7.61,Parlay 3,,,,696100
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,824059,CWS @ KC,Munetaka Murakami,CWS,Randy Dobnak,4.75,espnbet,0.1894,0.1760,6,-10.01,Parlay 3,,,,808959
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,824950,HOU @ ATH,Isaac Paredes,HOU,Mason Barnett,4.80,betrivers,0.1779,0.1797,6,-14.60,Parlay 3,,,,670623
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,824950,HOU @ ATH,Yainer Diaz,HOU,Mason Barnett,4.80,betrivers,0.1763,0.1897,6,-15.35,Parlay 4,,,,673237
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,823895,SD @ LAD,Will Smith,LAD,Nick Pivetta,5.00,espnbet,0.1753,0.1312,6,-12.33,Parlay 4,,,,669257
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,823493,TB @ NYY,Spencer Jones,NYY,Ian Seymour,5.25,espnbet,0.1694,0.1865,6,-11.07,Parlay 4,,,,682987
+2026-09-24,2026-09-24T15:24:18.483774+00:00,HR,824059,CWS @ KC,Colson Montgomery,CWS,Randy Dobnak,5.25,espnbet,0.1662,0.1361,6,-12.74,Parlay 4,,,,695657
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,824866,CIN @ ATL,Atlanta Braves,ATL,Brady Singer / Tyler Mahle,1.47,fanduel,0.6687,,15,-1.71,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,823087,LAA @ SEA,Seattle Mariners,SEA,Grayson Rodriguez / Bryan Woo,1.50,espnbet,0.6593,,15,-1.11,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,824623,MIA @ CHC,Chicago Cubs,CHC,Tyler Phillips / Matthew Boyd,1.52,lowvig,0.6515,,15,-0.97,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,824298,ARI @ COL,Arizona Diamondbacks,ARI,Eduardo Rodriguez / Tanner Gordon,1.53,espnbet,0.6409,,15,-1.94,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,823895,SD @ LAD,Los Angeles Dodgers,LAD,Nick Pivetta / Tyler Glasnow,1.60,betanysports,0.6164,,15,-1.37,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,824950,HOU @ ATH,Houston Astros,HOU,Peter Lambert / Mason Barnett,1.63,betrivers,0.5993,,15,-2.32,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,823326,STL @ PIT,Pittsburgh Pirates,PIT,Kyle Leahy / Paul Skenes,1.65,espnbet,0.5984,,15,-1.26,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,823493,TB @ NYY,New York Yankees,NYY,Ian Seymour / Cam Schlittler,1.69,betonlineag,0.5794,,15,-2.08,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,823411,MIL @ PHI,Philadelphia Phillies,PHI,TBD / Andrew Painter,1.76,betrivers,0.5532,,14,-2.64,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,824059,CWS @ KC,Chicago White Sox,CWS,David Sandlin / Randy Dobnak,1.78,betanysports,0.5515,,15,-1.83,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,822842,NYM @ TEX,Texas Rangers,TEX,Zac Thornton / Kumar Rocker,1.78,mybookieag,0.5482,,15,-2.41,,,,,
+2026-09-24,2026-09-24T15:24:18.483774+00:00,ML,824707,CLE @ BOS,Boston Red Sox,BOS,Daniel Espino / Ranger Suarez,1.81,betonlineag,0.5435,,15,-1.63,,,,,
