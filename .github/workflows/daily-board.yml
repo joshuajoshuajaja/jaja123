@@ -459,6 +459,16 @@ jobs:
           # Priority order. The free tier is 500 credits a month and an /odds call costs
           # markets x regions, so the budget decides how far down this list we get today.
           ODDS_SPORTS = [
+              # Cups and internationals first. They only play on certain nights, and the
+              # free /events check means we pay nothing on the nights they don't, so
+              # there is no cost to keeping them at the top of the queue.
+              "soccer_uefa_champs_league",
+              "soccer_uefa_europa_league",
+              "soccer_uefa_europa_conference_league",
+              "soccer_uefa_nations_league",
+              "soccer_fifa_world_cup_qualifiers_europe",
+              "soccer_fifa_world_cup_qualifiers_south_america",
+              "soccer_uefa_euro_qualification",
               "soccer_epl", "soccer_spain_la_liga", "soccer_italy_serie_a",
               "soccer_germany_bundesliga", "soccer_france_ligue_one", "soccer_efl_champ",
               "soccer_netherlands_eredivisie", "soccer_portugal_primeira_liga",
@@ -469,7 +479,6 @@ jobs:
               "soccer_spain_segunda_division", "soccer_italy_serie_b",
               "soccer_germany_bundesliga2", "soccer_france_ligue_two",
               "soccer_greece_super_league",
-              "soccer_uefa_champs_league", "soccer_uefa_europa_league",
           ]
 
           # h2h + totals is exactly what the correct-score consistency check needs:
@@ -529,9 +538,13 @@ jobs:
               print(f"odds: {remaining} credits remaining, spending up to {budget} today "
                     f"({CREDITS_PER_CALL}/league)", flush=True)
 
-              # rotate the tail so lower-priority leagues still get sampled
+              # The cups sit at the front but cost nothing on nights they aren't playing,
+              # so "always covered" = every cup PLUS the six main domestic leagues. Only
+              # what's left over rotates, which stops a Champions League night from
+              # quietly pushing the Premier League off the board.
+              n_cups = sum(1 for s in ODDS_SPORTS if "uefa" in s or "fifa" in s)
               day = dt.date.today().toordinal()
-              head, tail = ODDS_SPORTS[:6], ODDS_SPORTS[6:]
+              head, tail = ODDS_SPORTS[:n_cups + 6], ODDS_SPORTS[n_cups + 6:]
               order = head + tail[day % len(tail):] + tail[:day % len(tail)]
 
               rows, spent, used = [], 0, "?"
@@ -1143,6 +1156,26 @@ jobs:
               "soccer_argentina_primera_division": "ARG: Liga Profesional",
           }
 
+          # Cups and internationals have no single domestic division behind them - the
+          # teams come from everywhere. They don't need one: the board prices off the
+          # bookmakers' own consensus, and the only thing the fitted model contributes
+          # is the low-score correction, which we can supply as a sensible default.
+          CUP_COMPS = {
+              "soccer_uefa_champs_league": "Champions League",
+              "soccer_uefa_europa_league": "Europa League",
+              "soccer_uefa_europa_conference_league": "Conference League",
+              "soccer_uefa_nations_league": "Nations League",
+              "soccer_fifa_world_cup_qualifiers_europe": "World Cup Qual (Europe)",
+              "soccer_fifa_world_cup_qualifiers_south_america": "World Cup Qual (S. America)",
+              "soccer_uefa_euro_qualification": "Euro Qualifying",
+              "soccer_uefa_european_championship": "European Championship",
+              "soccer_fifa_world_cup": "World Cup",
+          }
+
+          # Knockout and international football runs slightly cagier than league football
+          # - a touch more 0-0 and 1-0 than independent maths expects.
+          CUP_RHO = -0.045
+
           _NOISE = re.compile(r"\b(fc|cf|afc|ac|as|ss|ssc|sc|cd|ud|rcd|club|calcio|"
                               r"football|deportivo|de|the|united|city|town|athletic|"
                               r"wanderers|rovers|albion|county|hotspur)\b")
@@ -1361,8 +1394,8 @@ jobs:
           sys.path.insert(0, "soccer-model")
           from model.db import load, SystemData, DIV_NAMES          # noqa: E402
           from model.dc import DixonColes, score_matrix             # noqa: E402
-          from model.live import (SPORT_TO_DIV, map_teams, consensus_1x2,     # noqa: E402
-                                  consensus_totals, implied_matrix)
+          from model.live import (SPORT_TO_DIV, CUP_COMPS, CUP_RHO, map_teams,  # noqa: E402
+                                  consensus_1x2, consensus_totals, implied_matrix)
 
           HALF_LIFE, RIDGE = 330.0, 0.25
 
@@ -1428,7 +1461,15 @@ jobs:
           def main() -> None:
               matches = load(_find("data/raw/matches.parquet", "data/matches.parquet"))
               odds = pd.read_csv(_find("data/raw/odds_history.csv.gz", "data/odds_history.csv.gz"))
-              odds["ct"] = pd.to_datetime(odds.commence_time, utc=True, errors="coerce")
+              # format="ISO8601" matters: the column can hold a mix of precisions
+              # ("...T20:00:00Z" and "...T20:00:00.971495+00:00"). Without it pandas
+              # locks onto the first format it sees and silently turns every other row
+              # into NaT - which drops those fixtures off the board with no error.
+              odds["ct"] = pd.to_datetime(odds.commence_time, utc=True,
+                                          format="ISO8601", errors="coerce")
+              bad = int(odds["ct"].isna().sum())
+              if bad:
+                  print(f"  ! {bad} rows had an unreadable kickoff time", flush=True)
 
               # keep only the most recent snapshot per event/book/market/outcome
               odds = (odds.sort_values("snapshot_utc")
@@ -1448,8 +1489,34 @@ jobs:
               fixtures = []
 
               for sport, gs in live.groupby("sport_key"):
+                  # --- cups and internationals: no domestic division, no team ratings.
+                  # The consensus across the books is the whole basis for the price, so
+                  # these need nothing except a low-score correction.
+                  if sport in CUP_COMPS:
+                      name = CUP_COMPS[sport]
+                      n_before = len(fixtures)
+                      for eid, g in gs.groupby("event_id"):
+                          h_feed, a_feed = g.home_team.iat[0], g.away_team.iat[0]
+                          fair, best, nbooks = consensus_1x2(g, h_feed, a_feed)
+                          if fair is None:
+                              continue
+                          tot = consensus_totals(g)
+                          M = implied_matrix(fair, tot, rho=CUP_RHO)
+                          if M is None:
+                              continue
+                          fixtures.append(dict(
+                              event_id=eid, sport=sport, div=sport, league=name,
+                              kickoff=g.ct.iat[0].isoformat(),
+                              home=h_feed, away=a_feed, home_fd=h_feed, away_fd=a_feed,
+                              nbooks=nbooks, M=M, own=None, fair=fair,
+                              best=best, totals=tot))
+                      print(f"  {name}: {len(fixtures) - n_before} fixtures "
+                            f"(market-priced, no ratings needed)", flush=True)
+                      continue
+
                   div = SPORT_TO_DIV.get(sport)
                   if div is None:
+                      print(f"  ! {sport}: no mapping, skipped", flush=True)
                       continue
                   system = matches.loc[matches.Div == div, "system"].dropna()
                   if system.empty:
