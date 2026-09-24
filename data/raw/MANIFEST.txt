@@ -1,15 +1,17 @@
-last_run_utc: 2026-09-23T16:01:15+00:00
+last_run_utc: 2026-09-24T15:11:41+00:00
 matches_rows: 149049
 divisions: 40
 date_range: 2012-03-02 .. 2026-09-22
 clubelo: no
 xg_matches: 0
-odds: no
-warnings: 4
+odds: yes
+warnings: 6
+  - https://www.football-data.co.uk/mmz4281/2526/E0.csv: ReadTimeout
+  - https://www.football-data.co.uk/mmz4281/2526/SP1.csv: ReadTimeout
+  - https://www.football-data.co.uk/new/MEX.csv: ReadTimeout
   - clubelo unreachable from this runner
   - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
-  - odds API rejected the key mid-run - stopping
 
 rows per division:
   USA: MLS                     6203
