@@ -1,0 +1,686 @@
+# =====================================================================
+#  NHL DAILY BOARD  ->  Telegram
+#  Paste this whole file into your repo at:  .github/workflows/nhl-board.yml
+#
+#  Sends 3 parlays each day:
+#    1) SAFEST 4-leg anytime-goalscorer parlay   (highest hit chance)
+#    2) VALUE  4-leg anytime-goalscorer parlay   (best price among the strong picks)
+#    3) MONEYLINE parlay (STRONG favourites only, up to 4 legs)
+#
+#  Secrets needed (Settings > Secrets and variables > Actions):
+#    ODDS_API_KEY, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID  (same ones as your other boards)
+#
+#  To change the send time, edit the cron line below (it is in UTC;
+#  Singapore = UTC+8, so 14:00 UTC = 10:00pm SGT).
+# =====================================================================
+name: nhl-board
+
+on:
+  schedule:
+    - cron: "0 14 * * *"      # 10:00pm Singapore time, every day
+  workflow_dispatch: {}        # lets you press "Run workflow" by hand
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nhl-board
+  cancel-in-progress: false
+
+jobs:
+  board:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Write model script
+        run: |
+          mkdir -p data/nhl output/nhl
+          cat > nhl_board.py <<'PYEOF'
+          import os, sys, json, csv, math, re, time, unicodedata, statistics
+          import urllib.request, urllib.parse, urllib.error
+          from datetime import datetime, timedelta, timezone
+
+          # ------------------------------------------------------------------
+          #  SETTINGS  (change these to tune the board)
+          # ------------------------------------------------------------------
+          WINDOW_HOURS       = 15      # only games starting in the next N hours
+          MIN_LEAD_MINUTES   = 10      # ignore games about to start
+          MAX_PROP_GAMES     = 14      # cap on games we pull scorer prices for (credit guard)
+          ODDS_REGIONS       = "us"    # bookmaker region(s) for prices
+          CREDIT_FLOOR       = 25      # stop pulling props if API credits fall below this
+
+          # Goalscorer rules
+          GS_MIN_ODDS        = 1.60    # best available price must be at least this
+          GS_STRONG_P        = 0.30    # blended chance of scoring must be at least this
+          GS_MODEL_MIN_P     = 0.25    # our own model must not disagree badly
+          GS_MAX_GAP         = 0.10    # |model - market| must be within this
+          GS_MIN_BOOKS       = 3       # need at least this many bookmakers pricing the player
+          GS_MIN_GAMES       = 40      # weighted games of history needed
+          GS_MIN_TOI         = 14.0    # minutes per game (skip depth players)
+          PROP_VIG_ADJ       = 0.92    # anytime-scorer prices carry ~8% margin; shave it off
+          MARKET_WEIGHT      = 0.70    # market vs our model in the blend (market is usually smarter)
+          GS_LEGS            = 4
+
+          # Moneyline rules
+          ML_MIN_ODDS        = 1.45
+          ML_STRONG_P        = 0.58    # blended win chance at least this
+          ML_MODEL_MIN_P     = 0.54    # our model must lean the same way
+          ML_MIN_BOOKS       = 3
+          ML_MAX_LEGS        = 4
+          ML_MARKET_WEIGHT   = 0.75
+
+          # Season weights (how much each past season counts, per game played)
+          SEASON_W   = {"cur_reg": 1.00, "cur_pre": 0.20, 1: 0.60, 2: 0.35, 3: 0.20}
+          TEAM_W     = {"cur_reg": 1.00, "cur_pre": 0.08, 1: 0.55, 2: 0.30, 3: 0.15}
+
+          HOME_GOAL_FACTOR = 1.035
+          UA = {"User-Agent": "Mozilla/5.0 (nhl-board)"}
+          TODAY = datetime.now(timezone.utc)
+          LOG = []
+
+          def log(*a):
+              msg = " ".join(str(x) for x in a)
+              print(msg, flush=True)
+              LOG.append(msg)
+
+          # ------------------------------------------------------------------
+          #  HTTP helpers  (always log the status code)
+          # ------------------------------------------------------------------
+          def http_get(url, timeout=40, retries=3, want_headers=False):
+              last = None
+              for i in range(retries):
+                  try:
+                      req = urllib.request.Request(url, headers=UA)
+                      with urllib.request.urlopen(req, timeout=timeout) as r:
+                          body = r.read().decode("utf-8-sig", errors="replace")
+                          hdr = dict(r.headers)
+                          data = json.loads(body)
+                          return (data, hdr) if want_headers else data
+                  except urllib.error.HTTPError as e:
+                      last = "HTTP %s" % e.code
+                      if e.code in (401, 403, 404, 422, 429):
+                          if e.code != 429:
+                              break
+                          time.sleep(3 * (i + 1))
+                  except Exception as e:
+                      last = repr(e)[:120]
+                  time.sleep(1.5 * (i + 1))
+              log("  fetch failed (%s): %s" % (last, url.split("?")[0]))
+              return (None, {}) if want_headers else None
+
+          # ------------------------------------------------------------------
+          #  Team names
+          # ------------------------------------------------------------------
+          TEAMS = {
+              "ANA": ["ducks"], "BOS": ["bruins"], "BUF": ["sabres"], "CGY": ["flames"],
+              "CAR": ["hurricanes"], "CHI": ["blackhawks"], "COL": ["avalanche"],
+              "CBJ": ["blue jackets"], "DAL": ["stars"], "DET": ["red wings"],
+              "EDM": ["oilers"], "FLA": ["panthers"], "LAK": ["kings"], "MIN": ["wild"],
+              "MTL": ["canadiens"], "NSH": ["predators"], "NJD": ["devils"],
+              "NYI": ["islanders"], "NYR": ["rangers"], "OTT": ["senators"],
+              "PHI": ["flyers"], "PIT": ["penguins"], "SEA": ["kraken"], "SJS": ["sharks"],
+              "STL": ["blues"], "TBL": ["lightning"], "TOR": ["maple leafs"],
+              "UTA": ["mammoth", "hockey club", "utah"], "VAN": ["canucks"],
+              "VGK": ["golden knights"], "WSH": ["capitals"], "WPG": ["jets"],
+          }
+
+          def norm(s):
+              s = unicodedata.normalize("NFKD", s or "")
+              s = "".join(c for c in s if not unicodedata.combining(c))
+              return re.sub(r"[^a-z ]", "", s.lower()).strip()
+
+          def team_abbr(name):
+              n = norm(name)
+              for ab, keys in TEAMS.items():
+                  for k in keys:
+                      if k in n:
+                          return ab
+              return None
+
+          def norm_player(s):
+              s = norm(s)
+              s = re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", s)
+              return re.sub(r"\s+", " ", s).strip()
+
+          # ------------------------------------------------------------------
+          #  Season ids
+          # ------------------------------------------------------------------
+          def current_season_start(d):
+              return d.year if d.month >= 8 else d.year - 1
+
+          CUR = current_season_start(TODAY)
+          def sid(start): return int("%d%d" % (start, start + 1))
+
+          # ------------------------------------------------------------------
+          #  Load history
+          # ------------------------------------------------------------------
+          STATS = "https://api.nhle.com/stats/rest/en"
+
+          def stats_url(kind, season_id, gtype):
+              q = urllib.parse.quote("seasonId=%d and gameTypeId=%d" % (season_id, gtype))
+              return "%s/%s/summary?isAggregate=false&isGame=false&limit=-1&cayenneExp=%s" % (STATS, kind, q)
+
+          def season_plan(w):
+              plan = [("cur_reg", CUR, 2), ("cur_pre", CUR, 1)]
+              for k in (1, 2, 3):
+                  plan.append((k, CUR - k, 2))
+              return [(key, sid(st), gt, w[key]) for key, st, gt in plan]
+
+          def load_skaters():
+              agg = {}
+              for key, s_id, gt, w in season_plan(SEASON_W):
+                  d = http_get(stats_url("skater", s_id, gt))
+                  rows = (d or {}).get("data", [])
+                  log("  skaters %s type%d: %d rows" % (s_id, gt, len(rows)))
+                  for r in rows:
+                      gp = r.get("gamesPlayed") or 0
+                      if gp <= 0:
+                          continue
+                      pid = r["playerId"]
+                      a = agg.setdefault(pid, dict(name=r.get("skaterFullName", ""), pos=r.get("positionCode", "F"),
+                                                   team=None, gp=0.0, g=0.0, s=0.0, toi=0.0, raw_gp=0))
+                      a["name"] = r.get("skaterFullName", a["name"])
+                      a["pos"] = r.get("positionCode", a["pos"])
+                      tm = (r.get("teamAbbrevs") or "").split(",")[-1].strip()
+                      if key in ("cur_reg", "cur_pre", 1) and tm:
+                          if key == "cur_reg" or a["team"] is None or key == "cur_pre":
+                              a["team"] = tm
+                      a["gp"] += w * gp
+                      a["g"] += w * (r.get("goals") or 0)
+                      a["s"] += w * (r.get("shots") or 0)
+                      toi = (r.get("timeOnIcePerGame") or 0) / 60.0
+                      a["toi"] += w * gp * toi
+                      a["raw_gp"] += gp
+              return agg
+
+          def load_teams():
+              agg = {}
+              for key, s_id, gt, w in season_plan(TEAM_W):
+                  d = http_get(stats_url("team", s_id, gt))
+                  rows = (d or {}).get("data", [])
+                  log("  teams %s type%d: %d rows" % (s_id, gt, len(rows)))
+                  for r in rows:
+                      ab = team_abbr(r.get("teamFullName", ""))
+                      gp = r.get("gamesPlayed") or 0
+                      if not ab or gp <= 0:
+                          continue
+                      a = agg.setdefault(ab, dict(gp=0.0, gf=0.0, ga=0.0))
+                      a["gp"] += w * gp
+                      a["gf"] += w * (r.get("goalsFor") if r.get("goalsFor") is not None else (r.get("goalsForPerGame", 3.0) * gp))
+                      a["ga"] += w * (r.get("goalsAgainst") if r.get("goalsAgainst") is not None else (r.get("goalsAgainstPerGame", 3.0) * gp))
+              return agg
+
+          def team_ratings(agg):
+              tot_gp = sum(a["gp"] for a in agg.values())
+              mu = (sum(a["gf"] for a in agg.values()) / tot_gp) if tot_gp else 3.05
+              prior = 30.0
+              out = {}
+              for ab, a in agg.items():
+                  att = (a["gf"] + prior * mu) / (a["gp"] + prior)
+                  dfn = (a["ga"] + prior * mu) / (a["gp"] + prior)
+                  out[ab] = dict(att=att / mu, dfn=dfn / mu)
+              return mu, out
+
+          def player_rates(agg):
+              # league shooting % by position group
+              lg = {}
+              for a in agg.values():
+                  grp = "D" if a["pos"] == "D" else "F"
+                  t = lg.setdefault(grp, [0.0, 0.0]); t[0] += a["g"]; t[1] += a["s"]
+              lg_sh = {k: (v[0] / v[1] if v[1] else 0.09) for k, v in lg.items()}
+              K = 120.0
+              for a in agg.values():
+                  grp = "D" if a["pos"] == "D" else "F"
+                  spg = a["s"] / a["gp"] if a["gp"] else 0
+                  sh = (a["g"] + K * lg_sh.get(grp, 0.09)) / (a["s"] + K)
+                  a["lam"] = spg * sh
+                  a["toi_pg"] = a["toi"] / a["gp"] if a["gp"] else 0
+              return agg
+
+          # ------------------------------------------------------------------
+          #  Probability maths
+          # ------------------------------------------------------------------
+          def pois_pmf(l, n):
+              return [math.exp(-l) * l ** k / math.factorial(k) for k in range(n + 1)]
+
+          def team_win_prob(mu, R, home, away):
+              h, a = R.get(home), R.get(away)
+              if not h or not a:
+                  return None
+              lh = mu * h["att"] * a["dfn"] * HOME_GOAL_FACTOR
+              la = mu * a["att"] * h["dfn"] / HOME_GOAL_FACTOR
+              n = 14
+              ph, pa = pois_pmf(lh, n), pois_pmf(la, n)
+              win = sum(ph[i] * pa[j] for i in range(n + 1) for j in range(n + 1) if i > j)
+              tie = sum(ph[i] * pa[i] for i in range(n + 1))
+              return win + 0.52 * tie     # OT/shootout: slight home lean
+
+          def shin(implied):
+              """Remove bookmaker margin (Shin's method) from a list of implied probs."""
+              B = sum(implied)
+              if B <= 1.0:
+                  return [x / B for x in implied]
+              lo, hi = 0.0, 0.4
+              def total(z):
+                  return sum((math.sqrt(z * z + 4 * (1 - z) * x * x / B) - z) / (2 * (1 - z)) for x in implied)
+              for _ in range(60):
+                  mid = (lo + hi) / 2
+                  if total(mid) > 1: lo = mid
+                  else: hi = mid
+              z = (lo + hi) / 2
+              p = [(math.sqrt(z * z + 4 * (1 - z) * x * x / B) - z) / (2 * (1 - z)) for x in implied]
+              s = sum(p)
+              return [x / s for x in p]
+
+          # ------------------------------------------------------------------
+          #  Schedule
+          # ------------------------------------------------------------------
+          def load_schedule():
+              games, seen = [], set()
+              for off in (0, 1):
+                  day = (TODAY + timedelta(days=off)).strftime("%Y-%m-%d")
+                  d = http_get("https://api-web.nhle.com/v1/schedule/" + day)
+                  for wk in (d or {}).get("gameWeek", []):
+                      for g in wk.get("games", []):
+                          if g["id"] in seen:
+                              continue
+                          seen.add(g["id"])
+                          try:
+                              st = datetime.fromisoformat(g["startTimeUTC"].replace("Z", "+00:00"))
+                          except Exception:
+                              continue
+                          if g.get("gameType") not in (1, 2):
+                              continue
+                          if TODAY + timedelta(minutes=MIN_LEAD_MINUTES) <= st <= TODAY + timedelta(hours=WINDOW_HOURS):
+                              games.append(dict(id=g["id"], start=st, home=g["homeTeam"]["abbrev"],
+                                                away=g["awayTeam"]["abbrev"], gtype=g["gameType"]))
+              games.sort(key=lambda x: x["start"])
+              return games
+
+          def load_rosters(abbrs):
+              cur = {}
+              for ab in abbrs:
+                  d = http_get("https://api-web.nhle.com/v1/roster/%s/current" % ab, retries=2)
+                  for grp in ("forwards", "defensemen"):
+                      for p in (d or {}).get(grp, []):
+                          cur[p["id"]] = ab
+              return cur
+
+          # ------------------------------------------------------------------
+          #  Odds
+          # ------------------------------------------------------------------
+          ODDS = "https://api.the-odds-api.com/v4/sports/icehockey_nhl"
+          CREDITS = {"remaining": None}
+
+          def odds_get(path, params):
+              params = dict(params); params["apiKey"] = os.environ.get("ODDS_API_KEY", "")
+              url = ODDS + path + "?" + urllib.parse.urlencode(params)
+              d, h = http_get(url, want_headers=True, retries=2)
+              rem = {k.lower(): v for k, v in h.items()}.get("x-requests-remaining")
+              if rem is not None:
+                  try: CREDITS["remaining"] = float(rem)
+                  except Exception: pass
+              return d
+
+          def load_h2h():
+              d = odds_get("/odds", dict(regions=ODDS_REGIONS, markets="h2h", oddsFormat="decimal"))
+              out = {}
+              for ev in d or []:
+                  h, a = team_abbr(ev.get("home_team")), team_abbr(ev.get("away_team"))
+                  if not h or not a:
+                      continue
+                  books = []
+                  for bk in ev.get("bookmakers", []):
+                      for m in bk.get("markets", []):
+                          if m.get("key") != "h2h":
+                              continue
+                          pr = {team_abbr(o["name"]): o["price"] for o in m["outcomes"]}
+                          if h in pr and a in pr:
+                              books.append((pr[h], pr[a]))
+                  out[(h, a)] = dict(event=ev.get("id"), books=books)
+              return out
+
+          def load_scorer_props(event_id):
+              d = odds_get("/events/%s/odds" % event_id,
+                           dict(regions=ODDS_REGIONS, markets="player_goal_scorer_anytime", oddsFormat="decimal"))
+              players = {}
+              for bk in (d or {}).get("bookmakers", []):
+                  for m in bk.get("markets", []):
+                      if m.get("key") != "player_goal_scorer_anytime":
+                          continue
+                      for o in m.get("outcomes", []):
+                          nm = o.get("description") or o.get("name")
+                          if not nm or str(nm).lower() in ("yes", "no", "over", "under"):
+                              continue
+                          if str(o.get("name", "")).lower() in ("no", "under"):
+                              continue
+                          players.setdefault(norm_player(nm), dict(display=nm, prices=[]))["prices"].append(o["price"])
+              return players
+
+          # ------------------------------------------------------------------
+          #  Build candidates
+          # ------------------------------------------------------------------
+          def fmt_time(dt):
+              sg = dt + timedelta(hours=8)
+              return sg.strftime("%a %H:%M SGT")
+
+          def build_ml(games, h2h, mu, R):
+              out = []
+              for g in games:
+                  mkt = h2h.get((g["home"], g["away"]))
+                  pm = team_win_prob(mu, R, g["home"], g["away"])
+                  if not mkt or not mkt["books"] or pm is None:
+                      continue
+                  fairs, best_h, best_a = [], 0, 0
+                  for ph, pa in mkt["books"]:
+                      f = shin([1 / ph, 1 / pa])
+                      fairs.append(f[0])
+                      best_h, best_a = max(best_h, ph), max(best_a, pa)
+                  mh = statistics.median(fairs)
+                  n = len(mkt["books"])
+                  for side, mk, md, best, team in (("H", mh, pm, best_h, g["home"]), ("A", 1 - mh, 1 - pm, best_a, g["away"])):
+                      blend = ML_MARKET_WEIGHT * mk + (1 - ML_MARKET_WEIGHT) * md
+                      out.append(dict(game=g, team=team, opp=g["away"] if side == "H" else g["home"], home=(side == "H"),
+                                      market=mk, model=md, p=blend, odds=best, books=n,
+                                      strong=(blend >= ML_STRONG_P and md >= ML_MODEL_MIN_P and best >= ML_MIN_ODDS and n >= ML_MIN_BOOKS)))
+              return out
+
+          def build_gs(games, h2h, prop_fn, players, roster, mu, R):
+              by_name = {}
+              for pid, a in players.items():
+                  by_name.setdefault(norm_player(a["name"]), []).append((pid, a))
+              out, priced_games = [], 0
+              credits_ok = True
+              for g in games[:MAX_PROP_GAMES]:
+                  mkt = h2h.get((g["home"], g["away"]))
+                  if not mkt or not mkt.get("event"):
+                      continue
+                  if CREDITS["remaining"] is not None and CREDITS["remaining"] < CREDIT_FLOOR:
+                      log("  API credits low (%s) - skipping remaining props" % CREDITS["remaining"]); break
+                  props = prop_fn(mkt["event"])
+                  if props:
+                      priced_games += 1
+                  for nm, pr in props.items():
+                      cands = by_name.get(nm, [])
+                      if not cands:
+                          continue
+                      # pick candidate on one of the two teams
+                      match = None
+                      for pid, a in cands:
+                          tm = roster.get(pid) or a.get("team")
+                          if tm in (g["home"], g["away"]):
+                              match = (pid, a, tm); break
+                      if not match:
+                          continue
+                      pid, a, tm = match
+                      opp = g["away"] if tm == g["home"] else g["home"]
+                      lam = a["lam"]
+                      if R.get(opp):
+                          lam *= R[opp]["dfn"] ** 0.7
+                      lam *= 1.03 if tm == g["home"] else 0.97
+                      model = 1 - math.exp(-lam)
+                      prices = pr["prices"]
+                      implied = statistics.median([1 / x for x in prices]) * PROP_VIG_ADJ
+                      blend = MARKET_WEIGHT * implied + (1 - MARKET_WEIGHT) * model
+                      best = max(prices)
+                      strong = (blend >= GS_STRONG_P and model >= GS_MODEL_MIN_P and abs(model - implied) <= GS_MAX_GAP
+                                and len(prices) >= GS_MIN_BOOKS and best >= GS_MIN_ODDS
+                                and a["gp"] >= GS_MIN_GAMES and a["toi_pg"] >= GS_MIN_TOI)
+                      out.append(dict(game=g, player=pr["display"], pid=pid, team=tm, opp=opp, model=model,
+                                      market=implied, p=blend, odds=best, books=len(prices), strong=strong,
+                                      ev=blend * best - 1))
+              return out, priced_games
+
+          def pick_parlay(cands, legs, used_players, key):
+              chosen, used_games = [], set()
+              for c in sorted(cands, key=key, reverse=True):
+                  if c["pid"] in used_players or c["game"]["id"] in used_games:
+                      continue
+                  chosen.append(c); used_games.add(c["game"]["id"])
+                  if len(chosen) == legs:
+                      break
+              return chosen
+
+          def pick_ml(cands):
+              chosen, used = [], set()
+              for c in sorted([x for x in cands if x["strong"]], key=lambda x: x["p"], reverse=True):
+                  if c["game"]["id"] in used:
+                      continue
+                  chosen.append(c); used.add(c["game"]["id"])
+                  if len(chosen) == ML_MAX_LEGS:
+                      break
+              return chosen
+
+          # ------------------------------------------------------------------
+          #  Message
+          # ------------------------------------------------------------------
+          def parlay_stats(legs):
+              p, o = 1.0, 1.0
+              for l in legs:
+                  p *= l["p"]; o *= l["odds"]
+              return p, o
+
+          def fmt_parlay(title, legs, kind, target):
+              lines = ["*%s*" % title]
+              if len(legs) < 2:
+                  lines.append("No parlay today - fewer than 2 picks cleared the STRONG bar.")
+                  return "\n".join(lines)
+              for l in legs:
+                  g = l["game"]
+                  if kind == "gs":
+                      lines.append("- %s (%s) vs %s  @ %.2f  [%d%%]  %s" % (l["player"], l["team"], l["opp"], l["odds"], round(l["p"] * 100), fmt_time(g["start"])))
+                  else:
+                      ha = "vs" if l["home"] else "@"
+                      lines.append("- %s %s %s  @ %.2f  [%d%%]  %s" % (l["team"], ha, l["opp"], l["odds"], round(l["p"] * 100), fmt_time(g["start"])))
+              p, o = parlay_stats(legs)
+              lines.append("Combined odds ~%.1f | our chance ~%.1f%%" % (o, p * 100))
+              if len(legs) < target:
+                  lines.append("(only %d strong legs available, target was %d)" % (len(legs), target))
+              return "\n".join(lines)
+
+          # ------------------------------------------------------------------
+          #  Telegram
+          # ------------------------------------------------------------------
+          def tg_send(text):
+              token = os.environ.get("TELEGRAM_TOKEN", "")
+              chat = os.environ.get("TELEGRAM_CHAT_ID", "")
+              if not token:
+                  return False, "TELEGRAM_TOKEN secret is missing"
+              if not chat:
+                  d = http_get("https://api.telegram.org/bot%s/getUpdates" % token, retries=1)
+                  try:
+                      chat = str(d["result"][-1]["message"]["chat"]["id"])
+                      log("Discovered chat id %s - add it as the TELEGRAM_CHAT_ID secret" % chat)
+                  except Exception:
+                      return False, "No TELEGRAM_CHAT_ID and no messages found - send your bot a message first"
+              chunks = [text[i:i + 3900] for i in range(0, len(text), 3900)]
+              for ch in chunks:
+                  body = urllib.parse.urlencode({"chat_id": chat, "text": ch}).encode()
+                  try:
+                      req = urllib.request.Request("https://api.telegram.org/bot%s/sendMessage" % token, data=body, headers=UA)
+                      with urllib.request.urlopen(req, timeout=30) as r:
+                          r.read()
+                  except urllib.error.HTTPError as e:
+                      return False, "Telegram HTTP %s: %s" % (e.code, e.read().decode()[:200])
+                  except Exception as e:
+                      return False, "Telegram error: %r" % e
+              return True, "sent"
+
+          # ------------------------------------------------------------------
+          #  Pick log + grading of past picks
+          # ------------------------------------------------------------------
+          LOG_PATH = "data/nhl/picks_log.csv"
+          FIELDS = ["date", "game_id", "start_utc", "parlay", "type", "selection", "player_id", "team", "odds", "p_blend", "p_model", "p_market", "result"]
+
+          def read_log():
+              if not os.path.exists(LOG_PATH):
+                  return []
+              with open(LOG_PATH, newline="", encoding="utf-8") as f:
+                  return list(csv.DictReader(f))
+
+          def write_log(rows):
+              os.makedirs("data/nhl", exist_ok=True)
+              with open(LOG_PATH, "w", newline="", encoding="utf-8") as f:
+                  w = csv.DictWriter(f, fieldnames=FIELDS); w.writeheader()
+                  for r in rows:
+                      w.writerow({k: r.get(k, "") for k in FIELDS})
+
+          def grade(rows):
+              boxes = {}
+              for r in rows:
+                  if r.get("result"):
+                      continue
+                  try:
+                      st = datetime.fromisoformat(r["start_utc"])
+                  except Exception:
+                      continue
+                  if st > TODAY - timedelta(hours=5):
+                      continue
+                  gid = r["game_id"]
+                  if gid not in boxes:
+                      boxes[gid] = http_get("https://api-web.nhle.com/v1/gamecenter/%s/boxscore" % gid, retries=2)
+                  b = boxes[gid]
+                  if not b or b.get("gameState") not in ("OFF", "FINAL"):
+                      continue
+                  try:
+                      if r["type"] == "ML":
+                          hs, as_ = b["homeTeam"]["score"], b["awayTeam"]["score"]
+                          win = b["homeTeam"]["abbrev"] if hs > as_ else b["awayTeam"]["abbrev"]
+                          r["result"] = "W" if win == r["team"] else "L"
+                      else:
+                          goals = {}
+                          for side in ("homeTeam", "awayTeam"):
+                              for grp in ("forwards", "defense"):
+                                  for p in b["playerByGameStats"][side].get(grp, []):
+                                      goals[str(p["playerId"])] = p.get("goals", 0)
+                          if r["player_id"] in goals:
+                              r["result"] = "W" if goals[r["player_id"]] > 0 else "L"
+                          else:
+                              r["result"] = "VOID"      # did not dress
+                  except Exception as e:
+                      log("  grade error", gid, repr(e)[:80])
+              return rows
+
+          def record_line(rows):
+              done = [r for r in rows if r.get("result") in ("W", "L")]
+              if not done:
+                  return None
+              out = []
+              for t, lab in (("GS", "Goalscorer legs"), ("ML", "Moneyline legs")):
+                  s = [r for r in done if r["type"] == t]
+                  if s:
+                      out.append("%s %d/%d" % (lab, sum(1 for r in s if r["result"] == "W"), len(s)))
+              return "Track record so far: " + " | ".join(out)
+
+          # ------------------------------------------------------------------
+          #  MAIN
+          # ------------------------------------------------------------------
+          def main():
+              diag = []
+              date_s = TODAY.strftime("%Y-%m-%d")
+              log("NHL board %s  (season %s)" % (date_s, sid(CUR)))
+              # write a placeholder first so a bad run still leaves something behind
+              os.makedirs("output/nhl", exist_ok=True)
+              open("output/nhl/latest.txt", "w").write("run started %s\n" % TODAY.isoformat())
+
+              games = load_schedule()
+              log("Games in window: %d" % len(games))
+              if not games:
+                  text = "NHL board %s\nNo NHL games starting in the next %d hours." % (date_s, WINDOW_HOURS)
+                  open("output/nhl/latest.txt", "w").write(text)
+                  ok, why = tg_send(text)
+                  log(why)
+                  return 0 if ok else 1
+
+              log("Loading history...")
+              players = player_rates(load_skaters())
+              teams = load_teams()
+              mu, R = team_ratings(teams)
+              log("  players %d | teams %d | league goals/team/game %.2f" % (len(players), len(R), mu))
+              if len(players) < 200 or len(R) < 28:
+                  diag.append("History looks thin (players %d, teams %d) - NHL stats API may have failed." % (len(players), len(R)))
+
+              roster = load_rosters(sorted({t for g in games for t in (g["home"], g["away"])}))
+              h2h = load_h2h()
+              log("  moneyline markets: %d games priced" % len(h2h))
+              if not h2h:
+                  diag.append("No moneyline prices came back from The Odds API (check ODDS_API_KEY / credits).")
+
+              ml_cands = build_ml(games, h2h, mu, R)
+              gs_cands, priced = build_gs(games, h2h, load_scorer_props, players, roster, mu, R)
+              log("  goalscorer prices found for %d games, %d players" % (priced, len(gs_cands)))
+              if h2h and priced == 0:
+                  diag.append("No anytime-goalscorer prices came back (market may not be posted yet, or your plan lacks it).")
+
+              strong_gs = [c for c in gs_cands if c["strong"]]
+              log("  STRONG scorers: %d | STRONG moneylines: %d" % (len(strong_gs), sum(1 for c in ml_cands if c["strong"])))
+
+              p1 = pick_parlay(strong_gs, GS_LEGS, set(), key=lambda c: c["p"])
+              used = {c["pid"] for c in p1}
+              p2 = pick_parlay(strong_gs, GS_LEGS, used, key=lambda c: (c["ev"], c["p"]))
+              p3 = pick_ml(ml_cands)
+
+              head = "NHL BOARD  %s SGT  |  %d games" % ((TODAY + timedelta(hours=8)).strftime("%a %d %b"), len(games))
+              if any(g["gtype"] == 1 for g in games):
+                  head += "\n(Preseason games - lineups are unreliable, treat with extra caution)"
+              blocks = [head,
+                        fmt_parlay("1) SAFEST GOALSCORER PARLAY (4 legs)", p1, "gs", GS_LEGS),
+                        fmt_parlay("2) VALUE GOALSCORER PARLAY (4 legs)", p2, "gs", GS_LEGS),
+                        fmt_parlay("3) MONEYLINE PARLAY (strong favourites)", p3, "ml", ML_MAX_LEGS)]
+              if diag:
+                  blocks.append("NOTES:\n" + "\n".join("! " + d for d in diag))
+              blocks.append("Odds are the best price found across US books - check your own bookmaker before betting. "
+                            "Check lineups/scratches before puck drop. [x%] = our blended chance for that leg.")
+
+              # log picks, grade old ones
+              rows = read_log()
+              try:
+                  rows = grade(rows)
+              except Exception as e:
+                  log("grade failed", repr(e)[:100])
+              for lab, legs, t in (("SAFE", p1, "GS"), ("VALUE", p2, "GS"), ("ML", p3, "ML")):
+                  for l in legs:
+                      rows.append(dict(date=date_s, game_id=l["game"]["id"], start_utc=l["game"]["start"].isoformat(),
+                                       parlay=lab, type=t, selection=l.get("player") or l["team"], player_id=l.get("pid", ""),
+                                       team=l["team"], odds="%.2f" % l["odds"], p_blend="%.3f" % l["p"],
+                                       p_model="%.3f" % l["model"], p_market="%.3f" % l["market"], result=""))
+              rec = record_line(rows)
+              if rec:
+                  blocks.insert(-1, rec)
+              text = "\n\n".join(blocks)
+              open("output/nhl/latest.txt", "w").write(text)
+              open("output/nhl/%s.txt" % date_s, "w").write(text)
+              write_log(rows)
+
+              ok, why = tg_send(text)
+              print("\n" + text + "\n")
+              log("Telegram:", why)
+              if not ok:
+                  print("DIAGNOSIS: message NOT delivered -> " + why, flush=True)
+                  return 1
+              return 0
+
+          if __name__ == "__main__":
+              sys.exit(main())
+          PYEOF
+
+      - name: Build and send board
+        run: python nhl_board.py
+
+      - name: Save log and output
+        if: always()
+        run: |
+          git config user.name "nhl-board"
+          git config user.email "nhl-board@users.noreply.github.com"
+          git add data/nhl output/nhl || true
+          git diff --cached --quiet || (git commit -m "NHL board $(date -u +%F)" && git pull --rebase -q && git push)
