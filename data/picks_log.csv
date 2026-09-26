@@ -1275,3 +1275,32 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-25T15:02:37+00:00,2026-09-25T16:00:00+00:00,Nations League,Georgia,Northern Ireland,Correct Score,1-0,0.13517,,,
 2026-09-25T15:02:37+00:00,2026-09-25T16:00:00+00:00,Nations League,Armenia,Latvia,Correct Score,1-0,0.13247,,,
 2026-09-25T15:02:37+00:00,2026-09-25T18:45:00+00:00,Nations League,Montenegro,Cyprus,Correct Score,1-0,0.1277,,,
+2026-09-26T14:07:14+00:00,2026-09-27T00:30:00+00:00,USA: MLS,Nashville SC,Toronto FC,1X2/Totals,Nashville SC,0.67841,1.51,gtbets,0.02439
+2026-09-26T14:07:14+00:00,2026-09-26T23:07:00+00:00,MEX: Liga MX,Guadalajara,Querétaro,1X2/Totals,Guadalajara,0.62186,1.6,matchbook,-0.00503
+2026-09-26T14:07:14+00:00,2026-09-27T00:30:00+00:00,USA: MLS,Houston Dynamo,Sporting Kansas City,1X2/Totals,Houston Dynamo,0.61383,1.63,betfair_ex_eu,0.00055
+2026-09-26T14:07:14+00:00,2026-09-26T18:45:00+00:00,Nations League,Albania,Belarus,1X2/Totals,Albania,0.60115,1.66,betfair_ex_eu,-0.00208
+2026-09-26T14:07:14+00:00,2026-09-26T16:00:00+00:00,Nations League,Bulgaria,Luxembourg,1X2/Totals,Under 2.5,0.69523,1.61,onexbet,0.11933
+2026-09-26T14:07:14+00:00,2026-09-27T00:30:00+00:00,USA: MLS,FC Dallas,Los Angeles FC,1X2/Totals,Under 3.5,0.62951,1.63,onexbet,0.02611
+2026-09-26T14:07:14+00:00,2026-09-27T00:30:00+00:00,USA: MLS,Seattle Sounders FC,Minnesota United FC,1X2/Totals,Over 2.5,0.62104,1.55,williamhill,-0.03739
+2026-09-26T14:07:14+00:00,2026-09-27T01:30:00+00:00,USA: MLS,Real Salt Lake,New England Revolution,1X2/Totals,Over 2.5,0.61153,1.61,matchbook,-0.01544
+2026-09-26T14:07:14+00:00,2026-09-27T00:30:00+00:00,USA: MLS,Austin FC,San Diego FC,1X2/Totals,Under 3.5,0.60519,1.55,tipico_de,-0.06196
+2026-09-26T14:07:14+00:00,2026-09-26T18:45:00+00:00,Nations League,Slovakia,Moldova,1X2/Totals,Over 2.5,0.60117,1.62,onexbet,-0.0261
+2026-09-26T14:07:14+00:00,2026-09-26T22:50:00+00:00,MEX: Liga MX,Cruz Azul,Toluca,1X2/Totals,Over 2.5,0.60046,1.64,matchbook,-0.01525
+2026-09-26T14:07:14+00:00,2026-09-26T16:30:00+00:00,La Liga 2,Tenerife,Cádiz CF,1X2/Totals,Under 2.5,0.59211,1.67,onexbet,-0.01117
+2026-09-26T14:07:14+00:00,2026-09-26T23:30:00+00:00,USA: MLS,Atlanta United FC,New York City FC,1X2/Totals,Over 2.5,0.58297,1.69,matchbook,-0.01477
+2026-09-26T14:07:14+00:00,2026-09-26T16:00:00+00:00,Nations League,Faroe Islands,Kazakhstan,1X2/Totals,Under 2.5,0.58047,1.69,onexbet,-0.01901
+2026-09-26T14:07:14+00:00,2026-09-26T16:00:00+00:00,Nations League,San Marino,Finland,1X2/Totals,Under 3.5,0.57656,1.74,onexbet,0.00321
+2026-09-26T14:07:14+00:00,2026-09-26T16:00:00+00:00,Nations League,Iceland,Estonia,1X2/Totals,Over 2.5,0.56131,1.75,onexbet,-0.01771
+2026-09-26T14:07:14+00:00,2026-09-26T18:45:00+00:00,Nations League,England,Spain,1X2/Totals,Over 2.5,0.55878,1.88,pinnacle,0.0505
+2026-09-26T14:07:14+00:00,2026-09-26T23:30:00+00:00,USA: MLS,Charlotte FC,Chicago Fire,1X2/Totals,Under 3.5,0.55769,1.79,matchbook,-0.00174
+2026-09-26T14:07:14+00:00,2026-09-26T23:30:00+00:00,USA: MLS,Philadelphia Union,Orlando City SC,1X2/Totals,Over 3.5,0.55425,1.75,onexbet,-0.03006
+2026-09-26T14:07:14+00:00,2026-09-26T23:30:00+00:00,USA: MLS,New York Red Bulls,St. Louis City SC,1X2/Totals,Under 3.5,0.54355,1.87,onexbet,0.01644
+2026-09-26T14:07:14+00:00,2026-09-26T23:30:00+00:00,USA: MLS,CF Montreal,FC Cincinnati,1X2/Totals,Under 3.5,0.52982,1.84,matchbook,-0.02513
+2026-09-26T14:07:14+00:00,2026-09-26T18:45:00+00:00,Nations League,Czech Republic,Croatia,1X2/Totals,Over 2.5,0.5293,1.84,onexbet,-0.02608
+2026-09-26T14:07:14+00:00,2026-09-26T18:45:00+00:00,Nations League,North Macedonia,Switzerland,1X2/Totals,Under 2.5,0.52913,1.84,onexbet,-0.0264
+2026-09-26T14:07:14+00:00,2026-09-26T16:30:00+00:00,League Two,Oldham Athletic,Salford City,1X2/Totals,Over 2.5,0.52837,1.85,matchbook,-0.02251
+2026-09-26T14:07:14+00:00,2026-09-26T16:30:00+00:00,La Liga 2,Celta Fortuna,Sabadell FC,1X2/Totals,Under 2.5,0.52798,1.86,matchbook,-0.01797
+2026-09-26T14:07:14+00:00,2026-09-26T18:45:00+00:00,Nations League,North Macedonia,Switzerland,Correct Score,0-2,0.16285,,,
+2026-09-26T14:07:14+00:00,2026-09-26T18:45:00+00:00,Nations League,Slovakia,Moldova,Correct Score,2-0,0.16232,,,
+2026-09-26T14:07:14+00:00,2026-09-26T16:00:00+00:00,Nations League,San Marino,Finland,Correct Score,0-3,0.1593,,,
+2026-09-26T14:07:14+00:00,2026-09-26T16:00:00+00:00,Nations League,Bulgaria,Luxembourg,Correct Score,1-0,0.15292,,,
