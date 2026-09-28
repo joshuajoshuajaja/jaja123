@@ -1,25 +1,25 @@
-last_run_utc: 2026-09-27T14:58:38+00:00
-matches_rows: 149050
+last_run_utc: 2026-09-28T17:57:16+00:00
+matches_rows: 149114
 divisions: 40
-date_range: 2012-03-02 .. 2026-09-24
+date_range: 2012-03-02 .. 2026-09-28
 clubelo: no
 xg_matches: 0
 odds: yes
 warnings: 3
   - clubelo unreachable from this runner
-  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
+  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18689 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
 
 rows per division:
-  USA: MLS                     6204
+  USA: MLS                     6218
   E1                           6167
-  E3                           6044
-  E2                           6003
-  EC                           5958
+  E3                           6054
+  E2                           6007
+  EC                           5970
   BRA: Serie A                 5596
   ARG: Liga Profesional        5465
-  SP2                          5148
-  MEX: Liga MX                 4734
+  SP2                          5158
+  MEX: Liga MX                 4743
   JAP: J1 League               4603
   I2                           4438
   ROM: Superliga               4261
@@ -41,12 +41,12 @@ rows per division:
   CHI: Super League            3016
   DEN: Superliga               3006
   SWI: Super League            2727
-  IRE: Premier Division        2721
+  IRE: Premier Division        2722
   FIN: Veikkausliiga           2694
   AUS: Bundesliga              2680
   G1                           2663
   SC0                          2501
-  SC1                          1927
+  SC1                          1931
   SC2                          1908
   SC3                          1907
   ARG: Copa De La Liga Profesional 920

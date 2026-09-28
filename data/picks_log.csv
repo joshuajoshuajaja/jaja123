@@ -1321,3 +1321,13 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-27T15:01:32+00:00,2026-09-27T19:00:00+00:00,La Liga 2,Oviedo,Sporting Gijón,Correct Score,1-0,0.14447,,,
 2026-09-27T15:01:32+00:00,2026-09-27T18:45:00+00:00,Nations League,Israel,Republic of Ireland,Correct Score,1-1,0.13469,,,
 2026-09-27T15:01:32+00:00,2026-09-27T16:30:00+00:00,La Liga 2,Burgos CF,CD Eldense,Correct Score,1-1,0.12942,,,
+2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Northern Ireland,Hungary,1X2/Totals,Under 2.5,0.6366,1.57,onexbet,-0.00055
+2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Belgium,France,1X2/Totals,Under 3.5,0.60544,1.65,onexbet,-0.00103
+2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Sweden,Poland,1X2/Totals,Over 2.5,0.58137,1.7,onexbet,-0.01167
+2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Turkey,Italy,1X2/Totals,Over 2.5,0.57367,1.93,pinnacle,0.10719
+2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Romania,Bosnia & Herzegovina,1X2/Totals,Under 2.5,0.55022,1.8,onexbet,-0.00961
+2026-09-28T18:00:41+00:00,2026-09-28T18:30:00+00:00,La Liga 2,Leganés,CD Castellón,1X2/Totals,Over 2.5,0.5051,1.96,matchbook,-0.01
+2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Northern Ireland,Hungary,Correct Score,1-1,0.14067,,,
+2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Romania,Bosnia & Herzegovina,Correct Score,1-1,0.13438,,,
+2026-09-28T18:00:41+00:00,2026-09-28T18:30:00+00:00,La Liga 2,Leganés,CD Castellón,Correct Score,1-1,0.1224,,,
+2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Turkey,Italy,Correct Score,1-1,0.11756,,,
