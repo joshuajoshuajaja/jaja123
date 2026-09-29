@@ -17,7 +17,7 @@ name: nhl-board
 
 on:
   schedule:
-    - cron: "47 10 * * *'      # 10:00pm Singapore time, every day
+    - cron: '47 10 * * *'      # 10:00pm Singapore time, every day
   workflow_dispatch: {}        # lets you press "Run workflow" by hand
 
 permissions:
