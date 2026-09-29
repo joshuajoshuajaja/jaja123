@@ -1331,3 +1331,15 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Romania,Bosnia & Herzegovina,Correct Score,1-1,0.13438,,,
 2026-09-28T18:00:41+00:00,2026-09-28T18:30:00+00:00,La Liga 2,Leganés,CD Castellón,Correct Score,1-1,0.1224,,,
 2026-09-28T18:00:41+00:00,2026-09-28T18:45:00+00:00,Nations League,Turkey,Italy,Correct Score,1-1,0.11756,,,
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Slovenia,North Macedonia,1X2/Totals,Slovenia,0.60483,1.65,betfair_ex_eu,-0.00203
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Czech Republic,England,1X2/Totals,Over 2.5,0.61775,1.72,onexbet,0.06253
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Bulgaria,Estonia,1X2/Totals,Under 2.5,0.59625,1.64,onexbet,-0.02215
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Slovakia,Kazakhstan,1X2/Totals,Over 2.5,0.58388,1.72,leovegas_se,0.00428
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Luxembourg,Iceland,1X2/Totals,Under 2.5,0.56937,1.72,onexbet,-0.02069
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Scotland,Switzerland,1X2/Totals,Under 2.5,0.56018,1.74,onexbet,-0.02529
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Spain,Croatia,1X2/Totals,Under 3.5,0.55251,1.84,onexbet,0.01662
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,San Marino,Albania,1X2/Totals,Under 3.5,0.52709,1.85,onexbet,-0.02488
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,San Marino,Albania,Correct Score,0-3,0.17037,,,
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Slovenia,North Macedonia,Correct Score,1-0,0.15971,,,
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Slovakia,Kazakhstan,Correct Score,2-0,0.14894,,,
+2026-09-29T16:23:16+00:00,2026-09-29T18:45:00+00:00,Nations League,Bulgaria,Estonia,Correct Score,1-0,0.14801,,,
