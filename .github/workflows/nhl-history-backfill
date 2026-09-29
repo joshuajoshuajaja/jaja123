@@ -1,0 +1,160 @@
+# =====================================================================
+#  NHL HISTORY BACKFILL  (run once, by hand)
+#  Paste into your repo at:  .github/workflows/nhl-history-backfill.yml
+#
+#  Pulls per-game skater and team logs for the last 3 full NHL regular
+#  seasons and commits them as CSVs. This is NOT part of the daily board -
+#  it's a one-time pull of historical data so the model can be backtested
+#  before you trust it. Safe to delete after you've run it once.
+#
+#  After it finishes (Actions tab -> green check), the files live at:
+#    data/nhl/history/skater_games.csv
+#    data/nhl/history/team_games.csv
+# =====================================================================
+name: nhl-history-backfill
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Write backfill script
+        run: |
+          mkdir -p data/nhl/history
+          cat > backfill.py <<'PYEOF'
+          import json, os, time, urllib.request, urllib.parse, urllib.error, csv
+
+          UA = {"User-Agent": "Mozilla/5.0 (nhl-backfill)"}
+          STATS = "https://api.nhle.com/stats/rest/en"
+
+          # Last 3 full regular seasons. Add/remove season ids here to change coverage.
+          SEASONS = [20232024, 20242025, 20252026]
+          GAME_TYPE = 2  # regular season only
+
+          def log(*a):
+              print(" ".join(str(x) for x in a), flush=True)
+
+          def http_get(url, retries=4):
+              last = None
+              for i in range(retries):
+                  try:
+                      req = urllib.request.Request(url, headers=UA)
+                      with urllib.request.urlopen(req, timeout=40) as r:
+                          return json.loads(r.read().decode("utf-8-sig", errors="replace")), r.status
+                  except urllib.error.HTTPError as e:
+                      last = e.code
+                      if e.code == 429:
+                          time.sleep(4 * (i + 1)); continue
+                      if e.code in (400, 404):
+                          return None, e.code
+                  except Exception as e:
+                      last = repr(e)[:100]
+                  time.sleep(1.5 * (i + 1))
+              log("  FAILED after retries:", last, "->", url.split("?")[0])
+              return None, last
+
+          def paginate(kind, season_id, extra_select=None):
+              """Pull every row of a per-game stats table for one season, 1000 rows at a time."""
+              rows, start, limit = [], 0, 1000
+              while True:
+                  q = "seasonId=%d and gameTypeId=%d" % (season_id, GAME_TYPE)
+                  params = {
+                      "isAggregate": "false",
+                      "isGame": "true",
+                      "start": start,
+                      "limit": limit,
+                      "cayenneExp": q,
+                  }
+                  url = "%s/%s/summary?%s" % (STATS, kind, urllib.parse.urlencode(params))
+                  d, status = http_get(url)
+                  if d is None:
+                      log("  %s %s page@%d: HTTP/error %s - stopping this season" % (kind, season_id, start, status))
+                      break
+                  page = d.get("data", [])
+                  if start == 0 and page:
+                      log("  %s %s sample keys: %s" % (kind, season_id, sorted(page[0].keys())))
+                  rows.extend(page)
+                  log("  %s %s: +%d rows (total %d)" % (kind, season_id, len(page), len(rows)))
+                  if len(page) < limit:
+                      break
+                  start += limit
+                  time.sleep(0.3)
+              return rows
+
+          def write_csv(path, rows, fields):
+              os.makedirs(os.path.dirname(path), exist_ok=True)
+              with open(path, "w", newline="", encoding="utf-8") as f:
+                  w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+                  w.writeheader()
+                  for r in rows:
+                      w.writerow(r)
+              log("wrote", path, "(%d rows)" % len(rows))
+
+          def main():
+              # write a placeholder immediately so a bad run still leaves something
+              os.makedirs("data/nhl/history", exist_ok=True)
+              open("data/nhl/history/_status.txt", "w").write("backfill started\n")
+
+              all_skater, all_team = [], []
+              skater_fields = set()
+              team_fields = set()
+
+              for s in SEASONS:
+                  log("=== season", s, "skaters ===")
+                  rows = paginate("skater", s)
+                  for r in rows:
+                      r["_seasonId"] = s
+                  all_skater.extend(rows)
+                  if rows:
+                      skater_fields |= set().union(*[set(r.keys()) for r in rows[:5]])
+                  # checkpoint after every season in case a later one fails/times out
+                  if all_skater:
+                      write_csv("data/nhl/history/skater_games.csv", all_skater,
+                                sorted(skater_fields | {"_seasonId"}))
+
+              for s in SEASONS:
+                  log("=== season", s, "teams ===")
+                  rows = paginate("team", s)
+                  for r in rows:
+                      r["_seasonId"] = s
+                  all_team.extend(rows)
+                  if rows:
+                      team_fields |= set().union(*[set(r.keys()) for r in rows[:5]])
+                  if all_team:
+                      write_csv("data/nhl/history/team_games.csv", all_team,
+                                sorted(team_fields | {"_seasonId"}))
+
+              status = "skater rows: %d\nteam rows: %d\nseasons: %s\n" % (len(all_skater), len(all_team), SEASONS)
+              open("data/nhl/history/_status.txt", "w").write(status)
+              log(status)
+              if not all_skater or not all_team:
+                  print("DIAGNOSIS: backfill produced no usable data - check the sample-keys log lines above", flush=True)
+                  return 1
+              return 0
+
+          if __name__ == "__main__":
+              raise SystemExit(main())
+          PYEOF
+
+      - name: Run backfill
+        run: python backfill.py
+
+      - name: Commit history data
+        if: always()
+        run: |
+          git config user.name "nhl-backfill"
+          git config user.email "nhl-backfill@users.noreply.github.com"
+          git add data/nhl/history
+          git diff --cached --quiet || (git commit -m "NHL history backfill" && git pull --rebase -q && git push)
