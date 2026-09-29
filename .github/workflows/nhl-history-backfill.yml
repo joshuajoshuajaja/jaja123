@@ -22,7 +22,7 @@ permissions:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
 
@@ -66,15 +66,19 @@ jobs:
               return None, last
 
           def paginate(kind, season_id, extra_select=None):
-              """Pull every row of a per-game stats table for one season, 1000 rows at a time."""
-              rows, start, limit = [], 0, 1000
-              while True:
+              """Pull every row of a per-game stats table for one season.
+              The server caps each page at ~100 rows no matter what 'limit' we ask for,
+              so we page by however many rows actually came back, and stop on an empty
+              page - not on the page being smaller than our requested limit."""
+              rows, start = [], 0
+              last_first_key = None
+              for _ in range(800):   # hard safety cap so a stuck loop can't run forever
                   q = "seasonId=%d and gameTypeId=%d" % (season_id, GAME_TYPE)
                   params = {
                       "isAggregate": "false",
                       "isGame": "true",
                       "start": start,
-                      "limit": limit,
+                      "limit": 100,
                       "cayenneExp": q,
                   }
                   url = "%s/%s/summary?%s" % (STATS, kind, urllib.parse.urlencode(params))
@@ -83,14 +87,21 @@ jobs:
                       log("  %s %s page@%d: HTTP/error %s - stopping this season" % (kind, season_id, start, status))
                       break
                   page = d.get("data", [])
-                  if start == 0 and page:
+                  if not page:
+                      break
+                  if start == 0:
                       log("  %s %s sample keys: %s" % (kind, season_id, sorted(page[0].keys())))
+                  key_field = "playerId" if kind == "skater" else "teamFullName"
+                  first_key = (page[0].get(key_field), page[0].get("gameId"))
+                  if first_key == last_first_key:
+                      log("  %s %s: page at start=%d repeated the previous page - server isn't "
+                          "advancing with 'start', stopping here" % (kind, season_id, start))
+                      break
+                  last_first_key = first_key
                   rows.extend(page)
                   log("  %s %s: +%d rows (total %d)" % (kind, season_id, len(page), len(rows)))
-                  if len(page) < limit:
-                      break
-                  start += limit
-                  time.sleep(0.3)
+                  start += len(page)
+                  time.sleep(0.25)
               return rows
 
           def write_csv(path, rows, fields):
