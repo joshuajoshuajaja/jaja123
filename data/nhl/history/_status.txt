@@ -1,3 +1,4 @@
-skater rows: 30000
+skater rows: 137467
 team rows: 7872
 seasons: [20232024, 20242025, 20252026]
+skater fetch clean: True
