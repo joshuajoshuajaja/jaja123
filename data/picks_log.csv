@@ -1357,3 +1357,18 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-01T16:55:39+00:00,2026-10-01T18:45:00+00:00,Nations League,Republic of Ireland,Austria,Correct Score,1-1,0.13503,,,
 2026-10-01T16:55:39+00:00,2026-10-01T18:45:00+00:00,Nations League,Israel,Kosovo,Correct Score,1-1,0.12736,,,
 2026-10-01T16:55:39+00:00,2026-10-01T18:45:00+00:00,Nations League,Greece,Netherlands,Correct Score,1-1,0.11677,,,
+2026-10-02T16:08:06+00:00,2026-10-03T00:30:00+00:00,ARG: Liga Profesional,Boca Juniors,Union Santa Fe,1X2/Totals,Boca Juniors,0.65702,1.52,betfair_ex_eu,-0.00133
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Belgium,Turkey,1X2/Totals,Belgium,0.62358,1.6,betfair_ex_eu,-0.00227
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Poland,Romania,1X2/Totals,Poland,0.61516,1.62,betfair_ex_eu,-0.00344
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Faroe Islands,Slovakia,1X2/Totals,Slovakia,0.61406,1.63,betfair_ex_eu,0.00092
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,France,Italy,1X2/Totals,Over 2.5,0.64177,1.5,matchbook,-0.03734
+2026-10-02T16:08:06+00:00,2026-10-02T18:30:00+00:00,La Liga 2,CD Eldense,Oviedo,1X2/Totals,Under 2.5,0.6184,1.7,coolbet,0.05127
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Ukraine,Northern Ireland,1X2/Totals,Over 1.5,0.61634,1.62,onexbet,-0.00153
+2026-10-02T16:08:06+00:00,2026-10-03T00:30:00+00:00,ARG: Liga Profesional,Independiente Rivadavia,Gimnasia La Plata,1X2/Totals,Under 2.5,0.58102,1.86,pinnacle,0.08069
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Hungary,Georgia,1X2/Totals,Under 2.5,0.57302,1.72,onexbet,-0.01441
+2026-10-02T16:08:06+00:00,2026-10-02T23:00:00+00:00,BRA: Serie A,Sao Paulo,Santos,1X2/Totals,Over 2,0.57213,1.67,betanysports,-0.04455
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Bosnia & Herzegovina,Sweden,1X2/Totals,Over 2.5,0.56266,1.75,onexbet,-0.01534
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Faroe Islands,Slovakia,Correct Score,0-1,0.14962,,,
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Ukraine,Northern Ireland,Correct Score,1-0,0.13955,,,
+2026-10-02T16:08:06+00:00,2026-10-03T00:30:00+00:00,ARG: Liga Profesional,Independiente Rivadavia,Gimnasia La Plata,Correct Score,1-1,0.1381,,,
+2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Hungary,Georgia,Correct Score,1-1,0.13482,,,
