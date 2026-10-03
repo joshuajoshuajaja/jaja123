@@ -1372,3 +1372,20 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Ukraine,Northern Ireland,Correct Score,1-0,0.13955,,,
 2026-10-02T16:08:06+00:00,2026-10-03T00:30:00+00:00,ARG: Liga Profesional,Independiente Rivadavia,Gimnasia La Plata,Correct Score,1-1,0.1381,,,
 2026-10-02T16:08:06+00:00,2026-10-02T18:45:00+00:00,Nations League,Hungary,Georgia,Correct Score,1-1,0.13482,,,
+2026-10-03T14:36:34+00:00,2026-10-03T18:45:00+00:00,Nations League,North Macedonia,Scotland,1X2/Totals,Scotland,0.58612,1.7,betfair_ex_eu,-0.00359
+2026-10-03T14:36:34+00:00,2026-10-03T16:00:00+00:00,Nations League,Estonia,Luxembourg,1X2/Totals,Under 2.5,0.65731,1.58,onexbet,0.03855
+2026-10-03T14:36:34+00:00,2026-10-03T16:00:00+00:00,Nations League,Belarus,San Marino,1X2/Totals,Over 2.5,0.63716,1.52,betsson,-0.03152
+2026-10-03T14:36:34+00:00,2026-10-03T17:45:00+00:00,ARG: Liga Profesional,Defensa y Justicia,San Lorenzo,1X2/Totals,Over 1.5,0.63706,1.57,onexbet,0.00019
+2026-10-03T14:36:34+00:00,2026-10-03T20:00:00+00:00,ARG: Liga Profesional,Newells Old Boys,Lanus,1X2/Totals,Over 1.5,0.61725,1.56,onexbet,-0.03708
+2026-10-03T14:36:34+00:00,2026-10-03T20:00:00+00:00,ARG: Liga Profesional,Atlético Tucuman,Barracas Central,1X2/Totals,Over 1.5,0.59529,1.62,betanysports,-0.03563
+2026-10-03T14:36:34+00:00,2026-10-03T16:00:00+00:00,Nations League,Croatia,England,1X2/Totals,Over 2.5,0.58342,1.73,matchbook,0.00931
+2026-10-03T14:36:34+00:00,2026-10-03T16:30:00+00:00,La Liga 2,Cádiz CF,Leganés,1X2/Totals,Under 2.5,0.58314,1.72,matchbook,0.003
+2026-10-03T14:36:34+00:00,2026-10-03T18:45:00+00:00,Nations League,Spain,Czech Republic,1X2/Totals,Over 3.5,0.58037,1.88,matchbook,0.09109
+2026-10-03T14:36:34+00:00,2026-10-03T16:30:00+00:00,La Liga 2,Sabadell FC,Andorra CF,1X2/Totals,Over 2,0.56506,1.68,coolbet,-0.0507
+2026-10-03T14:36:34+00:00,2026-10-03T21:30:00+00:00,BRA: Serie A,Atletico Mineiro,Bragantino-SP,1X2/Totals,Over 2.5,0.52517,1.89,matchbook,-0.00742
+2026-10-03T14:36:34+00:00,2026-10-03T16:00:00+00:00,Nations League,Iceland,Bulgaria,1X2/Totals,Over 2.5,0.5247,1.85,onexbet,-0.02931
+2026-10-03T14:36:34+00:00,2026-10-03T18:45:00+00:00,Nations League,Switzerland,Slovenia,1X2/Totals,Over 2.5,0.5,1.94,onexbet,-0.03
+2026-10-03T14:36:34+00:00,2026-10-03T16:00:00+00:00,Nations League,Belarus,San Marino,Correct Score,3-0,0.17371,,,
+2026-10-03T14:36:34+00:00,2026-10-03T20:00:00+00:00,ARG: Liga Profesional,Atlético Tucuman,Barracas Central,Correct Score,1-0,0.17135,,,
+2026-10-03T14:36:34+00:00,2026-10-03T18:45:00+00:00,Nations League,Switzerland,Slovenia,Correct Score,2-0,0.1578,,,
+2026-10-03T14:36:34+00:00,2026-10-03T18:45:00+00:00,Nations League,North Macedonia,Scotland,Correct Score,0-1,0.15128,,,
