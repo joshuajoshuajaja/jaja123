@@ -1389,3 +1389,23 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-03T14:36:34+00:00,2026-10-03T20:00:00+00:00,ARG: Liga Profesional,Atlético Tucuman,Barracas Central,Correct Score,1-0,0.17135,,,
 2026-10-03T14:36:34+00:00,2026-10-03T18:45:00+00:00,Nations League,Switzerland,Slovenia,Correct Score,2-0,0.1578,,,
 2026-10-03T14:36:34+00:00,2026-10-03T18:45:00+00:00,Nations League,North Macedonia,Scotland,Correct Score,0-1,0.15128,,,
+2026-10-04T15:11:22+00:00,2026-10-04T16:45:00+00:00,ARG: Liga Profesional,Sarmiento de Junin,River Plate,1X2/Totals,River Plate,0.56637,1.7,pinnacle,-0.03716
+2026-10-04T15:11:22+00:00,2026-10-04T16:00:00+00:00,Nations League,Malta,Andorra,1X2/Totals,Under 2.5,0.65399,1.56,onexbet,0.02022
+2026-10-04T15:11:22+00:00,2026-10-04T22:15:00+00:00,ARG: Liga Profesional,Argentinos Juniors,CA Tigre BA,1X2/Totals,Over 1.5,0.63789,1.5,unibet_se,-0.04317
+2026-10-04T15:11:22+00:00,2026-10-04T18:45:00+00:00,Nations League,Portugal,Norway,1X2/Totals,Over 2.5,0.625,1.54,leovegas_se,-0.0375
+2026-10-04T15:11:22+00:00,2026-10-04T20:00:00+00:00,ARG: Liga Profesional,Talleres,Belgrano de Cordoba,1X2/Totals,Under 2.5,0.62234,1.55,onexbet,-0.03538
+2026-10-04T15:11:22+00:00,2026-10-04T17:45:00+00:00,ARG: Liga Profesional,Atlético Huracán,Aldosivi Mar del Plata,1X2/Totals,Under 2.5,0.62145,1.54,unibet_se,-0.04296
+2026-10-04T15:11:22+00:00,2026-10-05T00:30:00+00:00,ARG: Liga Profesional,Estudiantes de Río Cuarto,Racing Club,1X2/Totals,Over 1.5,0.60728,1.58,onexbet,-0.04049
+2026-10-04T15:11:22+00:00,2026-10-04T18:45:00+00:00,Nations League,Greece,Germany,1X2/Totals,Over 2.5,0.60094,1.78,matchbook,0.06967
+2026-10-04T15:11:22+00:00,2026-10-04T19:00:00+00:00,La Liga 2,Sabadell FC,Andorra CF,1X2/Totals,Under 2.5,0.54193,1.8,matchbook,-0.02453
+2026-10-04T15:11:22+00:00,2026-10-04T16:30:00+00:00,La Liga 2,Las Palmas,Real Valladolid CF,1X2/Totals,Under 2.5,0.53964,1.87,matchbook,0.00913
+2026-10-04T15:11:22+00:00,2026-10-04T18:45:00+00:00,Nations League,Wales,Denmark,1X2/Totals,Over 2.5,0.52256,1.91,betanysports,-0.00191
+2026-10-04T15:11:22+00:00,2026-10-04T16:00:00+00:00,Nations League,Kosovo,Austria,1X2/Totals,Under 2.5,0.5222,1.89,leovegas_se,-0.01304
+2026-10-04T15:11:22+00:00,2026-10-04T18:45:00+00:00,Nations League,Netherlands,Serbia,1X2/Totals,Over 3.25,0.51517,1.85,pinnacle,-0.04694
+2026-10-04T15:11:22+00:00,2026-10-04T18:45:00+00:00,Nations League,Republic of Ireland,Israel,1X2/Totals,Under 2.5,0.51144,1.88,onexbet,-0.03849
+2026-10-04T15:11:22+00:00,2026-10-04T16:30:00+00:00,La Liga 2,CD Castellón,AD Ceuta FC,1X2/Totals,Over 3.25,0.51018,1.82,betonlineag,-0.07148
+2026-10-04T15:11:22+00:00,2026-10-04T19:00:00+00:00,La Liga 2,Girona FC,Mallorca,1X2/Totals,Under 2.5,0.50446,1.96,onexbet,-0.01127
+2026-10-04T15:11:22+00:00,2026-10-04T16:00:00+00:00,Nations League,Malta,Andorra,Correct Score,1-0,0.17964,,,
+2026-10-04T15:11:22+00:00,2026-10-04T17:45:00+00:00,ARG: Liga Profesional,Atlético Huracán,Aldosivi Mar del Plata,Correct Score,1-0,0.15565,,,
+2026-10-04T15:11:22+00:00,2026-10-04T22:15:00+00:00,ARG: Liga Profesional,Argentinos Juniors,CA Tigre BA,Correct Score,1-0,0.15243,,,
+2026-10-04T15:11:22+00:00,2026-10-05T00:30:00+00:00,ARG: Liga Profesional,Estudiantes de Río Cuarto,Racing Club,Correct Score,0-1,0.15006,,,
