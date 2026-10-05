@@ -523,7 +523,11 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-10-03,2026-10-03T14:55:56.493483+00:00,ML,849830,SD @ MIL,Milwaukee Brewers,MIL,Robbie Ray / Jacob Misiorowski,1.54,betonlineag,0.6447,,15,-0.72,,1.523,1.13,WIN,
 2026-10-03,2026-10-03T14:55:56.493483+00:00,ML,849829,CWS @ CLE,Cleveland Guardians,CLE,Hagen Smith / Parker Messick,1.71,betonlineag,0.5764,,15,-1.44,,1.710,-0.02,LOSS,
 2026-10-03,2026-10-03T14:55:56.493483+00:00,ML,849835,NYY @ TB,Tampa Bay Rays,TB,Gerrit Cole / Drew Rasmussen,1.79,betonlineag,0.5493,,15,-1.68,,1.864,-3.96,WIN,
-2026-10-04,2026-10-04T15:30:21.547226+00:00,HR,849823,ATL @ LAD,Shohei Ohtani,LAD,TBD,4.25,espnbet,0.2053,0.1787,6,-12.75,Parlay 1,4.119,3.17,,660271
-2026-10-04,2026-10-04T15:30:21.547226+00:00,HR,849825,SD @ MIL,Fernando Tatis Jr.,SD,Logan Henderson,5.00,espnbet,0.1694,0.1557,6,-15.31,Parlay 1,,,,665487
-2026-10-04,2026-10-04T15:30:21.547226+00:00,ML,849823,ATL @ LAD,Los Angeles Dodgers,LAD,TBD / Blake Snell,1.67,betonlineag,0.5856,,15,-2.20,,1.475,13.25,,
-2026-10-04,2026-10-04T15:30:21.547226+00:00,ML,849825,SD @ MIL,Milwaukee Brewers,MIL,Michael King / Logan Henderson,1.78,espnbet,0.5543,,15,-1.33,,7.035,-74.70,,
+2026-10-04,2026-10-04T15:30:21.547226+00:00,HR,849823,ATL @ LAD,Shohei Ohtani,LAD,TBD,4.25,espnbet,0.2053,0.1787,6,-12.75,Parlay 1,4.119,3.17,LOSS,660271
+2026-10-04,2026-10-04T15:30:21.547226+00:00,HR,849825,SD @ MIL,Fernando Tatis Jr.,SD,Logan Henderson,5.00,espnbet,0.1694,0.1557,6,-15.31,Parlay 1,,,LOSS,665487
+2026-10-04,2026-10-04T15:30:21.547226+00:00,ML,849823,ATL @ LAD,Los Angeles Dodgers,LAD,TBD / Blake Snell,1.67,betonlineag,0.5856,,15,-2.20,,1.475,13.25,LOSS,
+2026-10-04,2026-10-04T15:30:21.547226+00:00,ML,849825,SD @ MIL,Milwaukee Brewers,MIL,Michael King / Logan Henderson,1.78,espnbet,0.5543,,15,-1.33,,7.035,-74.70,WIN,
+2026-10-05,2026-10-05T19:24:13.941821+00:00,HR,849839,NYY @ TB,Ben Rice,NYY,Freddy Peralta,4.70,betparx,0.2009,0.2035,6,-5.60,Parlay 1,,,,700250
+2026-10-05,2026-10-05T19:24:13.941821+00:00,HR,849834,CWS @ CLE,Munetaka Murakami,CWS,Gavin Williams,5.25,espnbet,0.1738,0.2296,6,-8.77,Parlay 1,,,,808959
+2026-10-05,2026-10-05T19:24:13.941821+00:00,ML,849834,CWS @ CLE,Cleveland Guardians,CLE,Anthony Kay / Gavin Williams,1.68,espnbet,0.5857,,15,-1.60,,,,,
+2026-10-05,2026-10-05T19:24:13.941821+00:00,ML,849839,NYY @ TB,New York Yankees,NYY,Cam Schlittler / Freddy Peralta,1.83,fanduel,0.5340,,15,-2.28,,,,,
