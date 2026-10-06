@@ -1,7 +1,7 @@
-last_run_utc: 2026-10-05T19:02:49+00:00
-matches_rows: 149174
+last_run_utc: 2026-10-06T16:28:53+00:00
+matches_rows: 149192
 divisions: 40
-date_range: 2012-03-02 .. 2026-10-04
+date_range: 2012-03-02 .. 2026-10-06
 clubelo: no
 xg_matches: 0
 odds: yes
@@ -16,9 +16,9 @@ rows per division:
   E3                           6062
   E2                           6010
   EC                           5993
-  BRA: Serie A                 5596
-  ARG: Liga Profesional        5465
-  SP2                          5169
+  BRA: Serie A                 5598
+  ARG: Liga Profesional        5479
+  SP2                          5170
   MEX: Liga MX                 4743
   JAP: J1 League               4603
   I2                           4438
@@ -41,7 +41,7 @@ rows per division:
   CHI: Super League            3016
   DEN: Superliga               3006
   SWI: Super League            2727
-  IRE: Premier Division        2722
+  IRE: Premier Division        2723
   FIN: Veikkausliiga           2694
   AUS: Bundesliga              2680
   G1                           2663

@@ -1417,3 +1417,17 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-05T19:06:29+00:00,2026-10-05T22:00:00+00:00,ARG: Liga Profesional,Velez Sarsfield BA,Platense,Correct Score,1-0,0.16014,,,
 2026-10-05T19:06:29+00:00,2026-10-05T22:00:00+00:00,ARG: Liga Profesional,Estudiantes,Gimnasia Mendoza,Correct Score,1-0,0.13614,,,
 2026-10-05T19:06:29+00:00,2026-10-06T00:15:00+00:00,ARG: Liga Profesional,Banfield,Rosario Central,Correct Score,1-1,0.13434,,,
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Estonia,Iceland,1X2/Totals,Iceland,0.59872,1.65,betfair_ex_eu,-0.01212
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Scotland,Slovenia,1X2/Totals,Under 2.5,0.63886,1.67,onexbet,0.06689
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Belarus,Finland,1X2/Totals,Under 2.5,0.63172,1.67,onexbet,0.05497
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Luxembourg,Bulgaria,1X2/Totals,Under 2.5,0.63088,1.58,onexbet,-0.00321
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Switzerland,North Macedonia,1X2/Totals,Under 3.5,0.57576,1.69,onexbet,-0.02697
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Croatia,Spain,1X2/Totals,Under 3.5,0.5548,1.74,betanysports,-0.03465
+2026-10-06T16:32:28+00:00,2026-10-07T00:30:00+00:00,USA: MLS,Chicago Fire,Vancouver Whitecaps FC,1X2/Totals,Over 3,0.55306,1.74,betonlineag,-0.03768
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Albania,San Marino,1X2/Totals,Under 4.5,0.53968,1.8,onexbet,-0.02857
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Moldova,Slovakia,1X2/Totals,Over 2.5,0.53696,1.84,onexbet,-0.012
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,England,Czech Republic,1X2/Totals,Over 3.5,0.53082,1.88,onexbet,-0.00205
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Switzerland,North Macedonia,Correct Score,3-0,0.16483,,,
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Scotland,Slovenia,Correct Score,1-0,0.15999,,,
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Belarus,Finland,Correct Score,0-1,0.14861,,,
+2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Estonia,Iceland,Correct Score,0-1,0.1388,,,
