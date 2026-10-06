@@ -1,21 +1,24 @@
-NHL BOARD  Tue 06 Oct SGT  |  9 games
+NHL BOARD  Wed 07 Oct SGT  |  9 games
 
 *1) SAFEST GOALSCORER PARLAY (4 legs)*
-- Kirill Kaprizov (MIN) vs BUF  @ 2.38  [41%]  Wed 07:00 SGT
-- Auston Matthews (TOR) vs NSH  @ 2.50  [40%]  Wed 07:00 SGT
+- Kirill Kaprizov (MIN) vs BUF  @ 2.40  [41%]  Wed 07:00 SGT
+- Auston Matthews (TOR) vs NSH  @ 2.40  [40%]  Wed 07:00 SGT
 - Cole Caufield (MTL) vs CAR  @ 2.40  [39%]  Wed 07:00 SGT
-- Jack Hughes (NJD) vs UTA  @ 2.55  [37%]  Wed 07:00 SGT
-Combined odds ~36.4 | our chance ~2.4%
+- Jack Hughes (NJD) vs UTA  @ 2.50  [37%]  Wed 07:00 SGT
+Combined odds ~34.6 | our chance ~2.4%
 
 *2) VALUE GOALSCORER PARLAY (4 legs)*
-- Dylan Larkin (DET) vs OTT  @ 3.30  [31%]  Wed 07:00 SGT
+- Dylan Larkin (DET) vs OTT  @ 3.40  [32%]  Wed 07:00 SGT
 - Artemi Panarin (LAK) vs FLA  @ 3.20  [32%]  Wed 10:00 SGT
 - Filip Forsberg (NSH) vs TOR  @ 3.00  [34%]  Wed 07:00 SGT
 - Tage Thompson (BUF) vs MIN  @ 2.60  [37%]  Wed 07:00 SGT
-Combined odds ~82.4 | our chance ~1.3%
+Combined odds ~84.9 | our chance ~1.3%
 
 *3) MONEYLINE PARLAY (strong favourites)*
-No parlay today - fewer than 2 picks cleared the STRONG bar.
+- NYR vs NYI  @ 1.68  [58%]  Wed 07:30 SGT
+- TOR vs NSH  @ 1.67  [58%]  Wed 07:00 SGT
+Combined odds ~2.8 | our chance ~33.7%
+(only 2 strong legs available, target was 4)
 
 Track record so far: Goalscorer legs 22/71 | Moneyline legs 13/17
 
