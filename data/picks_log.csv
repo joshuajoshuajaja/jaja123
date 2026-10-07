@@ -1431,3 +1431,13 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Scotland,Slovenia,Correct Score,1-0,0.15999,,,
 2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Belarus,Finland,Correct Score,0-1,0.14861,,,
 2026-10-06T16:32:28+00:00,2026-10-06T18:45:00+00:00,Nations League,Estonia,Iceland,Correct Score,0-1,0.1388,,,
+2026-10-07T17:17:15+00:00,2026-10-07T23:00:00+00:00,BRA: Serie A,Vitoria,Chapecoense,1X2/Totals,Vitoria,0.57554,1.71,betfair_ex_eu,-0.01582
+2026-10-07T17:17:15+00:00,2026-10-07T22:30:00+00:00,BRA: Serie A,Internacional,Corinthians,1X2/Totals,Under 2.5,0.5608,1.75,matchbook,-0.0186
+2026-10-07T17:17:15+00:00,2026-10-07T22:30:00+00:00,BRA: Serie A,Bragantino-SP,Mirassol,1X2/Totals,Over 2.5,0.53902,1.83,pinnacle,-0.0136
+2026-10-07T17:17:15+00:00,2026-10-07T23:30:00+00:00,BRA: Serie A,Botafogo,Vasco da Gama,1X2/Totals,Over 2.5,0.53028,1.82,onexbet,-0.03488
+2026-10-07T17:17:15+00:00,2026-10-08T00:30:00+00:00,BRA: Serie A,Cruzeiro,Sao Paulo,1X2/Totals,Under 2.5,0.52027,1.86,matchbook,-0.0323
+2026-10-07T17:17:15+00:00,2026-10-07T22:30:00+00:00,BRA: Serie A,Remo,Grêmio,1X2/Totals,Over 2.5,0.50071,1.93,matchbook,-0.03363
+2026-10-07T17:17:15+00:00,2026-10-07T22:30:00+00:00,BRA: Serie A,Internacional,Corinthians,Correct Score,1-1,0.13219,,,
+2026-10-07T17:17:15+00:00,2026-10-07T22:30:00+00:00,BRA: Serie A,Remo,Grêmio,Correct Score,1-1,0.12662,,,
+2026-10-07T17:17:15+00:00,2026-10-07T23:30:00+00:00,BRA: Serie A,Botafogo,Vasco da Gama,Correct Score,1-1,0.12319,,,
+2026-10-07T17:17:15+00:00,2026-10-08T00:30:00+00:00,BRA: Serie A,Cruzeiro,Sao Paulo,Correct Score,1-1,0.12316,,,
