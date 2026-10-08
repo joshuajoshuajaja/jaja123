@@ -1441,3 +1441,11 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-07T17:17:15+00:00,2026-10-07T22:30:00+00:00,BRA: Serie A,Remo,Grêmio,Correct Score,1-1,0.12662,,,
 2026-10-07T17:17:15+00:00,2026-10-07T23:30:00+00:00,BRA: Serie A,Botafogo,Vasco da Gama,Correct Score,1-1,0.12319,,,
 2026-10-07T17:17:15+00:00,2026-10-08T00:30:00+00:00,BRA: Serie A,Cruzeiro,Sao Paulo,Correct Score,1-1,0.12316,,,
+2026-10-08T17:14:39+00:00,2026-10-09T00:30:00+00:00,BRA: Serie A,Fluminense,Coritiba,1X2/Totals,Fluminense,0.64729,1.53,unibet_nl,-0.00965
+2026-10-08T17:14:39+00:00,2026-10-09T00:30:00+00:00,BRA: Serie A,Palmeiras,Bahia,1X2/Totals,Palmeiras,0.62209,1.6,betfair_ex_eu,-0.00465
+2026-10-08T17:14:39+00:00,2026-10-08T22:30:00+00:00,BRA: Serie A,Santos,Flamengo,1X2/Totals,Over 2.5,0.53548,1.81,onexbet,-0.03078
+2026-10-08T17:14:39+00:00,2026-10-08T23:00:00+00:00,BRA: Serie A,Atletico Paranaense,Atletico Mineiro,1X2/Totals,Under 2.5,0.53445,1.83,matchbook,-0.02195
+2026-10-08T17:14:39+00:00,2026-10-09T00:30:00+00:00,BRA: Serie A,Fluminense,Coritiba,Correct Score,1-0,0.12755,,,
+2026-10-08T17:14:39+00:00,2026-10-08T23:00:00+00:00,BRA: Serie A,Atletico Paranaense,Atletico Mineiro,Correct Score,1-1,0.12731,,,
+2026-10-08T17:14:39+00:00,2026-10-08T22:30:00+00:00,BRA: Serie A,Santos,Flamengo,Correct Score,1-1,0.11546,,,
+2026-10-08T17:14:39+00:00,2026-10-09T00:30:00+00:00,BRA: Serie A,Palmeiras,Bahia,Correct Score,2-0,0.10508,,,

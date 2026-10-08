@@ -1,4 +1,4 @@
-last_run_utc: 2026-10-07T17:13:44+00:00
+last_run_utc: 2026-10-08T17:10:55+00:00
 matches_rows: 149192
 divisions: 40
 date_range: 2012-03-02 .. 2026-10-06
