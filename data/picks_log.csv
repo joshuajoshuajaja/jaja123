@@ -1449,3 +1449,15 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-08T17:14:39+00:00,2026-10-08T23:00:00+00:00,BRA: Serie A,Atletico Paranaense,Atletico Mineiro,Correct Score,1-1,0.12731,,,
 2026-10-08T17:14:39+00:00,2026-10-08T22:30:00+00:00,BRA: Serie A,Santos,Flamengo,Correct Score,1-1,0.11546,,,
 2026-10-08T17:14:39+00:00,2026-10-09T00:30:00+00:00,BRA: Serie A,Palmeiras,Bahia,Correct Score,2-0,0.10508,,,
+2026-10-09T16:51:23+00:00,2026-10-09T19:00:00+00:00,Championship,West Ham United,Queens Park Rangers,1X2/Totals,West Ham United,0.63583,1.56,betfair_ex_eu,-0.00811
+2026-10-09T16:51:23+00:00,2026-10-09T17:30:00+00:00,ARG: Liga Profesional,Aldosivi Mar del Plata,Sarmiento de Junin,1X2/Totals,Under 2.5,0.62842,1.52,betsson,-0.0448
+2026-10-09T16:51:23+00:00,2026-10-09T22:30:00+00:00,ARG: Liga Profesional,Instituto de Córdoba,Boca Juniors,1X2/Totals,Over 1.5,0.61912,1.55,onexbet,-0.04036
+2026-10-09T16:51:23+00:00,2026-10-09T18:45:00+00:00,Ligue 1,RC Lens,Lyon,1X2/Totals,Over 2.5,0.61891,1.57,williamhill,-0.02831
+2026-10-09T16:51:23+00:00,2026-10-09T21:00:00+00:00,ARG: Liga Profesional,Gimnasia La Plata,Atlético Tucuman,1X2/Totals,Under 2.5,0.608,1.61,unibet_se,-0.02113
+2026-10-09T16:51:23+00:00,2026-10-10T00:45:00+00:00,ARG: Liga Profesional,Union Santa Fe,Defensa y Justicia,1X2/Totals,Under 2.5,0.56065,1.74,unibet_se,-0.02447
+2026-10-09T16:51:23+00:00,2026-10-09T19:00:00+00:00,La Liga,Málaga,Espanyol,1X2/Totals,Under 2.5,0.53879,1.88,onexbet,0.01292
+2026-10-09T16:51:23+00:00,2026-10-09T18:30:00+00:00,Bundesliga,Borussia Dortmund,Werder Bremen,1X2/Totals,Under 3.5,0.53879,1.88,matchbook,0.01292
+2026-10-09T16:51:23+00:00,2026-10-09T22:30:00+00:00,ARG: Liga Profesional,Instituto de Córdoba,Boca Juniors,Correct Score,1-1,0.14737,,,
+2026-10-09T16:51:23+00:00,2026-10-09T17:30:00+00:00,ARG: Liga Profesional,Aldosivi Mar del Plata,Sarmiento de Junin,Correct Score,1-1,0.14637,,,
+2026-10-09T16:51:23+00:00,2026-10-09T21:00:00+00:00,ARG: Liga Profesional,Gimnasia La Plata,Atlético Tucuman,Correct Score,1-1,0.14011,,,
+2026-10-09T16:51:23+00:00,2026-10-10T00:45:00+00:00,ARG: Liga Profesional,Union Santa Fe,Defensa y Justicia,Correct Score,1-1,0.13791,,,
