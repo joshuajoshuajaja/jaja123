@@ -555,3 +555,5 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-10-07,2026-10-07T17:32:58.616457+00:00,ML,849827,MIL @ SD,San Diego Padres,SD,TBD / Walker Buehler,1.93,lowvig,0.5110,,15,-1.38,,1.979,-2.48,LOSS,
 2026-10-08,2026-10-08T17:36:17.929110+00:00,HR,849832,CLE @ CWS,Munetaka Murakami,CWS,Parker Messick,5.00,ballybet,0.1829,0.2001,6,-8.57,Parlay 1,,,LOSS,808959
 2026-10-08,2026-10-08T17:36:17.929110+00:00,ML,849832,CLE @ CWS,Cleveland Guardians,CLE,Parker Messick / Hagen Smith,1.91,betus,0.5152,,15,-1.60,,1.895,0.81,WIN,
+2026-10-10,2026-10-10T15:57:33.884758+00:00,HR,849831,CWS @ CLE,Munetaka Murakami,CWS,Gavin Williams,5.25,espnbet,0.1694,0.2217,6,-11.07,Parlay 1,,,,808959
+2026-10-10,2026-10-10T15:57:33.884758+00:00,ML,849831,CWS @ CLE,Cleveland Guardians,CLE,Sean Burke / Gavin Williams,1.74,betonlineag,0.5613,,15,-2.33,,,,,
