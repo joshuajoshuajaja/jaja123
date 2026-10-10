@@ -1461,3 +1461,38 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-09T16:51:23+00:00,2026-10-09T17:30:00+00:00,ARG: Liga Profesional,Aldosivi Mar del Plata,Sarmiento de Junin,Correct Score,1-1,0.14637,,,
 2026-10-09T16:51:23+00:00,2026-10-09T21:00:00+00:00,ARG: Liga Profesional,Gimnasia La Plata,Atlético Tucuman,Correct Score,1-1,0.14011,,,
 2026-10-09T16:51:23+00:00,2026-10-10T00:45:00+00:00,ARG: Liga Profesional,Union Santa Fe,Defensa y Justicia,Correct Score,1-1,0.13791,,,
+2026-10-10T15:44:35+00:00,2026-10-10T18:45:00+00:00,Serie A,Napoli,Frosinone,1X2/Totals,Napoli,0.63701,1.57,betfair_ex_eu,0.00011
+2026-10-10T15:44:35+00:00,2026-10-10T16:30:00+00:00,Bundesliga,RB Leipzig,Eintracht Frankfurt,1X2/Totals,RB Leipzig,0.61375,1.63,betfair_ex_eu,0.00042
+2026-10-10T15:44:35+00:00,2026-10-10T18:45:00+00:00,Ligue 1,AS Monaco,Toulouse,1X2/Totals,AS Monaco,0.60919,1.65,onexbet,0.00516
+2026-10-10T15:44:35+00:00,2026-10-11T00:00:00+00:00,BRA: Serie A,Sao Paulo,Vitoria,1X2/Totals,Sao Paulo,0.58579,1.67,coolbet,-0.02173
+2026-10-10T15:44:35+00:00,2026-10-10T23:30:00+00:00,USA: MLS,New England Revolution,Seattle Sounders FC,1X2/Totals,Over 2.5,0.63492,1.55,williamhill,-0.01587
+2026-10-10T15:44:35+00:00,2026-10-10T17:00:00+00:00,USA: MLS,Toronto FC,CF Montreal,1X2/Totals,Over 2.5,0.62733,1.52,betsson,-0.04645
+2026-10-10T15:44:35+00:00,2026-10-10T18:30:00+00:00,USA: MLS,Chicago Fire,New York City FC,1X2/Totals,Over 2.5,0.62733,1.53,williamhill,-0.04018
+2026-10-10T15:44:35+00:00,2026-10-10T20:00:00+00:00,ARG: Liga Profesional,Central Córdoba,Estudiantes,1X2/Totals,Under 2.5,0.62664,1.55,unibet_se,-0.02871
+2026-10-10T15:44:35+00:00,2026-10-10T23:30:00+00:00,USA: MLS,Charlotte FC,FC Dallas,1X2/Totals,Over 2.5,0.62234,1.52,betsson,-0.05405
+2026-10-10T15:44:35+00:00,2026-10-11T01:30:00+00:00,USA: MLS,Colorado Rapids,San Jose Earthquakes,1X2/Totals,Over 2.5,0.6125,1.56,leovegas_se,-0.04451
+2026-10-10T15:44:35+00:00,2026-10-10T22:15:00+00:00,ARG: Liga Profesional,CA Tigre BA,Banfield,1X2/Totals,Under 2.5,0.60753,1.66,unibet_se,0.00849
+2026-10-10T15:44:35+00:00,2026-10-10T20:00:00+00:00,BRA: Serie A,Vasco da Gama,Remo,1X2/Totals,Over 2.5,0.5932,1.64,onexbet,-0.02715
+2026-10-10T15:44:35+00:00,2026-10-10T18:45:00+00:00,Ligue 1,Paris Saint Germain,Le Mans FC,1X2/Totals,Under 4.5,0.58424,1.69,onexbet,-0.01264
+2026-10-10T15:44:35+00:00,2026-10-10T16:30:00+00:00,La Liga 2,CD Eldense,Córdoba,1X2/Totals,Over 2.5,0.58166,1.64,onexbet,-0.04607
+2026-10-10T15:44:35+00:00,2026-10-10T16:30:00+00:00,Premier League,Manchester United,Tottenham Hotspur,1X2/Totals,Under 3.5,0.57978,1.75,onexbet,0.01461
+2026-10-10T15:44:35+00:00,2026-10-11T00:30:00+00:00,USA: MLS,Minnesota United FC,Houston Dynamo,1X2/Totals,Over 2.5,0.57047,1.73,onexbet,-0.01308
+2026-10-10T15:44:35+00:00,2026-10-10T19:00:00+00:00,La Liga,Real Madrid,Villarreal,1X2/Totals,Over 3.5,0.56502,1.8,coolbet,0.01703
+2026-10-10T15:44:35+00:00,2026-10-10T18:45:00+00:00,ARG: Liga Profesional,Barracas Central,Atlético Huracán,1X2/Totals,Over 1.5,0.5531,1.75,onexbet,-0.03208
+2026-10-10T15:44:35+00:00,2026-10-11T00:30:00+00:00,USA: MLS,Austin FC,Nashville SC,1X2/Totals,Over 2.5,0.55264,1.81,onexbet,0.00027
+2026-10-10T15:44:35+00:00,2026-10-10T16:30:00+00:00,La Liga,Barcelona,Getafe,1X2/Totals,Under 4,0.55164,1.81,coolbet,-0.00154
+2026-10-10T15:44:35+00:00,2026-10-10T23:30:00+00:00,USA: MLS,Inter Miami CF,D.C. United,1X2/Totals,Over 3.5,0.54993,1.8,leovegas_se,-0.01013
+2026-10-10T15:44:35+00:00,2026-10-10T19:00:00+00:00,La Liga 2,Celta Fortuna,Real Sociedad B,1X2/Totals,Over 2.5,0.54622,1.9,pinnacle,0.03782
+2026-10-10T15:44:35+00:00,2026-10-10T18:45:00+00:00,Ligue 1,Brest,Angers,1X2/Totals,Over 2.5,0.54511,1.83,onexbet,-0.00244
+2026-10-10T15:44:35+00:00,2026-10-10T16:00:00+00:00,Serie A,Inter Milan,Parma,1X2/Totals,Under 3.5,0.53657,1.97,matchbook,0.05704
+2026-10-10T15:44:35+00:00,2026-10-10T23:30:00+00:00,USA: MLS,Orlando City SC,Columbus Crew SC,1X2/Totals,Under 3.5,0.53657,1.82,onexbet,-0.02345
+2026-10-10T15:44:35+00:00,2026-10-10T23:30:00+00:00,USA: MLS,Atlanta United FC,FC Cincinnati,1X2/Totals,Under 3.5,0.5309,1.88,onexbet,-0.00191
+2026-10-10T15:44:35+00:00,2026-10-10T23:30:00+00:00,USA: MLS,New York Red Bulls,San Diego FC,1X2/Totals,Over 3.25,0.5257,1.83,pinnacle,-0.03797
+2026-10-10T15:44:35+00:00,2026-10-10T23:30:00+00:00,USA: MLS,Philadelphia Union,Real Salt Lake,1X2/Totals,Over 3.25,0.52447,1.83,pinnacle,-0.04022
+2026-10-10T15:44:35+00:00,2026-10-10T18:45:00+00:00,Ligue 1,Lorient,Paris FC,1X2/Totals,Under 2.5,0.51281,1.92,onexbet,-0.01541
+2026-10-10T15:44:35+00:00,2026-10-11T00:30:00+00:00,USA: MLS,Sporting Kansas City,Portland Timbers,1X2/Totals,Under 3.5,0.50416,1.92,onexbet,-0.03202
+2026-10-10T15:44:35+00:00,2026-10-11T00:30:00+00:00,ARG: Liga Profesional,River Plate,Estudiantes de Río Cuarto,1X2/Totals,Over 2.5,0.5,1.94,unibet_se,-0.03
+2026-10-10T15:44:35+00:00,2026-10-11T00:30:00+00:00,ARG: Liga Profesional,River Plate,Estudiantes de Río Cuarto,Correct Score,2-0,0.17971,,,
+2026-10-10T15:44:35+00:00,2026-10-10T18:45:00+00:00,ARG: Liga Profesional,Barracas Central,Atlético Huracán,Correct Score,0-0,0.17718,,,
+2026-10-10T15:44:35+00:00,2026-10-10T22:15:00+00:00,ARG: Liga Profesional,CA Tigre BA,Banfield,Correct Score,1-0,0.14724,,,
+2026-10-10T15:44:35+00:00,2026-10-10T20:00:00+00:00,ARG: Liga Profesional,Central Córdoba,Estudiantes,Correct Score,1-1,0.14144,,,
