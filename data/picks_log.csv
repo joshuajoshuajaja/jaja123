@@ -1496,3 +1496,23 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-10T15:44:35+00:00,2026-10-10T18:45:00+00:00,ARG: Liga Profesional,Barracas Central,Atlético Huracán,Correct Score,0-0,0.17718,,,
 2026-10-10T15:44:35+00:00,2026-10-10T22:15:00+00:00,ARG: Liga Profesional,CA Tigre BA,Banfield,Correct Score,1-0,0.14724,,,
 2026-10-10T15:44:35+00:00,2026-10-10T20:00:00+00:00,ARG: Liga Profesional,Central Córdoba,Estudiantes,Correct Score,1-1,0.14144,,,
+2026-10-11T16:11:46+00:00,2026-10-11T16:30:00+00:00,La Liga,Real Betis,CA Osasuna,1X2/Totals,Real Betis,0.662,1.52,onexbet,0.00625
+2026-10-11T16:11:46+00:00,2026-10-11T20:30:00+00:00,BRA: Serie A,Palmeiras,Corinthians,1X2/Totals,Palmeiras,0.63394,1.56,onexbet,-0.01106
+2026-10-11T16:11:46+00:00,2026-10-11T16:30:00+00:00,La Liga 2,Mallorca,Las Palmas,1X2/Totals,Mallorca,0.6163,1.58,coolbet,-0.02624
+2026-10-11T16:11:46+00:00,2026-10-11T18:45:00+00:00,Serie A,Cagliari,Juventus,1X2/Totals,Juventus,0.61425,1.63,betfair_ex_eu,0.00122
+2026-10-11T16:11:46+00:00,2026-10-11T23:00:00+00:00,USA: MLS,St. Louis City SC,LA Galaxy,1X2/Totals,St. Louis City SC,0.58776,1.67,betfair_ex_eu,-0.01845
+2026-10-11T16:11:46+00:00,2026-10-11T22:30:00+00:00,BRA: Serie A,Bahia,Mirassol,1X2/Totals,Bahia,0.57466,1.69,onexbet,-0.02883
+2026-10-11T16:11:46+00:00,2026-10-11T22:15:00+00:00,ARG: Liga Profesional,Racing Club,Belgrano de Cordoba,1X2/Totals,Over 1.5,0.63053,1.52,onexbet,-0.04159
+2026-10-11T16:11:46+00:00,2026-10-11T20:00:00+00:00,ARG: Liga Profesional,Platense,Argentinos Juniors,1X2/Totals,Over 1.5,0.62754,1.56,onexbet,-0.02103
+2026-10-11T16:11:46+00:00,2026-10-11T18:45:00+00:00,Ligue 1,Troyes,Marseille,1X2/Totals,Over 2.5,0.60775,1.65,onexbet,0.00278
+2026-10-11T16:11:46+00:00,2026-10-11T20:00:00+00:00,ARG: Liga Profesional,Rosario Central,Independiente Rivadavia,1X2/Totals,Under 2.5,0.60128,1.65,unibet_se,-0.00788
+2026-10-11T16:11:46+00:00,2026-10-11T19:00:00+00:00,La Liga,Real Racing Club de Santander,Valencia,1X2/Totals,Over 2.5,0.57095,1.76,coolbet,0.00487
+2026-10-11T16:11:46+00:00,2026-10-11T20:30:00+00:00,BRA: Serie A,Flamengo,Fluminense,1X2/Totals,Over 2.5,0.556,1.72,gtbets,-0.04368
+2026-10-11T16:11:46+00:00,2026-10-11T19:00:00+00:00,La Liga 2,Cádiz CF,Sporting Gijón,1X2/Totals,Under 2.5,0.5555,1.81,onexbet,0.00545
+2026-10-11T16:11:46+00:00,2026-10-11T17:45:00+00:00,ARG: Liga Profesional,San Lorenzo,Deportivo Riestra,1X2/Totals,Over 1.5,0.55192,1.77,onexbet,-0.0231
+2026-10-11T16:11:46+00:00,2026-10-11T19:00:00+00:00,BRA: Serie A,Atletico Mineiro,Santos,1X2/Totals,Under 2.5,0.51514,1.87,onexbet,-0.0367
+2026-10-11T16:11:46+00:00,2026-10-11T20:30:00+00:00,BRA: Serie A,Grêmio,Internacional,1X2/Totals,Under 2.5,0.51446,1.83,onexbet,-0.05853
+2026-10-11T16:11:46+00:00,2026-10-11T17:45:00+00:00,ARG: Liga Profesional,San Lorenzo,Deportivo Riestra,Correct Score,0-0,0.17846,,,
+2026-10-11T16:11:46+00:00,2026-10-11T22:15:00+00:00,ARG: Liga Profesional,Racing Club,Belgrano de Cordoba,Correct Score,1-1,0.14456,,,
+2026-10-11T16:11:46+00:00,2026-10-11T20:00:00+00:00,ARG: Liga Profesional,Platense,Argentinos Juniors,Correct Score,1-1,0.14433,,,
+2026-10-11T16:11:46+00:00,2026-10-11T20:00:00+00:00,ARG: Liga Profesional,Rosario Central,Independiente Rivadavia,Correct Score,1-1,0.13872,,,
