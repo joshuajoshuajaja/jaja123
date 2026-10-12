@@ -1516,3 +1516,9 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-11T16:11:46+00:00,2026-10-11T22:15:00+00:00,ARG: Liga Profesional,Racing Club,Belgrano de Cordoba,Correct Score,1-1,0.14456,,,
 2026-10-11T16:11:46+00:00,2026-10-11T20:00:00+00:00,ARG: Liga Profesional,Platense,Argentinos Juniors,Correct Score,1-1,0.14433,,,
 2026-10-11T16:11:46+00:00,2026-10-11T20:00:00+00:00,ARG: Liga Profesional,Rosario Central,Independiente Rivadavia,Correct Score,1-1,0.13872,,,
+2026-10-12T19:39:26+00:00,2026-10-12T21:30:00+00:00,ARG: Liga Profesional,Gimnasia Mendoza,Newells Old Boys,1X2/Totals,Under 2.5,0.63492,1.6,unibet_se,0.01587
+2026-10-12T19:39:26+00:00,2026-10-13T00:00:00+00:00,BRA: Serie A,Bragantino-SP,Cruzeiro,1X2/Totals,Over 2.5,0.52837,1.83,onexbet,-0.03308
+2026-10-12T19:39:26+00:00,2026-10-12T22:30:00+00:00,BRA: Serie A,Chapecoense,Atletico Paranaense,1X2/Totals,Under 2.5,0.51176,1.88,onexbet,-0.03788
+2026-10-12T19:39:26+00:00,2026-10-12T21:30:00+00:00,ARG: Liga Profesional,Gimnasia Mendoza,Newells Old Boys,Correct Score,1-1,0.14371,,,
+2026-10-12T19:39:26+00:00,2026-10-12T22:30:00+00:00,BRA: Serie A,Chapecoense,Atletico Paranaense,Correct Score,1-1,0.1259,,,
+2026-10-12T19:39:26+00:00,2026-10-13T00:00:00+00:00,BRA: Serie A,Bragantino-SP,Cruzeiro,Correct Score,1-1,0.12181,,,
