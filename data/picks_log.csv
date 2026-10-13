@@ -1522,3 +1522,22 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-12T19:39:26+00:00,2026-10-12T21:30:00+00:00,ARG: Liga Profesional,Gimnasia Mendoza,Newells Old Boys,Correct Score,1-1,0.14371,,,
 2026-10-12T19:39:26+00:00,2026-10-12T22:30:00+00:00,BRA: Serie A,Chapecoense,Atletico Paranaense,Correct Score,1-1,0.1259,,,
 2026-10-12T19:39:26+00:00,2026-10-13T00:00:00+00:00,BRA: Serie A,Bragantino-SP,Cruzeiro,Correct Score,1-1,0.12181,,,
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Champions League,RB Leipzig,PSV Eindhoven,1X2/Totals,RB Leipzig,0.63339,1.57,betfair_ex_eu,-0.00558
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Championship,Birmingham City,Preston North End,1X2/Totals,Birmingham City,0.58451,1.67,gtbets,-0.02387
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Burnley,Charlton Athletic,1X2/Totals,Burnley,0.55957,1.76,leovegas_se,-0.01515
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Champions League,Galatasaray,Barcelona,1X2/Totals,Over 3.5,0.62547,1.54,marathonbet,-0.03677
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Champions League,Arsenal,Lille,1X2/Totals,Over 2.5,0.61043,1.64,onexbet,0.0011
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Cardiff City,Watford,1X2/Totals,Under 3.5,0.58828,1.6,leovegas_se,-0.05874
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Wolverhampton Wanderers,Bolton Wanderers,1X2/Totals,Under 3.5,0.58828,1.6,leovegas_se,-0.05874
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Champions League,Atlético Madrid,Manchester United,1X2/Totals,Over 2.5,0.5805,1.74,onexbet,0.01008
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Champions League,Villarreal,Napoli,1X2/Totals,Over 2.5,0.57393,1.72,onexbet,-0.01284
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Championship,Stoke City,Middlesbrough,1X2/Totals,Over 2.5,0.56536,1.66,leovegas_se,-0.06151
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Champions League,Inter Milan,Club Brugge,1X2/Totals,Over 3.5,0.5401,1.82,leovegas_se,-0.01701
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Bristol City,Blackburn Rovers,1X2/Totals,Over 2.5,0.53736,1.74,leovegas_se,-0.065
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Champions League,Viking FK,Bayern Munich,1X2/Totals,Under 4.5,0.50889,1.95,matchbook,-0.00767
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Wrexham AFC,West Bromwich Albion,1X2/Totals,Under 2.5,0.50727,1.83,leovegas_se,-0.0717
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Millwall,Swansea City,1X2/Totals,Over 2.5,0.5,1.85,leovegas_se,-0.075
+2026-10-13T17:23:47+00:00,2026-10-13T19:00:00+00:00,Champions League,Arsenal,Lille,Correct Score,2-0,0.14616,,,
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Wrexham AFC,West Bromwich Albion,Correct Score,1-1,0.12657,,,
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Millwall,Swansea City,Correct Score,1-1,0.12568,,,
+2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Bristol City,Blackburn Rovers,Correct Score,1-1,0.11628,,,
