@@ -1541,3 +1541,29 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Wrexham AFC,West Bromwich Albion,Correct Score,1-1,0.12657,,,
 2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Millwall,Swansea City,Correct Score,1-1,0.12568,,,
 2026-10-13T17:23:47+00:00,2026-10-13T18:45:00+00:00,Championship,Bristol City,Blackburn Rovers,Correct Score,1-1,0.11628,,,
+2026-10-14T14:56:26+00:00,2026-10-14T23:30:00+00:00,USA: MLS,Inter Miami CF,New York City FC,1X2/Totals,Inter Miami CF,0.66036,1.51,onexbet,-0.00285
+2026-10-14T14:56:26+00:00,2026-10-15T00:30:00+00:00,USA: MLS,FC Dallas,Seattle Sounders FC,1X2/Totals,FC Dallas,0.58135,1.74,onexbet,0.01154
+2026-10-14T14:56:26+00:00,2026-10-15T00:30:00+00:00,USA: MLS,St. Louis City SC,Vancouver Whitecaps FC,1X2/Totals,Over 2.5,0.63333,1.5,williamhill,-0.05
+2026-10-14T14:56:26+00:00,2026-10-14T16:45:00+00:00,Champions League,Feyenoord,Como,1X2/Totals,Over 2.5,0.63053,1.53,betsson,-0.03528
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Aston Villa,Fenerbahce,1X2/Totals,Under 3.5,0.62178,1.55,marathonbet,-0.03624
+2026-10-14T14:56:26+00:00,2026-10-14T16:45:00+00:00,Champions League,LASK,Liverpool,1X2/Totals,Over 2.5,0.62097,1.56,betsson,-0.03129
+2026-10-14T14:56:26+00:00,2026-10-14T23:30:00+00:00,USA: MLS,CF Montreal,Atlanta United FC,1X2/Totals,Over 2.5,0.60203,1.62,onexbet,-0.02471
+2026-10-14T14:56:26+00:00,2026-10-14T23:30:00+00:00,USA: MLS,Columbus Crew SC,Charlotte FC,1X2/Totals,Over 2.5,0.6018,1.63,onexbet,-0.01906
+2026-10-14T14:56:26+00:00,2026-10-15T01:30:00+00:00,USA: MLS,Colorado Rapids,Minnesota United FC,1X2/Totals,Over 2.5,0.59028,1.67,onexbet,-0.01424
+2026-10-14T14:56:26+00:00,2026-10-14T22:00:00+00:00,ARG: Liga Profesional,Sarmiento de Junin,River Plate,1X2/Totals,Under 2.5,0.58138,1.63,codere_it,-0.05235
+2026-10-14T14:56:26+00:00,2026-10-14T23:30:00+00:00,USA: MLS,D.C. United,New York Red Bulls,1X2/Totals,Under 3.5,0.57286,1.69,onexbet,-0.03186
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Real Betis,Porto,1X2/Totals,Over 2.5,0.56449,1.75,onexbet,-0.01214
+2026-10-14T14:56:26+00:00,2026-10-15T01:30:00+00:00,USA: MLS,Real Salt Lake,San Jose Earthquakes,1X2/Totals,Under 3.5,0.55541,1.77,onexbet,-0.01693
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,AS Roma,Real Madrid,1X2/Totals,Under 3.5,0.5453,1.81,matchbook,-0.01301
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Bodø/Glimt,Borussia Dortmund,1X2/Totals,Over 3.25,0.54348,1.79,pinnacle,-0.02717
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Manchester City,Paris Saint Germain,1X2/Totals,Under 3.5,0.51775,1.97,matchbook,0.01996
+2026-10-14T14:56:26+00:00,2026-10-15T00:30:00+00:00,USA: MLS,Chicago Fire,Philadelphia Union,1X2/Totals,Under 3.5,0.51465,1.89,onexbet,-0.02732
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,ŠK Slovan Bratislava,VfB Stuttgart,1X2/Totals,Over 3.5,0.50704,1.97,matchbook,-0.00114
+2026-10-14T14:56:26+00:00,2026-10-14T23:30:00+00:00,USA: MLS,FC Cincinnati,New England Revolution,1X2/Totals,Under 3.5,0.50532,1.9,onexbet,-0.0399
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Shakhtar Donetsk,AEK Athens,1X2/Totals,Over 2.5,0.5034,2.0,matchbook,0.00681
+2026-10-14T14:56:26+00:00,2026-10-14T23:30:00+00:00,USA: MLS,Toronto FC,Orlando City SC,1X2/Totals,Over 3.5,0.5,1.94,onexbet,-0.03
+2026-10-14T14:56:26+00:00,2026-10-15T00:30:00+00:00,USA: MLS,Nashville SC,Sporting Kansas City,1X2/Totals,Over 3.5,0.5,1.94,onexbet,-0.03
+2026-10-14T14:56:26+00:00,2026-10-14T22:00:00+00:00,ARG: Liga Profesional,Sarmiento de Junin,River Plate,Correct Score,0-1,0.14027,,,
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Shakhtar Donetsk,AEK Athens,Correct Score,1-1,0.12839,,,
+2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Real Betis,Porto,Correct Score,1-1,0.1166,,,
+2026-10-14T14:56:26+00:00,2026-10-14T16:45:00+00:00,Champions League,LASK,Liverpool,Correct Score,0-2,0.11259,,,
