@@ -565,5 +565,9 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-10-12,2026-10-12T20:00:07.972313+00:00,ML,849812,LAD @ MIL,Los Angeles Dodgers,LAD,Yoshinobu Yamamoto / Logan Henderson,1.80,betonlineag,0.5548,,15,-0.14,,1.633,10.23,LOSS,
 2026-10-13,2026-10-13T17:48:03.551328+00:00,HR,849813,CLE @ TB,Junior Caminero,TB,Parker Messick,4.40,betrivers,0.2010,0.1771,6,-11.57,Parlay 1,4.976,-11.57,LOSS,691406
 2026-10-13,2026-10-13T17:48:03.551328+00:00,ML,849813,CLE @ TB,Tampa Bay Rays,TB,Parker Messick / Freddy Peralta,1.78,betus,0.5526,,15,-1.64,,1.824,-2.41,WIN,
-2026-10-14,2026-10-14T15:30:13.913566+00:00,HR,849811,MIL @ LAD,Teoscar Hernandez,LAD,Robert Gasser,5.80,betrivers,0.1486,0.1372,5,-13.83,Parlay 1,6.237,-7.00,,606192
-2026-10-14,2026-10-14T15:30:13.913566+00:00,ML,849811,MIL @ LAD,Los Angeles Dodgers,LAD,Robert Gasser / Blake Snell,1.60,betus,0.6164,,15,-1.37,,1.614,-0.85,,
+2026-10-14,2026-10-14T15:30:13.913566+00:00,HR,849811,MIL @ LAD,Teoscar Hernandez,LAD,Robert Gasser,5.80,betrivers,0.1486,0.1372,5,-13.83,Parlay 1,6.237,-7.00,LOSS,606192
+2026-10-14,2026-10-14T15:30:13.913566+00:00,ML,849811,MIL @ LAD,Los Angeles Dodgers,LAD,Robert Gasser / Blake Snell,1.60,betus,0.6164,,15,-1.37,,1.614,-0.85,LOSS,
+2026-10-15,2026-10-15T15:20:17.344413+00:00,HR,849818,TB @ CLE,Junior Caminero,TB,Gavin Williams,5.25,espnbet,0.1614,0.2305,6,-15.26,Parlay 1,,,,691406
+2026-10-15,2026-10-15T15:20:17.344413+00:00,HR,849810,MIL @ LAD,Max Muncy,LAD,TBD,6.00,hardrockbet,0.1398,0.1856,6,-16.12,Parlay 1,,,,571970
+2026-10-15,2026-10-15T15:20:17.344413+00:00,ML,849810,MIL @ LAD,Los Angeles Dodgers,LAD,TBD / Tyler Glasnow,1.69,espnbet,0.5856,,15,-1.03,,,,,
+2026-10-15,2026-10-15T15:20:17.344413+00:00,ML,849818,TB @ CLE,Cleveland Guardians,CLE,Griffin Jax / Gavin Williams,1.83,betus,0.5421,,15,-0.80,,,,,
