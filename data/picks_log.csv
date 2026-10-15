@@ -1567,3 +1567,43 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Shakhtar Donetsk,AEK Athens,Correct Score,1-1,0.12839,,,
 2026-10-14T14:56:26+00:00,2026-10-14T19:00:00+00:00,Champions League,Real Betis,Porto,Correct Score,1-1,0.1166,,,
 2026-10-14T14:56:26+00:00,2026-10-14T16:45:00+00:00,Champions League,LASK,Liverpool,Correct Score,0-2,0.11259,,,
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,KF Egnatia,FC Midtjylland,1X2/Totals,FC Midtjylland,0.63712,1.57,onexbet,0.00028
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,KuPS Kuopio,Trabzonspor,1X2/Totals,Trabzonspor,0.62322,1.6,onexbet,-0.00284
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,Gent,AGF Aarhus,1X2/Totals,Gent,0.57754,1.71,betfair_ex_eu,-0.0124
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,NEC Nijmegen,PFC Levski Sofia,1X2/Totals,NEC Nijmegen,0.51075,1.94,betfair_ex_eu,-0.00914
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,Panathinaikos FC,FK Borac Banja Luka,1X2/Totals,Over 2.5,0.63333,1.52,betsson,-0.03733
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,Hajduk Split,Ajax,1X2/Totals,Over 2.5,0.63333,1.53,leovegas_se,-0.031
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,Atalanta BC,Pafos FC,1X2/Totals,Over 2.5,0.63333,1.53,leovegas_se,-0.031
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,Hearts,FC Nordsjaelland,1X2/Totals,Over 2.5,0.63172,1.56,leovegas_se,-0.01452
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,TSG Hoffenheim,Besiktas JK,1X2/Totals,Over 2.5,0.6268,1.53,betsson,-0.041
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,Universitatea Craiova,Getafe,1X2/Totals,Under 2.5,0.61886,1.57,onexbet,-0.02838
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Europa League,Union Saint-Gilloise,Real Sociedad,1X2/Totals,Over 2.5,0.61425,1.74,onexbet,0.06879
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Europa League,Sparta Prague,Lillestrom,1X2/Totals,Over 2.5,0.61425,1.62,onexbet,-0.00492
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,PFC CSKA Sofia,AS Monaco,1X2/Totals,Over 2.5,0.61355,1.6,leovegas_se,-0.01831
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,SC Freiburg,FK Jablonec,1X2/Totals,Over 2.5,0.6125,1.55,betsson,-0.05063
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Europa League,Torreense,Sunderland,1X2/Totals,Over 2.5,0.60564,1.62,leovegas_se,-0.01886
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Europa League,Lyon,Crystal Palace,1X2/Totals,Under 3.5,0.60538,1.54,codere_it,-0.06772
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Europa League,Salzburg,AC Milan,1X2/Totals,Over 2.5,0.59779,1.63,onexbet,-0.0256
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,Jagiellonia Białystok,FC Ararat-Armenia,1X2/Totals,Over 2.5,0.58968,1.66,onexbet,-0.02113
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,Celta Vigo,Juventus,1X2/Totals,Under 2.5,0.57279,1.74,leovegas_se,-0.00334
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,Ferencváros TC,Viktoria Plzeň,1X2/Totals,Over 2.5,0.56976,1.73,leovegas_se,-0.01431
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,FC Lugano,Red Star Belgrade,1X2/Totals,Over 2.5,0.56612,1.71,onexbet,-0.03194
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,FC Twente Enschede,FC Thun,1X2/Totals,Over 3.5,0.55963,1.75,leovegas_se,-0.02066
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,Dinamo Zagreb,Anderlecht,1X2/Totals,Over 2.5,0.55395,1.77,leovegas_se,-0.0195
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,Sint Truiden,FC Iberia 1999,1X2/Totals,Under 3.5,0.55344,1.75,onexbet,-0.03147
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Europa League,Lech Poznań,Bayer Leverkusen,1X2/Totals,Over 3,0.5506,1.73,coolbet,-0.04746
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,FC Copenhagen,SC Braga,1X2/Totals,Under 2.5,0.54968,1.77,leovegas_se,-0.02707
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,Rennes,OFI Crete,1X2/Totals,Under 3.5,0.54915,1.79,coolbet,-0.01702
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Europa League,AZ Alkmaar,Hapoel Be'er Sheva,1X2/Totals,Over 3,0.54713,1.73,coolbet,-0.05346
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,Mjällby AIF,Inter Club d'Escaldes,1X2/Totals,Over 2.5,0.54249,1.77,betonlineag,-0.03979
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,Benfica,Celtic,1X2/Totals,Over 3.5,0.5421,1.84,onexbet,-0.00253
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,Brighton and Hove Albion,FK Kauno Žalgiris,1X2/Totals,Over 4,0.53977,1.84,pinnacle,-0.00683
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,Riga FC,FC Kairat,1X2/Totals,Over 2.25,0.5347,1.81,pinnacle,-0.0322
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,SK Brann,Lincoln Red Imps FC,1X2/Totals,Under 3.5,0.53063,1.86,coolbet,-0.01303
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,Marseille,Olympiakos Piraeus,1X2/Totals,Over 2.5,0.52902,1.87,matchbook,-0.01073
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Europa League,Bournemouth,SK Sturm Graz,1X2/Totals,Over 3.5,0.51962,1.98,matchbook,0.02885
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Europa League,NK Celje,Omonoia FC,1X2/Totals,Over 2.5,0.51517,1.93,matchbook,-0.00573
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,SC Freiburg,FK Jablonec,Correct Score,2-0,0.14457,,,
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,Brighton and Hove Albion,FK Kauno Žalgiris,Correct Score,4-0,0.14372,,,
+2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,Universitatea Craiova,Getafe,Correct Score,1-1,0.13991,,,
+2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,FC Copenhagen,SC Braga,Correct Score,1-1,0.13404,,,
