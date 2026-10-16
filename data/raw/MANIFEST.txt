@@ -1,7 +1,7 @@
-last_run_utc: 2026-10-15T14:39:21+00:00
-matches_rows: 149546
+last_run_utc: 2026-10-16T14:30:15+00:00
+matches_rows: 149563
 divisions: 40
-date_range: 2012-03-02 .. 2026-10-14
+date_range: 2012-03-02 .. 2026-10-16
 clubelo: no
 xg_matches: 0
 odds: yes
@@ -11,13 +11,13 @@ warnings: 3
   - understat returned nothing - status counts {200: 78}
 
 rows per division:
-  USA: MLS                     6236
+  USA: MLS                     6251
   E1                           6191
   E3                           6074
   E2                           6022
   EC                           6005
   BRA: Serie A                 5618
-  ARG: Liga Profesional        5494
+  ARG: Liga Profesional        5496
   SP2                          5181
   MEX: Liga MX                 4752
   JAP: J1 League               4613

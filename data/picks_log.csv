@@ -1607,3 +1607,12 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,Brighton and Hove Albion,FK Kauno Žalgiris,Correct Score,4-0,0.14372,,,
 2026-10-15T14:42:28+00:00,2026-10-15T16:45:00+00:00,Conference League,Universitatea Craiova,Getafe,Correct Score,1-1,0.13991,,,
 2026-10-15T14:42:28+00:00,2026-10-15T19:00:00+00:00,Conference League,FC Copenhagen,SC Braga,Correct Score,1-1,0.13404,,,
+2026-10-16T14:33:26+00:00,2026-10-16T18:45:00+00:00,Serie A,Frosinone,Sassuolo,1X2/Totals,Under 3.5,0.60186,1.67,onexbet,0.00511
+2026-10-16T14:33:26+00:00,2026-10-16T18:45:00+00:00,Ligue 1,Le Mans FC,Toulouse,1X2/Totals,Over 2.5,0.5463,1.84,onexbet,0.00519
+2026-10-16T14:33:26+00:00,2026-10-16T18:30:00+00:00,Bundesliga,Eintracht Frankfurt,1. FC Köln,1X2/Totals,Under 3.5,0.52933,1.93,onexbet,0.02161
+2026-10-16T14:33:26+00:00,2026-10-16T23:00:00+00:00,BRA: Serie A,Mirassol,Internacional,1X2/Totals,Under 2.5,0.51281,1.83,unibet_nl,-0.06156
+2026-10-16T14:33:26+00:00,2026-10-16T19:00:00+00:00,La Liga,Deportivo La Coruña,Levante,1X2/Totals,Over 2.5,0.50142,1.98,onexbet,-0.00718
+2026-10-16T14:33:26+00:00,2026-10-16T23:00:00+00:00,BRA: Serie A,Mirassol,Internacional,Correct Score,1-1,0.12915,,,
+2026-10-16T14:33:26+00:00,2026-10-16T19:00:00+00:00,La Liga,Deportivo La Coruña,Levante,Correct Score,1-1,0.12133,,,
+2026-10-16T14:33:26+00:00,2026-10-16T18:45:00+00:00,Ligue 1,Le Mans FC,Toulouse,Correct Score,1-1,0.11933,,,
+2026-10-16T14:33:26+00:00,2026-10-16T18:45:00+00:00,Serie A,Frosinone,Sassuolo,Correct Score,1-1,0.11638,,,
