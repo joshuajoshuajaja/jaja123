@@ -1616,3 +1616,20 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-16T14:33:26+00:00,2026-10-16T19:00:00+00:00,La Liga,Deportivo La Coruña,Levante,Correct Score,1-1,0.12133,,,
 2026-10-16T14:33:26+00:00,2026-10-16T18:45:00+00:00,Ligue 1,Le Mans FC,Toulouse,Correct Score,1-1,0.11933,,,
 2026-10-16T14:33:26+00:00,2026-10-16T18:45:00+00:00,Serie A,Frosinone,Sassuolo,Correct Score,1-1,0.11638,,,
+2026-10-17T13:30:02+00:00,2026-10-17T14:15:00+00:00,La Liga,Villarreal,Elche CF,1X2/Totals,Villarreal,0.6625,1.51,onexbet,0.00038
+2026-10-17T13:30:02+00:00,2026-10-17T18:45:00+00:00,Ligue 1,Lille,Brest,1X2/Totals,Lille,0.59985,1.66,onexbet,-0.00425
+2026-10-17T13:30:02+00:00,2026-10-17T16:00:00+00:00,Serie A,Bologna,Inter Milan,1X2/Totals,Inter Milan,0.59576,1.69,onexbet,0.00683
+2026-10-17T13:30:02+00:00,2026-10-17T14:00:00+00:00,Premier League,Fulham,Hull City,1X2/Totals,Fulham,0.58918,1.72,gtbets,0.01338
+2026-10-17T13:30:02+00:00,2026-10-17T18:45:00+00:00,Ligue 1,Troyes,RC Lens,1X2/Totals,Over 2.5,0.61425,1.64,onexbet,0.00737
+2026-10-17T13:30:02+00:00,2026-10-17T14:00:00+00:00,Premier League,Brentford,Liverpool,1X2/Totals,Over 2.5,0.61271,1.57,betsson,-0.03805
+2026-10-17T13:30:02+00:00,2026-10-17T16:30:00+00:00,Premier League,Newcastle United,Aston Villa,1X2/Totals,Over 2.5,0.60571,1.67,onexbet,0.01153
+2026-10-17T13:30:02+00:00,2026-10-17T18:45:00+00:00,Serie A,AS Roma,Genoa,1X2/Totals,Over 2.5,0.58266,1.72,onexbet,0.00217
+2026-10-17T13:30:02+00:00,2026-10-17T16:30:00+00:00,La Liga,Real Betis,Barcelona,1X2/Totals,Over 3.5,0.57367,1.79,onexbet,0.02687
+2026-10-17T13:30:02+00:00,2026-10-17T19:00:00+00:00,La Liga,Valencia,Athletic Bilbao,1X2/Totals,Under 2.5,0.53249,1.86,onexbet,-0.00958
+2026-10-17T13:30:02+00:00,2026-10-17T15:15:00+00:00,Ligue 1,Strasbourg,Paris Saint Germain,1X2/Totals,Over 3.5,0.52552,1.89,onexbet,-0.00676
+2026-10-17T13:30:02+00:00,2026-10-17T14:00:00+00:00,Premier League,Manchester City,Ipswich Town,1X2/Totals,Over 3.5,0.51718,1.95,matchbook,0.00849
+2026-10-17T13:30:02+00:00,2026-10-17T16:30:00+00:00,Bundesliga,Bayern Munich,RB Leipzig,1X2/Totals,Under 4.5,0.51416,1.91,onexbet,-0.01796
+2026-10-17T13:30:02+00:00,2026-10-17T18:45:00+00:00,Serie A,AS Roma,Genoa,Correct Score,2-0,0.1297,,,
+2026-10-17T13:30:02+00:00,2026-10-17T19:00:00+00:00,La Liga,Valencia,Athletic Bilbao,Correct Score,1-1,0.12546,,,
+2026-10-17T13:30:02+00:00,2026-10-17T16:30:00+00:00,Premier League,Newcastle United,Aston Villa,Correct Score,1-1,0.10885,,,
+2026-10-17T13:30:02+00:00,2026-10-17T16:00:00+00:00,Serie A,Bologna,Inter Milan,Correct Score,1-1,0.10817,,,
