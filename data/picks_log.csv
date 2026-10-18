@@ -1633,3 +1633,32 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-17T13:30:02+00:00,2026-10-17T19:00:00+00:00,La Liga,Valencia,Athletic Bilbao,Correct Score,1-1,0.12546,,,
 2026-10-17T13:30:02+00:00,2026-10-17T16:30:00+00:00,Premier League,Newcastle United,Aston Villa,Correct Score,1-1,0.10885,,,
 2026-10-17T13:30:02+00:00,2026-10-17T16:00:00+00:00,Serie A,Bologna,Inter Milan,Correct Score,1-1,0.10817,,,
+2026-10-18T13:48:34+00:00,2026-10-18T15:30:00+00:00,Premier League,Nottingham Forest,Arsenal,1X2/Totals,Arsenal,0.59674,1.71,onexbet,0.02042
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Independiente Rivadavia,CA Tigre BA,1X2/Totals,Independiente Rivadavia,0.59135,1.68,onexbet,-0.00653
+2026-10-18T13:48:34+00:00,2026-10-18T18:45:00+00:00,Serie A,Juventus,Lazio,1X2/Totals,Juventus,0.58491,1.69,onexbet,-0.0115
+2026-10-18T13:48:34+00:00,2026-10-18T18:45:00+00:00,Ligue 1,Lyon,Nice,1X2/Totals,Lyon,0.58219,1.71,onexbet,-0.00446
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Atlético Tucuman,Rosario Central,1X2/Totals,Over 1.5,0.63245,1.52,onexbet,-0.03867
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Atlético Huracán,Gimnasia La Plata,1X2/Totals,Over 1.5,0.63053,1.52,onexbet,-0.04159
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Newells Old Boys,Central Córdoba,1X2/Totals,Under 2.5,0.62599,1.53,onexbet,-0.04223
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Estudiantes de Río Cuarto,Aldosivi Mar del Plata,1X2/Totals,Over 1.5,0.61466,1.57,onexbet,-0.03499
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Estudiantes,San Lorenzo,1X2/Totals,Over 1.5,0.61451,1.56,onexbet,-0.04136
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Belgrano de Cordoba,River Plate,1X2/Totals,Under 2.5,0.61409,1.56,onexbet,-0.04202
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Sarmiento de Junin,Barracas Central,1X2/Totals,Over 1.5,0.60737,1.58,onexbet,-0.04035
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Deportivo Riestra,Union Santa Fe,1X2/Totals,Over 1.5,0.59674,1.61,onexbet,-0.03925
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Velez Sarsfield BA,Gimnasia Mendoza,1X2/Totals,Under 2.5,0.59507,1.6,onexbet,-0.04789
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Defensa y Justicia,Instituto de Córdoba,1X2/Totals,Under 2.5,0.59317,1.61,onexbet,-0.045
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Banfield,Argentinos Juniors,1X2/Totals,Under 2.5,0.58433,1.64,onexbet,-0.0417
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Boca Juniors,Talleres,1X2/Totals,Under 2.5,0.58433,1.64,onexbet,-0.0417
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Platense,Lanus,1X2/Totals,Over 1.5,0.58037,1.65,onexbet,-0.04238
+2026-10-18T13:48:34+00:00,2026-10-18T15:15:00+00:00,Ligue 1,Paris FC,Rennes,1X2/Totals,Over 2.5,0.57898,1.72,onexbet,-0.00415
+2026-10-18T13:48:34+00:00,2026-10-18T14:15:00+00:00,La Liga,Celta Vigo,Alavés,1X2/Totals,Under 2.5,0.55508,1.84,coolbet,0.02134
+2026-10-18T13:48:34+00:00,2026-10-18T16:00:00+00:00,Serie A,AC Milan,Atalanta BC,1X2/Totals,Over 2.5,0.5468,1.83,onexbet,0.00064
+2026-10-18T13:48:34+00:00,2026-10-18T16:30:00+00:00,La Liga,Málaga,Real Sociedad,1X2/Totals,Over 2.5,0.53662,1.86,onexbet,-0.00189
+2026-10-18T13:48:34+00:00,2026-10-18T15:15:00+00:00,Ligue 1,Lorient,AS Monaco,1X2/Totals,Over 2.5,0.52137,1.92,onexbet,0.00103
+2026-10-18T13:48:34+00:00,2026-10-18T15:15:00+00:00,Ligue 1,Le Havre,Auxerre,1X2/Totals,Over 2.5,0.51091,1.94,onexbet,-0.00883
+2026-10-18T13:48:34+00:00,2026-10-18T19:00:00+00:00,La Liga,Real Madrid,Sevilla,1X2/Totals,Under 3.5,0.50993,1.93,onexbet,-0.01584
+2026-10-18T13:48:34+00:00,2026-10-18T15:30:00+00:00,Bundesliga,Borussia Monchengladbach,TSG Hoffenheim,1X2/Totals,Under 3.5,0.50689,1.89,onexbet,-0.04198
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Platense,Lanus,Correct Score,0-0,0.15542,,,
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Newells Old Boys,Central Córdoba,Correct Score,1-0,0.14994,,,
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Estudiantes de Río Cuarto,Aldosivi Mar del Plata,Correct Score,1-1,0.14852,,,
+2026-10-18T13:48:34+00:00,2026-10-18T20:00:00+00:00,ARG: Liga Profesional,Deportivo Riestra,Union Santa Fe,Correct Score,0-0,0.14722,,,
