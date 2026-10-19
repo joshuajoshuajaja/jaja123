@@ -572,8 +572,10 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-10-15,2026-10-15T15:20:17.344413+00:00,ML,849810,MIL @ LAD,Los Angeles Dodgers,LAD,TBD / Tyler Glasnow,1.69,espnbet,0.5856,,15,-1.03,,1.721,-1.82,LOSS,
 2026-10-15,2026-10-15T15:20:17.344413+00:00,ML,849818,TB @ CLE,Cleveland Guardians,CLE,Griffin Jax / Gavin Williams,1.83,betus,0.5421,,15,-0.80,,2.000,-8.50,WIN,
 2026-10-16,2026-10-16T15:00:54.104896+00:00,HR,849817,TB @ CLE,Junior Caminero,TB,Shawn Armstrong,5.80,betparx,0.1380,0.1935,6,-19.93,Parlay 1,7.765,-25.30,VOID,691406
-2026-10-16,2026-10-16T15:00:54.104896+00:00,ML,849817,TB @ CLE,Tampa Bay Rays,TB,Nick Martinez / Shawn Armstrong,1.93,betparx,0.5092,,15,-1.73,,1.958,-1.45,,
+2026-10-16,2026-10-16T15:00:54.104896+00:00,ML,849817,TB @ CLE,Tampa Bay Rays,TB,Nick Martinez / Shawn Armstrong,1.93,betparx,0.5092,,15,-1.73,,1.958,-1.45,WIN,
 2026-10-17,2026-10-17T13:56:45.679816+00:00,HR,849816,TB @ CLE,Junior Caminero,TB,Shawn Armstrong,7.50,betrivers,0.1329,0.1935,6,-0.34,Parlay 1,7.525,-0.34,LOSS,691406
 2026-10-17,2026-10-17T13:56:45.679816+00:00,ML,849816,TB @ CLE,Tampa Bay Rays,TB,Nick Martinez / Shawn Armstrong,1.93,betonlineag,0.5087,,14,-1.82,,1.962,-1.65,WIN,
-2026-10-18,2026-10-18T14:09:44.034067+00:00,HR,849817,TB @ CLE,Junior Caminero,TB,Parker Messick,7.00,betparx,0.1329,0.1787,6,-6.98,Parlay 1,,,,691406
-2026-10-18,2026-10-18T14:09:44.034067+00:00,ML,849817,TB @ CLE,Tampa Bay Rays,TB,Drew Rasmussen / Parker Messick,1.79,betonlineag,0.5478,,15,-1.94,,1.120,59.76,,
+2026-10-18,2026-10-18T14:09:44.034067+00:00,HR,849817,TB @ CLE,Junior Caminero,TB,Parker Messick,7.00,betparx,0.1329,0.1787,6,-6.98,Parlay 1,,,LOSS,691406
+2026-10-18,2026-10-18T14:09:44.034067+00:00,ML,849817,TB @ CLE,Tampa Bay Rays,TB,Drew Rasmussen / Parker Messick,1.79,betonlineag,0.5478,,15,-1.94,,1.120,59.76,WIN,
+2026-10-19,2026-10-19T17:10:14.257784+00:00,HR,849815,CLE @ TB,Junior Caminero,TB,Shawn Armstrong,5.00,betparx,0.1652,0.1918,6,-17.39,Parlay 1,,,,691406
+2026-10-19,2026-10-19T17:10:14.257784+00:00,ML,849815,CLE @ TB,Tampa Bay Rays,TB,Shawn Armstrong / Freddy Peralta,1.68,betus,0.5848,,15,-1.75,,,,,
