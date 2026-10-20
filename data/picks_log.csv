@@ -1668,3 +1668,16 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-19T16:54:20+00:00,2026-10-19T18:45:00+00:00,Serie A,Parma,Torino,Correct Score,1-1,0.14058,,,
 2026-10-19T16:54:20+00:00,2026-10-19T19:00:00+00:00,La Liga,Getafe,Rayo Vallecano,Correct Score,1-1,0.13576,,,
 2026-10-19T16:54:20+00:00,2026-10-19T19:00:00+00:00,Premier League,Tottenham Hotspur,Coventry City,Correct Score,2-0,0.10465,,,
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,Liverpool,Villarreal,1X2/Totals,Liverpool,0.65211,1.54,betfair_ex_eu,0.00425
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,Porto,PSV Eindhoven,1X2/Totals,Porto,0.64131,1.57,onexbet,0.00686
+2026-10-20T14:42:51+00:00,2026-10-20T16:45:00+00:00,Champions League,Fenerbahce,Slavia Praha,1X2/Totals,Fenerbahce,0.63581,1.57,gtbets,-0.00177
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,Paris Saint Germain,Barcelona,1X2/Totals,Over 3.5,0.62468,1.54,leovegas_se,-0.038
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,Napoli,Bodø/Glimt,1X2/Totals,Over 2.5,0.61643,1.64,onexbet,0.01095
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,AS Roma,ŠK Slovan Bratislava,1X2/Totals,Over 3.5,0.57519,1.83,matchbook,0.05259
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,Manchester City,AEK Athens,1X2/Totals,Under 4,0.56438,1.79,coolbet,0.01023
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,VfB Stuttgart,Atlético Madrid,1X2/Totals,Under 3.5,0.56226,1.81,onexbet,0.0177
+2026-10-20T14:42:51+00:00,2026-10-20T16:45:00+00:00,Champions League,Sabah FK,Borussia Dortmund,1X2/Totals,Under 3.5,0.55501,1.87,matchbook,0.03788
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,Manchester City,AEK Athens,Correct Score,3-0,0.11623,,,
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,AS Roma,ŠK Slovan Bratislava,Correct Score,3-0,0.10735,,,
+2026-10-20T14:42:51+00:00,2026-10-20T16:45:00+00:00,Champions League,Sabah FK,Borussia Dortmund,Correct Score,0-2,0.10714,,,
+2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,Napoli,Bodø/Glimt,Correct Score,1-1,0.10249,,,
