@@ -1,25 +1,26 @@
-NHL BOARD  Tue 20 Oct SGT  |  4 games
+NHL BOARD  Tue 20 Oct SGT  |  11 games
 
 *1) SAFEST GOALSCORER PARLAY (4 legs)*
-- Nathan MacKinnon (COL) vs PHI  @ 2.15  [46%]  Tue 07:00 SGT
-- Auston Matthews (TOR) vs SJS  @ 2.30  [44%]  Tue 07:30 SGT
-- Dylan Guenther (UTA) vs PIT  @ 2.45  [38%]  Tue 09:00 SGT
-- Pavel Dorofeyev (NYR) vs ANA  @ 2.75  [36%]  Tue 07:00 SGT
-Combined odds ~33.3 | our chance ~2.8%
+- Cole Caufield (MTL) vs SJS  @ 2.20  [45%]  Wed 07:00 SGT
+- Kirill Kaprizov (MIN) vs EDM  @ 2.25  [43%]  Wed 09:00 SGT
+- Nathan MacKinnon (COL) vs NJD  @ 2.25  [42%]  Wed 07:00 SGT
+- Kyle Connor (WPG) vs STL  @ 2.40  [39%]  Wed 08:00 SGT
+Combined odds ~26.7 | our chance ~3.2%
 
 *2) VALUE GOALSCORER PARLAY (4 legs)*
-- William Nylander (TOR) vs SJS  @ 2.75  [37%]  Tue 07:30 SGT
-- Artturi Lehkonen (COL) vs PHI  @ 3.20  [31%]  Tue 07:00 SGT
-- Mika Zibanejad (NYR) vs ANA  @ 3.00  [32%]  Tue 07:00 SGT
-- Clayton Keller (UTA) vs PIT  @ 2.95  [33%]  Tue 09:00 SGT
-Combined odds ~77.9 | our chance ~1.2%
+- Artemi Panarin (LAK) vs WSH  @ 3.35  [31%]  Wed 07:00 SGT
+- William Nylander (TOR) vs CBJ  @ 3.20  [32%]  Wed 07:00 SGT
+- Artturi Lehkonen (COL) vs NJD  @ 3.30  [30%]  Wed 07:00 SGT
+- Jimmy Snuggerud (STL) vs WPG  @ 3.30  [30%]  Wed 08:00 SGT
+Combined odds ~116.7 | our chance ~0.9%
 
 *3) MONEYLINE PARLAY (strong favourites)*
-- UTA vs PIT  @ 1.55  [61%]  Tue 09:00 SGT
-- NYR vs ANA  @ 1.68  [58%]  Tue 07:00 SGT
-Combined odds ~2.6 | our chance ~35.9%
-(only 2 strong legs available, target was 4)
+- MTL vs SJS  @ 1.50  [65%]  Wed 07:00 SGT
+- DAL vs BOS  @ 1.63  [60%]  Wed 08:00 SGT
+- WSH vs LAK  @ 1.65  [59%]  Wed 07:00 SGT
+- NYI vs ANA  @ 1.67  [58%]  Wed 07:00 SGT
+Combined odds ~6.7 | our chance ~13.4%
 
-Track record so far: Goalscorer legs 57/163 | Moneyline legs 32/43
+Track record so far: Goalscorer legs 59/171 | Moneyline legs 34/45
 
 Odds are the best price found across US books - check your own bookmaker before betting. Check lineups/scratches before puck drop. [x%] = our blended chance for that leg.
