@@ -1681,3 +1681,17 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,AS Roma,ŠK Slovan Bratislava,Correct Score,3-0,0.10735,,,
 2026-10-20T14:42:51+00:00,2026-10-20T16:45:00+00:00,Champions League,Sabah FK,Borussia Dortmund,Correct Score,0-2,0.10714,,,
 2026-10-20T14:42:51+00:00,2026-10-20T19:00:00+00:00,Champions League,Napoli,Bodø/Glimt,Correct Score,1-1,0.10249,,,
+2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Real Betis,Feyenoord,1X2/Totals,Real Betis,0.5897,1.7,onexbet,0.00249
+2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Bayern Munich,Arsenal,1X2/Totals,Over 2.5,0.61643,1.66,onexbet,0.02328
+2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Club Brugge,RC Lens,1X2/Totals,Over 2.5,0.61458,1.57,leovegas_se,-0.0351
+2026-10-21T14:54:34+00:00,2026-10-21T16:45:00+00:00,Champions League,Como,Manchester United,1X2/Totals,Over 2.5,0.60807,1.68,onexbet,0.02155
+2026-10-21T14:54:34+00:00,2026-10-21T16:45:00+00:00,Champions League,Lille,Galatasaray,1X2/Totals,Over 2.5,0.58606,1.7,onexbet,-0.0037
+2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Real Madrid,RB Leipzig,1X2/Totals,Over 3.5,0.5734,1.73,onexbet,-0.00801
+2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Aston Villa,Viking FK,1X2/Totals,Over 3.5,0.55537,1.77,coolbet,-0.01699
+2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Inter Milan,Shakhtar Donetsk,1X2/Totals,Under 4,0.55039,1.8,coolbet,-0.0093
+2026-10-21T14:54:34+00:00,2026-10-21T18:00:00+00:00,La Liga,Levante,Athletic Bilbao,1X2/Totals,Under 2.5,0.51983,1.92,onexbet,-0.00192
+2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Sporting Lisbon,LASK,1X2/Totals,Over 3.5,0.51289,1.93,leovegas_se,-0.01012
+2026-10-21T14:54:34+00:00,2026-10-21T18:00:00+00:00,La Liga,Levante,Athletic Bilbao,Correct Score,1-1,0.12537,,,
+2026-10-21T14:54:34+00:00,2026-10-21T16:45:00+00:00,Champions League,Lille,Galatasaray,Correct Score,1-1,0.11426,,,
+2026-10-21T14:54:34+00:00,2026-10-21T16:45:00+00:00,Champions League,Como,Manchester United,Correct Score,1-1,0.11129,,,
+2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Bayern Munich,Arsenal,Correct Score,1-1,0.10897,,,
