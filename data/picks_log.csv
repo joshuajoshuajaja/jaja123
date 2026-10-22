@@ -1695,3 +1695,25 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-21T14:54:34+00:00,2026-10-21T16:45:00+00:00,Champions League,Lille,Galatasaray,Correct Score,1-1,0.11426,,,
 2026-10-21T14:54:34+00:00,2026-10-21T16:45:00+00:00,Champions League,Como,Manchester United,Correct Score,1-1,0.11129,,,
 2026-10-21T14:54:34+00:00,2026-10-21T19:00:00+00:00,Champions League,Bayern Munich,Arsenal,Correct Score,1-1,0.10897,,,
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,Dinamo Zagreb,NEC Nijmegen,1X2/Totals,Dinamo Zagreb,0.66165,1.51,betfair_ex_eu,-0.0009
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Olympiakos Piraeus,Sparta Prague,1X2/Totals,Olympiakos Piraeus,0.64838,1.54,betfair_ex_eu,-0.00149
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,NK Celje,Salzburg,1X2/Totals,Salzburg,0.64214,1.55,betfair_ex_eu,-0.00468
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,Lech Poznań,Sunderland,1X2/Totals,Sunderland,0.57537,1.76,coolbet,0.01265
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Viktoria Plzeň,PFC Levski Sofia,1X2/Totals,Viktoria Plzeň,0.56392,1.77,onexbet,-0.00185
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Lillestrom,Real Sociedad,1X2/Totals,Over 2.5,0.64628,1.51,leovegas_se,-0.02412
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Omonoia FC,Benfica,1X2/Totals,Over 2.5,0.64103,1.5,betsson,-0.03846
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,SK Sturm Graz,Marseille,1X2/Totals,Over 2.5,0.6317,1.55,leovegas_se,-0.02086
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Besiktas JK,Crystal Palace,1X2/Totals,Over 2.5,0.62733,1.53,betsson,-0.04018
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,Juventus,Rennes,1X2/Totals,Under 3.5,0.62547,1.54,marathonbet,-0.03677
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,1X2/Totals,Over 2.5,0.62272,1.55,nordicbet,-0.03479
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,Ferencváros TC,Torreense,1X2/Totals,Over 2.5,0.62234,1.55,betsson,-0.03538
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,FC Ararat-Armenia,AZ Alkmaar,1X2/Totals,Under 3.5,0.58253,1.69,onexbet,-0.01552
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Celtic,Celta Vigo,1X2/Totals,Over 2.5,0.57268,1.75,leovegas_se,0.00219
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,TSG Hoffenheim,Lyon,1X2/Totals,Under 3.5,0.55602,1.8,matchbook,0.00084
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Bournemouth,AC Milan,1X2/Totals,Over 2.5,0.55351,1.78,onexbet,-0.01476
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Jagiellonia Białystok,Anderlecht,1X2/Totals,Over 2.5,0.54746,1.79,coolbet,-0.02005
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,OFI Crete,Bayer Leverkusen,1X2/Totals,Over 3.5,0.51646,1.91,matchbook,-0.01356
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Jagiellonia Białystok,Anderlecht,Correct Score,1-1,0.1209,,,
+2026-10-22T14:54:51+00:00,2026-10-22T16:45:00+00:00,Europa League,Ferencváros TC,Torreense,Correct Score,2-0,0.11853,,,
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Celtic,Celta Vigo,Correct Score,1-1,0.11777,,,
+2026-10-22T14:54:51+00:00,2026-10-22T19:00:00+00:00,Europa League,Olympiakos Piraeus,Sparta Prague,Correct Score,2-0,0.11658,,,
