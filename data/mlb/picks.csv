@@ -579,5 +579,5 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-10-18,2026-10-18T14:09:44.034067+00:00,ML,849817,TB @ CLE,Tampa Bay Rays,TB,Drew Rasmussen / Parker Messick,1.79,betonlineag,0.5478,,15,-1.94,,1.120,59.76,WIN,
 2026-10-19,2026-10-19T17:10:14.257784+00:00,HR,849815,CLE @ TB,Junior Caminero,TB,Shawn Armstrong,5.00,betparx,0.1652,0.1918,6,-17.39,Parlay 1,6.053,-17.39,WIN,691406
 2026-10-19,2026-10-19T17:10:14.257784+00:00,ML,849815,CLE @ TB,Tampa Bay Rays,TB,Shawn Armstrong / Freddy Peralta,1.68,betus,0.5848,,15,-1.75,,1.708,-1.61,WIN,
-2026-10-23,2026-10-23T15:28:54.444173+00:00,HR,849805,TB @ MIL,Jake Bauers,MIL,Nick Martinez,6.25,ballybet,0.1405,0.1700,6,-12.17,Parlay 1,,,,641343
-2026-10-23,2026-10-23T15:28:54.444173+00:00,ML,849805,TB @ MIL,Milwaukee Brewers,MIL,Nick Martinez / Jacob Misiorowski,1.56,betanysports,0.6345,,15,-1.02,,,,,
+2026-10-23,2026-10-23T15:28:54.444173+00:00,HR,849805,TB @ MIL,Jake Bauers,MIL,Nick Martinez,6.25,ballybet,0.1405,0.1700,6,-12.17,Parlay 1,7.116,-12.17,,641343
+2026-10-23,2026-10-23T15:28:54.444173+00:00,ML,849805,TB @ MIL,Milwaukee Brewers,MIL,Nick Martinez / Jacob Misiorowski,1.56,betanysports,0.6345,,15,-1.02,,1.574,-0.90,,
