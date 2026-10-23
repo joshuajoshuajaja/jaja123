@@ -1,4 +1,4 @@
-probe run 2026-10-22T14:53:33+00:00
+probe run 2026-10-23T14:41:29+00:00
 what this GitHub Actions runner can reach
 
   football-data.co.uk      HTTP 200  text/csv
