@@ -1721,3 +1721,11 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-23T14:42:44+00:00,2026-10-23T19:00:00+00:00,Premier League,Ipswich Town,Nottingham Forest,1X2/Totals,Over 2.5,0.54255,1.84,coolbet,-0.00171
 2026-10-23T14:42:44+00:00,2026-10-23T19:00:00+00:00,La Liga,Alavés,Málaga,Correct Score,1-0,0.12225,,,
 2026-10-23T14:42:44+00:00,2026-10-23T19:00:00+00:00,Premier League,Ipswich Town,Nottingham Forest,Correct Score,1-1,0.1186,,,
+2026-10-24T13:53:26+00:00,2026-10-24T19:00:00+00:00,La Liga,Atlético Madrid,Deportivo La Coruña,1X2/Totals,Over 2.5,0.61787,1.65,onexbet,0.01949
+2026-10-24T13:53:26+00:00,2026-10-24T16:30:00+00:00,Premier League,Chelsea,Tottenham Hotspur,1X2/Totals,Over 2.5,0.60637,1.66,onexbet,0.00658
+2026-10-24T13:53:26+00:00,2026-10-24T16:30:00+00:00,La Liga,Valencia,Villarreal,1X2/Totals,Over 2.5,0.56684,1.79,onexbet,0.01465
+2026-10-24T13:53:26+00:00,2026-10-24T14:15:00+00:00,La Liga,Real Racing Club de Santander,Espanyol,1X2/Totals,Over 2.5,0.56397,1.78,onexbet,0.00387
+2026-10-24T13:53:26+00:00,2026-10-24T19:00:00+00:00,La Liga,Atlético Madrid,Deportivo La Coruña,Correct Score,2-0,0.13093,,,
+2026-10-24T13:53:26+00:00,2026-10-24T14:15:00+00:00,La Liga,Real Racing Club de Santander,Espanyol,Correct Score,1-1,0.11575,,,
+2026-10-24T13:53:26+00:00,2026-10-24T16:30:00+00:00,La Liga,Valencia,Villarreal,Correct Score,1-1,0.11259,,,
+2026-10-24T13:53:26+00:00,2026-10-24T16:30:00+00:00,Premier League,Chelsea,Tottenham Hotspur,Correct Score,1-1,0.10446,,,
