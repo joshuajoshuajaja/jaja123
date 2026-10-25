@@ -1729,3 +1729,11 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-24T13:53:26+00:00,2026-10-24T14:15:00+00:00,La Liga,Real Racing Club de Santander,Espanyol,Correct Score,1-1,0.11575,,,
 2026-10-24T13:53:26+00:00,2026-10-24T16:30:00+00:00,La Liga,Valencia,Villarreal,Correct Score,1-1,0.11259,,,
 2026-10-24T13:53:26+00:00,2026-10-24T16:30:00+00:00,Premier League,Chelsea,Tottenham Hotspur,Correct Score,1-1,0.10446,,,
+2026-10-25T14:08:39+00:00,2026-10-25T20:00:00+00:00,La Liga,Barcelona,Real Madrid,1X2/Totals,Barcelona,0.61946,1.61,onexbet,-0.00268
+2026-10-25T14:08:39+00:00,2026-10-25T17:30:00+00:00,La Liga,Real Sociedad,Levante,1X2/Totals,Over 2.5,0.60295,1.71,onexbet,0.03105
+2026-10-25T14:08:39+00:00,2026-10-25T16:30:00+00:00,Premier League,Sunderland,Leeds United,1X2/Totals,Under 2.5,0.55423,1.81,onexbet,0.00316
+2026-10-25T14:08:39+00:00,2026-10-25T15:15:00+00:00,La Liga,Celta Vigo,Real Betis,1X2/Totals,Over 2.5,0.5074,1.91,onexbet,-0.03086
+2026-10-25T14:08:39+00:00,2026-10-25T16:30:00+00:00,Premier League,Sunderland,Leeds United,Correct Score,1-1,0.1313,,,
+2026-10-25T14:08:39+00:00,2026-10-25T15:15:00+00:00,La Liga,Celta Vigo,Real Betis,Correct Score,1-1,0.12435,,,
+2026-10-25T14:08:39+00:00,2026-10-25T17:30:00+00:00,La Liga,Real Sociedad,Levante,Correct Score,1-1,0.1011,,,
+2026-10-25T14:08:39+00:00,2026-10-25T20:00:00+00:00,La Liga,Barcelona,Real Madrid,Correct Score,2-1,0.0867,,,
