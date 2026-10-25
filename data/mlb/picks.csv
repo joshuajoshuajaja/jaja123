@@ -581,5 +581,5 @@ board_date,logged_at,market,game_pk,matchup,selection,team,opp_sp,best_price,bes
 2026-10-19,2026-10-19T17:10:14.257784+00:00,ML,849815,CLE @ TB,Tampa Bay Rays,TB,Shawn Armstrong / Freddy Peralta,1.68,betus,0.5848,,15,-1.75,,1.708,-1.61,WIN,
 2026-10-23,2026-10-23T15:28:54.444173+00:00,HR,849805,TB @ MIL,Jake Bauers,MIL,Nick Martinez,6.25,ballybet,0.1405,0.1700,6,-12.17,Parlay 1,7.116,-12.17,LOSS,641343
 2026-10-23,2026-10-23T15:28:54.444173+00:00,ML,849805,TB @ MIL,Milwaukee Brewers,MIL,Nick Martinez / Jacob Misiorowski,1.56,betanysports,0.6345,,15,-1.02,,1.574,-0.90,WIN,
-2026-10-24,2026-10-24T14:07:37.031495+00:00,HR,849802,TB @ MIL,Junior Caminero,TB,Logan Henderson,5.75,betrivers,0.1484,0.2297,6,-14.65,Parlay 1,,,,691406
-2026-10-24,2026-10-24T14:07:37.031495+00:00,ML,849802,TB @ MIL,Milwaukee Brewers,MIL,Drew Rasmussen / Logan Henderson,1.83,draftkings,0.5272,,15,-3.52,,,,,
+2026-10-24,2026-10-24T14:07:37.031495+00:00,HR,849802,TB @ MIL,Junior Caminero,TB,Logan Henderson,5.75,betrivers,0.1484,0.2297,6,-14.65,Parlay 1,,,LOSS,691406
+2026-10-24,2026-10-24T14:07:37.031495+00:00,ML,849802,TB @ MIL,Milwaukee Brewers,MIL,Drew Rasmussen / Logan Henderson,1.83,draftkings,0.5272,,15,-3.52,,,,WIN,
