@@ -1,37 +1,37 @@
-last_run_utc: 2026-10-29T17:58:41+00:00
-matches_rows: 150263
+last_run_utc: 2026-10-30T16:31:36+00:00
+matches_rows: 150300
 divisions: 40
-date_range: 2012-03-02 .. 2026-10-28
+date_range: 2012-03-02 .. 2026-10-30
 clubelo: no
 xg_matches: 0
 odds: no
 warnings: 4
   - clubelo unreachable from this runner
-  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
+  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18699 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
   - odds API rejected the key mid-run - stopping
 
 rows per division:
-  USA: MLS                     6282
+  USA: MLS                     6296
   E1                           6216
   E3                           6111
   E2                           6063
   EC                           6027
-  BRA: Serie A                 5638
-  ARG: Liga Profesional        5524
+  BRA: Serie A                 5646
+  ARG: Liga Profesional        5525
   SP2                          5203
-  MEX: Liga MX                 4779
+  MEX: Liga MX                 4780
   JAP: J1 League               4643
   I2                           4478
   ROM: Superliga               4286
   SP1                          4279
-  I1                           4268
+  I1                           4270
   E0                           4260
   POL: Ekstraklasa             4188
   F2                           4020
   F1                           3929
   T1                           3781
-  SWE: Allsvenskan             3584
+  SWE: Allsvenskan             3592
   NOR: Eliteserien             3574
   D2                           3447
   P1                           3447
@@ -43,7 +43,7 @@ rows per division:
   DEN: Superliga               3024
   SWI: Super League            2739
   IRE: Premier Division        2738
-  FIN: Veikkausliiga           2714
+  FIN: Veikkausliiga           2717
   AUS: Bundesliga              2698
   G1                           2683
   SC0                          2525
