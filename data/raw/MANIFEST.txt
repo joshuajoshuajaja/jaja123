@@ -1,4 +1,4 @@
-last_run_utc: 2026-10-30T16:31:36+00:00
+last_run_utc: 2026-10-30T16:48:11+00:00
 matches_rows: 150300
 divisions: 40
 date_range: 2012-03-02 .. 2026-10-30
@@ -7,7 +7,7 @@ xg_matches: 0
 odds: no
 warnings: 4
   - clubelo unreachable from this runner
-  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18699 bytes) - sample saved to understat_debug.txt
+  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18698 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
   - odds API rejected the key mid-run - stopping
 
