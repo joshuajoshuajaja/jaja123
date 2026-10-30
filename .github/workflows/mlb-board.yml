@@ -1,6 +1,6 @@
 name: MLB Daily Board
 
-on:
+--on:
   schedule:
     - cron: '47 10 * * *'
     - cron: '17 12 * * *'
