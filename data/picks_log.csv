@@ -1739,3 +1739,7 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-25T14:08:39+00:00,2026-10-25T20:00:00+00:00,La Liga,Barcelona,Real Madrid,Correct Score,2-1,0.0867,,,
 2026-10-26T16:31:02+00:00,2026-10-26T20:00:00+00:00,La Liga,Sevilla,CA Osasuna,1X2/Totals,Under 2.5,0.55827,1.79,onexbet,-0.0007
 2026-10-26T16:31:02+00:00,2026-10-26T20:00:00+00:00,La Liga,Sevilla,CA Osasuna,Correct Score,1-0,0.12808,,,
+2026-10-31T15:39:14+00:00,2026-10-31T17:30:00+00:00,Premier League,Tottenham Hotspur,Crystal Palace,1X2/Totals,Tottenham Hotspur,0.59641,1.67,onexbet,-0.004
+2026-10-31T15:39:14+00:00,2026-10-31T20:00:00+00:00,Premier League,Aston Villa,Fulham,1X2/Totals,Over 2.5,0.54486,1.81,onexbet,-0.01381
+2026-10-31T15:39:14+00:00,2026-10-31T20:00:00+00:00,Premier League,Aston Villa,Fulham,Correct Score,1-1,0.11652,,,
+2026-10-31T15:39:14+00:00,2026-10-31T17:30:00+00:00,Premier League,Tottenham Hotspur,Crystal Palace,Correct Score,1-1,0.10089,,,
