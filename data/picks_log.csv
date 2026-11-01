@@ -1743,3 +1743,15 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-10-31T15:39:14+00:00,2026-10-31T20:00:00+00:00,Premier League,Aston Villa,Fulham,1X2/Totals,Over 2.5,0.54486,1.81,onexbet,-0.01381
 2026-10-31T15:39:14+00:00,2026-10-31T20:00:00+00:00,Premier League,Aston Villa,Fulham,Correct Score,1-1,0.11652,,,
 2026-10-31T15:39:14+00:00,2026-10-31T17:30:00+00:00,Premier League,Tottenham Hotspur,Crystal Palace,Correct Score,1-1,0.10089,,,
+2026-11-01T16:37:42+00:00,2026-11-01T20:30:00+00:00,Primeira Liga,Braga,Famalicão,1X2/Totals,Braga,0.59128,1.72,gtbets,0.01701
+2026-11-01T16:37:42+00:00,2026-11-01T18:00:00+00:00,Primeira Liga,Académico de Viseu,Rio Ave FC,1X2/Totals,Académico de Viseu,0.51966,1.91,matchbook,-0.00745
+2026-11-01T16:37:42+00:00,2026-11-01T19:45:00+00:00,Ligue 1,Marseille,Toulouse,1X2/Totals,Over 2.5,0.63955,1.53,unibet_se,-0.02148
+2026-11-01T16:37:42+00:00,2026-11-01T18:00:00+00:00,Primeira Liga,CS Maritimo,Santa Clara,1X2/Totals,Under 2.5,0.60957,1.64,matchbook,-0.00031
+2026-11-01T16:37:42+00:00,2026-11-01T17:00:00+00:00,Serie A,Lecce,Genoa,1X2/Totals,Under 2.5,0.58665,1.72,matchbook,0.00903
+2026-11-01T16:37:42+00:00,2026-11-01T20:00:00+00:00,La Liga,Athletic Bilbao,Real Sociedad,1X2/Totals,Over 2.5,0.52994,1.85,betonlineag,-0.01962
+2026-11-01T16:37:42+00:00,2026-11-01T17:30:00+00:00,La Liga,Elche CF,Valencia,1X2/Totals,Under 2.5,0.52137,1.94,onexbet,0.01145
+2026-11-01T16:37:42+00:00,2026-11-01T19:45:00+00:00,Serie A,Juventus,Napoli,1X2/Totals,Under 2.5,0.50554,1.98,matchbook,0.00097
+2026-11-01T16:37:42+00:00,2026-11-01T18:00:00+00:00,Primeira Liga,CS Maritimo,Santa Clara,Correct Score,0-1,0.14323,,,
+2026-11-01T16:37:42+00:00,2026-11-01T20:30:00+00:00,Primeira Liga,Braga,Famalicão,Correct Score,1-0,0.14133,,,
+2026-11-01T16:37:42+00:00,2026-11-01T17:00:00+00:00,Serie A,Lecce,Genoa,Correct Score,1-1,0.13941,,,
+2026-11-01T16:37:42+00:00,2026-11-01T19:45:00+00:00,Serie A,Juventus,Napoli,Correct Score,1-1,0.12999,,,
