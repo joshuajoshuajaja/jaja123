@@ -1755,3 +1755,5 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-01T16:37:42+00:00,2026-11-01T20:30:00+00:00,Primeira Liga,Braga,Famalicão,Correct Score,1-0,0.14133,,,
 2026-11-01T16:37:42+00:00,2026-11-01T17:00:00+00:00,Serie A,Lecce,Genoa,Correct Score,1-1,0.13941,,,
 2026-11-01T16:37:42+00:00,2026-11-01T19:45:00+00:00,Serie A,Juventus,Napoli,Correct Score,1-1,0.12999,,,
+2026-11-02T21:59:59+00:00,2026-11-02T23:00:00+00:00,BRA: Serie A,Bragantino-SP,Santos,1X2/Totals,Over 2.5,0.62061,1.55,unibet_nl,-0.03805
+2026-11-02T21:59:59+00:00,2026-11-02T23:00:00+00:00,BRA: Serie A,Bragantino-SP,Santos,Correct Score,1-1,0.10626,,,
