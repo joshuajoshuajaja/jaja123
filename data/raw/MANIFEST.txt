@@ -1,53 +1,130 @@
-last_run_utc: 2026-11-01T16:34:26+00:00
-matches_rows: 150300
+last_run_utc: 2026-11-02T20:29:08+00:00
+matches_rows: 150480
 divisions: 40
-date_range: 2012-03-02 .. 2026-10-30
+date_range: 2012-03-02 .. 2026-11-01
 clubelo: no
 xg_matches: 0
 odds: yes
-warnings: 3
+warnings: 80
   - clubelo unreachable from this runner
-  - understat https://understat.com/league/EPL/2014: 200 but no datesData block (18694 bytes) - sample saved to understat_debug.txt
-  - understat returned nothing - status counts {200: 78}
+  - understat https://understat.com/league/EPL/2014: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2014 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2ec30>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2015: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2015 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2fd10>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2016: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2016 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2da60>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2017: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2017 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a89118e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2018: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2018 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8912ed0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2019: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2019 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2f6e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2020: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2020 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2e4e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2021: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2021 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2ce30>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2022: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2022 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2c3b0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2023: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2023 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2cfe0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2024: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2024 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2c1d0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2025: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2025 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2f950>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/EPL/2026: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/EPL/2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2d370>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2014: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2014 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2f890>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2015: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2015 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2c170>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2016: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2016 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2c4a0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2017: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2017 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147aff075f0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2018: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2018 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a89131d0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2019: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2019 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2e5d0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2020: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2020 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2cad0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2021: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2021 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2db50>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2022: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2022 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2cb60>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2023: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2023 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2c4d0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2024: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2024 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8910bf0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2025: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2025 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8911e20>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/La_liga/2026: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/La_liga/2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2f290>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2014: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2014 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2f3e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2015: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2015 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2e2d0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2016: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2016 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2ec00>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2017: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2017 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147aff07470>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2018: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2018 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8911100>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2019: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2019 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147aff075f0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2020: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2020 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2fb30>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2021: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2021 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2e2d0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2022: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2022 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2dd60>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2023: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2023 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2dbe0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2024: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2024 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8910f20>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2025: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2025 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8911610>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Bundesliga/2026: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Bundesliga/2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2d2e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2014: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2014 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2dcd0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2015: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2015 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2f1d0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2016: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2016 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2d550>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2017: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2017 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147adcf2b10>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2018: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2018 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8912510>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2019: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2019 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a89107d0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2020: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2020 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2e240>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2021: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2021 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2cbf0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2022: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2022 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2e1e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2023: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2023 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2cce0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2024: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2024 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8910980>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2025: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2025 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8913ef0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Serie_A/2026: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Serie_A/2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2d100>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2014: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2014 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2dd00>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2015: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2015 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2fec0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2016: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2016 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2e630>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2017: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2017 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147adcf2b10>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2018: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2018 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a89138c0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2019: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2019 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8910320>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2020: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2020 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2fe60>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2021: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2021 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2dac0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2022: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2022 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2da90>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2023: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2023 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2e7e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2024: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2024 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2c620>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2025: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2025 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8910170>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/Ligue_1/2026: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/Ligue_1/2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8910140>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2014: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2014 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2d2e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2015: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2015 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2ff20>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2016: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2016 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2f710>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2017: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2017 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2eea0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2018: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2018 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8911700>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2019: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2019 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8911af0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2020: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2020 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147acd27fb0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2021: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2021 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2dfd0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2022: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2022 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2f9e0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2023: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2023 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2d0a0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2024: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2024 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8a2c590>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2025: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2025 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a8912b10>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat https://understat.com/league/RFPL/2026: HTTPSConnectionPool(host='understat.com', port=443): Max retries exceeded with url: /league/RFPL/2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='understat.com', port=443) at 0x7147a89139b0>, 'Connection to understat.com timed out. (connect timeout=20)'))
+  - understat returned nothing - status counts {0: 78}
 
 rows per division:
   USA: MLS                     6296
-  E1                           6216
-  E3                           6111
-  E2                           6063
-  EC                           6027
+  E1                           6228
+  E3                           6123
+  E2                           6075
+  EC                           6039
   BRA: Serie A                 5646
   ARG: Liga Profesional        5525
-  SP2                          5203
+  SP2                          5210
   MEX: Liga MX                 4780
   JAP: J1 League               4643
-  I2                           4478
+  I2                           4488
+  SP1                          4288
   ROM: Superliga               4286
-  SP1                          4279
-  I1                           4270
-  E0                           4260
+  I1                           4278
+  E0                           4269
   POL: Ekstraklasa             4188
-  F2                           4020
-  F1                           3929
-  T1                           3781
+  F2                           4027
+  F1                           3937
+  T1                           3789
   SWE: Allsvenskan             3592
   NOR: Eliteserien             3574
-  D2                           3447
-  P1                           3447
-  D1                           3429
+  D2                           3456
+  P1                           3454
+  D1                           3438
   RUS: Premier League          3416
-  N1                           3382
-  B1                           3125
+  N1                           3391
+  B1                           3134
   CHI: Super League            3040
   DEN: Superliga               3024
   SWI: Super League            2739
   IRE: Premier Division        2738
   FIN: Veikkausliiga           2717
   AUS: Bundesliga              2698
-  G1                           2683
-  SC0                          2525
-  SC1                          1951
-  SC2                          1928
-  SC3                          1922
+  G1                           2688
+  SC0                          2528
+  SC1                          1956
+  SC2                          1933
+  SC3                          1927
   ARG: Copa De La Liga Profesional 920
   SWI: Challenge League        2
