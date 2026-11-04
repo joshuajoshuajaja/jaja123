@@ -1757,3 +1757,22 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-01T16:37:42+00:00,2026-11-01T19:45:00+00:00,Serie A,Juventus,Napoli,Correct Score,1-1,0.12999,,,
 2026-11-02T21:59:59+00:00,2026-11-02T23:00:00+00:00,BRA: Serie A,Bragantino-SP,Santos,1X2/Totals,Over 2.5,0.62061,1.55,unibet_nl,-0.03805
 2026-11-02T21:59:59+00:00,2026-11-02T23:00:00+00:00,BRA: Serie A,Bragantino-SP,Santos,Correct Score,1-1,0.10626,,,
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Champions League,Viking FK,Sabah FK,1X2/Totals,Viking FK,0.66416,1.5,betfair_ex_eu,-0.00375
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Champions League,RB Leipzig,Manchester City,1X2/Totals,Manchester City,0.63412,1.59,betfair_ex_eu,0.00825
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Champions League,Borussia Dortmund,Real Betis,1X2/Totals,Borussia Dortmund,0.5822,1.71,betfair_ex_eu,-0.00444
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Champions League,RC Lens,Como,1X2/Totals,Over 2.5,0.61014,1.6,williamhill,-0.02378
+2026-11-04T17:47:40+00:00,2026-11-05T00:30:00+00:00,BRA: Serie A,Sao Paulo,Corinthians,1X2/Totals,Under 2.5,0.60072,1.66,matchbook,-0.00281
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Champions League,Slavia Praha,Arsenal,1X2/Totals,Under 3.5,0.59077,1.71,onexbet,0.01021
+2026-11-04T17:47:40+00:00,2026-11-04T19:45:00+00:00,Championship,Wrexham AFC,Middlesbrough,1X2/Totals,Over 2.5,0.58525,1.69,matchbook,-0.01092
+2026-11-04T17:47:40+00:00,2026-11-05T00:30:00+00:00,BRA: Serie A,Botafogo,Atletico Mineiro,1X2/Totals,Over 2.5,0.56154,1.74,matchbook,-0.02292
+2026-11-04T17:47:40+00:00,2026-11-04T22:30:00+00:00,BRA: Serie A,Atletico Paranaense,Vasco da Gama,1X2/Totals,Over 2.5,0.54286,1.83,unibet_nl,-0.00656
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Champions League,Porto,Napoli,1X2/Totals,Under 2.75,0.54188,1.82,pinnacle,-0.01378
+2026-11-04T17:47:40+00:00,2026-11-04T22:30:00+00:00,BRA: Serie A,Flamengo,Grêmio,1X2/Totals,Over 3.25,0.53533,1.76,betanysports,-0.05781
+2026-11-04T17:47:40+00:00,2026-11-04T19:30:00+00:00,Belgian Pro,KV Kortrijk,KV Mechelen,1X2/Totals,Under 2.75,0.52842,1.82,pinnacle,-0.03828
+2026-11-04T17:47:40+00:00,2026-11-04T19:45:00+00:00,Championship,Cardiff City,West Ham United,1X2/Totals,Under 3.5,0.52317,1.86,matchbook,-0.02691
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Champions League,PSV Eindhoven,Club Brugge,1X2/Totals,Over 3.5,0.51926,1.91,matchbook,-0.00822
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Championship,Bristol City,Wolverhampton Wanderers,1X2/Totals,Over 2.5,0.50693,1.94,matchbook,-0.01656
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Champions League,Slavia Praha,Arsenal,Correct Score,0-2,0.15245,,,
+2026-11-04T17:47:40+00:00,2026-11-05T00:30:00+00:00,BRA: Serie A,Sao Paulo,Corinthians,Correct Score,1-1,0.1367,,,
+2026-11-04T17:47:40+00:00,2026-11-04T19:30:00+00:00,Belgian Pro,KV Kortrijk,KV Mechelen,Correct Score,1-1,0.12473,,,
+2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Championship,Bristol City,Wolverhampton Wanderers,Correct Score,1-1,0.12248,,,

@@ -1,9 +1,9 @@
-probe run 2026-11-03T18:34:05+00:00
+probe run 2026-11-04T17:46:13+00:00
 what this GitHub Actions runner can reach
 
   football-data.co.uk      HTTP 200  text/csv
-  understat league page    FAILED  ConnectTimeout: HTTPSConnectionPool(host='understat.com', port=443): Max retries excee
-  understat root           FAILED  ConnectTimeout: HTTPSConnectionPool(host='understat.com', port=443): Max retries excee
+  understat league page    HTTP 200  text/html
+  understat root           HTTP 200  text/html
   fbref                    HTTP 403  text/html; charset=UTF-8  <- bot challenge page
   fbref robots             HTTP 403  text/html; charset=UTF-8  <- bot challenge page
   clubelo api              FAILED  ConnectTimeout: HTTPSConnectionPool(host='api.clubelo.com', port=443): Max retries exc
