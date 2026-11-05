@@ -1,7 +1,7 @@
-last_run_utc: 2026-11-04T17:43:56+00:00
-matches_rows: 150605
+last_run_utc: 2026-11-05T17:50:27+00:00
+matches_rows: 150622
 divisions: 40
-date_range: 2012-03-02 .. 2026-11-03
+date_range: 2012-03-02 .. 2026-11-04
 clubelo: no
 xg_matches: 0
 odds: yes
@@ -12,9 +12,9 @@ warnings: 3
 
 rows per division:
   USA: MLS                     6311
-  E1                           6228
-  E3                           6123
-  E2                           6075
+  E1                           6240
+  E3                           6124
+  E2                           6078
   EC                           6039
   BRA: Serie A                 5649
   ARG: Liga Profesional        5540
@@ -37,7 +37,7 @@ rows per division:
   D1                           3438
   RUS: Premier League          3416
   N1                           3391
-  B1                           3134
+  B1                           3135
   CHI: Super League            3040
   DEN: Superliga               3030
   SWI: Super League            2745

@@ -1776,3 +1776,28 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-04T17:47:40+00:00,2026-11-05T00:30:00+00:00,BRA: Serie A,Sao Paulo,Corinthians,Correct Score,1-1,0.1367,,,
 2026-11-04T17:47:40+00:00,2026-11-04T19:30:00+00:00,Belgian Pro,KV Kortrijk,KV Mechelen,Correct Score,1-1,0.12473,,,
 2026-11-04T17:47:40+00:00,2026-11-04T20:00:00+00:00,Championship,Bristol City,Wolverhampton Wanderers,Correct Score,1-1,0.12248,,,
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,AS Monaco,FC Nordsjaelland,1X2/Totals,AS Monaco,0.65791,1.53,betfair_ex_eu,0.0066
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,SK Sturm Graz,NK Celje,1X2/Totals,SK Sturm Graz,0.64252,1.57,betfair_ex_eu,0.00876
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,Getafe,Brighton and Hove Albion,1X2/Totals,Brighton and Hove Albion,0.6231,1.6,marathonbet,-0.00303
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,Torreense,FC Ararat-Armenia,1X2/Totals,Torreense,0.56544,1.76,unibet_nl,-0.00483
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,Sint Truiden,SK Brann,1X2/Totals,Over 2.5,0.72895,1.53,marathonbet,0.11529
+2026-11-05T17:53:52+00:00,2026-11-05T22:30:00+00:00,BRA: Serie A,Palmeiras,Remo,1X2/Totals,Over 2.5,0.62842,1.52,nordicbet,-0.04481
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,Panathinaikos FC,PFC CSKA Sofia,1X2/Totals,Over 2.5,0.62108,1.75,onexbet,0.08689
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,Celtic,Besiktas JK,1X2/Totals,Over 2.5,0.61975,1.67,onexbet,0.03498
+2026-11-05T17:53:52+00:00,2026-11-06T00:30:00+00:00,BRA: Serie A,Cruzeiro,Bahia,1X2/Totals,Over 2.5,0.61109,1.57,unibet_nl,-0.04059
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,Benfica,Lech Poznań,1X2/Totals,Under 4.5,0.59529,1.56,codere_it,-0.07135
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,Sunderland,Dinamo Zagreb,1X2/Totals,Over 2.5,0.58749,1.7,matchbook,-0.00127
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,Universitatea Craiova,KF Egnatia,1X2/Totals,Over 2.5,0.57709,1.77,matchbook,0.02145
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,FC Twente Enschede,Pafos FC,1X2/Totals,Over 3.5,0.56865,2.1,coolbet,0.19417
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,FC Copenhagen,FC Iberia 1999,1X2/Totals,Under 3.5,0.55827,1.8,leovegas_se,0.00488
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,Bayer Leverkusen,Marseille,1X2/Totals,Over 3,0.55776,1.69,betonlineag,-0.05738
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,Celta Vigo,Union Saint-Gilloise,1X2/Totals,Under 3,0.55603,1.71,coolbet,-0.04918
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,Hapoel Be'er Sheva,OFI Crete,1X2/Totals,Over 2.5,0.55064,1.77,betsson,-0.02537
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Europa League,AZ Alkmaar,Juventus,1X2/Totals,Over 2.5,0.53359,1.85,onexbet,-0.01285
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,FC Lugano,FK Kauno Žalgiris,1X2/Totals,Under 3.5,0.52993,1.91,pinnacle,0.01216
+2026-11-05T17:53:52+00:00,2026-11-05T22:15:00+00:00,ARG: Liga Profesional,Gimnasia La Plata,Belgrano de Cordoba,1X2/Totals,Under 2.5,0.52397,1.83,pinnacle,-0.04114
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,Riga FC,FK Jablonec,1X2/Totals,Over 2.5,0.52277,1.9,matchbook,-0.00673
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,FC Copenhagen,FC Iberia 1999,Correct Score,2-0,0.14039,,,
+2026-11-05T17:53:52+00:00,2026-11-05T22:15:00+00:00,ARG: Liga Profesional,Gimnasia La Plata,Belgrano de Cordoba,Correct Score,1-1,0.13592,,,
+2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,FC Lugano,FK Kauno Žalgiris,Correct Score,2-0,0.13375,,,
+2026-11-05T17:53:52+00:00,2026-11-05T22:30:00+00:00,BRA: Serie A,Palmeiras,Remo,Correct Score,2-0,0.13275,,,
