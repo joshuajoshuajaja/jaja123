@@ -1801,3 +1801,22 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-05T17:53:52+00:00,2026-11-05T22:15:00+00:00,ARG: Liga Profesional,Gimnasia La Plata,Belgrano de Cordoba,Correct Score,1-1,0.13592,,,
 2026-11-05T17:53:52+00:00,2026-11-05T20:00:00+00:00,Conference League,FC Lugano,FK Kauno Žalgiris,Correct Score,2-0,0.13375,,,
 2026-11-05T17:53:52+00:00,2026-11-05T22:30:00+00:00,BRA: Serie A,Palmeiras,Remo,Correct Score,2-0,0.13275,,,
+2026-11-06T17:11:47+00:00,2026-11-06T20:00:00+00:00,Premier League,Everton,Coventry City,1X2/Totals,Everton,0.58794,1.72,gtbets,0.01125
+2026-11-06T17:11:47+00:00,2026-11-06T20:45:00+00:00,Primeira Liga,Famalicão,Arouca,1X2/Totals,Famalicão,0.53391,1.77,tipico_de,-0.05498
+2026-11-06T17:11:47+00:00,2026-11-06T22:00:00+00:00,ARG: Liga Profesional,Independiente,Deportivo Riestra,1X2/Totals,Over 1.5,0.63053,1.52,onexbet,-0.04159
+2026-11-06T17:11:47+00:00,2026-11-07T01:00:00+00:00,ARG: Liga Profesional,CA Tigre BA,Sarmiento de Junin,1X2/Totals,Under 2.5,0.60987,1.63,unibet_se,-0.00591
+2026-11-06T17:11:47+00:00,2026-11-06T18:00:00+00:00,ARG: Liga Profesional,Barracas Central,Racing Club,1X2/Totals,Under 2.5,0.60725,1.58,betsson,-0.04054
+2026-11-06T17:11:47+00:00,2026-11-06T19:45:00+00:00,Ligue 1,Toulouse,Strasbourg,1X2/Totals,Under 3.5,0.60519,1.55,tipico_de,-0.06196
+2026-11-06T17:11:47+00:00,2026-11-06T19:30:00+00:00,Bundesliga,Hamburger SV,Borussia Monchengladbach,1X2/Totals,Under 3.5,0.60407,1.57,codere_it,-0.05161
+2026-11-06T17:11:47+00:00,2026-11-06T22:00:00+00:00,ARG: Liga Profesional,San Lorenzo,Platense,1X2/Totals,Over 1.5,0.60295,1.6,onexbet,-0.03527
+2026-11-06T17:11:47+00:00,2026-11-06T20:00:00+00:00,La Liga,Sevilla,Alavés,1X2/Totals,Under 2.5,0.58891,1.69,betonlineag,-0.00475
+2026-11-06T17:11:47+00:00,2026-11-06T19:45:00+00:00,Belgian Pro,Standard Liege,SK Beveren,1X2/Totals,Over 2.5,0.58638,1.66,betsson,-0.02661
+2026-11-06T17:11:47+00:00,2026-11-07T01:00:00+00:00,ARG: Liga Profesional,Banfield,Atlético Tucuman,1X2/Totals,Under 2.5,0.57047,1.68,onexbet,-0.04161
+2026-11-06T17:11:47+00:00,2026-11-06T19:45:00+00:00,Serie A,Venezia,Udinese,1X2/Totals,Under 3,0.56397,1.75,coolbet,-0.01305
+2026-11-06T17:11:47+00:00,2026-11-06T20:00:00+00:00,Championship,Derby County,Bolton Wanderers,1X2/Totals,Over 2.5,0.5491,1.73,gtbets,-0.05005
+2026-11-06T17:11:47+00:00,2026-11-06T22:00:00+00:00,ARG: Liga Profesional,Union Santa Fe,Velez Sarsfield BA,1X2/Totals,Under 2.5,0.54533,1.75,betsson,-0.04567
+2026-11-06T17:11:47+00:00,2026-11-06T23:00:00+00:00,BRA: Serie A,Vitoria,Fluminense,1X2/Totals,Over 2.25,0.53388,1.8,pinnacle,-0.03902
+2026-11-06T17:11:47+00:00,2026-11-06T22:00:00+00:00,ARG: Liga Profesional,Independiente,Deportivo Riestra,Correct Score,1-0,0.15912,,,
+2026-11-06T17:11:47+00:00,2026-11-06T22:00:00+00:00,ARG: Liga Profesional,San Lorenzo,Platense,Correct Score,1-1,0.14658,,,
+2026-11-06T17:11:47+00:00,2026-11-07T01:00:00+00:00,ARG: Liga Profesional,CA Tigre BA,Sarmiento de Junin,Correct Score,1-0,0.14295,,,
+2026-11-06T17:11:47+00:00,2026-11-06T20:00:00+00:00,La Liga,Sevilla,Alavés,Correct Score,1-0,0.14259,,,
