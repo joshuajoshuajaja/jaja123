@@ -1820,3 +1820,27 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-06T17:11:47+00:00,2026-11-06T22:00:00+00:00,ARG: Liga Profesional,San Lorenzo,Platense,Correct Score,1-1,0.14658,,,
 2026-11-06T17:11:47+00:00,2026-11-07T01:00:00+00:00,ARG: Liga Profesional,CA Tigre BA,Sarmiento de Junin,Correct Score,1-0,0.14295,,,
 2026-11-06T17:11:47+00:00,2026-11-06T20:00:00+00:00,La Liga,Sevilla,Alavés,Correct Score,1-0,0.14259,,,
+2026-11-07T16:07:39+00:00,2026-11-07T18:00:00+00:00,Primeira Liga,Alverca,Casa Pia,1X2/Totals,Alverca,0.57365,1.67,tipico_de,-0.042
+2026-11-07T16:07:39+00:00,2026-11-07T18:00:00+00:00,Ligue 1,Auxerre,Paris FC,1X2/Totals,Paris FC,0.56835,1.79,leovegas_se,0.01735
+2026-11-07T16:07:39+00:00,2026-11-07T17:30:00+00:00,Bundesliga,VfB Stuttgart,Werder Bremen,1X2/Totals,VfB Stuttgart,0.51577,1.92,matchbook,-0.00971
+2026-11-07T16:07:39+00:00,2026-11-07T20:30:00+00:00,ARG: Liga Profesional,Argentinos Juniors,Atlético Huracán,1X2/Totals,Under 2.5,0.62915,1.56,unibet_se,-0.01852
+2026-11-07T16:07:39+00:00,2026-11-08T01:00:00+00:00,ARG: Liga Profesional,Instituto de Córdoba,Newells Old Boys,1X2/Totals,Under 2.5,0.62599,1.54,unibet_se,-0.03597
+2026-11-07T16:07:39+00:00,2026-11-07T19:45:00+00:00,Belgian Pro,Royal Antwerp,Lommel SK,1X2/Totals,Over 2.5,0.60742,1.57,unibet_nl,-0.04635
+2026-11-07T16:07:39+00:00,2026-11-07T18:00:00+00:00,ARG: Liga Profesional,Talleres,Estudiantes,1X2/Totals,Under 2.5,0.58977,1.62,betsson,-0.04458
+2026-11-07T16:07:39+00:00,2026-11-07T17:30:00+00:00,Premier League,Nottingham Forest,Manchester City,1X2/Totals,Over 2.5,0.58744,1.71,matchbook,0.00453
+2026-11-07T16:07:39+00:00,2026-11-07T18:00:00+00:00,ARG: Liga Profesional,Gimnasia Mendoza,Independiente Rivadavia,1X2/Totals,Under 2.5,0.57844,1.73,unibet_se,0.0007
+2026-11-07T16:07:39+00:00,2026-11-07T17:00:00+00:00,Serie A,Parma,Bologna,1X2/Totals,Under 2.5,0.56156,1.78,matchbook,-0.00042
+2026-11-07T16:07:39+00:00,2026-11-07T17:30:00+00:00,La Liga,CA Osasuna,Athletic Bilbao,1X2/Totals,Under 2.5,0.55499,1.81,onexbet,0.00453
+2026-11-07T16:07:39+00:00,2026-11-07T20:30:00+00:00,ARG: Liga Profesional,Rosario Central,Estudiantes de Río Cuarto,1X2/Totals,Over 2.5,0.55485,1.73,unibet_se,-0.04011
+2026-11-07T16:07:39+00:00,2026-11-07T20:00:00+00:00,La Liga,Valencia,Real Madrid,1X2/Totals,Under 3.5,0.55039,1.78,onexbet,-0.02031
+2026-11-07T16:07:39+00:00,2026-11-07T19:45:00+00:00,Serie A,AS Roma,Sassuolo,1X2/Totals,Over 3.25,0.54834,1.78,pinnacle,-0.02395
+2026-11-07T16:07:39+00:00,2026-11-08T00:00:00+00:00,ARG: Liga Profesional,Union Santa Fe,Velez Sarsfield BA,1X2/Totals,Under 2.5,0.5468,1.72,marathonbet,-0.05951
+2026-11-07T16:07:39+00:00,2026-11-07T19:45:00+00:00,Belgian Pro,RAAL La Louvière,Cercle Brugge KSV,1X2/Totals,Over 2.5,0.54241,1.77,onexbet,-0.03994
+2026-11-07T16:07:39+00:00,2026-11-07T17:15:00+00:00,Belgian Pro,Leuven,KV Mechelen,1X2/Totals,Over 2.5,0.53983,1.8,betsson,-0.0283
+2026-11-07T16:07:39+00:00,2026-11-07T20:05:00+00:00,Ligue 1,Paris Saint Germain,Troyes,1X2/Totals,Under 4,0.53822,1.82,coolbet,-0.02044
+2026-11-07T16:07:39+00:00,2026-11-07T20:30:00+00:00,Primeira Liga,Sporting Lisbon,Moreirense FC,1X2/Totals,Under 3.5,0.52665,1.77,tipico_de,-0.06783
+2026-11-07T16:07:39+00:00,2026-11-07T20:30:00+00:00,ARG: Liga Profesional,Boca Juniors,Defensa y Justicia,1X2/Totals,Over 2.5,0.51832,1.85,unibet_se,-0.04112
+2026-11-07T16:07:39+00:00,2026-11-07T20:30:00+00:00,ARG: Liga Profesional,Rosario Central,Estudiantes de Río Cuarto,Correct Score,2-0,0.16159,,,
+2026-11-07T16:07:39+00:00,2026-11-07T20:30:00+00:00,ARG: Liga Profesional,Argentinos Juniors,Atlético Huracán,Correct Score,1-0,0.15261,,,
+2026-11-07T16:07:39+00:00,2026-11-07T18:00:00+00:00,ARG: Liga Profesional,Talleres,Estudiantes,Correct Score,1-1,0.14335,,,
+2026-11-07T16:07:39+00:00,2026-11-07T18:00:00+00:00,ARG: Liga Profesional,Gimnasia Mendoza,Independiente Rivadavia,Correct Score,1-1,0.14259,,,
