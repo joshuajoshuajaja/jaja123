@@ -1844,3 +1844,17 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-07T16:07:39+00:00,2026-11-07T20:30:00+00:00,ARG: Liga Profesional,Argentinos Juniors,Atlético Huracán,Correct Score,1-0,0.15261,,,
 2026-11-07T16:07:39+00:00,2026-11-07T18:00:00+00:00,ARG: Liga Profesional,Talleres,Estudiantes,Correct Score,1-1,0.14335,,,
 2026-11-07T16:07:39+00:00,2026-11-07T18:00:00+00:00,ARG: Liga Profesional,Gimnasia Mendoza,Independiente Rivadavia,Correct Score,1-1,0.14259,,,
+2026-11-08T16:36:04+00:00,2026-11-08T17:30:00+00:00,La Liga,Villarreal,Getafe,1X2/Totals,Villarreal,0.64538,1.57,onexbet,0.01324
+2026-11-08T16:36:04+00:00,2026-11-08T17:30:00+00:00,La Liga,Celta Vigo,Levante,1X2/Totals,Celta Vigo,0.52934,1.89,betfair_ex_eu,0.00045
+2026-11-08T16:36:04+00:00,2026-11-08T17:00:00+00:00,Serie A,Inter Milan,Como,1X2/Totals,Over 2.5,0.65146,1.5,williamhill,-0.02281
+2026-11-08T16:36:04+00:00,2026-11-08T19:45:00+00:00,Ligue 1,RC Lens,Marseille,1X2/Totals,Under 3.5,0.63725,1.74,onexbet,0.10882
+2026-11-08T16:36:04+00:00,2026-11-08T18:30:00+00:00,Bundesliga,TSG Hoffenheim,FC Schalke 04,1X2/Totals,Over 2.5,0.62178,1.55,betsson,-0.03624
+2026-11-08T16:36:04+00:00,2026-11-08T17:30:00+00:00,Belgian Pro,Union Saint-Gilloise,Genk,1X2/Totals,Under 3.5,0.60519,1.55,tipico_de,-0.06196
+2026-11-08T16:36:04+00:00,2026-11-08T18:15:00+00:00,Belgian Pro,Sint Truiden,SV Zulte-Waregem,1X2/Totals,Over 2.5,0.60094,1.6,williamhill,-0.0385
+2026-11-08T16:36:04+00:00,2026-11-08T22:30:00+00:00,ARG: Liga Profesional,Central Córdoba,Lanus,1X2/Totals,Under 2.5,0.5665,1.69,onexbet,-0.04261
+2026-11-08T16:36:04+00:00,2026-11-08T19:45:00+00:00,Serie A,Fiorentina,Juventus,1X2/Totals,Under 2.75,0.52146,1.85,betanysports,-0.0353
+2026-11-08T16:36:04+00:00,2026-11-08T20:00:00+00:00,La Liga,Atlético Madrid,Barcelona,1X2/Totals,Over 3.5,0.51339,1.93,onexbet,-0.00915
+2026-11-08T16:36:04+00:00,2026-11-08T22:30:00+00:00,ARG: Liga Profesional,Central Córdoba,Lanus,Correct Score,0-1,0.13446,,,
+2026-11-08T16:36:04+00:00,2026-11-08T19:45:00+00:00,Serie A,Fiorentina,Juventus,Correct Score,1-1,0.12838,,,
+2026-11-08T16:36:04+00:00,2026-11-08T17:30:00+00:00,La Liga,Villarreal,Getafe,Correct Score,2-0,0.12166,,,
+2026-11-08T16:36:04+00:00,2026-11-08T17:30:00+00:00,La Liga,Celta Vigo,Levante,Correct Score,1-1,0.11577,,,
