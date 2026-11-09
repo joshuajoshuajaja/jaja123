@@ -1,7 +1,7 @@
-last_run_utc: 2026-11-08T16:29:53+00:00
-matches_rows: 150633
+last_run_utc: 2026-11-09T20:23:19+00:00
+matches_rows: 150791
 divisions: 40
-date_range: 2012-03-02 .. 2026-11-06
+date_range: 2012-03-02 .. 2026-11-08
 clubelo: no
 xg_matches: 0
 odds: yes
@@ -12,42 +12,42 @@ warnings: 3
 
 rows per division:
   USA: MLS                     6311
-  E1                           6240
+  E1                           6252
   E3                           6124
   E2                           6078
   EC                           6039
   BRA: Serie A                 5657
   ARG: Liga Profesional        5542
-  SP2                          5213
+  SP2                          5220
   MEX: Liga MX                 4789
   JAP: J1 League               4653
-  I2                           4488
+  I2                           4498
+  SP1                          4299
   ROM: Superliga               4294
-  SP1                          4289
-  I1                           4280
-  E0                           4270
+  I1                           4290
+  E0                           4280
   POL: Ekstraklasa             4197
-  F2                           4029
-  F1                           3938
-  T1                           3790
+  F2                           4038
+  F1                           3947
+  T1                           3799
   SWE: Allsvenskan             3600
   NOR: Eliteserien             3582
-  D2                           3456
-  P1                           3456
-  D1                           3438
+  D2                           3465
+  P1                           3464
+  D1                           3447
   RUS: Premier League          3416
-  N1                           3391
-  B1                           3135
+  N1                           3400
+  B1                           3144
   CHI: Super League            3040
   DEN: Superliga               3030
   SWI: Super League            2745
   IRE: Premier Division        2743
   FIN: Veikkausliiga           2720
   AUS: Bundesliga              2704
-  G1                           2690
-  SC0                          2528
-  SC1                          1956
-  SC2                          1933
-  SC3                          1927
+  G1                           2697
+  SC0                          2534
+  SC1                          1961
+  SC2                          1938
+  SC3                          1932
   ARG: Copa De La Liga Profesional 920
   SWI: Challenge League        2
