@@ -1,49 +1,49 @@
-last_run_utc: 2026-11-09T21:54:00+00:00
-matches_rows: 150791
+last_run_utc: 2026-11-10T17:28:15+00:00
+matches_rows: 150904
 divisions: 40
-date_range: 2012-03-02 .. 2026-11-08
+date_range: 2012-03-02 .. 2026-11-09
 clubelo: no
 xg_matches: 0
-odds: no
+odds: yes
 warnings: 3
   - clubelo unreachable from this runner
   - understat https://understat.com/league/EPL/2014: 200 but no datesData block (26719 bytes) - sample saved to understat_debug.txt
   - understat returned nothing - status counts {200: 78}
 
 rows per division:
-  USA: MLS                     6311
+  USA: MLS                     6326
   E1                           6252
   E3                           6124
   E2                           6078
   EC                           6039
-  BRA: Serie A                 5657
-  ARG: Liga Profesional        5542
-  SP2                          5220
-  MEX: Liga MX                 4789
-  JAP: J1 League               4653
+  BRA: Serie A                 5658
+  ARG: Liga Profesional        5555
+  SP2                          5222
+  MEX: Liga MX                 4798
+  JAP: J1 League               4663
   I2                           4498
+  ROM: Superliga               4302
   SP1                          4299
-  ROM: Superliga               4294
   I1                           4290
   E0                           4280
-  POL: Ekstraklasa             4197
+  POL: Ekstraklasa             4206
   F2                           4038
   F1                           3947
   T1                           3799
-  SWE: Allsvenskan             3600
-  NOR: Eliteserien             3582
+  SWE: Allsvenskan             3608
+  NOR: Eliteserien             3590
   D2                           3465
   P1                           3464
   D1                           3447
   RUS: Premier League          3416
   N1                           3400
   B1                           3144
-  CHI: Super League            3040
-  DEN: Superliga               3030
-  SWI: Super League            2745
-  IRE: Premier Division        2743
-  FIN: Veikkausliiga           2720
-  AUS: Bundesliga              2704
+  CHI: Super League            3048
+  DEN: Superliga               3036
+  SWI: Super League            2751
+  IRE: Premier Division        2744
+  FIN: Veikkausliiga           2723
+  AUS: Bundesliga              2710
   G1                           2697
   SC0                          2534
   SC1                          1961
