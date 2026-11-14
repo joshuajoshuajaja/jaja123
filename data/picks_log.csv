@@ -1882,3 +1882,21 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-13T17:31:59+00:00,2026-11-13T19:45:00+00:00,Nations League,Liechtenstein,Azerbaijan,Correct Score,0-2,0.21323,,,
 2026-11-13T17:31:59+00:00,2026-11-13T19:45:00+00:00,Nations League,Scotland,North Macedonia,Correct Score,2-0,0.15315,,,
 2026-11-13T17:31:59+00:00,2026-11-13T19:45:00+00:00,Nations League,Slovakia,Faroe Islands,Correct Score,2-0,0.14346,,,
+2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Austria,Iceland,1X2/Totals,Austria,0.60578,1.62,betonlineag,-0.01864
+2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Austria,Republic of Ireland,1X2/Totals,Austria,0.60153,1.65,betfair_ex_eu,-0.00748
+2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Romania,Poland,1X2/Totals,Poland,0.591,1.7,unibet_se,0.0047
+2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Northern Ireland,Ukraine,1X2/Totals,Under 2.5,0.66447,1.54,onexbet,0.02328
+2026-11-14T16:24:28+00:00,2026-11-14T17:30:00+00:00,La Liga 2,Mallorca,Córdoba,1X2/Totals,Over 2.5,0.625,1.62,onexbet,0.0125
+2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Portugal,Denmark,1X2/Totals,Over 2.5,0.625,1.54,leovegas_se,-0.0375
+2026-11-14T16:24:28+00:00,2026-11-14T17:30:00+00:00,La Liga 2,Almería,Andorra CF,1X2/Totals,Under 3.5,0.61128,1.64,onexbet,0.0025
+2026-11-14T16:24:28+00:00,2026-11-14T23:00:00+00:00,MEX: Liga MX,Querétaro,Monterrey,1X2/Totals,Under 3.5,0.59531,1.55,tipico_de,-0.07727
+2026-11-14T16:24:28+00:00,2026-11-14T17:00:00+00:00,Nations League,Georgia,Hungary,1X2/Totals,Under 2.5,0.5903,1.65,onexbet,-0.02601
+2026-11-14T16:24:28+00:00,2026-11-14T23:30:00+00:00,BRA: Serie A,Chapecoense,Vasco da Gama,1X2/Totals,Over 2.5,0.5806,1.72,matchbook,-0.00138
+2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Sweden,Bosnia & Herzegovina,1X2/Totals,Over 2.5,0.56708,1.75,onexbet,-0.00762
+2026-11-14T16:24:28+00:00,2026-11-14T20:00:00+00:00,La Liga 2,Oviedo,Girona FC,1X2/Totals,Under 2.5,0.52895,1.91,onexbet,0.0103
+2026-11-14T16:24:28+00:00,2026-11-14T17:00:00+00:00,Nations League,Norway,Wales,1X2/Totals,Over 3.25,0.52627,1.83,betanysports,-0.03692
+2026-11-14T16:24:28+00:00,2026-11-14T21:30:00+00:00,BRA: Serie A,Mirassol,Atletico Mineiro,1X2/Totals,Over 2.5,0.51116,1.94,matchbook,-0.00835
+2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Northern Ireland,Ukraine,Correct Score,1-1,0.14072,,,
+2026-11-14T16:24:28+00:00,2026-11-14T17:00:00+00:00,Nations League,Georgia,Hungary,Correct Score,1-1,0.13623,,,
+2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Austria,Iceland,Correct Score,1-0,0.13047,,,
+2026-11-14T16:24:28+00:00,2026-11-14T20:00:00+00:00,La Liga 2,Oviedo,Girona FC,Correct Score,1-1,0.12845,,,
