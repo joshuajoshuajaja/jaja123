@@ -1900,3 +1900,13 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-14T16:24:28+00:00,2026-11-14T17:00:00+00:00,Nations League,Georgia,Hungary,Correct Score,1-1,0.13623,,,
 2026-11-14T16:24:28+00:00,2026-11-14T19:45:00+00:00,Nations League,Austria,Iceland,Correct Score,1-0,0.13047,,,
 2026-11-14T16:24:28+00:00,2026-11-14T20:00:00+00:00,La Liga 2,Oviedo,Girona FC,Correct Score,1-1,0.12845,,,
+2026-11-15T16:52:07+00:00,2026-11-15T19:45:00+00:00,Nations League,Croatia,Czech Republic,1X2/Totals,Croatia,0.66185,1.5,betfair_ex_eu,-0.00722
+2026-11-15T16:52:07+00:00,2026-11-15T17:30:00+00:00,La Liga 2,SD Eibar,Cádiz CF,1X2/Totals,SD Eibar,0.64,1.57,unibet_nl,0.00479
+2026-11-15T16:52:07+00:00,2026-11-15T17:30:00+00:00,La Liga 2,CD Eldense,Sabadell FC,1X2/Totals,Under 2.5,0.63149,1.66,coolbet,0.04827
+2026-11-15T16:52:07+00:00,2026-11-15T19:45:00+00:00,Nations League,Spain,England,1X2/Totals,Under 3.5,0.59666,1.65,onexbet,-0.01551
+2026-11-15T16:52:07+00:00,2026-11-15T19:45:00+00:00,Nations League,Belgium,Italy,1X2/Totals,Over 2.5,0.5821,1.7,matchbook,-0.01043
+2026-11-15T16:52:07+00:00,2026-11-15T19:45:00+00:00,Nations League,France,Turkey,1X2/Totals,Over 3.5,0.54551,1.9,matchbook,0.03646
+2026-11-15T16:52:07+00:00,2026-11-15T17:30:00+00:00,La Liga 2,CD Eldense,Sabadell FC,Correct Score,1-1,0.1368,,,
+2026-11-15T16:52:07+00:00,2026-11-15T19:45:00+00:00,Nations League,Croatia,Czech Republic,Correct Score,2-0,0.11951,,,
+2026-11-15T16:52:07+00:00,2026-11-15T19:45:00+00:00,Nations League,Belgium,Italy,Correct Score,1-1,0.11575,,,
+2026-11-15T16:52:07+00:00,2026-11-15T17:30:00+00:00,La Liga 2,SD Eibar,Cádiz CF,Correct Score,2-0,0.1124,,,
