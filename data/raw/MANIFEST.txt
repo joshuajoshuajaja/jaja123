@@ -1,7 +1,7 @@
-last_run_utc: 2026-11-16T21:36:02+00:00
-matches_rows: 150957
+last_run_utc: 2026-11-17T18:56:11+00:00
+matches_rows: 150958
 divisions: 40
-date_range: 2012-03-02 .. 2026-11-15
+date_range: 2012-03-02 .. 2026-11-16
 clubelo: no
 xg_matches: 0
 odds: yes
@@ -18,7 +18,7 @@ rows per division:
   EC                           6050
   BRA: Serie A                 5660
   ARG: Liga Profesional        5555
-  SP2                          5232
+  SP2                          5233
   MEX: Liga MX                 4799
   JAP: J1 League               4663
   I2                           4498
