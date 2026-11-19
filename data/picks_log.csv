@@ -1932,3 +1932,9 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-18T18:41:10+00:00,2026-11-18T23:30:00+00:00,BRA: Serie A,Flamengo,Atletico Paranaense,Correct Score,2-0,0.1212,,,
 2026-11-18T18:41:10+00:00,2026-11-19T00:30:00+00:00,BRA: Serie A,Corinthians,Botafogo,Correct Score,1-1,0.12102,,,
 2026-11-18T18:41:10+00:00,2026-11-19T00:30:00+00:00,BRA: Serie A,Grêmio,Bahia,Correct Score,1-1,0.11912,,,
+2026-11-19T18:53:54+00:00,2026-11-19T22:30:00+00:00,BRA: Serie A,Vasco da Gama,Internacional,1X2/Totals,Vasco da Gama,0.58399,1.7,unibet_nl,-0.00722
+2026-11-19T18:53:54+00:00,2026-11-20T00:30:00+00:00,BRA: Serie A,Sao Paulo,Fluminense,1X2/Totals,Under 2.5,0.5548,1.77,matchbook,-0.01801
+2026-11-19T18:53:54+00:00,2026-11-19T22:30:00+00:00,BRA: Serie A,Vitoria,Bragantino-SP,1X2/Totals,Under 2.75,0.52842,1.82,pinnacle,-0.03828
+2026-11-19T18:53:54+00:00,2026-11-20T00:30:00+00:00,BRA: Serie A,Sao Paulo,Fluminense,Correct Score,1-1,0.13477,,,
+2026-11-19T18:53:54+00:00,2026-11-19T22:30:00+00:00,BRA: Serie A,Vitoria,Bragantino-SP,Correct Score,1-1,0.12526,,,
+2026-11-19T18:53:54+00:00,2026-11-19T22:30:00+00:00,BRA: Serie A,Vasco da Gama,Internacional,Correct Score,1-1,0.11127,,,
