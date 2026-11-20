@@ -1938,3 +1938,12 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-19T18:53:54+00:00,2026-11-20T00:30:00+00:00,BRA: Serie A,Sao Paulo,Fluminense,Correct Score,1-1,0.13477,,,
 2026-11-19T18:53:54+00:00,2026-11-19T22:30:00+00:00,BRA: Serie A,Vitoria,Bragantino-SP,Correct Score,1-1,0.12526,,,
 2026-11-19T18:53:54+00:00,2026-11-19T22:30:00+00:00,BRA: Serie A,Vasco da Gama,Internacional,Correct Score,1-1,0.11127,,,
+2026-11-20T18:19:23+00:00,2026-11-20T20:00:00+00:00,La Liga,Athletic Bilbao,Espanyol,1X2/Totals,Athletic Bilbao,0.66016,1.52,onexbet,0.00345
+2026-11-20T18:19:23+00:00,2026-11-21T01:00:00+00:00,MEX: Liga MX,Puebla,Atlético San Luis,1X2/Totals,Over 2.5,0.55838,1.68,betsson,-0.06191
+2026-11-20T18:19:23+00:00,2026-11-20T19:30:00+00:00,Bundesliga,Bayern Munich,1. FC Köln,1X2/Totals,Over 4.25,0.54393,1.78,pinnacle,-0.0318
+2026-11-20T18:19:23+00:00,2026-11-20T19:45:00+00:00,Ligue 1,Troyes,Le Havre,1X2/Totals,Over 2.5,0.54,1.87,onexbet,0.0098
+2026-11-20T18:19:23+00:00,2026-11-20T19:30:00+00:00,La Liga 2,Andorra CF,Leganés,1X2/Totals,Over 2.5,0.52321,1.82,pinnacle,-0.04776
+2026-11-20T18:19:23+00:00,2026-11-21T01:00:00+00:00,MEX: Liga MX,Puebla,Atlético San Luis,Correct Score,1-1,0.12121,,,
+2026-11-20T18:19:23+00:00,2026-11-20T19:45:00+00:00,Ligue 1,Troyes,Le Havre,Correct Score,1-1,0.11799,,,
+2026-11-20T18:19:23+00:00,2026-11-20T19:30:00+00:00,La Liga 2,Andorra CF,Leganés,Correct Score,1-1,0.11695,,,
+2026-11-20T18:19:23+00:00,2026-11-20T20:00:00+00:00,La Liga,Athletic Bilbao,Espanyol,Correct Score,2-0,0.11182,,,
