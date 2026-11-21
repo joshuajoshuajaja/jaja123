@@ -1947,3 +1947,24 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-20T18:19:23+00:00,2026-11-20T19:45:00+00:00,Ligue 1,Troyes,Le Havre,Correct Score,1-1,0.11799,,,
 2026-11-20T18:19:23+00:00,2026-11-20T19:30:00+00:00,La Liga 2,Andorra CF,Leganés,Correct Score,1-1,0.11695,,,
 2026-11-20T18:19:23+00:00,2026-11-20T20:00:00+00:00,La Liga,Athletic Bilbao,Espanyol,Correct Score,2-0,0.11182,,,
+2026-11-21T17:08:10+00:00,2026-11-21T17:30:00+00:00,Premier League,Newcastle United,Arsenal,1X2/Totals,Arsenal,0.63682,1.58,gtbets,0.00618
+2026-11-21T17:08:10+00:00,2026-11-22T00:00:00+00:00,BRA: Serie A,Chapecoense,Cruzeiro,1X2/Totals,Cruzeiro,0.59759,1.6,unibet_nl,-0.04386
+2026-11-21T17:08:10+00:00,2026-11-21T20:30:00+00:00,BRA: Serie A,Bahia,Coritiba,1X2/Totals,Over 2.5,0.62214,1.53,unibet_nl,-0.04812
+2026-11-21T17:08:10+00:00,2026-11-21T19:45:00+00:00,Ligue 1,Strasbourg,Brest,1X2/Totals,Under 3.5,0.61634,1.56,unibet_se,-0.03851
+2026-11-21T17:08:10+00:00,2026-11-21T17:30:00+00:00,La Liga 2,CD Castellón,CD Eldense,1X2/Totals,Over 2.5,0.61343,1.55,williamhill,-0.04918
+2026-11-21T17:08:10+00:00,2026-11-21T19:45:00+00:00,Ligue 1,RC Lens,Toulouse,1X2/Totals,Under 3.5,0.60775,1.6,unibet_se,-0.02761
+2026-11-21T17:08:10+00:00,2026-11-21T23:00:00+00:00,MEX: Liga MX,Santos Laguna,León,1X2/Totals,Over 2.5,0.60193,1.56,unibet_nl,-0.061
+2026-11-21T17:08:10+00:00,2026-11-22T01:00:00+00:00,MEX: Liga MX,Pumas,Monterrey,1X2/Totals,Over 2.5,0.60002,1.57,unibet_nl,-0.05796
+2026-11-21T17:08:10+00:00,2026-11-21T22:50:00+00:00,MEX: Liga MX,Pachuca,Toluca,1X2/Totals,Under 3.5,0.59324,1.67,marathonbet,-0.00929
+2026-11-21T17:08:10+00:00,2026-11-21T19:45:00+00:00,Serie A,Napoli,Torino,1X2/Totals,Over 2.5,0.56911,1.76,onexbet,0.00163
+2026-11-21T17:08:10+00:00,2026-11-21T20:00:00+00:00,La Liga 2,Tenerife,Mallorca,1X2/Totals,Under 2.5,0.56494,1.78,onexbet,0.00558
+2026-11-21T17:08:10+00:00,2026-11-21T19:45:00+00:00,Ligue 1,AS Monaco,Auxerre,1X2/Totals,Under 3.5,0.56397,1.72,onexbet,-0.02996
+2026-11-21T17:08:10+00:00,2026-11-21T17:30:00+00:00,Bundesliga,FC Schalke 04,VfB Stuttgart,1X2/Totals,Under 3.5,0.56177,1.77,onexbet,-0.00567
+2026-11-21T17:08:10+00:00,2026-11-21T17:30:00+00:00,La Liga,Sevilla,Real Betis,1X2/Totals,Under 2.75,0.54725,1.78,pinnacle,-0.02589
+2026-11-21T17:08:10+00:00,2026-11-21T19:30:00+00:00,BRA: Serie A,Palmeiras,Flamengo,1X2/Totals,Over 2.5,0.51881,1.81,unibet_nl,-0.06094
+2026-11-21T17:08:10+00:00,2026-11-21T19:45:00+00:00,Ligue 1,Lille,Lyon,1X2/Totals,Over 2.5,0.50548,1.95,onexbet,-0.01431
+2026-11-21T17:08:10+00:00,2026-11-21T20:00:00+00:00,La Liga,Real Madrid,Celta Vigo,1X2/Totals,Over 3.5,0.5,2.0,matchbook,0.0
+2026-11-21T17:08:10+00:00,2026-11-21T20:00:00+00:00,La Liga 2,Tenerife,Mallorca,Correct Score,1-1,0.13085,,,
+2026-11-21T17:08:10+00:00,2026-11-21T19:30:00+00:00,BRA: Serie A,Palmeiras,Flamengo,Correct Score,1-1,0.12589,,,
+2026-11-21T17:08:10+00:00,2026-11-21T19:45:00+00:00,Ligue 1,Lille,Lyon,Correct Score,1-1,0.12434,,,
+2026-11-21T17:08:10+00:00,2026-11-21T17:30:00+00:00,La Liga,Sevilla,Real Betis,Correct Score,1-1,0.12427,,,
