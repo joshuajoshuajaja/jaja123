@@ -1968,3 +1968,16 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-21T17:08:10+00:00,2026-11-21T19:30:00+00:00,BRA: Serie A,Palmeiras,Flamengo,Correct Score,1-1,0.12589,,,
 2026-11-21T17:08:10+00:00,2026-11-21T19:45:00+00:00,Ligue 1,Lille,Lyon,Correct Score,1-1,0.12434,,,
 2026-11-21T17:08:10+00:00,2026-11-21T17:30:00+00:00,La Liga,Sevilla,Real Betis,Correct Score,1-1,0.12427,,,
+2026-11-22T17:38:43+00:00,2026-11-22T20:00:00+00:00,La Liga,Getafe,Atlético Madrid,1X2/Totals,Atlético Madrid,0.62119,1.66,onexbet,0.03118
+2026-11-22T17:38:43+00:00,2026-11-22T19:45:00+00:00,Serie A,Atalanta BC,Inter Milan,1X2/Totals,Inter Milan,0.59695,1.7,onexbet,0.01482
+2026-11-22T17:38:43+00:00,2026-11-22T21:30:00+00:00,BRA: Serie A,Fluminense,Mirassol,1X2/Totals,Fluminense,0.56181,1.7,unibet_nl,-0.04492
+2026-11-22T17:38:43+00:00,2026-11-23T01:00:00+00:00,MEX: Liga MX,Querétaro,Necaxa,1X2/Totals,Over 2.5,0.61782,1.6,tipico_de,-0.01149
+2026-11-22T17:38:43+00:00,2026-11-22T23:07:00+00:00,MEX: Liga MX,Guadalajara,Cruz Azul,1X2/Totals,Under 3.5,0.61281,1.55,tipico_de,-0.05014
+2026-11-22T17:38:43+00:00,2026-11-22T19:45:00+00:00,Ligue 1,Marseille,Le Mans FC,1X2/Totals,Under 3.5,0.57688,1.71,onexbet,-0.01353
+2026-11-22T17:38:43+00:00,2026-11-22T19:00:00+00:00,BRA: Serie A,Atletico Paranaense,Remo,1X2/Totals,Over 2.5,0.5463,1.73,unibet_nl,-0.0549
+2026-11-22T17:38:43+00:00,2026-11-22T22:30:00+00:00,BRA: Serie A,Bragantino-SP,Vasco da Gama,1X2/Totals,Over 2.5,0.54379,1.74,unibet_nl,-0.05381
+2026-11-22T17:38:43+00:00,2026-11-22T20:00:00+00:00,La Liga 2,Burgos CF,Albacete,1X2/Totals,Under 2.5,0.5318,1.89,onexbet,0.00511
+2026-11-22T17:38:43+00:00,2026-11-22T20:00:00+00:00,La Liga,Getafe,Atlético Madrid,Correct Score,0-1,0.1419,,,
+2026-11-22T17:38:43+00:00,2026-11-22T20:00:00+00:00,La Liga 2,Burgos CF,Albacete,Correct Score,1-1,0.12438,,,
+2026-11-22T17:38:43+00:00,2026-11-22T22:30:00+00:00,BRA: Serie A,Bragantino-SP,Vasco da Gama,Correct Score,1-1,0.12124,,,
+2026-11-22T17:38:43+00:00,2026-11-22T19:00:00+00:00,BRA: Serie A,Atletico Paranaense,Remo,Correct Score,2-0,0.11725,,,
