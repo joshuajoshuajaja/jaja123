@@ -1,7 +1,7 @@
-last_run_utc: 2026-11-22T17:36:07+00:00
-matches_rows: 150967
+last_run_utc: 2026-11-23T21:53:09+00:00
+matches_rows: 151147
 divisions: 40
-date_range: 2012-03-02 .. 2026-11-20
+date_range: 2012-03-02 .. 2026-11-22
 clubelo: no
 xg_matches: 0
 odds: yes
@@ -12,42 +12,42 @@ warnings: 3
 
 rows per division:
   USA: MLS                     6326
-  E1                           6252
-  E3                           6134
-  E2                           6083
-  EC                           6050
+  E1                           6264
+  E3                           6146
+  E2                           6095
+  EC                           6062
   BRA: Serie A                 5669
   ARG: Liga Profesional        5555
-  SP2                          5233
+  SP2                          5243
   MEX: Liga MX                 4799
   JAP: J1 League               4663
-  I2                           4498
+  I2                           4508
+  SP1                          4308
   ROM: Superliga               4302
-  SP1                          4299
-  I1                           4290
-  E0                           4280
+  I1                           4299
+  E0                           4289
   POL: Ekstraklasa             4206
-  F2                           4038
-  F1                           3947
-  T1                           3799
+  F2                           4045
+  F1                           3956
+  T1                           3807
   SWE: Allsvenskan             3608
   NOR: Eliteserien             3590
-  D2                           3465
+  D2                           3474
   P1                           3464
-  D1                           3447
+  D1                           3456
   RUS: Premier League          3416
-  N1                           3400
-  B1                           3144
+  N1                           3409
+  B1                           3153
   CHI: Super League            3048
   DEN: Superliga               3036
   SWI: Super League            2751
   IRE: Premier Division        2744
   FIN: Veikkausliiga           2723
   AUS: Bundesliga              2710
-  G1                           2697
-  SC0                          2534
-  SC1                          1965
-  SC2                          1943
-  SC3                          1937
+  G1                           2703
+  SC0                          2540
+  SC1                          1969
+  SC2                          1948
+  SC3                          1941
   ARG: Copa De La Liga Profesional 920
   SWI: Challenge League        2

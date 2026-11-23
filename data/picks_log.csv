@@ -1981,3 +1981,9 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-22T17:38:43+00:00,2026-11-22T20:00:00+00:00,La Liga 2,Burgos CF,Albacete,Correct Score,1-1,0.12438,,,
 2026-11-22T17:38:43+00:00,2026-11-22T22:30:00+00:00,BRA: Serie A,Bragantino-SP,Vasco da Gama,Correct Score,1-1,0.12124,,,
 2026-11-22T17:38:43+00:00,2026-11-22T19:00:00+00:00,BRA: Serie A,Atletico Paranaense,Remo,Correct Score,2-0,0.11725,,,
+2026-11-23T21:56:25+00:00,2026-11-24T00:00:00+00:00,BRA: Serie A,Santos,Grêmio,1X2/Totals,Santos,0.62113,1.54,unibet_nl,-0.04346
+2026-11-23T21:56:25+00:00,2026-11-23T22:30:00+00:00,BRA: Serie A,Internacional,Vitoria,1X2/Totals,Internacional,0.57779,1.65,unibet_nl,-0.04665
+2026-11-23T21:56:25+00:00,2026-11-23T23:00:00+00:00,BRA: Serie A,Botafogo,Sao Paulo,1X2/Totals,Under 2.5,0.50447,1.85,unibet_nl,-0.06672
+2026-11-23T21:56:25+00:00,2026-11-23T22:30:00+00:00,BRA: Serie A,Internacional,Vitoria,Correct Score,1-0,0.12707,,,
+2026-11-23T21:56:25+00:00,2026-11-23T23:00:00+00:00,BRA: Serie A,Botafogo,Sao Paulo,Correct Score,1-1,0.12575,,,
+2026-11-23T21:56:25+00:00,2026-11-24T00:00:00+00:00,BRA: Serie A,Santos,Grêmio,Correct Score,2-0,0.10584,,,
