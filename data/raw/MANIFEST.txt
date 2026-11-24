@@ -1,7 +1,7 @@
-last_run_utc: 2026-11-23T21:53:09+00:00
-matches_rows: 151147
+last_run_utc: 2026-11-24T20:29:13+00:00
+matches_rows: 151250
 divisions: 40
-date_range: 2012-03-02 .. 2026-11-22
+date_range: 2012-03-02 .. 2026-11-24
 clubelo: no
 xg_matches: 0
 odds: yes
@@ -11,27 +11,27 @@ warnings: 3
   - understat returned nothing - status counts {200: 78}
 
 rows per division:
-  USA: MLS                     6326
+  USA: MLS                     6335
   E1                           6264
   E3                           6146
   E2                           6095
   EC                           6062
-  BRA: Serie A                 5669
-  ARG: Liga Profesional        5555
-  SP2                          5243
-  MEX: Liga MX                 4799
-  JAP: J1 League               4663
+  BRA: Serie A                 5678
+  ARG: Liga Profesional        5562
+  SP2                          5244
+  MEX: Liga MX                 4808
+  JAP: J1 League               4673
   I2                           4508
-  SP1                          4308
-  ROM: Superliga               4302
-  I1                           4299
-  E0                           4289
-  POL: Ekstraklasa             4206
-  F2                           4045
+  ROM: Superliga               4310
+  SP1                          4309
+  I1                           4300
+  E0                           4290
+  POL: Ekstraklasa             4215
+  F2                           4047
   F1                           3956
-  T1                           3807
-  SWE: Allsvenskan             3608
-  NOR: Eliteserien             3590
+  T1                           3808
+  SWE: Allsvenskan             3616
+  NOR: Eliteserien             3598
   D2                           3474
   P1                           3464
   D1                           3456
@@ -39,12 +39,12 @@ rows per division:
   N1                           3409
   B1                           3153
   CHI: Super League            3048
-  DEN: Superliga               3036
-  SWI: Super League            2751
+  DEN: Superliga               3042
+  SWI: Super League            2757
   IRE: Premier Division        2744
   FIN: Veikkausliiga           2723
-  AUS: Bundesliga              2710
-  G1                           2703
+  AUS: Bundesliga              2716
+  G1                           2704
   SC0                          2540
   SC1                          1969
   SC2                          1948
