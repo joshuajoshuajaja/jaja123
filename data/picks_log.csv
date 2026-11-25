@@ -1989,3 +1989,15 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-23T21:56:25+00:00,2026-11-24T00:00:00+00:00,BRA: Serie A,Santos,Grêmio,Correct Score,2-0,0.10584,,,
 2026-11-24T20:32:07+00:00,2026-11-24T21:00:00+00:00,BRA: Serie A,Chapecoense,Palmeiras,1X2/Totals,Over 2.5,0.56829,1.67,unibet_nl,-0.05096
 2026-11-24T20:32:07+00:00,2026-11-24T21:00:00+00:00,BRA: Serie A,Chapecoense,Palmeiras,Correct Score,0-2,0.12403,,,
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Paris Saint Germain,AS Roma,1X2/Totals,Paris Saint Germain,0.65084,1.56,onexbet,0.0153
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Club Brugge,Liverpool,1X2/Totals,Liverpool,0.58258,1.73,onexbet,0.00787
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Sporting Lisbon,Manchester United,1X2/Totals,Over 2.5,0.61475,1.66,onexbet,0.02049
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Lille,Bayern Munich,1X2/Totals,Under 3.5,0.61475,1.63,onexbet,0.00204
+2026-11-25T19:46:58+00:00,2026-11-25T23:00:00+00:00,BRA: Serie A,Atletico Mineiro,Corinthians,1X2/Totals,Under 2.5,0.59475,1.6,unibet_nl,-0.0484
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Atlético Madrid,Viking FK,1X2/Totals,Over 3.5,0.59256,1.7,matchbook,0.00735
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Inter Milan,VfB Stuttgart,1X2/Totals,Over 3.5,0.54664,1.81,betonlineag,-0.01059
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Shakhtar Donetsk,Fenerbahce,1X2/Totals,Under 2.75,0.53646,1.83,pinnacle,-0.01829
+2026-11-25T19:46:58+00:00,2026-11-25T23:00:00+00:00,BRA: Serie A,Atletico Mineiro,Corinthians,Correct Score,1-1,0.13699,,,
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Shakhtar Donetsk,Fenerbahce,Correct Score,1-1,0.12433,,,
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Sporting Lisbon,Manchester United,Correct Score,1-1,0.11005,,,
+2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Lille,Bayern Munich,Correct Score,1-1,0.10753,,,
