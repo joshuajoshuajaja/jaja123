@@ -2001,3 +2001,18 @@ logged_utc,kickoff,league,home,away,market,pick,model_prob,price_taken,bookie,ed
 2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Shakhtar Donetsk,Fenerbahce,Correct Score,1-1,0.12433,,,
 2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Sporting Lisbon,Manchester United,Correct Score,1-1,0.11005,,,
 2026-11-25T19:46:58+00:00,2026-11-25T20:00:00+00:00,Champions League,Lille,Bayern Munich,Correct Score,1-1,0.10753,,,
+2026-11-26T19:27:36+00:00,2026-11-26T23:00:00+00:00,BRA: Serie A,Sao Paulo,Remo,1X2/Totals,Sao Paulo,0.62971,1.51,unibet_nl,-0.04914
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Torreense,Celtic,1X2/Totals,Celtic,0.57538,1.77,betfair_ex_eu,0.01842
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,OFI Crete,Anderlecht,1X2/Totals,Anderlecht,0.54913,1.83,unibet_nl,0.0049
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Lyon,Lillestrom,1X2/Totals,Over 2.5,0.64177,1.5,betsson,-0.03734
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Crystal Palace,Real Sociedad,1X2/Totals,Over 2.5,0.62733,1.53,betsson,-0.04018
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Sunderland,Jagiellonia Białystok,1X2/Totals,Under 3.5,0.62015,1.55,marathonbet,-0.03877
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Juventus,Omonoia FC,1X2/Totals,Over 2.5,0.61132,1.57,betsson,-0.04023
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Ferencváros TC,NK Celje,1X2/Totals,Under 3.5,0.59405,1.69,onexbet,0.00394
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,NEC Nijmegen,Rennes,1X2/Totals,Under 3.5,0.56634,1.76,coolbet,-0.00324
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Sparta Prague,AZ Alkmaar,1X2/Totals,Over 2.5,0.55827,1.8,matchbook,0.00488
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,TSG Hoffenheim,SK Sturm Graz,1X2/Totals,Under 3.75,0.52517,1.85,pinnacle,-0.02843
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Juventus,Omonoia FC,Correct Score,2-0,0.14513,,,
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Sunderland,Jagiellonia Białystok,Correct Score,2-0,0.13792,,,
+2026-11-26T19:27:36+00:00,2026-11-26T20:00:00+00:00,Europa League,Lyon,Lillestrom,Correct Score,2-0,0.12513,,,
+2026-11-26T19:27:36+00:00,2026-11-26T23:00:00+00:00,BRA: Serie A,Sao Paulo,Remo,Correct Score,1-0,0.12425,,,
